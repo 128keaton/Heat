@@ -1,4 +1,5 @@
 /* This CSS File is cool */
+
 body {
     font-family: "Roboto", "Helvetica-Neue", Helvetica, sans-serif;
     font-size: 14px;
@@ -28,7 +29,6 @@ body>* {
 }
 
 .nav-bar {
-    width: 100%;
     background-color: #D32F2F;
     color: white;
     padding: 24px;
@@ -39,7 +39,45 @@ body>* {
     transition-delay: 0.2s;
     margin-bottom: 20px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    background: #1e5799;
+    /* Old browsers */
+    background: -moz-linear-gradient(left, #1e5799 0%, #d32f2f 0%, #f46600 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #1e5799 0%, #d32f2f 0%, #f46600 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #1e5799 0%, #d32f2f 0%, #f46600 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#f46600', GradientType=1);
+    /* IE6-9 */
 }
+
+.deploy-bar {
+    background: #1e5799;
+    /* Old browsers */
+    background: -moz-linear-gradient(left, #1e5799 0%, #d32f2f 0%, #7db9e8 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #1e5799 0%, #d32f2f 0%, #7db9e8 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #1e5799 0%, #d32f2f 0%, #7db9e8 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8', GradientType=1);
+    /* IE6-9 */
+}
+
+.finalize-bar {
+    background: #1e5799;
+    /* Old browsers */
+    background: -moz-linear-gradient(left, #1e5799 0%, #4b29b2 0%, #49003b 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #1e5799 0%, #4b29b2 0%, #49003b 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #1e5799 0%, #4b29b2 0%, #49003b 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#49003b', GradientType=1);
+    /* IE6-9 */
+}
+
+.recieve-bar {}
 
 .nav-bar .nav-title {
     font-size: 25px;
@@ -48,8 +86,18 @@ body>* {
 
 .nav-bar .sub-nav-title {
     font-size: 18px;
-    font-weight: 100;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 5;
 }
+.nav-bar .nav-title-main {
+    font-size: 40px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 5;
+}
+
 
 .inner-wrapper {
     width: 100%;
@@ -66,7 +114,7 @@ body>* {
 
 .roles .role {
     font-size: 22px;
-    font-weight: 100;
+    font-weight: 400;
     border-bottom: 2px solid #FF4081;
     padding-bottom: 1px;
     margin-right: 25px;
@@ -136,6 +184,7 @@ body>* {
     margin-bottom: 15px!important;
 }
 
+
 /* Button */
 
 .submit {
@@ -154,11 +203,28 @@ body>* {
     border: none!important;
 }
 
+.export {
+    color: #fff;
+    background-color: #1e5799;
+    text-align: center;
+    border-radius: 2px;
+    height: 55px;
+    width: 101%;
+    position: absolute;
+    bottom: 0px;
+    left: -2px;
+    right: 0;
+    text-transform: uppercase;
+    font-size: 16px;
+    border: none!important;
+}
+
 .small {
     width: 120px!important;
     position: relative!important;
     margin: 0 auto;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    display: block;
 }
 
 .round {
@@ -171,22 +237,46 @@ body>* {
     float: right;
     position: relative;
     margin-top: -30px;
-    margin-right: 30px;
     display: flex;
     align-content: center;
     align-items: center;
     font-size: 16px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
+.link{
+    text-decoration: none;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 200px!important;
+    text-transform: none!important;
+    font-size: 20px;
+    
+}
 
-.home {
+
+/* Icons */
+
+
+/* font-awesome, eat your heart out */
+
+.ic {
     background-color: #fff;
-    -webkit-mask-image: url("svg/home.svg");
     -webkit-mask-size: cover;
     height: 30px;
     width: 30px;
     margin: 0 auto;
     display: block;
+}
+
+.home {
+    -webkit-mask-image: url("../svg/home.svg");
+}
+
+.add {
+    -webkit-mask-image: url("../svg/add.svg");
 }
 
 
