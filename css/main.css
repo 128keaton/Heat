@@ -166,8 +166,18 @@ body>* {
     border: none;
     border-bottom: 2px solid #FF4081;
     padding-left: 4px;
+    transition: color 0.25s;
 }
 
+*:focus {
+    outline: none;
+}
+
+.text-input:focus, .select-input:focus{
+    border: none;
+    transition: color 0.25s;
+    border-bottom: 2px solid #49003b;
+}
 .select-input {
     font-size: 24px;
     border: none;
@@ -253,7 +263,7 @@ body>* {
     width: 200px!important;
     text-transform: none!important;
     font-size: 20px;
-    
+
 }
 
 
