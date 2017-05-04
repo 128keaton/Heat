@@ -129,6 +129,9 @@ body>* {
     border-radius: 0;
 }
 
+.too-tall{
+    margin-bottom: 25px;
+}
 
 /* Button */
 
