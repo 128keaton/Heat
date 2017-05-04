@@ -1,3 +1,4 @@
+/* This CSS File is cool */
 body {
     font-family: "Roboto", "Helvetica-Neue", Helvetica, sans-serif;
     font-size: 14px;
@@ -131,8 +132,8 @@ body>* {
     border-radius: 0;
 }
 
-.too-tall{
-    margin-bottom: 55px!important;
+.too-tall {
+    margin-bottom: 15px!important;
 }
 
 /* Button */
@@ -150,16 +151,16 @@ body>* {
     right: 0;
     text-transform: uppercase;
     font-size: 16px;
-        border: none!important;
-
+    border: none!important;
 }
 
-.small{
+.small {
     width: 120px!important;
     position: relative!important;
     margin: 0 auto;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
+
 .round {
     color: transparent;
     background-color: #F44336;
@@ -169,7 +170,7 @@ body>* {
     width: 50px;
     float: right;
     position: relative;
-        margin-top: -30px;
+    margin-top: -30px;
     margin-right: 30px;
     display: flex;
     align-content: center;
