@@ -32,7 +32,11 @@ body>* {
     margin: 0 auto;
     margin-bottom: 20px;
 }
-
+.nav-buttons{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
 .nav-bar {
     color: white;
     padding-top: 1px;
