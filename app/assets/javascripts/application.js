@@ -15,3 +15,13 @@
 //= require turbolinks
 //= require_tree .
 
+$(document).ready(function () {
+    $('#submit').attr('disabled', 'disabled');
+    $('input[type="text"]').keyup(function () {
+        if ($(this).val().length == 7) {
+            $('input[type="submit"]').removeAttr('disabled');
+        } else {
+            $('#submit').attr('disabled', 'disabled');
+        }
+    });
+});
