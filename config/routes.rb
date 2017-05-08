@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :machines
   get 'status/index'
 
   get 'root/index'
@@ -21,7 +22,8 @@ Rails.application.routes.draw do
 
   get 'receive/index' => 'receive#index'
 
-  get 'receive/submit' => 'receive#submit'
+  get 'receive/create' => 'receive#create'
+  post 'receive/create' => 'receive#create'
 
   # Assign links to controllers/views
   get '/school' => 'school#index'

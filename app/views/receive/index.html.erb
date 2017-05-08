@@ -1,27 +1,38 @@
 <%= render "shared/nav", title: "Receive", bar_class: "def" %>
-<div class="inner-wrapper">
-        <form>
-            <ul class="too-tall">
+<% if @message %>
+<div id="message" class="message closed <%= @type %>">
+<h1><%= @type.titleize%>!</h1>
+<br>
+<p><%= @message %></p>
+<button class="message-dismiss" onclick="document.getElementById('message').classList.toggle('closed');"><i class="ic close"></i></button>
+</div>
+<script type="text/javascript">
+window.onload = function () {
+document.getElementById('message').classList.toggle('closed');
+}
+</script>
+<% end %>
+    <div class="inner-wrapper">
+        <%= form_for(@machine, url: {action: "create"}, method: :post) do |f| %>
+            <ul>
                 <li>
-                    <label class="serial label">Serial</label>
-                    <input id="input" type="text" name="serial" class="serial text-input" placeholder="PPPP">
+                    <%= f.label :serial_number, 'Serial', :class => "serial label" %>
+                        <%= f.text_field :serial_number, :class => "serial text-input", :placeholder => "PPPP" %>
                 </li>
                 <li>
-                    <label class="serial label">Role</label>
-               
-                        <select name="role" class="role select-input">
-                            <option>Teacher</option>
-                            <option>Student</option>
-                        </select>
-                        <div class="switch">
-                            <label class="retain-role label">Retain Role?</label>
-                            <input name="retainRole" id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round retain-role" type="checkbox">
-                            <label for="cmn-toggle-1"></label>
-                        </div>
-                
+
+                    <%= f.label :role_label, 'Role', :class => "serial label" %>
+                        <%= f.select(:role, ['Teacher', 'Student'], {}, { :class => 'role select-input' }) %>
+
+                            <div class="switch">
+                                <label class="retain-role label">Retain Role?</label>
+                                <input name="retainRole" id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round retain-role" type="checkbox">
+                                <label for="cmn-toggle-1"></label>
+                            </div>
+
                 </li>
 
             </ul>
-            <button type="submit" class="button submit small">Submit</button>
-        </form>
+            <%= f.submit 'Submit', :class => 'button submit small', :id => "submit" %>
+            <% end %>
     </div>
