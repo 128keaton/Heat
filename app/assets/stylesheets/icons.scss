@@ -1,0 +1,62 @@
+/* Icons */
+
+
+/* font-awesome, eat your heart out */
+
+.ic {
+    background-color: #fff;
+    -webkit-mask-size: cover;
+    height: 30px;
+    width: 30px;
+    margin: 0 auto;
+    display: block;
+}
+
+.ic-list {
+    margin-left: 20px;
+}
+
+.large {
+    height: 40px;
+    width: 40px;
+}
+
+.home {
+    -webkit-mask-image: image-url("home.svg");
+    background-color: gray;
+}
+
+.add {
+    -webkit-mask-image: image-url("add.svg");
+    background-color: gray;
+}
+
+.back {
+    -webkit-mask-image: image-url("back.svg");
+    background-color: #fff;
+}
+
+.receive {
+    -webkit-mask-image: image-url("receive.svg");
+    background-color: gray;
+}
+
+.unbox {
+    -webkit-mask-image: image-url("unbox.svg");
+    background-color: gray;
+}
+
+.rack {
+    -webkit-mask-image: image-url("rack.svg");
+    background-color: gray;
+}
+
+.deploy {
+    -webkit-mask-image: image-url("deploy.svg");
+    background-color: gray;
+}
+
+.finalize {
+    -webkit-mask-image: image-url("finalize.svg");
+    background-color: gray;
+}
