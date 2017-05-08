@@ -1,4 +1,9 @@
 <div class="nav-bar <%= bar_class %>">
-    <a href="/" class="button round"><i class="ic back large"></i></a>
-    <h1 class="nav-title"><%= title %></h1>
+    <div class="nav-buttons">
+        <a href="/" class="button round"><i class="ic back large"></i></a>
+        <i class="ic right-icon <%= title.downcase %> large white-icon"></i>
+    </div>
+    <h1 class="nav-title">
+        <%= title %>
+    </h1>
 </div>
