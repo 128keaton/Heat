@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'status/index'
+
   get 'root/index'
 
   get 'finalize/index'
@@ -27,6 +29,7 @@ Rails.application.routes.draw do
   get '/rack' => 'rack#index'
   get '/pull' => 'finalize#index'
   get '/receive' => 'receive#index'
+  get '/status' => 'status#index'
 
   root 'root#index'
 end
