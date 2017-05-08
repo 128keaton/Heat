@@ -70,6 +70,9 @@ input.cmn-toggle-round:checked+label:after {
     align-items: center;
     margin-top: 25px;
 }
+.switch-label{
+    max-width: 58px;
+}
 
 
 /* Button */
@@ -165,6 +168,9 @@ input[type="submit"]:disabled {
 
 .separate {
     margin-bottom: 30px;
+}
+.button-table{
+    margin: 0 auto;
 }
 
 

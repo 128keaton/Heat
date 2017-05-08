@@ -1,0 +1,21 @@
+// Place all the styles related to the schools controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.school-form td {
+    padding: 12px;
+}
+
+.school-form tr {
+    text-align: left;
+}
+
+.school-form tr:nth-child(1) th {
+    padding: 12px;
+    font-weight: 100;
+    font-size: 18px;
+    border-bottom: 2px solid gray;
+}
+
+.switch {
+    height: 28px;
+}
