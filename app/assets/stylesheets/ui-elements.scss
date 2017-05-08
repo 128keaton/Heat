@@ -1,0 +1,160 @@
+/* Switch */
+
+
+/* Thanks to http://callmenick.com/post/css-toggle-switch-examples */
+
+.cmn-toggle {
+    position: absolute;
+    margin-left: -9999px;
+    visibility: hidden;
+}
+
+.cmn-toggle+label {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+}
+
+input.cmn-toggle-round+label {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    width: 57px;
+    height: 18px;
+    flex-grow: 2;
+    background-color: #dddddd;
+    border-radius: 60px;
+}
+
+input.cmn-toggle-round+label:before,
+input.cmn-toggle-round+label:after {
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 1px;
+    bottom: 1px;
+    content: "";
+}
+
+input.cmn-toggle-round+label:before {
+    right: 1px;
+    background-color: #f1f1f1;
+    border-radius: 30px;
+    transition: background 0.4s;
+}
+
+input.cmn-toggle-round+label:after {
+    width: 30px;
+    background-color: #fff;
+    border-radius: 100%;
+    height: 30px;
+    top: -5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: margin 0.4s;
+}
+
+input.cmn-toggle-round:checked+label:before {
+    background-color: #8ce196;
+}
+
+input.cmn-toggle-round:checked+label:after {
+    margin-left: 22px;
+}
+
+.switch {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+
+
+/* Button */
+
+.submit {
+    color: #fff;
+    background-color: #F44336;
+    text-align: center;
+    border-radius: 2px;
+    height: 55px;
+    width: 101%;
+    position: absolute;
+    bottom: 0px;
+    left: -2px;
+    right: 0;
+    text-transform: uppercase;
+    font-size: 16px;
+    border: none!important;
+}
+
+.export {
+    color: #fff;
+    background-color: #1e5799;
+    text-align: center;
+    border-radius: 2px;
+    height: 55px;
+    width: 101%;
+    position: absolute;
+    bottom: 0px;
+    left: -2px;
+    right: 0;
+    text-transform: uppercase;
+    font-size: 16px;
+    border: none!important;
+}
+
+.small {
+    width: 120px!important;
+    position: relative!important;
+    margin: 0 auto;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    display: block;
+    margin-bottom: 20px;
+}
+
+.round {
+    color: transparent;
+    text-align: center;
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+    margin-left: -50px;
+    position: relative;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+
+.link {
+    text-decoration: none;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 200px!important;
+    text-transform: none!important;
+    font-size: 20px;
+}
+
+.square {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-align: center;
+    margin: 2px;
+    height: auto;
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    text-decoration: none;
+    font-weight: 100;
+    padding-right: 20px;
+}
