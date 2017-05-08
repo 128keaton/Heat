@@ -30,6 +30,7 @@ body>* {
 .wrapper {
     width: 100%;
     margin: 0 auto;
+    margin-bottom: 20px;
 }
 
 .nav-bar {
@@ -85,8 +86,8 @@ body>* {
 .nav-bar .nav-title-main {
     font-size: 50px;
     font-weight: 400;
-    margin-left: -25px;
-    text-align: left;
+    margin-right: 70px;
+    text-align: right;
     letter-spacing: 5;
 }
 
@@ -110,6 +111,6 @@ body>* {
     justify-content: space-around;
     flex-wrap: wrap;
     flex-direction: column;
-    width: 90%;
+    width: 95%;
     margin: 0 auto;
 }
