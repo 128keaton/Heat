@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  serial_number: MyString
+  client-asset-tag: MyString
+  reviveit-asset-tag: MyString
+  unboxed: 
+  imaged: 
+  racked: 
+  deployed: 
+  notes: MyString
+  role: MyString
+  rack: MyString
+  doa: false
+  special-instructions: 
+
+two:
+  serial_number: MyString
+  client-asset-tag: MyString
+  reviveit-asset-tag: MyString
+  unboxed: 
+  imaged: 
+  racked: 
+  deployed: 
+  notes: MyString
+  role: MyString
+  rack: MyString
+  doa: false
+  special-instructions: 
