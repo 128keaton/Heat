@@ -3,11 +3,12 @@ class SchoolController < ApplicationController
 		@machine = Machine.new
 		@schools = School.all
 		@roles = Role.all
-		if flash[:notice]
+		if flash[:notice] 
 			@type = params[:type]
 		end
 		if flash[:school]
 			@school = flash[:school]
+      params[:school] = @school
 		end
 	end
 
@@ -25,7 +26,7 @@ class SchoolController < ApplicationController
 	def assign
 		if Machine.where(serial_number: params[:machine][:serial_number]).length != 0
 			existingMachine = Machine.where(serial_number: params[:machine][:serial_number])
-			existingMachine.update(location: params[:machine][:location], unboxed: {"date" => Time.now.strftime("%d/%m/%Y %H:%M")})
+			existingMachine.update(location: params[:school], unboxed: {"date" => Time.now.strftime("%d/%m/%Y %H:%M")})
 			flash[:notice] = "Machine was assigned"
 			redirect_to controller: 'school', action: 'index', type: "success"
 		else

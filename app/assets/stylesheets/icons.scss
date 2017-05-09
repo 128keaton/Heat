@@ -9,6 +9,7 @@
     display: block;
 }
 
+
 /* Icons */
 
 .school,
@@ -62,7 +63,8 @@
     background-color: gray;
 }
 
-.status {
+.status,
+.overview {
     -webkit-mask-image: image-url("status.svg");
     background-color: gray;
 }

@@ -1,6 +1,6 @@
 <%= render "shared/nav", title: "Receive", bar_class: "def" %>
 <!-- Notification Bar -->
-<% if flash[:notice] %>
+<% if flash[:notice] && @type %>
   <div id="message" class="message closed <%= @type %>">
     <h1><%= @type.titleize%>!</h1>
     <p><%= flash[:notice] %></p>

@@ -1,6 +1,7 @@
 class SchoolsController < ApplicationController
   def index
     @school = School.new
+    @roles = Role.all
     if flash[:notice]
       @type = params[:type]
     end

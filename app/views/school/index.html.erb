@@ -1,6 +1,6 @@
 <%= render "shared/nav", title: "Unbox", bar_class: "def" %>
 <!-- Notification Bar -->
-<% if flash[:notice] %>
+<% if flash[:notice] && @type %>
   <div id="message" class="message closed <%= @type %>">
     <h1><%= @type.titleize%>!</h1>
     <p><%= flash[:notice] %></p>
@@ -39,6 +39,7 @@
       <li>
         <%= f.label :serial_number, 'Serial', :class => "serial label" %>
         <%= f.text_field :serial_number, :class => "serial text-input", :placeholder => "PPPP" %>
+        <%= hidden_field_tag :school, params[:school] %>
       </li>
     </ul>
     <% if @school %>
