@@ -28,22 +28,30 @@
         <td><%= link_to raw('<i class="ic close red-icon"></i>'), skool, method: :delete %></td>
       </tr>
     <% end %>
-    </table>
-    <%= form_for(@school, url: {action: "create"}, method: :post) do |f| %>
+  </table>
+  <%= form_for(@school, url: {action: "create"}, method: :post) do |f| %>
     <table align="center" class="school-form-table">
-    <tr class="flex-form">
+      <tr class="flex-form">
         <td class="school-form">
           <%= f.label :name_label, 'Name', :class => "label name" %>
           <%= f.text_field :name, :class => "name text-input", :placeholder => "White Station" %>
         </td>
       </tr>
-       <tr class="flex-form">
+      <tr class="flex-form">
         <td class="school-form">
           <%= f.label :school_code_label, 'School Code', :class => "label school-code" %>
           <%= f.text_field :school_code, :class => "school-code text-input", :placeholder => "1738-A" %>
         </td>
-              </tr>
-       <tr class="flex-form">
+      </tr>
+      <% @roles.each do |role|%>
+        <tr class="flex-form">
+          <td class="school-form">
+            <%= f.label :school_code_label, "#{role[:name]} Role Quantity:", :class => "label role-schools" %>
+            <input type="number" class="school-role text-input" placeholder="200" name="<%= role[:name]%>-role">
+          </td>
+        </tr>
+      <% end %>
+      <tr class="flex-form">
         <td class="school-form">
           <%= f.label :blended_learning_label, 'Blended Learning', :class => "label blended-learning" %>
           <div class="switch">
@@ -51,12 +59,12 @@
             <label class="switch-label" for="cmn-toggle-1"></label>
           </div>
         </td>
-              </tr>
-       <tr class="flex-form">
+      </tr>
+      <tr class="flex-form">
         <td class="school-form">
           <%= f.submit 'Submit', :class => 'button submit small button-table' %>
         </td>
-    </tr>
-  </table>
+      </tr>
+    </table>
   <% end %>
 </div>

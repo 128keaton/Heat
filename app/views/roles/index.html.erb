@@ -42,7 +42,7 @@
         <td class="roles-form">
           <%= f.label :specs_label, 'RAM', :class => "label role-specs" %>
           <input class="specs-ram text-input" type="number" name="ram" placeholder="8"><span class="measurement">GB</span>
-          <%= f.label :specs_label, 'RAM', :class => "label role-specs" %>
+          <%= f.label :specs_label, 'HDD', :class => "label role-specs" %>
           <input class="specs-hdd text-input"  type="number" name="hdd" placeholder="128"><span class="measurement">GB</span>
           <%= f.label :specs_label, 'CPU', :class => "label role-specs" %>
           <input  class="specs-cpu text-input"  type="text" name="cpu" placeholder="i3">
@@ -51,7 +51,7 @@
       <tr class="flex-form">
         <td class="roles-form">
           <%= f.label :specs_label, 'Suffix', :class => "label role-suffix" %>
-          <%= f.text_field :suffix, :class => "role-suffix text-input", :placeholder => "Mr." %>
+          <%= f.text_field :suffix, :class => "role-suffix text-input", :placeholder => "T" %>
         </td>
       </tr>
       <tr class="flex-form">
