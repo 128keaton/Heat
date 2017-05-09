@@ -1,11 +1,24 @@
 Rails.application.routes.draw do
-
   # Define resources for our models.
   resources :machines
   resources :schools, only: [:index, :destroy, :create]
   resources :roles, only: [:index, :destroy, :create]
 
   # Actually start setting up the routes.
+
+  get 'api/hostname'
+
+  get 'api/image'
+
+  post 'api/hostname' => 'api#hostname'
+
+  post 'api/image' => 'api#image'
+
+  get 'api/hostname' => 'api#hostname'
+
+  get 'api/index'
+
+  get '/api' => 'api#index'
 
   get 'status/index'
 
@@ -22,6 +35,8 @@ Rails.application.routes.draw do
   get 'rack/index'
 
   get 'rack/assign'
+
+  post 'rack/assign' => 'rack#assign'
 
   get 'school/index'
 
@@ -53,6 +68,8 @@ Rails.application.routes.draw do
   get '/schools' => 'schools#index'
   get '/roles' => 'roles#index'
   get '/cinnamonroles' => 'roles#index'
+  get 'rack/assign' => 'rack#index'
+
 
   root 'root#index'
 
