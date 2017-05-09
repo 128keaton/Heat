@@ -94,11 +94,11 @@ select:focus {
 
 /* Roles */
 
-.roles {
+.roles-quantities{
     text-align: left;
 }
 
-.roles .role {
+.roles-quantities .role-quantities {
     font-size: 22px;
     font-weight: 400;
     border-bottom: 2px solid #FF4081;
@@ -106,7 +106,7 @@ select:focus {
     margin-right: 25px;
 }
 
-.roles .role-title {
+.roles-quantities .role-quantities-title {
         font-size: 14px;
     color: gray;
     font-weight: 100;

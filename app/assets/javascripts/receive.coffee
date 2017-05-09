@@ -1,3 +1,11 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+# receive.coffee
+
+# sets the text field disabled if the stuff isn't met
+$(document).ready ->
+  $('#machine_serial_number').keyup ->
+    if $(this).val().length == 7
+      $('#submit').removeAttr 'disabled'
+    else
+      $('#submit').attr 'disabled', 'disabled'
+    return
+  return

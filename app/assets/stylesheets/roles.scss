@@ -1,0 +1,21 @@
+// Place all the styles related to the roles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.roles-form td {
+    padding: 12px;
+}
+
+.roles-form tr {
+    text-align: left;
+}
+
+.roles-form tr:nth-child(1) th {
+    padding: 12px;
+    font-weight: 100;
+    font-size: 18px;
+    border-bottom: 2px solid gray;
+}
+
+.switch {
+    height: 28px;
+}
