@@ -14,7 +14,12 @@ class RolesController < ApplicationController
   end
 
   def create
-     @role = Role.new(role_params)
+     specsHash =  {'cpu' => params[:cpu], 'hdd' => params[:hdd], 'ram' => params[:ram], }
+     @role = Role.new()
+     @role.specs = specsHash
+     @role.name = params[:role][:name]
+     @role.suffix = params[:role][:suffix]
+
     if @role.valid?
        @role.save
        flash[:notice] = "Role created successfully"
@@ -23,11 +28,5 @@ class RolesController < ApplicationController
       flash[:notice] = "Role could not be created"
       redirect_to controller: 'roles', action: 'index', type: "error"
     end
-  end
-
-  private
-
-  def role_params
-    params.require(:role).permit(:name, :specs, :suffix)
   end
 end

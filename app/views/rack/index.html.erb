@@ -1,38 +1,25 @@
 <%= render "shared/nav", title: "Assign Rack", bar_class: "def" %>
-    <div class="inner-wrapper">
-        <form>
-            <ul class="too-tall">
-                <li>
-                    <label class="serial label">Serial</label>
-                    <input id="input" type="text" name="serial" class="serial text-input" placeholder="48AS69KL12AD">
-                </li>
-                <li>
-                    <label class="serial label">Asset Tag</label>
-                    <input id="input" type="text" name="asset_tag" class="asset-tag text-input" placeholder="441LMH">
-                </li>
-                <li>
-                    <label class="serial label">SCS Asset Tag</label>
-                    <input id="input" type="text" name="asset_tag" class="asset-tag text-input" placeholder="441LMH">
-                </li>
-                <li>
-                    <label class="label">Assign Rack #</label>
-                    <div>
-                        <select name="rack" class="rack-assign select-input">
-                            <option>3-3-1</option>
-                            <option>3-3-2</option>
-                            <option>3-3-3</option>
-                            <option>3-3-4</option>
-                        </select>
-                    </div>
-                </li>
-                <li>
-                    <div class="roles">
-                        <h1 class="role-title">Rack Quantity:</h1>
-                        <h2 class="role">4/20</h2>
-                    </div>
-                </li>
-            </ul>
-            <button type="submit" class="button submit small">Add</button>
-        </form>
-    </div>
-    </div>
+<div class="inner-wrapper">
+  <%= form_for(@machine, url: {action: "assign"}, method: :post) do |f| %>
+    <ul>
+      <li>
+        <%= f.label :serial_number, 'Serial', :class => "serial label" %>
+        <%= f.text_field :serial_number, :class => "serial text-input", :placeholder => "PPPP" %>
+      </li>
+      <li>
+        <%= f.label :asset_tag, 'Asset Tag', :class => "asset label" %>
+        <%= f.text_field :reviveit_asset_tag, :class => "serial text-input", :placeholder => "441LMH" %>
+      </li>
+      <li>
+        <%= f.label :asset_tag, 'Cust. Asset Tag', :class => "client-asset label" %>
+        <%= f.text_field :client_asset_tag, :class => "serial text-input", :placeholder => "19205A12A" %>
+      </li>
+      <li>
+        <%= f.label :rack_label, 'Rack', :class => "serial label" %>
+        <%= f.text_field :rack, :class => "serial text-input", :placeholder => "3-1-3" %>
+      </li>
+    </ul>
+    <%= f.submit 'Submit', :class => 'button submit small', :id => "submit" %>
+  <% end %>
+</div>
+</div>
