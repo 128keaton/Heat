@@ -1,51 +1,51 @@
 <%= render "shared/nav", title: "Roles", bar_class: "def" %>
 <!-- Notification Bar -->
 <% if flash[:notice] && @type %>
-    <div id="message" class="message closed <%= @type %>">
-        <h1><%= @type.titleize%>!</h1>
-        <p><%= flash[:notice] %></p>
-        <button class="message-dismiss" onclick="document.getElementById('message').classList.toggle('closed');"><i class="ic close"></i></button>
-    </div>
-    <script type="text/javascript">
-        window.onload = function () {
-            document.getElementById('message').classList.toggle('closed');
-        }
-    </script>
+  <div id="message" class="message closed <%= @type %>">
+    <h1><%= @type.titleize%>!</h1>
+    <p><%= flash[:notice] %></p>
+    <button class="message-dismiss" onclick="document.getElementById('message').classList.toggle('closed');"><i class="ic close"></i></button>
+  </div>
+  <script type="text/javascript">
+    window.onload = function () {
+        document.getElementById('message').classList.toggle('closed');
+    }
+  </script>
 <% end %>
-    <div class="inner-wrapper">
-        <table align="center" class="roles-form">
-        <tr>
-            <th>Role:</th>
-            <th>Specs</th>
-            <th>Suffix</th>
-            <th>Actions</th>
-        </tr>
-            <% Role.all.each do |role| %>
-                <tr>
-                    <td><%= role[:name] %></td>
-                    <td><%= role[:specs] %></td>
-                    <td><%= role[:suffix] %></td>
-                    <td><%= link_to raw('<i class="ic close red-icon"></i>'), role, method: :delete %></td>
-                </tr>
-                <% end %>
-                    <tr class="flex-form">
-                        <%= form_for(@role, url: {action: "create"}, method: :post) do |f| %>
-                            <td class="roles-form">
-                                <%= f.label :name_label, 'Name', :class => "label role-name" %>
-                                <%= f.text_field :name, :class => "role-name text-input", :placeholder => "Teacher" %>
-                            </td>
-                             <td class="roles-form">
-                                <%= f.label :specs_label, 'Specs', :class => "label role-specs" %>
-                                <%= f.text_field :specs, :class => "role-specs text-input", :placeholder => "" %>
-                            </td>
-                             <td class="roles-form">
-                                <%= f.label :specs_label, 'Suffix', :class => "label role-suffix" %>
-                                <%= f.text_field :suffix, :class => "role-suffix text-input", :placeholder => "Mr." %>
-                            </td>
-                             <td class="roles-form">
-                               <%= f.submit 'Submit', :class => 'button submit small button-table' %>
-                             </td>
-                            <% end %>
-                    </tr>
-        </table>
-    </div>
+<div class="inner-wrapper">
+  <table align="center" class="roles-form">
+    <tr>
+      <th>Role:</th>
+      <th>Specs</th>
+      <th>Suffix</th>
+      <th>Actions</th>
+    </tr>
+    <% Role.all.each do |role| %>
+      <tr>
+        <td><%= role[:name] %></td>
+        <td><%= role[:specs] %></td>
+        <td><%= role[:suffix] %></td>
+        <td><%= link_to raw('<i class="ic close red-icon"></i>'), role, method: :delete %></td>
+      </tr>
+    <% end %>
+    <tr class="flex-form">
+      <%= form_for(@role, url: {action: "create"}, method: :post) do |f| %>
+        <td class="roles-form">
+          <%= f.label :name_label, 'Name', :class => "label role-name" %>
+          <%= f.text_field :name, :class => "role-name text-input", :placeholder => "Teacher" %>
+        </td>
+        <td class="roles-form">
+          <%= f.label :specs_label, 'Specs', :class => "label role-specs" %>
+          <%= f.text_field :specs, :class => "role-specs text-input", :placeholder => "" %>
+        </td>
+        <td class="roles-form">
+          <%= f.label :specs_label, 'Suffix', :class => "label role-suffix" %>
+          <%= f.text_field :suffix, :class => "role-suffix text-input", :placeholder => "Mr." %>
+        </td>
+        <td class="roles-form">
+          <%= f.submit 'Submit', :class => 'button submit small button-table' %>
+        </td>
+      <% end %>
+    </tr>
+  </table>
+</div>

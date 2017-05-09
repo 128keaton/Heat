@@ -1,48 +1,51 @@
 <%= render "shared/nav", title: "Unbox", bar_class: "def" %>
 <!-- Notification Bar -->
 <% if flash[:notice] %>
-    <div id="message" class="message closed <%= @type %>">
-        <h1><%= @type.titleize%>!</h1>
-        <p><%= flash[:notice] %></p>
-        <button class="message-dismiss" onclick="document.getElementById('message').classList.toggle('closed');"><i class="ic close"></i></button>
-    </div>
-    <script type="text/javascript">
-        window.onload = function () {
-            document.getElementById('message').classList.toggle('closed');
-        }
-    </script>
+  <div id="message" class="message closed <%= @type %>">
+    <h1><%= @type.titleize%>!</h1>
+    <p><%= flash[:notice] %></p>
+    <button class="message-dismiss" onclick="document.getElementById('message').classList.toggle('closed');"><i class="ic close"></i></button>
+  </div>
+  <script type="text/javascript">
+    window.onload = function () {
+        document.getElementById('message').classList.toggle('closed');
+    }
+  </script>
 <% end %>
 <div class="inner-wrapper">
-            <%= form_for(@machine, url: {action: "load_schools"}, method: :post) do |f| %>
-                <ul>
-                    <li>
-                         <%= f.label :school_label, 'School', :class => "school-select label" %>
-                         <%= f.select(:location, @schools.map { |value| [ value[:name], value[:name] ] }, {:prompt => "Choose School", :disabled => "0"}, { :class => 'school-select select-input',  :onChange=>"javascript: this.form.submit();", :prompt => "Gender..." }) %>
-                    </li>
-                    <% if @school %>
-                    <li>
-                        <div class="roles-quantities">
-                                <h1 class="role-quantities-title"><%= @school%>:</h1>
-                                <% @roles.each do |role| %>
-                                    <h2 class="role-quantities"><%= role[:name]%>: <%= get_quantity_for(@school, role[:name]) %>/200</h2>
-                                <% end %>
-                        </div>
-                    </li>
-                     <% end %>
-                </ul>
-              <% end %>
-        </div>
-    </div>
+  <%= form_for(@machine, url: {action: "load_schools"}, method: :post) do |f| %>
+    <ul>
+      <li>
+        <%= f.label :school_label, 'School', :class => "school-select label" %>
+        <%= f.select(:location, @schools.map { |value| [ value[:name], value[:name] ] }, {:prompt => "Choose School", :disabled => "0"}, { :class => 'school-select select-input',  :onChange=>"javascript: this.form.submit();", :prompt => "Gender..." }) %>
+      </li>
+      <% if @school %>
+        <li>
+          <div class="roles-quantities">
+            <h1 class="role-quantities-title"><%= @school%>:</h1>
+            <% @roles.each do |role| %>
+              <h2 class="role-quantities"><%= role[:name]%>: <%= get_quantity_for(@school, role[:name]) %>/200</h2>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+</div>
 <div class="inner-wrapper">
-            <%= form_for(@machine, url: {action: "assign"}, method: :post) do |f| %>
-                <ul>
-                    <li>
-                        <%= f.label :serial_number, 'Serial', :class => "serial label" %>
-                        <%= f.text_field :serial_number, :class => "serial text-input", :placeholder => "PPPP" %>
-                    </li>
-
-                </ul>
-                <%= f.submit 'Submit', :class => 'button submit small', :id => "submit" %>
-              <% end %>
-        </div>
-    </div>
+  <%= form_for(@machine, url: {action: "assign"}, method: :post) do |f| %>
+    <ul>
+      <li>
+        <%= f.label :serial_number, 'Serial', :class => "serial label" %>
+        <%= f.text_field :serial_number, :class => "serial text-input", :placeholder => "PPPP" %>
+      </li>
+    </ul>
+    <% if @school %>
+      <%= f.submit 'Submit', :class => 'button submit small', :id => "submit" %>
+    <% else %>
+      <%= f.submit 'Submit', :class => 'button submit small', :id => "submit", :disabled => "disabled"%>
+    <% end %>
+  <% end %>
+</div>
+</div>

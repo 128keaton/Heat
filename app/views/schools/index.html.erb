@@ -1,57 +1,54 @@
 <%= render "shared/nav", title: "Schools", bar_class: "def" %>
 <!-- Notification Bar -->
 <% if flash[:notice] %>
-    <div id="message" class="message closed <%= @type %>">
-        <h1><%= @type.titleize%>!</h1>
-        <p><%= flash[:notice] %></p>
-        <button class="message-dismiss" onclick="document.getElementById('message').classList.toggle('closed');"><i class="ic close"></i></button>
-    </div>
-    <script type="text/javascript">
-        window.onload = function () {
-            document.getElementById('message').classList.toggle('closed');
-        }
-    </script>
+  <div id="message" class="message closed <%= @type %>">
+    <h1><%= @type.titleize%>!</h1>
+    <p><%= flash[:notice] %></p>
+    <button class="message-dismiss" onclick="document.getElementById('message').classList.toggle('closed');"><i class="ic close"></i></button>
+  </div>
+  <script type="text/javascript">
+    window.onload = function () {
+        document.getElementById('message').classList.toggle('closed');
+    }
+  </script>
 <% end %>
-    <div class="inner-wrapper">
-        <table align="center" class="school-form">
-        <tr>
-            <th>Name:</th>
-            <th>School Code</th>
-            <th>Blended Learning</th>
-            <th>Actions</th>
-        </tr>
-            <% School.all.each do |skool| %>
-                <tr>
-                    <td><%= skool[:name] %></td>
-                    <td><%= skool[:school_code] %></td>
-                    <td><% if skool[:blended_learning] == true %>Yes<% else %>No<% end %></td>
-                    <td><%= link_to raw('<i class="ic close red-icon"></i>'), skool, method: :delete %></td>
-                </tr>
-                <% end %>
-                    <tr class="flex-form">
-                        <%= form_for(@school, url: {action: "create"}, method: :post) do |f| %>
-                            <td class="school-form">
-                                <%= f.label :name_label, 'Name', :class => "label name" %>
-                                <%= f.text_field :name, :class => "name text-input", :placeholder => "White Station" %>
-                            </td>
-                             
-                             <td class="school-form">
-                                <%= f.label :school_code_label, 'School Code', :class => "label school-code" %>
-                                <%= f.text_field :school_code, :class => "school-code text-input", :placeholder => "1738-A" %>
-                               
-                            </td>
-                            <td class="school-form">
-    
-                              <%= f.label :blended_learning_label, 'Blended Learning', :class => "label blended-learning" %>
-                                <div class="switch">
-                                    <%= f.check_box :blended_learning, :class => "cmn-toggle cmn-toggle-round blended_learning", :id => "cmn-toggle-1"  %> 
-                                    <label class="switch-label" for="cmn-toggle-1"></label>
-                                </div>
-                            </td>
-                             <td class="school-form">
-                               <%= f.submit 'Submit', :class => 'button submit small button-table' %>
-                             </td>
-                            <% end %>
-                    </tr>
-        </table>
-    </div>
+<div class="inner-wrapper">
+  <table align="center" class="school-form">
+    <tr>
+      <th>Name:</th>
+      <th>School Code</th>
+      <th>Blended Learning</th>
+      <th>Actions</th>
+    </tr>
+    <% School.all.each do |skool| %>
+      <tr>
+        <td><%= skool[:name] %></td>
+        <td><%= skool[:school_code] %></td>
+        <td><% if skool[:blended_learning] == true %>Yes<% else %>No<% end %></td>
+        <td><%= link_to raw('<i class="ic close red-icon"></i>'), skool, method: :delete %></td>
+      </tr>
+    <% end %>
+    <tr class="flex-form">
+      <%= form_for(@school, url: {action: "create"}, method: :post) do |f| %>
+        <td class="school-form">
+          <%= f.label :name_label, 'Name', :class => "label name" %>
+          <%= f.text_field :name, :class => "name text-input", :placeholder => "White Station" %>
+        </td>
+        <td class="school-form">
+          <%= f.label :school_code_label, 'School Code', :class => "label school-code" %>
+          <%= f.text_field :school_code, :class => "school-code text-input", :placeholder => "1738-A" %>
+        </td>
+        <td class="school-form">
+          <%= f.label :blended_learning_label, 'Blended Learning', :class => "label blended-learning" %>
+          <div class="switch">
+            <%= f.check_box :blended_learning, :class => "cmn-toggle cmn-toggle-round blended_learning", :id => "cmn-toggle-1"  %>
+            <label class="switch-label" for="cmn-toggle-1"></label>
+          </div>
+        </td>
+        <td class="school-form">
+          <%= f.submit 'Submit', :class => 'button submit small button-table' %>
+        </td>
+      <% end %>
+    </tr>
+  </table>
+</div>
