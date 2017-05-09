@@ -1,16 +1,16 @@
 <%= render "shared/nav", title: "Schools", bar_class: "def" %>
-<% if @message %>
-<div id="message" class="message closed <%= @type %>">
-<h1><%= @type.titleize%>!</h1>
-<br>
-<p><%= @message %></p>
-<button class="message-dismiss" onclick="document.getElementById('message').classList.toggle('closed');"><i class="ic close"></i></button>
-</div>
-<script type="text/javascript">
-window.onload = function () {
-document.getElementById('message').classList.toggle('closed');
-}
-</script>
+<!-- Notification Bar -->
+<% if flash[:notice] %>
+    <div id="message" class="message closed <%= @type %>">
+        <h1><%= @type.titleize%>!</h1>
+        <p><%= flash[:notice] %></p>
+        <button class="message-dismiss" onclick="document.getElementById('message').classList.toggle('closed');"><i class="ic close"></i></button>
+    </div>
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById('message').classList.toggle('closed');
+        }
+    </script>
 <% end %>
     <div class="inner-wrapper">
         <table align="center" class="school-form">
@@ -25,19 +25,19 @@ document.getElementById('message').classList.toggle('closed');
                     <td><%= skool[:name] %></td>
                     <td><%= skool[:school_code] %></td>
                     <td><% if skool[:blended_learning] == true %>Yes<% else %>No<% end %></td>
-                    <td><%= link_to 'Delete task', skool[:school_code], method: :delete %></td>
+                    <td><%= link_to raw('<i class="ic close red-icon"></i>'), skool, method: :delete %></td>
                 </tr>
                 <% end %>
                     <tr class="flex-form">
                         <%= form_for(@school, url: {action: "create"}, method: :post) do |f| %>
                             <td class="school-form">
                                 <%= f.label :name_label, 'Name', :class => "label name" %>
-                                <%= f.text_field :name, :class => "name text-input" %>
+                                <%= f.text_field :name, :class => "name text-input", :placeholder => "White Station" %>
                             </td>
                              
                              <td class="school-form">
                                 <%= f.label :school_code_label, 'School Code', :class => "label school-code" %>
-                                <%= f.text_field :school_code, :class => "school-code text-input" %>
+                                <%= f.text_field :school_code, :class => "school-code text-input", :placeholder => "1738-A" %>
                                
                             </td>
                             <td class="school-form">

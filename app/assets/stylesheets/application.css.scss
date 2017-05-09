@@ -3,6 +3,9 @@
  *= require_self
  */
 
+
+
+
 body {
     font-family: "Roboto", "Helvetica-Neue", Helvetica, sans-serif;
     font-size: 14px;
@@ -101,6 +104,11 @@ body>* {
     background-color: white;
     padding-top: 20px;
     padding-bottom: 20px;
+}
+@media (min-width: 1024px) {
+    .inner-wrapper{
+        max-width: 800px;
+    }
 }
 
 .button-grid {

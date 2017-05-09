@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
 
+  # Define resources for our models.
   resources :machines
- 
+  resources :schools, only: [:index, :destroy, :create]
+  resources :roles, only: [:index, :destroy, :create]
 
-  get 'schools/index'
-  post 'schools/create' => 'schools#create'
-  get 'schools/create' => 'schools#index'
-  get 'schools/:id' => 'schools#index'
-  delete 'schools/:id' => 'schools#destroy'
+  # Actually start setting up the routes.
 
   get 'status/index'
 
@@ -29,11 +27,21 @@ Rails.application.routes.draw do
 
   get 'school/assign'
 
+  post 'school/assign' => 'school#assign'
+
+  post 'school/load_schools' => 'school#load_schools'
+
   get 'receive/index' => 'receive#index'
 
   get 'receive/create' => 'receive#create'
+
   post 'receive/create' => 'receive#create'
 
+  get 'roles/index'
+
+  get 'roles/destroy'
+
+  get 'roles/create'
 
   # Assign links to controllers/views
   get '/school' => 'school#index'
@@ -43,6 +51,9 @@ Rails.application.routes.draw do
   get '/receive' => 'receive#index'
   get '/status' => 'status#index'
   get '/schools' => 'schools#index'
+  get '/roles' => 'roles#index'
+  get '/cinnamonroles' => 'roles#index'
 
   root 'root#index'
+
 end

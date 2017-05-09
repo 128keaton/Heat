@@ -70,7 +70,8 @@ input.cmn-toggle-round:checked+label:after {
     align-items: center;
     margin-top: 25px;
 }
-.switch-label{
+
+.switch-label {
     max-width: 58px;
 }
 
@@ -160,16 +161,32 @@ input.cmn-toggle-round:checked+label:after {
     text-decoration: none;
     font-weight: 100;
     padding-right: 20px;
+    border-bottom: 2px solid #EEEEEE;
+}
+
+.last {
+    border: none;
+    padding-bottom: 20px;
+}
+
+.first {
+    padding-top: 20px;
 }
 
 input[type="submit"]:disabled {
     background-color: gray;
 }
 
-.separate {
-    margin-bottom: 30px;
+.separator {
+    width: 100%;
+    height: 30px;
+    padding: 0;
+    margin-left: -50px;
+    padding-right: 80px;
+    background-color: #EEEEEE;
 }
-.button-table{
+
+.button-table {
     margin: 0 auto;
 }
 
