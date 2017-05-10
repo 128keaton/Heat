@@ -1,0 +1,11 @@
+<style>
+.alert, .notice{
+    height: 0;
+}
+</style>
+  <h1 class="welcome">Welcome to Heat</h1>
+<div class="welcome-wrapper">
+  
+    <p class="welcome-text">You must login to continue</p>
+    <%= link_to "Login", user_google_oauth2_omniauth_authorize_path, :class => "login-link" %>
+</div>

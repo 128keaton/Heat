@@ -3,6 +3,13 @@
 </div>
 <div class="inner-wrapper">
     <div class="button-grid">
+        <div class="button square user-wrapper">
+            <div class="user user-box">
+                <img class="user user-image" src="<%= @user.image %>">
+                <h2 class="user user-name"><%= @user.name %></h1>
+                 <%= link_to(raw('<i class="ic exit"></i>'), destroy_user_session_path, :method => :delete, :class => "user user-logout") %> 
+            </div>
+        </div>
         <a class="button square" href="/roles"><i class="roles ic ic-list"></i>Roles</a>
         <a class="button square" href="/schools"><i class="school ic ic-list"></i>Schools</a>
         <a class="button square last" href="/status"><i class="status ic ic-list"></i>Overview</a>

@@ -1,0 +1,9 @@
+<style>
+.alert, .notice{
+    height: 0;
+}
+</style>
+<div class="welcome-wrapper">
+    <h1 class="error-welcome">Error! You need to use your ER2 email address</h1>
+    <%= link_to "Fine, I will", user_google_oauth2_omniauth_authorize_path, :class => "login-link" %>
+</div>

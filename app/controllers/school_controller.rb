@@ -1,4 +1,5 @@
 class SchoolController < ApplicationController
+ 	before_action :authenticate_user!
 	def index
 		@machine = Machine.new
 		@schools = School.all
@@ -8,7 +9,7 @@ class SchoolController < ApplicationController
 		end
 		if flash[:school]
 			@school = flash[:school]
-      params[:school] = @school
+      		params[:school] = @school
 		end
 	end
 
