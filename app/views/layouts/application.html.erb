@@ -10,9 +10,9 @@
   </head>
   <body>
       <% if notice %>
-        <p id="notice" class="notice"><%= notice %><button class="message-dismiss" onclick="document.getElementById('notice').classList.toggle('dismissed');"><i class="ic close"></i></button></p>
+        <p onclick="$('#notice').slideUp();" id="notice" class="notice"><%= notice %></p>
       <% elsif alert %>
-        <p id="alert" class="alert"><%= alert %><button class="message-dismiss" onclick="document.getElementById('alert').classList.toggle('dismissed');"><i class="ic close"></i></button></p>
+        <p onclick="$('#alert').slideUp();" id="alert" class="alert"><%= alert %></p>
       <% end %>
       <div class="wrapper">
         <%= yield %>

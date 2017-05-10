@@ -1,19 +1,9 @@
-// Place all the styles related to the welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 .welcome-wrapper {
-    height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    flex-direction: row;
-        
-        font-size: 25px;
-        max-width: 750px;
-        margin: 0 auto;
-        margin-top: 150px;
-        background-color: white;
+    font-size: 14px;
+    max-width: 750px;
+    margin: 0 auto;
+    background-color: white;
+    padding-bottom: 40px;
 }
 
 .error-welcome {
@@ -27,13 +17,14 @@
 .welcome {
     width: 100%;
     text-align: center;
-    font-size: 80px;
-    padding: 25px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    margin-top: 0;
+    font-size: 30px;
+    padding-top: 1px;
+    padding-bottom: 1px!important;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-top: 0px;
     color: white;
+    height: 100px;
     font-style: italic;
     font-weight: 100;
     /* Old browsers */
@@ -50,18 +41,16 @@
 .welcome-text {
     width: 100%;
     text-align: center;
+    margin-bottom: 35px;
 }
 
 .login-link {
-    width: 150px;
-    height: 40px;
-    display: flex;
+    margin: 0 auto;
+}
+
+.welcome-text-header {
+    font-weight: 100;
+    margin: 0 auto;
     text-align: center;
-    font-size: 25px;
-    background-color: white;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: #f46600;
-    border: 2px solid #f46600;
+    padding: 24px;
 }
