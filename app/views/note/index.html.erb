@@ -1,0 +1,16 @@
+<%= render "shared/nav", title: "Attach Note", bar_class: "def" %>
+<div class="inner-wrapper">
+ <%= form_for(@machine, url: {action: "notate"}, method: :post) do |f| %>
+<ul>
+    <li>
+        <%= f.label :serial_number, 'Serial', :class => "serial label" %>
+        <%= f.text_field :serial_number, :class => "serial text-input", :placeholder => "PPPP" %>
+    </li>
+    <li>
+        <%= f.label :notes_label, 'Notes', :class => "notes-label label" %>
+        <%= f.text_area :notes, :class => "notes-area text-input text-area-input" %>
+        <%= f.submit 'Submit', :class => 'button submit small', :id => "submit", :disabled => "disabled" %>
+    </li>
+  </ul>
+<% end %>
+</div>

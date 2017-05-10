@@ -25,9 +25,10 @@ class SchoolController < ApplicationController
 	end
 
 	def assign
+		@user = current_user
 		if Machine.where(serial_number: params[:machine][:serial_number]).length != 0
 			existingMachine = Machine.where(serial_number: params[:machine][:serial_number])
-			existingMachine.update(location: params[:school], unboxed: {"date" => Time.now.strftime("%d/%m/%Y %H:%M")})
+			existingMachine.update(location: params[:school], unboxed:  {"date" => Time.now.strftime("%d/%m/%Y %H:%M"), "user" => @user.name})
 			flash[:notice] = "Machine was assigned"
 			redirect_to controller: 'school', action: 'index', type: "success"
 		else

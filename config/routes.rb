@@ -67,6 +67,9 @@ Rails.application.routes.draw do
 
   get 'welcome/failure'
 
+  get 'note/index'
+
+  post 'note/notate' => 'note#notate'
 
   # Assign links to controllers/views
   get '/school' => 'school#index'
@@ -81,6 +84,7 @@ Rails.application.routes.draw do
   get 'rack/assign' => 'rack#index'
   get 'deploy/assign' => 'deploy#index'
   get 'users/welcome' => 'welcome#index'
+  get '/notes' => 'note#index'
 
   root 'welcome#login'
 
