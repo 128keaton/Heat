@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .user-wrapper {
     height: 200px!important;
+    border-bottom: none!important;
 }
 
 .user .user-image {
@@ -22,4 +23,8 @@
     font-size: 14px;
     color: gray;
     text-decoration: none;
+}
+.list-text{
+        margin-right: auto;
+    margin-left: 10px;
 }

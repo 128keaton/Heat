@@ -10,5 +10,6 @@ module Heat
   class Application < Rails::Application
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    config.api = config_for(:harold)
   end
 end
