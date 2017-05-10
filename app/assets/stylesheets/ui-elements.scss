@@ -237,3 +237,25 @@ input[type="submit"]:disabled {
     right: 20px;
     background-color: #f13838;
 }
+
+
+/* Modal button */
+
+.modal-button {
+    width: 150px;
+    height: 40px;
+    display: flex;
+    text-align: center;
+    font-size: 25px;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #f46600;
+    border: 2px solid #f46600;
+}
+
+.modal-button:hover {
+    color: #f13838;
+    border-color: #f13838;
+}

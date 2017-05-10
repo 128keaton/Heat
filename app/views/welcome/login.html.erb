@@ -1,11 +1,14 @@
 <style>
-.alert, .notice{
-    height: 0;
-}
+    .alert,
+    .notice {
+        height: 0;
+    }
 </style>
-  <h1 class="welcome">Welcome to Heat</h1>
+<div class="nav-bar">
+    <h1 class="nav-title-main">Heat</h1>
+</div>
 <div class="welcome-wrapper">
-  
-    <p class="welcome-text">You must login to continue</p>
-    <%= link_to "Login", user_google_oauth2_omniauth_authorize_path, :class => "login-link" %>
+    <h1 class="welcome-text-header">Welcome</h1>
+    <p class="welcome-text">Login to get started!</p>
+    <%= link_to "Login", user_google_oauth2_omniauth_authorize_path, :class => "login-link modal-button" %>
 </div>
