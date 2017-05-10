@@ -51,6 +51,35 @@ class ApiController < ApplicationController
 		end
 	end
 
+	def mark_as_deployed
+		serial = params[:serial]
+		app_key = Rails.configuration.api['key']
+		sent_key = params[:key]
+		machine = Machine.where(serial_number: serial)[0]
+		if machine
+			school = School.where(name: machine[:location])[0]
+			if school
+				role = machine[:role]
+				if role
+					if sent_key == app_key
+						machine.update(deployed: {"date" => Time.now.strftime("%d/%m/%Y %H:%M"), "deployed" => true}, doa: false)
+						render json: {"message" => "Successfully marked as deployed"}
+					else
+						render json: {"error" => "Invalid key"}
+					end
+				else
+					# no role
+					render json: {"error" => "No role found for machine"}
+				end
+			else
+				# no school
+				render json: {"error" => "No school found for machine"}
+			end
+		else
+			render json: {"error" => "No machine found for serial"}
+		end
+	end
+
 	def index
 
 	end

@@ -1,0 +1,4 @@
+production:
+  key: asdjkasdjklasdklj
+development:
+  key: test
