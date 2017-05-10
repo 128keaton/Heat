@@ -3,9 +3,6 @@
  *= require_self
  */
 
-
-
-
 body {
     font-family: "Roboto", "Helvetica-Neue", Helvetica, sans-serif;
     font-size: 14px;
@@ -35,11 +32,13 @@ body>* {
     margin: 0 auto;
     margin-bottom: 20px;
 }
-.nav-buttons{
+
+.nav-buttons {
     display: flex;
     align-items: center;
     flex-direction: row;
 }
+
 .nav-bar {
     color: white;
     padding-top: 1px;
@@ -105,8 +104,9 @@ body>* {
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
 @media (min-width: 1024px) {
-    .inner-wrapper{
+    .inner-wrapper {
         max-width: 800px;
     }
 }
@@ -125,9 +125,10 @@ body>* {
     flex-direction: column;
     width: 95%;
     margin: 0 auto;
-    
 }
-.alert, .notice{
+
+.alert,
+.notice {
     margin: 0;
     display: flex;
     justify-content: center;
@@ -137,4 +138,13 @@ body>* {
     color: white;
     padding: 22px;
     text-align: center;
+    width: 100%;
+}
+
+.success {
+    background-color: #5ebd5e;
+}
+
+.error {
+    background-color: #f13838;
 }

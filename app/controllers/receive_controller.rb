@@ -3,9 +3,6 @@ class ReceiveController < ApplicationController
   def index
     @machine = Machine.new
     @roles = Role.all
-    if flash[:notice]
-      @type = params[:type]
-    end
   end
 
   def create
@@ -13,9 +10,13 @@ class ReceiveController < ApplicationController
     if @machine.valid?
        @machine.save
         flash[:notice] = "Serial has been added."
+        flash[:data] = @machine[:role]
+        flash[:type] = "success"
         redirect_to controller: 'receive', action: 'index', type: "success"
     else
         flash[:notice] = "Serial already added"
+        flash[:data] = @machine[:role]
+        flash[:type] = "error"
         redirect_to controller: 'receive', action: 'index', type: "error"
     end
 

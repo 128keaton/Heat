@@ -8,7 +8,7 @@ class DeployController < ApplicationController
 		end
 		if flash[:school]
 			@school = flash[:school]
-      		params[:school] = @school
+      params[:school] = @school
 		end
 
     @machine = Machine.new
@@ -31,14 +31,15 @@ class DeployController < ApplicationController
 
   def pull
     @machine = params[:machine]
-    @machine.update(rack: nil)
-    if Machine.where(rack: @machine[:rack], location: @machine[:location]).length != 0
+    if Machine.where(rack: @machine[:rack], location: params[:school]).length != 0
 			existingMachine = Machine.where(rack: @machine[:rack])
 			existingMachine.update(rack: nil, deployed: {"date" => Time.now.strftime("%d/%m/%Y %H:%M")})
 			flash[:notice] = "Machine was added to deployment list"
+			flash[:school] = params[:school]
 			redirect_to action: 'index', type: "success"
 		else
 			flash[:notice] = "Machine doesn't exist in rack"
+			flash[:school] = params[:school]
 			redirect_to action: 'index', type: "error"
 		end
   end
