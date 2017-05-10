@@ -1,17 +1,4 @@
 <%= render "shared/nav", title: "Roles", bar_class: "def" %>
-<!-- Notification Bar -->
-<% if flash[:notice] && @type %>
-  <div id="message" class="message closed <%= @type %>">
-    <h1><%= @type.titleize%>!</h1>
-    <p><%= flash[:notice] %></p>
-    <button class="message-dismiss" onclick="document.getElementById('message').classList.toggle('closed');"><i class="ic close"></i></button>
-  </div>
-  <script type="text/javascript">
-    window.onload = function () {
-        document.getElementById('message').classList.toggle('closed');
-    }
-  </script>
-<% end %>
 <div class="inner-wrapper">
   <table align="center" class="roles-form">
     <tr>

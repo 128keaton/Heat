@@ -30,9 +30,11 @@ class SchoolController < ApplicationController
 			existingMachine = Machine.where(serial_number: params[:machine][:serial_number])
 			existingMachine.update(location: params[:school], unboxed:  {"date" => Time.now.strftime("%d/%m/%Y %H:%M"), "user" => @user.name})
 			flash[:notice] = "Machine was assigned"
+			flash[:school] = params[:school]
 			redirect_to controller: 'school', action: 'index', type: "success"
 		else
 			flash[:notice] = "Serial number was not added beforehand"
+			flash[:school] = params[:school]
 			redirect_to controller: 'school', action: 'index', type: "error"
 		end
 	end

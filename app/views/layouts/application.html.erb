@@ -7,15 +7,18 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application' %>
+    <%= yield :javascript_includes %>
+
   </head>
   <body>
       <% if notice %>
-        <p onclick="$('#notice').slideUp();" id="notice" class="notice"><%= notice %></p>
+        <p onclick="$('#notice').slideUp();" id="notice" class="notice <%= flash[:type]%>"><%= notice %></p>
       <% elsif alert %>
-        <p onclick="$('#alert').slideUp();" id="alert" class="alert"><%= alert %></p>
+        <p onclick="$('#alert').fade();" id="alert" class="alert <%= flash[:type]%>"><%= alert %></p>
       <% end %>
       <div class="wrapper">
         <%= yield %>
+      
       </div>
   </body>
 </html>
