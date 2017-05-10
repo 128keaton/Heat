@@ -12,12 +12,13 @@
     }
   </script>
 <% end %>
+
 <div class="inner-wrapper">
   <%= form_for(@machine, url: {action: "load_schools"}, method: :post) do |f| %>
     <ul>
       <li>
         <%= f.label :school_label, 'School', :class => "school-select label" %>
-        <%= f.select(:location, @schools.map { |value| [ value[:name], value[:name] ] }, {:prompt => "Choose School", :disabled => "0"}, { :class => 'school-select select-input',  :onChange=>"javascript: this.form.submit();", :prompt => "Gender..." }) %>
+        <%= f.select(:location, @schools.map { |value| [ value[:name], value[:name] ] }, {:prompt => "Choose School", :disabled => "0"}, { :class => 'school-select select-input',  :onChange=>"javascript: this.form.submit();" }) %>
       </li>
       <% if @school %>
         <li>

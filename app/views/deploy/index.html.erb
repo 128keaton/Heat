@@ -1,27 +1,56 @@
-      <%= render "shared/nav", title: "Unbox Unit", bar_class: "deploy-bar" %>
-        <div class="inner-wrapper">
-            <form>
-                <ul class="too-tall">
-                    <li>
-                        <label class="label">Rack #</label>
-                        <div>
-                            <select name="rack" class="rack-assign select-input">
-                            <option>3-3-1</option>
-                            <option>3-3-2</option>`
-                            <option>3-3-3</option>
-                            <option>3-3-4</option>
-                        </select>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="roles">
-                            <h1 class="role-title">Expected Quantities:</h1>
-                            <h2 class="role">Student: 200</h2>
-                            <h2 class="role">Teacher: 100</h2>
-                        </div>
-                    </li>
-                </ul>
-                <button type="csv" class="button small export">Export CSV</button>
-                <button type="submit" class="button submit small">Pull</button>
-            </form>
-        </div>
+<%= render "shared/nav", title: "Deploy", bar_class: "deploy-bar" %>
+<!-- Notification Bar -->
+<% if flash[:notice] && @type %>
+  <div id="message" class="message closed <%= @type %>">
+    <h1><%= @type.titleize%>!</h1>
+    <p><%= flash[:notice] %></p>
+    <button class="message-dismiss" onclick="document.getElementById('message').classList.toggle('closed');"><i class="ic close"></i></button>
+  </div>
+  <script type="text/javascript">
+    window.onload = function () {
+        document.getElementById('message').classList.toggle('closed');
+    }
+  </script>
+<% end %>
+
+<!-- Choose School -->
+<div class="inner-wrapper">
+  <%= form_for(@machine, url: {action: "load_schools"}, method: :post) do |f| %>
+    <ul>
+      <li>
+        <%= f.label :school_label, 'School', :class => "school-select label" %>
+        <%= f.select(:location, @schools.map { |value| [ value[:name], value[:name] ] }, {:prompt => "Choose School", :disabled => "0"}, { :class => 'school-select select-input',  :onChange=>"javascript: this.form.submit();" }) %>
+      </li>
+      <% if @school %>
+        <li>
+          <div class="roles-quantities">
+            <h1 class="role-quantities-title"><%= @school%>:</h1>
+            <% @roles.each do |role| %>
+              <h2 class="role-quantities"><%= role[:name]%>: <%= get_quantity_for(@school, role[:name]) %>/200</h2>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+</div>
+
+<!-- Pull from Rack -->
+<div class="inner-wrapper">
+ <%= form_for(@machine, url: {action: "pull"}, method: :post) do |f| %>
+    <ul>
+      <li>
+        <%= f.label :rack_label, 'Rack', :class => "serial label" %>
+        <%= f.text_field :rack, :class => "serial text-input", :placeholder => "3-1-3" %>
+      </li>
+    </ul>
+    <% if @school %>
+      <%= f.submit 'Submit', :class => 'button submit small', :id => "submit-other" %>
+    <% else %>
+      <%= f.submit 'Submit', :class => 'button submit small', :id => "submit-other", :disabled => "disabled"%>
+    <% end %>
+  <% end %>           
+</div>
+
+

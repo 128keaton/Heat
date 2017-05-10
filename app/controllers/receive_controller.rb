@@ -1,4 +1,5 @@
 class ReceiveController < ApplicationController
+  before_action :authenticate_user!
   def index
     @machine = Machine.new
     @roles = Role.all

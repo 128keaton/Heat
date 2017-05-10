@@ -20,5 +20,11 @@
 # Ignore Byebug command history file.
 .byebug_history
 
+# Ignore the database config
 database.yml
+
+# Ignore Visual Studio Code config
 .vscode
+
+# Ignore the log folder
+log/*

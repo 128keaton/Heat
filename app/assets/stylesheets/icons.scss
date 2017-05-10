@@ -63,6 +63,12 @@
     background-color: gray;
 }
 
+.exit {
+    -webkit-mask-image: image-url("exit.svg");
+    background-color: #da2727;
+    margin-bottom: 12px;
+}
+
 .status,
 .overview {
     -webkit-mask-image: image-url("status.svg");

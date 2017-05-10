@@ -1,0 +1,67 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.welcome-wrapper {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+        
+        font-size: 25px;
+        max-width: 750px;
+        margin: 0 auto;
+        margin-top: 150px;
+        background-color: white;
+}
+
+.error-welcome {
+    color: #d32f2f;
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 100;
+}
+
+.welcome {
+    width: 100%;
+    text-align: center;
+    font-size: 80px;
+    padding: 25px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-top: 0;
+    color: white;
+    font-style: italic;
+    font-weight: 100;
+    /* Old browsers */
+    background: -moz-linear-gradient(left, #1e5799 0%, #d32f2f 0%, #f46600 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #1e5799 0%, #d32f2f 0%, #f46600 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #1e5799 0%, #d32f2f 0%, #f46600 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#f46600', GradientType=1);
+    /* IE6-9 */
+}
+
+.welcome-text {
+    width: 100%;
+    text-align: center;
+}
+
+.login-link {
+    width: 150px;
+    height: 40px;
+    display: flex;
+    text-align: center;
+    font-size: 25px;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #f46600;
+    border: 2px solid #f46600;
+}

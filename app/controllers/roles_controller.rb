@@ -1,4 +1,5 @@
 class RolesController < ApplicationController
+  before_action :authenticate_user!
   def index
     @role = Role.new
     if flash[:notice]

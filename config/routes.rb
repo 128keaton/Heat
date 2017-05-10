@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :sessions => "users/sessions" }
   # Define resources for our models.
   resources :machines
   resources :schools, only: [:index, :destroy, :create]
@@ -32,6 +33,10 @@ Rails.application.routes.draw do
 
   get 'deploy/assign'
 
+  post 'deploy/pull' => "deploy#pull"
+
+  post 'deploy/load_schools' => 'deploy#load_schools'
+
   get 'rack/index'
 
   get 'rack/assign'
@@ -58,6 +63,11 @@ Rails.application.routes.draw do
 
   get 'roles/create'
 
+  get 'welcome/login'
+
+  get 'welcome/failure'
+
+
   # Assign links to controllers/views
   get '/school' => 'school#index'
   get '/deploy' => 'deploy#index'
@@ -69,8 +79,9 @@ Rails.application.routes.draw do
   get '/roles' => 'roles#index'
   get '/cinnamonroles' => 'roles#index'
   get 'rack/assign' => 'rack#index'
+  get 'deploy/assign' => 'deploy#index'
+  get 'users/welcome' => 'welcome#index'
 
-
-  root 'root#index'
+  root 'welcome#login'
 
 end
