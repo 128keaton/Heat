@@ -24,6 +24,10 @@
 
 3. Go: `rails s`
 
+### Known Issues:
+* **Finalize does not work--yet!**
+
+
 ### Screenshots:
 #### Clean
 <p align="center">
