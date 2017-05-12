@@ -1,21 +1,24 @@
+# Encoding: utf-8
+
+# Some documentation about DeployController
+
 class DeployController < ApplicationController
 	before_action :authenticate_user!
-  def index
-
+	def index
 		@roles = Role.all
-		if flash[:notice] 
+		if flash[:notice]
 			@type = params[:type]
 		end
 		if flash[:school]
 			@school = flash[:school]
-      params[:school] = @school
+			params[:school] = @school
 		end
 
-    @machine = Machine.new
-    @schools = School.all
-  end
+		@machine = Machine.new
+		@schools = School.all
+	end
 
-  def get_quantity_for(location, role)
+	def get_quantity_for(location, role)
 		@machineArray = Machine.where(location: location, role: role)
 		return @machineArray.length
 	end
@@ -27,11 +30,11 @@ class DeployController < ApplicationController
 		redirect_to action: 'index'
 	end
 
-  helper_method :get_quantity_for
+	helper_method :get_quantity_for
 
-  def pull
-    @machine = params[:machine]
-    if Machine.where(rack: @machine[:rack], location: params[:school]).length != 0
+	def pull
+		@machine = params[:machine]
+		if Machine.where(rack: @machine[:rack], location: params[:school]).length != 0
 			existingMachine = Machine.where(rack: @machine[:rack])
 			existingMachine.update(rack: nil, deployed: {"date" => Time.now.strftime("%d/%m/%Y %H:%M")})
 			flash[:notice] = "Machine was added to deployment list"
@@ -44,5 +47,5 @@ class DeployController < ApplicationController
 			flash[:school] = params[:school]
 			redirect_to action: 'index'
 		end
-  end
+	end
 end
