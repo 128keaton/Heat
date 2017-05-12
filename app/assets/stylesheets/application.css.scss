@@ -91,7 +91,8 @@ body>* {
     text-align: center;
     flex-grow: 2;
 }
-.nav-bar .logo{
+
+.nav-bar .logo {
     width: 80px;
     height: 80px;
 }
@@ -133,3 +134,14 @@ body>* {
     margin: 0 auto;
 }
 
+pre {
+    white-space: pre-wrap;
+    /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;
+    /* Mozilla, since 1999 */
+    white-space: -pre-wrap;
+    /* Opera 4-6 */
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    word-wrap: break-word;
+}

@@ -76,10 +76,11 @@
 }
 
 .note,
-.notes{
+.notes {
     -webkit-mask-image: image-url("notes.svg");
-    background-color: #0c0c0c; 
+    background-color: #0c0c0c;
 }
+
 .close {
     -webkit-mask-image: image-url("close.svg");
 }
