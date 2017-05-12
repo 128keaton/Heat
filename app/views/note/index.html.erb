@@ -8,6 +8,12 @@
 <!-- Render premade navigation bar -->
 <%= render "shared/nav", title: "Attach Note", bar_class: "def" %>
 
+<!-- Deploy page specific JavaScript -->
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "note.js" %>
+<% end %>
+
+
 <!-- Creates a form for 'Note' -->
 <div class="inner-wrapper">
     <%= form_for(@machine, url: {action: "notate"}, method: :post) do |f| %>
