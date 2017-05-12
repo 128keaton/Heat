@@ -22,7 +22,17 @@ $(function () {
     });
     $(document).on('touchstart click', '.notice', function (e) {
         e.stopPropagation();
-       $(".notice").slideUp();
+        $(".notice").slideUp();
 
     });
+});
+
+$(document).ready(function () {
+    if ($('#notice\\ error').length) {
+        var audio = new Audio('/doh.mp3');
+        audio.play();
+        navigator.vibrate([500]);
+        console.log("Error found")
+    }
+
 });
