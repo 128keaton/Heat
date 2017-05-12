@@ -16,7 +16,7 @@ class RolesController < ApplicationController
   end
 
   def create
-     specsHash =  {'cpu' => params[:cpu], 'hdd' => params[:hdd], 'ram' => params[:ram], }
+     specsHash =  {'cpu' => params[:cpu], 'hdd' => params[:hdd], 'ram' => params[:ram] }
      @role = Role.new()
      @role.specs = specsHash
      @role.name = params[:role][:name]
