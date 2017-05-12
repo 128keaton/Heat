@@ -127,24 +127,3 @@ body>* {
     margin: 0 auto;
 }
 
-.alert,
-.notice {
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2em;
-    background-color: #68a2d4;
-    color: white;
-    padding: 22px;
-    text-align: center;
-    width: 100%;
-}
-
-.success {
-    background-color: #5ebd5e;
-}
-
-.error {
-    background-color: #f13838;
-}

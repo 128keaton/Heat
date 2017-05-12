@@ -1,1 +1,2 @@
+
 window.location.hash = '#error';
