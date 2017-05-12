@@ -12,7 +12,8 @@ class SchoolsController < ApplicationController
     @school = School.find(params[:id])
     @school.destroy
     flash[:notice] = "School deleted successfully"
-    redirect_to controller: 'schools', action: 'index', type: "success"
+    flash[:type] = "success"
+    redirect_to action: 'index'
   end
 
   def create
@@ -20,10 +21,12 @@ class SchoolsController < ApplicationController
     if @school.valid?
        @school.save
        flash[:notice] = "School created successfully"
-       redirect_to controller: 'schools', action: 'index', type: "success"
+       flash[:type] = "success"
+       redirect_to action: 'index'
     else
       flash[:notice] = "School could not be created"
-      redirect_to controller: 'schools', action: 'index', type: "error"
+      flash[:type] = "error"
+      redirect_to action: 'index'
     end
   end
 

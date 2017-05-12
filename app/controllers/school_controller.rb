@@ -31,11 +31,13 @@ class SchoolController < ApplicationController
 			existingMachine.update(location: params[:school], unboxed:  {"date" => Time.now.strftime("%d/%m/%Y %H:%M"), "user" => @user.name})
 			flash[:notice] = "Machine was assigned"
 			flash[:school] = params[:school]
-			redirect_to controller: 'school', action: 'index', type: "success"
+			flash[:type] = "success"
+			redirect_to action: 'index'
 		else
-			flash[:notice] = "Serial number was not added beforehand"
+			flash[:notice] = "Serial number has not been logged"
 			flash[:school] = params[:school]
-			redirect_to controller: 'school', action: 'index', type: "error"
+			flash[:type] = "error"
+			redirect_to action: 'index'
 		end
 	end
 

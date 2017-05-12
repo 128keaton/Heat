@@ -6,18 +6,20 @@ class ReceiveController < ApplicationController
   end
 
   def create
-     @machine = Machine.new(machine_params)
+    @machine = Machine.new(machine_params)
+    # Checks if the machine is valid
     if @machine.valid?
+       # Saves the machine
        @machine.save
         flash[:notice] = "Serial has been added."
         flash[:data] = @machine[:role]
         flash[:type] = "success"
-        redirect_to controller: 'receive', action: 'index', type: "success"
+        redirect_to action: 'index'
     else
         flash[:notice] = "Serial already added"
         flash[:data] = @machine[:role]
         flash[:type] = "error"
-        redirect_to controller: 'receive', action: 'index', type: "error"
+        redirect_to action: 'index'
     end
 
   end

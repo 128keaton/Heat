@@ -11,7 +11,8 @@ class RolesController < ApplicationController
     @role = Role.find(params[:id])
     @role.destroy
     flash[:notice] = "Role deleted successfully"
-    redirect_to controller: 'roles', action: 'index', type: "success"
+    flash[:type] = "success"
+    redirect_to action: 'index'
   end
 
   def create
@@ -24,10 +25,12 @@ class RolesController < ApplicationController
     if @role.valid?
        @role.save
        flash[:notice] = "Role created successfully"
-       redirect_to controller: 'roles', action: 'index', type: "success"
+       flash[:type] = "success"
+       redirect_to action: 'index'
     else
       flash[:notice] = "Role could not be created"
-      redirect_to controller: 'roles', action: 'index', type: "error"
+      flash[:type] = "error"
+      redirect_to action: 'index'
     end
   end
 end

@@ -35,12 +35,14 @@ class DeployController < ApplicationController
 			existingMachine = Machine.where(rack: @machine[:rack])
 			existingMachine.update(rack: nil, deployed: {"date" => Time.now.strftime("%d/%m/%Y %H:%M")})
 			flash[:notice] = "Machine was added to deployment list"
+			flash[:type] = "success"
 			flash[:school] = params[:school]
-			redirect_to action: 'index', type: "success"
+			redirect_to action: 'index'
 		else
 			flash[:notice] = "Machine doesn't exist in rack"
+			flash[:type] = "error"
 			flash[:school] = params[:school]
-			redirect_to action: 'index', type: "error"
+			redirect_to action: 'index'
 		end
   end
 end

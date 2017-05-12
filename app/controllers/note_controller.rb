@@ -7,11 +7,13 @@ class NoteController < ApplicationController
     if Machine.where(serial_number: params[:machine][:serial_number]).length != 0
 			existingMachine = Machine.where(serial_number: params[:machine][:serial_number])
 			existingMachine.update(notes: notes)
-			flash[:notice] = "Machine was notated"
-			redirect_to action: 'index', type: "success"
+			flash[:notice] = "Note was attached to machine"
+			flash[:type] = "success"
+			redirect_to action: 'index'
 		else
-			flash[:notice] = "Serial number was not added beforehand"
-			redirect_to action: 'index', type: "error"
+			flash[:notice] = "Serial number has not been logged"
+			flash[:type] = "error"
+			redirect_to action: 'index'
 		end
   end
 end
