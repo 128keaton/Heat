@@ -251,3 +251,25 @@ input[type="submit"]:disabled {
     color: #f13838;
     border-color: #f13838;
 }
+
+.alert,
+.notice {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    background-color: #68a2d4;
+    color: white;
+    padding: 22px;
+    text-align: center;
+    width: auto;
+}
+
+.success {
+    background-color: #5ebd5e;
+}
+
+.error {
+    background-color: #f13838;
+}

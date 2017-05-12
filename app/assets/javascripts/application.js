@@ -14,4 +14,15 @@
 //= require jquery_ujs
 //= require turbolinks
 
-window.location.hash = '#error';
+$(function () {
+    $(document).on('touchstart click', '.alert', function (e) {
+        e.stopPropagation();
+        $(".alert").slideUp();
+
+    });
+    $(document).on('touchstart click', '.notice', function (e) {
+        e.stopPropagation();
+       $(".notice").slideUp();
+
+    });
+});
