@@ -28,3 +28,6 @@ database.yml
 
 # Ignore the log folder
 log/*
+
+# Ignore Devise config
+/config/initializers/devise.rb
