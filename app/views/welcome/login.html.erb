@@ -1,12 +1,22 @@
+<!-- 
+  Refactored by Keaton
+  May 12th, 2017
+  welcome/login.html.erb
+  View which displays a login view.
+-->
+
+<!-- Hides the notice and alert divs-->
 <style>
     .alert,
     .notice {
         height: 0;
     }
 </style>
-<div class="nav-bar">
-    <h1 class="nav-title-main">Heat</h1>
-</div>
+
+<!-- Renders alternative navigation bar -->
+<%= render "shared/alt_nav"%>
+
+<!-- Displays a login message and div -->
 <div class="welcome-wrapper">
     <h1 class="welcome-text-header">Welcome</h1>
     <p class="welcome-text">Login to get started!</p>

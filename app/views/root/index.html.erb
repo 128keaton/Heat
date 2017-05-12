@@ -1,10 +1,18 @@
-<div class="nav-bar">
-    <h1 class="nav-title-main">Heat</h1>
-</div>
+<!-- 
+  Refactored by Keaton
+  May 12th, 2017
+  root/index.html.erb
+  A view which displays the user a welcoming message and provides an easy way to navigate
+-->
+
+<!-- Renders alternative navigation bar -->
+<%= render "shared/alt_nav"%>
+
+<!-- Table with user profile and table of actions -->
 <div class="inner-wrapper">
     <div class="button-grid">
- 
         <div class="button square user-wrapper">
+        <!-- User profile area -->
             <div class="user user-box">
                 <img class="user user-image" src="<%= @user.image %>">
                 <h2 class="user user-name"><%= @user.name %></h1>
@@ -12,18 +20,17 @@
                  <p class="user user-welcome-text">Welcome to Heat! Touch any link below to get started!</p>
             </div>
         </div>
-    
+        <!-- Table of actions -->
         <i class="separator"></i>
-        <a class="button square first" href="/receive"><i class="receive ic ic-list"></i><span class="list-text">Receive</span></a>
-        <a class="button square" href="/school"><i class="unbox ic ic-list"></i><span class="list-text">Unbox</span></a>
-        <a class="button square" href="/rack"><i class="rack ic ic-list"></i><span class="list-text">Rack</span></a>
-        <a class="button square" href="/deploy"><i class="deploy ic ic-list"></i><span class="list-text">Deploy</span></a>
-        <a class="button square last" href="/finalize"><i class="finalize ic ic-list"></i><span class="list-text">Finalize</span></a>
+            <a class="button square first" href="/receive"><i class="receive ic ic-list"></i><span class="list-text">Receive</span></a>
+            <a class="button square" href="/school"><i class="unbox ic ic-list"></i><span class="list-text">Unbox</span></a>
+            <a class="button square" href="/rack"><i class="rack ic ic-list"></i><span class="list-text">Rack</span></a>
+            <a class="button square" href="/deploy"><i class="deploy ic ic-list"></i><span class="list-text">Deploy</span></a>
+            <a class="button square last" href="/finalize"><i class="finalize ic ic-list"></i><span class="list-text">Finalize</span></a>
         <i class="separator"></i>
-        <a class="button square first" href="/roles"><i class="roles ic ic-list"></i><span class="list-text">Roles</span></a>
-        <a class="button square" href="/schools"><i class="school ic ic-list"></i><span class="list-text">Schools</span></a>
-        <a class="button square" href="/notes"><i class="notes ic ic-list"></i><span class="list-text">Notes</span></a>
-        <a class="button square last" href="/status"><i class="status ic ic-list"></i><span class="list-text">Overview</span></a>
-
+            <a class="button square first" href="/roles"><i class="roles ic ic-list"></i><span class="list-text">Roles</span></a>
+            <a class="button square" href="/schools"><i class="school ic ic-list"></i><span class="list-text">Schools</span></a>
+            <a class="button square" href="/notes"><i class="notes ic ic-list"></i><span class="list-text">Notes</span></a>
+            <a class="button square last" href="/status"><i class="status ic ic-list"></i><span class="list-text">Overview</span></a>
     </div>
 </div>

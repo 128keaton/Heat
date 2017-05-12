@@ -1,7 +1,19 @@
+<!-- 
+  Refactored by Keaton
+  May 12th, 2017
+  rack/index.html.erb
+  A view which provides a form to rack the machine
+-->
+
+<!-- Render premade navigation bar -->
 <%= render "shared/nav", title: "Assign Rack", bar_class: "def" %>
+
+<!-- Deploy page specific JavaScript -->
 <% content_for :javascript_includes do %>
   <%= javascript_include_tag "rack.js" %>
 <% end %>
+
+<!-- Assign the machine a rack -->
 <div class="inner-wrapper">
   <%= form_for(@machine, url: {action: "assign"}, method: :post) do |f| %>
     <ul>
@@ -25,4 +37,4 @@
     <%= f.submit 'Submit', :class => 'button submit small', :id => "submit", :disabled => "disabled" %>
   <% end %>
 </div>
-</div>
+

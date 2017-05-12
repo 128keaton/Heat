@@ -1,8 +1,17 @@
+<!-- 
+  Refactored by Keaton
+  May 12th, 2017
+  deploy/index.html.erb
+-->
+
+<!-- Render premade navigation bar -->
 <%= render "shared/nav", title: "Deploy", bar_class: "deploy-bar" %>
+
+<!-- Deploy page specific JavaScript -->
 <% if @school %>
-<% content_for :javascript_includes do %>
-  <%= javascript_include_tag "deploy.js" %>
-<% end %>
+  <% content_for :javascript_includes do %>
+    <%= javascript_include_tag "deploy.js" %>
+  <% end %>
 <% end %>
 
 <!-- Choose School -->
@@ -28,7 +37,7 @@
 </div>
 </div>
 
-<!-- Pull from Rack -->
+<!-- Finally, pull machine from rack-->
 <div class="inner-wrapper">
  <%= form_for(@machine, url: {action: "pull"}, method: :post) do |f| %>
     <ul>
