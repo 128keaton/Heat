@@ -13,14 +13,8 @@
 * Rails 
 
 
-1. Download (or clone) the repository.
+1. Download (or clone) the repository: `git clone https://github.com/128keaton/Heat/`
 
-`git clone https://github.com/128keaton/Heat/`
+2. Run the appropriate Rails commands: `bundle install && rake db:migrate`
 
-2. Run the appropriate Rails commands.
-
-`bundle install && rake db:migrate`
-
-3. Go!
-
-`rails s`
+3. Go: `rails s`
