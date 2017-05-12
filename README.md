@@ -23,6 +23,12 @@
 3. Go: `rails s`
 
 ### Screenshots:
+#### Clean
 <p align="center">
   <img src="https://github.com/128keaton/Heat/blob/master/app/assets/screenshots/1.png">
+</p>
+
+#### Interactive
+<p align="center">
+  <img src="https://github.com/128keaton/Heat/blob/master/app/assets/screenshots/notification.gif">
 </p>
