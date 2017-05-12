@@ -1,29 +1,29 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  serial_number: MyString
-  client-asset-tag: MyString
-  reviveit-asset-tag: MyString
-  unboxed: 
-  imaged: 
-  racked: 
-  deployed: 
-  notes: MyString
-  role: MyString
-  rack: MyString
+  serial_number: "abc1234"
+  client_asset_tag: "imanassettag"
+  reviveit_asset_tag: "iamourassettag"
+  unboxed: nil
+  imaged: nil
+  racked: nil
+  deployed: nil
+  notes: nil
+  role: "Teacher"
+  rack: "3-1-3"
   doa: false
-  special-instructions: 
+  special_instructions: nil
 
 two:
-  serial_number: MyString
-  client-asset-tag: MyString
-  reviveit-asset-tag: MyString
-  unboxed: 
-  imaged: 
-  racked: 
-  deployed: 
-  notes: MyString
-  role: MyString
-  rack: MyString
+  serial_number: "qwerty1"
+  client_asset_tag: "imanassettag"
+  reviveit_asset_tag: "iamourassettag"
+  unboxed: nil
+  imaged: nil
+  racked: nil
+  deployed: nil
+  notes: nil
+  role: "Student"
+  rack: "3-1-4"
   doa: false
-  special-instructions: 
+  special_instructions: nil

@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: "South Paw Elementary"
   blended_learning: false
   quantity: 
-  school_code: MyString
+  school_code: "ABC123"
 
 two:
-  name: MyString
-  blended_learning: false
+  name: "Horned Dear Middle"
+  blended_learning: true
   quantity: 
-  school_code: MyString
+  school_code: "DORAME"

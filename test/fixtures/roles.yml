@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  specs: 
-  suffix: MyString
+  name: "Teacher"
+  specs: nil
+  suffix: "T"
 
 two:
-  name: MyString
-  specs: 
-  suffix: MyString
+  name: "Student"
+  specs: nil
+  suffix: "S"

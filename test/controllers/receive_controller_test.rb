@@ -1,14 +1,13 @@
 require 'test_helper'
 
 class ReceiveControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
-    get receive_index_url
-    assert_response :success
+  test "find" do
+    assert_equal "abc1234", machines(:one).serial_number
   end
-
-  test "should get submit" do
-    get receive_submit_url
-    assert_response :success
+  test "create" do
+    updated_machine = Machine.new
+    updated_machine.serial_number = "URADOOD"
+    updated_machine.role = roles(:one)
+    assert updated_machine.save!
   end
-
 end
