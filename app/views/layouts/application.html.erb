@@ -26,9 +26,15 @@
   </head>
   <body>
       <% if notice %>
-        <p onclick="$('#notice').slideUp();" id="notice" class="notice <%= flash[:type]%>"><%= notice %></p>
+        <% content_for :javascript_includes do %>
+          <%= javascript_include_tag "move-to-error.js" %>
+        <% end %>
+        <p onclick="$('#notice').slideUp();" id="notice <%= flash[:type]%>" class="notice <%= flash[:type]%>"><%= notice %></p>
       <% elsif alert %>
-        <p onclick="$('#alert').fade();" id="alert" class="alert <%= flash[:type]%>"><%= alert %></p>
+          <% content_for :javascript_includes do %>
+            <%= javascript_include_tag "move-to-error.js" %>
+          <% end %>
+        <p onclick="$('#alert').fade();" id="alert <%= flash[:type]%>" class="alert <%= flash[:type]%>"><%= alert %></p>
       <% end %>
       <div class="wrapper">
         <%= yield %>
