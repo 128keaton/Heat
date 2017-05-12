@@ -21,6 +21,10 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application' %>
+    <!-- Favicons -->
+    <%= render 'application/favicon' %>
+
+    <!-- Optional JavaScript -->
     <%= yield :javascript_includes %>
 
     <% if flash[:type] == "error"%>
