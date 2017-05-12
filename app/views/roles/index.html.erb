@@ -1,4 +1,15 @@
+<!-- 
+  Refactored by Keaton
+  May 12th, 2017
+  roles/index.html.erb
+  A view which displays the current roles or allows the user to create a new role
+-->
+
+<!-- Render premade navigation bar -->
 <%= render "shared/nav", title: "Roles", bar_class: "def" %>
+
+
+<!-- Table which displays the roles-->
 <div class="inner-wrapper">
   <table align="center" class="roles-form">
     <tr>
@@ -7,6 +18,7 @@
       <th>Suffix</th>
       <th>Actions</th>
     </tr>
+    <!-- Iterate through roles -->
     <% Role.all.each do |role| %>
       <% @specs = role[:specs]%>
       <tr>
@@ -17,6 +29,7 @@
       </tr>
     <% end %>
   </table>
+  <!-- Create a form for creation of roles-->
   <%= form_for(@role, url: {action: "create"}, method: :post) do |f| %>
     <table class="roles-form-table">
       <tr class="flex-form">

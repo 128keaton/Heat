@@ -1,4 +1,14 @@
+<!-- 
+  Refactored by Keaton
+  May 12th, 2017
+  schools/index.html.erb
+  A view which displays the schools/locations and allows the user to create a new school/location
+-->
+
+<!-- Render premade navigation bar -->
 <%= render "shared/nav", title: "Schools", bar_class: "def" %>
+
+<!-- Displays a table of schools/locations -->
 <div class="inner-wrapper">
   <table align="center" class="school-form">
     <tr>
@@ -16,6 +26,8 @@
       </tr>
     <% end %>
   </table>
+
+  <!-- Displays a form for new form creation -->
   <%= form_for(@school, url: {action: "create"}, method: :post) do |f| %>
     <table align="center" class="school-form-table">
       <tr class="flex-form">

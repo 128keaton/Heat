@@ -1,11 +1,23 @@
+<!-- 
+  Refactored by Keaton
+  May 12th, 2017
+  receive/index.html.erb
+  A view which provides a form for receiving the machine
+-->
+
+<!-- Render premade navigation bar -->
 <%= render "shared/nav", title: "Receive", bar_class: "def" %>
+
+<!-- Deploy page specific JavaScript -->
 <% content_for :javascript_includes do %>
   <%= javascript_include_tag "receive.js" %>
 <% end %>
+
+<!-- Receive and scan the machine -->
 <div class="inner-wrapper">
   <%= form_for(@machine, url: {action: "create"}, method: :post) do |f| %>
     <ul>
-    <li>
+      <li>
         <%= f.label :role_label, 'Role', :class => "serial label" %>
         <%= f.select(:role, @roles.map { |value| [ value[:name], value[:name] ] }, {:selected => flash[:data]}, { :class => 'role select-input' }) %>
       </li>

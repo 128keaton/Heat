@@ -1,9 +1,20 @@
+<!-- 
+  Refactored by Keaton
+  May 12th, 2017
+  school/index.html.erb
+  A view which displays the current location counts
+-->
+
+<!-- Render premade navigation bar -->
 <%= render "shared/nav", title: "Unbox", bar_class: "def" %>
+
 <% if @school %>
-<% content_for :javascript_includes do %>
-  <%= javascript_include_tag "school.js" %>
+  <% content_for :javascript_includes do %>
+    <%= javascript_include_tag "school.js" %>
+  <% end %>
 <% end %>
-<% end %>
+
+<!-- Choose location -->
 <div class="inner-wrapper">
   <%= form_for(@machine, url: {action: "load_schools"}, method: :post) do |f| %>
     <ul>
@@ -24,7 +35,8 @@
     </ul>
   <% end %>
 </div>
-</div>
+
+<!-- Assign serial to location -->
 <div class="inner-wrapper">
   <%= form_for(@machine, url: {action: "assign"}, method: :post) do |f| %>
     <ul>
@@ -34,8 +46,7 @@
         <%= hidden_field_tag :school, params[:school] %>
       </li>
     </ul>
-      <%= f.submit 'Submit', :class => 'button submit small', :id => "submit", :disabled => "disabled"%>
- 
+    <%= f.submit 'Submit', :class => 'button submit small', :id => "submit", :disabled => "disabled"%>
   <% end %>
 </div>
-</div>
+
