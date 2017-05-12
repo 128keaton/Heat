@@ -20,6 +20,8 @@
 
 2. Run the appropriate Rails commands: `bundle install && rake db:migrate`
 
+3. Setup [Devise](https://github.com/plataformatec/devise) appropriately: `mv config/initializers/devise.example.rb config/initializers/devise.rb`
+
 3. Go: `rails s`
 
 ### Screenshots:
