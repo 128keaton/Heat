@@ -23,6 +23,11 @@
     <%= javascript_include_tag 'application' %>
     <%= yield :javascript_includes %>
 
+    <% if flash[:type] == "error"%>
+        <% content_for :javascript_includes do %>
+          <%= javascript_include_tag "move-to-error.js" %>
+        <% end %>
+    <% end %>
   </head>
   <body>
       <% if notice %>
@@ -30,13 +35,6 @@
       <% elsif alert %>
         <p onclick="$('#alert').fade();" id="alert <%= flash[:type]%>" class="alert <%= flash[:type]%>"><%= alert %></p>
       <% end %>
-      
-      <% if flash[:type] == "error"%>
-        <% content_for :javascript_includes do %>
-          <%= javascript_include_tag "move-to-error.js" %>
-        <% end %>
-      <% end %>
-
       <div class="wrapper">
         <%= yield %>
       </div>

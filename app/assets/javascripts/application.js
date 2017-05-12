@@ -29,7 +29,7 @@ $(function () {
 
 $(document).ready(function () {
     if ($('#notice\\ error').length) {
-        var audio = new Audio('/doh.mp3');
+        var audio = new Audio('/error.mp3');
         audio.play();
         navigator.vibrate([500]);
         console.log("Error found")
