@@ -30,6 +30,10 @@
     <% end %>
   </head>
   <body>
+      <audio preload="auto" id="audio-error">   
+        <source src="/error.mp3" />  
+        <source src="/error.ogg" />  
+      </audio> 
       <% if notice %>
         <p onclick="$('#notice').slideUp();" id="notice <%= flash[:type]%>" class="notice <%= flash[:type]%>"><%= notice %></p>
       <% elsif alert %>
