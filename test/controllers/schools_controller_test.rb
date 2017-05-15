@@ -6,6 +6,7 @@ class SchoolsControllerTest < ActionDispatch::IntegrationTest
   end
   test "create" do
     new_school = School.new
+    new_school.quantity = {}
     new_school.school_code = "1738A"
     assert new_school.save
   end
