@@ -73,6 +73,14 @@ Rails.application.routes.draw do
 
   post 'note/notate' => 'note#notate'
 
+  get '/schools/edit' => 'schools#edit'
+
+  post 'schools/update' => 'schools#update'
+
+  get 'schools/:id' => 'schools#edit'
+
+  post 'schools/:id' => 'schools#edit'
+
   # Assign links to controllers/views
   get '/school' => 'school#index'
   get '/deploy' => 'deploy#index'
