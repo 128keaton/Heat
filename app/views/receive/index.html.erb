@@ -15,11 +15,31 @@
 
 <!-- Receive and scan the machine -->
 <div class="inner-wrapper">
-  <%= form_for(@machine, url: {action: "create"}, method: :post) do |f| %>
+  <%= form_for(@machine, url: {action: "load_information"}, method: :post) do |f| %>
     <ul>
       <li>
         <%= f.label :role_label, 'Role', :class => "serial label" %>
         <%= f.select(:role, @roles.map { |value| [ value[:name], value[:name] ] }, {:selected => flash[:data]}, { :class => 'role select-input' }) %>
+      </li>
+      <li>
+        <%= f.label :pallet_id_label, 'Pallet ID', :class => "pallet-id label" %>
+        <%= f.number_field :pallet_id, :class => "pallet-id text-input", :placeholder => "1", :value => @pallet_id%>
+      </li>
+    </ul>
+    <%= f.submit 'Choose', :class => 'button submit small', :id => "submit-choose" %>
+  <% end %>
+</div>
+
+<div class="inner-wrapper">
+  <%= form_for(@machine, url: {action: "create"}, method: :post) do |f| %>
+  <% if @current_layer_count %>
+    <ul>
+       <li>
+        <%= f.label :current_layer_count_label, 'Layer Count', :class => "layer-count  label" %>
+        <%= f.label :current_layer_count, @current_layer_count.to_f.to_i, :class => "layer-count label-information" %>
+        <%= hidden_field_tag :current_layer_count, @current_layer_count %>
+        <%= hidden_field_tag :pallet_id, flash[:pallet_id] %>
+        <%= hidden_field_tag :role, flash[:data] %>
       </li>
       <li>
         <%= f.label :serial_number, 'Serial', :class => "serial label" %>
@@ -27,5 +47,6 @@
       </li>
     </ul>
     <%= f.submit 'Submit', :class => 'button submit small', :id => "submit" %>
+    <% end %>
   <% end %>
 </div>
