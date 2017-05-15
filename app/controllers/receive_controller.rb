@@ -37,7 +37,7 @@ class ReceiveController < ApplicationController
     end
 
     if current_pallet_count <= 0 
-        flash[:notice] = "Pallet empty"
+        flash[:notice] = "Pallet full"
         flash[:data] = params[:machine][:role]
         flash[:pallet_id] = pallet_id 
         flash[:type] = "error"
