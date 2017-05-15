@@ -31,3 +31,6 @@ log/*
 
 # Ignore Devise config
 /config/initializers/devise.rb
+
+# Ignore the dotenv file
+.env
