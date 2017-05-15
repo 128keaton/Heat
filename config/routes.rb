@@ -59,6 +59,8 @@ Rails.application.routes.draw do
 
   post 'receive/create' => 'receive#create'
 
+  post 'receive/load_information' => 'receive#load_information'
+
   get 'roles/index'
 
   get 'roles/destroy'
