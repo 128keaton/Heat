@@ -15,6 +15,7 @@
 
 * Rails 
 
+#### Basic Setup:
 
 1. Download (or clone) the repository: `git clone https://github.com/128keaton/Heat/`
 
@@ -22,10 +23,11 @@
 
 3. Setup [Devise](https://github.com/plataformatec/devise) appropriately: `mv config/initializers/devise.example.rb config/initializers/devise.rb`
 
-3. Go: `rails s`
+4. Go: `rails s`
+
 
 ### Known Issues:
-* **Finalize does not work--yet!**
+* Using Google OAuth, sometimes you have to login *twice*.
 
 
 ### Screenshots:
