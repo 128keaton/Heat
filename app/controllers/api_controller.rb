@@ -80,6 +80,31 @@ class ApiController < ApplicationController
 		end
 	end
 
+	def set_asset_tag
+		serial = params[:serial]
+		asset_tag = params[:asset_tag]
+		machine = Machine.where(serial_number: serial)[0]
+		if machine
+			school = School.where(name: machine[:location])[0]
+			if school
+				role = machine[:role]
+				if role
+					machine.update(client_asset_tag: asset_tag )
+					render json: {"message" => "Successfully set asset tag"}
+				else
+					# no role
+					render json: {"error" => "No role found for machine"}
+				end
+			else
+				# no school
+				render json: {"error" => "No school found for machine"}
+			end
+		else
+			render json: {"error" => "No machine found for serial"}
+		end
+	end
+
+
 	def index
 
 	end

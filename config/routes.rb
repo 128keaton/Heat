@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   post 'api/image' => 'api#image'
 
+  post 'api/asset_tag' => 'api#set_asset_tag'
+
   post 'api/deploy' => 'api#mark_as_deployed'
 
   get 'api/hostname' => 'api#hostname'
