@@ -89,8 +89,13 @@ class ApiController < ApplicationController
 			if school
 				role = machine[:role]
 				if role
-					machine.update(client_asset_tag: asset_tag )
-					render json: {"message" => "Successfully set asset tag"}
+					if asset_tag
+						machine.update(client_asset_tag: asset_tag )
+						render json: {"message" => "Successfully set asset tag"}
+					else
+						# no tag
+						render json: {"error" => "No asset tag passed"}
+					end
 				else
 					# no role
 					render json: {"error" => "No role found for machine"}
