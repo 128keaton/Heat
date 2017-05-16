@@ -27,7 +27,7 @@
           <div class="roles-quantities">
             <h1 class="role-quantities-title"><%= @school%>:</h1>
              <% @roles.each do |role| %>
-              <h2 class="role-quantities"><%= role[:name]%>: <%= get_quantity_for(@school.name, role[:name]) %>/<%= @school.quantity[role[:name]] %></h2>
+              <h2 class="role-quantities"><%= role[:name]%>: <%= get_quantity_for(@school, role[:name]) %>/<%= @school.quantity[role[:name]] %></h2>
             <% end %>
           </div>
         </li>
