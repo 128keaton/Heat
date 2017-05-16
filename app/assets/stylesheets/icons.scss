@@ -23,6 +23,12 @@
     background-color: #0c0c0c;
 }
 
+.edit {
+    -webkit-mask-image: image-url("edit.svg");
+    background-color: #0c0c0c;
+}
+
+
 .roles {
     -webkit-mask-image: image-url("roles.svg");
     background-color: #0c0c0c;

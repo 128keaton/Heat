@@ -59,6 +59,8 @@ Rails.application.routes.draw do
 
   post 'receive/create' => 'receive#create'
 
+  post 'receive/load_information' => 'receive#load_information'
+
   get 'roles/index'
 
   get 'roles/destroy'
@@ -72,6 +74,14 @@ Rails.application.routes.draw do
   get 'note/index'
 
   post 'note/notate' => 'note#notate'
+
+  get '/schools/edit' => 'schools#edit'
+
+  post 'schools/update' => 'schools#update'
+
+  get 'schools/:id' => 'schools#edit'
+
+  post 'schools/:id' => 'schools#edit'
 
   # Assign links to controllers/views
   get '/school' => 'school#index'

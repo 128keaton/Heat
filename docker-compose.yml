@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  postgres:
+    image: 'postgres'
+    environment:
+      POSTGRES_USER: 'heat'
+      POSTGRES_PASSWORD: 'reviveit'
+    ports:
+      - '5434:5432'
+    volumes:
+      - 'postgresql:/var/lib/postgresql/data'
+
+  frontend:
+    depends_on:
+      - 'postgres'
+    build: .
+    ports:
+      - '3001:3030'
+    volumes:
+      - '.:/Heat'
+    env_file:
+      - '.env'
+
+volumes:
+  postgresql:
