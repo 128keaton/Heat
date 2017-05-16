@@ -26,7 +26,7 @@
       <% @school = School.where(name: @school)[0] %>
         <li>
           <div class="roles-quantities">
-            <h1 class="role-quantities-title"><%= @school%>:</h1>
+            <h1 class="role-quantities-title"><%= @school.name %>:</h1>
              <% @roles.each do |role| %>
               <h2 class="role-quantities"><%= role[:name]%>: <%= get_quantity_for(@school.name, role[:name]) %>/<%= @school.quantity[role[:name]] %></h2>
             <% end %>
