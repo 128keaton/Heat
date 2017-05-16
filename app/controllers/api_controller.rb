@@ -3,7 +3,6 @@ class ApiController < ApplicationController
 	def hostname
 		serial = params[:serial]
 		machine = Machine.where(serial_number: serial)[0]
-		hostname = {}
 		if machine
 			if machine[:role]
 				role = Role.where(name: machine[:role])[0]
@@ -113,4 +112,4 @@ class ApiController < ApplicationController
 	def index
 
 	end
-	end
+end
