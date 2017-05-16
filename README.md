@@ -25,6 +25,25 @@
 
 4. Go: `rails s`
 
+#### Docker Compose:
+
+(for Ubuntu 14.04+)
+
+1. Download Docker:
+
+  ```
+   $ sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+   $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+   $ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+   $ sudo apt-get update && sudo apt-get install docker-ce
+  ```
+
+2. Download Docker Compose: `curl -L https://github.com/docker/compose/releases/download/$dockerComposeVersion/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose`
+
+3. Clone this repository somewhere safe: `cd ~/Documents/ && git clone https://github.com/128keaton/Heat/`
+
+4. Go: `docker-compose up --build`
+   
 
 ### Known Issues:
 * Using Google OAuth, sometimes you have to login *twice*.
