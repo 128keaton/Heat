@@ -38,7 +38,10 @@
    $ sudo apt-get update && sudo apt-get install docker-ce
   ```
 
-2. Download Docker Compose: `curl -L https://github.com/docker/compose/releases/download/$dockerComposeVersion/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose`
+2. Download Docker Compose: 
+```
+curl -L https://github.com/docker/compose/releases/download/$dockerComposeVersion/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+```
 
 3. Clone this repository somewhere safe: `cd ~/Documents/ && git clone https://github.com/128keaton/Heat/`
 
