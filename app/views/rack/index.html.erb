@@ -24,7 +24,7 @@
       <% if ENV['ASSET_TAG'] || ENV['ASSET_TAG'] == true%>
       <li>
         <%= f.label :asset_tag, 'Asset Tag', :class => "asset label" %>
-        <%= f.text_field :reviveit_asset_tag, :class => "serial text-input", :placeholder => "441LMH" %>
+        <%= f.text_field :reviveit_asset_tag, :class => "serial text-input", :placeholder => "50252" %>
       </li>
       <li>
         <%= f.label :asset_tag, 'Cust. Asset Tag', :class => "client-asset label" %>
@@ -33,7 +33,7 @@
       <% end %>
       <li>
         <%= f.label :rack_label, 'Rack', :class => "serial label" %>
-        <%= f.text_field :rack, :class => "serial text-input", :placeholder => "3-1-3" %>
+        <%= f.text_field :rack, :class => "serial text-input", :placeholder => "441LMH" %>
       </li>
     </ul>
     <%= f.submit 'Submit', :class => 'button submit small', :id => "submit", :disabled => "disabled" %>
