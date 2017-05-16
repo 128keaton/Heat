@@ -22,3 +22,6 @@ script:
 before_script:
   - cp config/database.travis.yml config/database.yml
   - psql -c 'create database test;' -U postgres
+
+notifications:
+    slack: er2nationwidesurplus:ONKzRU9NjR46JUfgUn9t4xB3
