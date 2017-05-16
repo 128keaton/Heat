@@ -1,4 +1,4 @@
 production:
-  key: asdjkasdjklasdklj
+  key: <%= ENV["SECRET_KEY_BASE"] %>
 development:
   key: test

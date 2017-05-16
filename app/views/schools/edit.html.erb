@@ -1,34 +1,16 @@
 <!-- 
-  Refactored by Keaton
-  May 12th, 2017
-  schools/index.html.erb
-  A view which displays the schools/locations and allows the user to create a new school/location
+  May 15th, 2017
+  schools/edit.html.erb
+  A view which edits a school/location
 -->
 
 <!-- Render premade navigation bar -->
-<%= render "shared/nav", title: "Schools", bar_class: "def" %>
+<%= render "shared/nav", title: "Edit", bar_class: "def" %>
 
 <!-- Displays a table of schools/locations -->
 <div class="inner-wrapper">
-  <table align="center" class="school-form">
-    <tr>
-      <th>Name:</th>
-      <th>School Code</th>
-      <th>Blended Learning</th>
-      <th>Actions</th>
-    </tr>
-    <% School.all.each do |skool| %>
-      <tr>
-        <td><%= skool[:name] %></td>
-        <td><%= skool[:school_code] %></td>
-        <td><% if skool[:blended_learning] == true %>Yes<% else %>No<% end %></td>
-        <td><%= link_to raw('<i class="ic close red-icon"></i>'), skool, method: :delete %><%= link_to raw('<i class="ic edit"></i>'), skool, method: :edit %></td>
-      </tr>
-    <% end %>
-  </table>
-
   <!-- Displays a form for new form creation -->
-  <%= form_for(@school, url: {action: "create"}, method: :post) do |f| %>
+  <%= form_for(@school, url: {action: "update"}, method: :post) do |f| %>
     <table align="center" class="school-form-table">
       <tr class="flex-form">
         <td class="school-form">
@@ -46,7 +28,7 @@
         <tr class="flex-form">
           <td class="school-form">
             <%= f.label :school_code_label, "#{role[:name]} Role Quantity:", :class => "label role-schools" %>
-            <input type="number" class="school-role text-input" placeholder="200" name="<%= role[:name]%>-role">
+            <input type="number" class="school-role text-input" placeholder="200" value= <%= @school.quantity[role[:name]] %> name="<%= role[:name]%>-role">
           </td>
         </tr>
       <% end %>

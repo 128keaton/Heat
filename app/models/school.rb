@@ -1,3 +1,10 @@
 class School < ApplicationRecord
         validates :school_code, uniqueness: true
+        validate :blank_but_not_nil
+
+        def blank_but_not_nil
+                if self.quantity.nil?
+                        errors.add :quantity, 'cannot be nil'
+                end
+        end
 end

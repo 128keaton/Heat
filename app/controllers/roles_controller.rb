@@ -21,6 +21,8 @@ class RolesController < ApplicationController
      @role.specs = specsHash
      @role.name = params[:role][:name]
      @role.suffix = params[:role][:suffix]
+     @role.pallet_count = params[:role][:pallet_count]
+     @role.pallet_layer_count = params[:role][:pallet_layer_count]
 
     if @role.valid?
        @role.save
