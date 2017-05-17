@@ -16,6 +16,7 @@ class DeployController < ApplicationController
 
 		@machine = Machine.new
 		@schools = School.all
+
 	end
 
 	def get_quantity_for(location, role)
@@ -36,7 +37,7 @@ class DeployController < ApplicationController
 		@machine = params[:machine]
 		if Machine.where(rack: @machine[:rack], location: params[:school]).length != 0
 			existingMachine = Machine.where(rack: @machine[:rack])
-			existingMachine.update(rack: nil, deployed: {"date" => Time.now.strftime("%d/%m/%Y %H:%M")})
+			existingMachine.update(rack: nil, deployed: {"date" => Time.now.strftime("%d/%m/%Y %H:%M"), "user" => current_user.name})
 			flash[:notice] = "Machine was added to deployment list"
 			flash[:type] = "success"
 			flash[:school] = params[:school]

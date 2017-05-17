@@ -12,5 +12,5 @@
 <div class="welcome-wrapper">
     <h1 class="welcome-text-header" id = "notice error">Error!</h1>
     <p class="welcome-text">You need to use your ER2 email address</p>
-    <%= link_to "Login", user_google_oauth2_omniauth_authorize_path, :class => "login-link modal-button" %>
+    <%= render "shared/login"%>
 </div>
