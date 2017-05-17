@@ -103,8 +103,10 @@ Rails.application.routes.draw do
   get '/notes' => 'note#index'
   get '/admin' => 'admin_tools#index'
 
-  root 'welcome#login'
+  #root 'welcome#login'
+  root 'root#index'
 
-  match "/home", to: "root#index", via: [:get]
+  get '/login' => 'welcome#login'
+  #match "/home", to: "root#index", via: [:get]
 
 end

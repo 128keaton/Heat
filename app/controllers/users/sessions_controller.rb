@@ -15,11 +15,15 @@ class Users::SessionsController < Devise::SessionsController
         user.save
       end
 
-      if user_signed_in? == false
-        sign_in(user)
-        redirect_to "/home"
+      if user_signed_in?
+        redirect_to "/"
       else
-        redirect_to "/home"
+        if params[:login] && params[:login] == "yes"
+          sign_in user
+          redirect_to "/"
+        else
+          redirect_to "/login"
+        end
       end
     end
   end
