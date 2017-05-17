@@ -85,6 +85,8 @@ Rails.application.routes.draw do
 
   post 'schools/:id' => 'schools#edit'
 
+  get 'admin_tools/index'
+
   # Assign links to controllers/views
   get '/school' => 'school#index'
   get '/deploy' => 'deploy#index'
@@ -99,6 +101,7 @@ Rails.application.routes.draw do
   get 'deploy/assign' => 'deploy#index'
   get 'users/welcome' => 'welcome#index'
   get '/notes' => 'note#index'
+  get '/admin' => 'admin_tools#index'
 
   root 'welcome#login'
 
