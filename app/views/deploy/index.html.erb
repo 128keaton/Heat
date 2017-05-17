@@ -36,8 +36,6 @@
     </ul>
   <% end %>
 </div>
-</div>
-
 <!-- Finally, pull machine from rack-->
 <div class="inner-wrapper">
  <%= form_for(@machine, url: {action: "pull"}, method: :post) do |f| %>
@@ -51,5 +49,8 @@
       <%= f.submit 'Submit', :class => 'button submit small', :id => "submit", :disabled => "disabled"%>
   <% end %>           
 </div>
+</div>
+
+
 
 
