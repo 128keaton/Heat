@@ -1,0 +1,18 @@
+<!-- 
+  May 17th, 2017
+  admin_tools/index.html.erb
+  A view which displays the admin tools
+-->
+
+<!-- Renders alternative navigation bar -->
+<%= render "shared/nav", title: "Settings", bar_class: "def" %>
+
+<!-- Table with user profile and table of actions -->
+<div class="inner-wrapper">
+    <div class="button-grid">
+        <a class="button square first" href="/roles"><i class="roles ic ic-list"></i><span class="list-text">Roles</span></a>
+        <a class="button square" href="/schools"><i class="school ic ic-list"></i><span class="list-text">Schools</span></a>
+        <a class="button square" href="/notes"><i class="notes ic ic-list"></i><span class="list-text">Notes</span></a>
+        <a class="button square last" href="/status"><i class="status ic ic-list"></i><span class="list-text">Overview</span></a>
+    </div>
+</div>
