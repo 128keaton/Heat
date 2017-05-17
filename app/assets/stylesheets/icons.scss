@@ -33,7 +33,6 @@
     background-color: #0c0c0c;
 }
 
-
 .roles {
     -webkit-mask-image: image-url("roles.svg");
     background-color: #0c0c0c;
@@ -111,6 +110,20 @@
     background-color: #e83838;
 }
 
+.unbox-color,
+.receive-color {
+    background-color: #cddc39!important;
+}
+
+.deploy-color,
+.rack-color {
+    background-color: #4527a0!important;
+}
+
+.notes-color {
+    background-color: #ef6c00!important;
+}
+
 
 /* Positions */
 
@@ -124,8 +137,7 @@
 }
 
 .ic-list {
-    margin-left: 5px;
-    margin-right: 0;
+    background-color: #fff;
 }
 
 
