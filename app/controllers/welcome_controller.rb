@@ -8,7 +8,7 @@ class WelcomeController < ApplicationController
   end
 
   def failure
-     notice = nil
+    notice = nil
     alert = nil
   end
 end

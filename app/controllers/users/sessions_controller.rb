@@ -10,7 +10,8 @@ class Users::SessionsController < Devise::SessionsController
         user = User.new(email: 'test@me.com',
                  password: 'ilovepancakes',
                  password_confirmation: 'ilovepancakes',
-                 image: ActionController::Base.helpers.asset_path("logo-alt.png"))
+                 image: ActionController::Base.helpers.asset_path("logo-alt.png"),
+                 name: "Test User")
         user.save
       end
 
