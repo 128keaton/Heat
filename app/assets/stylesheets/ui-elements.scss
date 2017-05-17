@@ -134,6 +134,17 @@ input.cmn-toggle-round:checked+label:after {
     font-size: 16px;
 }
 
+.rounded-button{
+        width: 50px;
+    height: 50px;
+    display: flex;
+    padding: -10px;
+    justify-content: space-around;
+    align-items: center;
+    /* justify-content: center; */
+    background-color: gray;
+    border-radius: 100%;
+}
 .link {
     text-decoration: none;
     margin-bottom: 12px;
