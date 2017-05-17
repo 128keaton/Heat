@@ -17,9 +17,9 @@ class Users::SessionsController < Devise::SessionsController
 
       if user_signed_in? == false
         sign_in(user)
-        redirect_to controller: "/root"
+        redirect_to "/home"
       else
-        redirect_to controller: "/root"
+        redirect_to "/home"
       end
     end
   end
