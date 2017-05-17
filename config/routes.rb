@@ -105,4 +105,6 @@ Rails.application.routes.draw do
 
   root 'welcome#login'
 
+  match "/home", to: "root#index", via: [:get]
+
 end
