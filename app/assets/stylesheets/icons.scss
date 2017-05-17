@@ -23,6 +23,11 @@
     background-color: #0c0c0c;
 }
 
+.github {
+    -webkit-mask-image: image-url("github.svg");
+    background-color: #0c0c0c;
+}
+
 .edit {
     -webkit-mask-image: image-url("edit.svg");
     background-color: #0c0c0c;
