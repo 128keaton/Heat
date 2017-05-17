@@ -24,6 +24,16 @@ class DeployController < ApplicationController
 		return @machineArray.length
 	end
 
+	helper_method :get_quantity_for
+
+	def get_rack_range(location, role)
+		rack_array = []
+		Machine.where(location: location, role: role).each do |machine|
+			rack_array << machine[:rack]
+		end
+		return "#{rack_array.first} - #{rack_array.last}"
+	end
+	helper_method :get_rack_range
 
 	def load_schools
 		@school = params[:machine][:location]
@@ -31,7 +41,6 @@ class DeployController < ApplicationController
 		redirect_to action: 'index'
 	end
 
-	helper_method :get_quantity_for
 
 	def pull
 		@machine = params[:machine]
