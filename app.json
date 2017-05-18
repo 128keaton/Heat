@@ -1,0 +1,19 @@
+{
+  "name": "Heat",
+  "description": "",
+  "scripts": {
+  },
+  "env": {
+    "DB": "pgsql"
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku multi buildpack"
+    }
+  ]
+}
