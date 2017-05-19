@@ -6,7 +6,7 @@
 -->
 
 <!-- Render premade navigation bar -->
-<%= render "shared/nav", title: "Schools", bar_class: "def" %>
+<%= render "shared/nav", title: "Schools", bar_class: "def", link: "/admin" %>
 
 <!-- Displays a table of schools/locations -->
 <div class="inner-wrapper">
@@ -22,7 +22,7 @@
         <td><%= skool[:name] %></td>
         <td><%= skool[:school_code] %></td>
         <td><% if skool[:blended_learning] == true %>Yes<% else %>No<% end %></td>
-        <td><%= link_to raw('<i class="ic close red-icon"></i>'), skool, method: :delete %><%= link_to raw('<i class="ic edit"></i>'), skool, method: :edit %></td>
+        <td><%= link_to raw('<i class="ic close red-icon"></i>'), skool, method: :delete, data: { confirm: "Are you sure you want to delete #{skool[:name]}?"}  %><%= link_to raw('<i class="ic edit"></i>'), skool, method: :edit %></td>
       </tr>
     <% end %>
   </table>
