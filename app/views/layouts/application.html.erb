@@ -39,7 +39,7 @@
         <source src="/error.ogg" />  
       </audio> 
       <% if notice %>
-        <p onclick="$('#notice').slideUp();" id="notice <%= flash[:type]%>" class="notice <%= flash[:type]%>"><%= notice %></p>
+        <p onclick="$('#notice').slideUp();" id="notice <%= flash[:type]%>" class="notice <%= flash[:type]%> <% if flash[:type] == "error">large<% end %"> <%= notice %></p>
       <% elsif alert %>
         <p onclick="$('#alert').fade();" id="alert <%= flash[:type]%>" class="alert <%= flash[:type]%>"><%= alert %></p>
       <% end %>
