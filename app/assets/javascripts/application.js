@@ -14,24 +14,27 @@
 //= require jquery_ujs
 //= require turbolinks
 
-$(function () {
-    $(document).on('touchstart click', '.alert', function (e) {
+$(function() {
+    $(document).on('touchstart click', '.alert', function(e) {
         e.stopPropagation();
         $(".alert").slideUp();
 
     });
-    $(document).on('touchstart click', '.notice', function (e) {
+    $(document).on('touchstart click', '.notice', function(e) {
         e.stopPropagation();
         $(".notice").slideUp();
 
     });
 });
 
-$(document).ready(function () {
+$(document).ready(function() {
     if ($('#notice\\ error').length) {
         $("#audio-error").trigger('play')
         navigator.vibrate([500]);
         console.log("Error found")
+        $('#notice\\ error').animate({
+            height: '500'
+        })
     }
 
 });
