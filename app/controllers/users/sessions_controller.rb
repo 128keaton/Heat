@@ -12,7 +12,13 @@ class Users::SessionsController < Devise::SessionsController
                  name: "Test User")
         user.save
       end
-
+      # update our test user to admin
+        admin_list = Rails.configuration.api["admins"]
+        if admin_list.include? user.email
+            user.update_attribute :admin, true
+            user.save
+        end
+  
       if user_signed_in?
         redirect_to "/"
       else

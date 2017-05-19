@@ -4,6 +4,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.from_omniauth(request.env["omniauth.auth"])
 
     if @user.email.split("@").last == "er2.com"
+    
+        admin_list = Rails.configuration.api["admins"]
+        if admin_list.include? @user.email
+            @user.update_attribute :admin, true
+            @user.save
+        end
         if @user.persisted?
             sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
             set_flash_message(:notice, :success, :kind => "Google OAuth") if is_navigational_format?
