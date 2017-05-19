@@ -8,13 +8,23 @@
 <%= render "shared/nav", title: "Settings", bar_class: "def" %>
 
 <!-- Table with user profile and table of actions -->
-<div class="inner-wrapper">
-    <div class="button-grid">
-        <a class="button square first" href="/roles">
-            <div class="rounded-button"><i class="roles ic ic-list"></i></div><span class="list-text">Roles</span></a>
-        <a class="button square" href="/schools">
-            <div class="rounded-button"><i class="school ic ic-list"></i></div><span class="list-text">Schools</span></a>
-        <a class="button square last" href="/status">
-            <div class="rounded-button"><i class="status ic ic-list"></i></div><span class="list-text">Overview</span></a>
+<% if current_user.try(:admin?) %>
+    <div class="inner-wrapper" id="space-bottom">
+        <div class="button-grid">
+            <a class="button square first" href="/roles">
+                <div class="rounded-button"><i class="roles ic ic-list"></i></div><span class="list-text">Roles</span></a>
+            <a class="button square" href="/schools">
+                <div class="rounded-button"><i class="school ic ic-list"></i></div><span class="list-text">Schools</span></a>
+            <a class="button square last" href="/status">
+                <div class="rounded-button"><i class="status ic ic-list"></i></div><span class="list-text">Overview</span></a>
+        </div>
     </div>
-</div>
+    <% end %>
+        <% if current_user.try(:supervisor?) %>
+            <div class="inner-wrapper">
+                <div class="button-grid">
+                    <a class="button square last first" href="/mark_doa">
+                        <div class="rounded-button"><i class="roles ic ic-list"></i></div><span class="list-text">Mark DOA</span></a>
+                </div>
+            </div>
+            <% end %>
