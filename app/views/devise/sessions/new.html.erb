@@ -1,7 +1,10 @@
-<div class="nav-bar login"> 
-    <h1 class="nav-title">
-    Login
-    </h1>
-</div>
-<a href="/users/auth/google_oauth2">Log in with Google</a>
 
+
+<%= render "shared/alt_nav"%>
+
+<!-- Displays a login message and div -->
+<div class="welcome-wrapper">
+    <h1 class="welcome-text-header">Welcome</h1>
+    <p class="welcome-text">Login to get started!</p>
+    <%= render "shared/login"%>
+</div>
