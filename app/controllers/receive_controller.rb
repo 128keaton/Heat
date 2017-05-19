@@ -11,6 +11,10 @@ class ReceiveController < ApplicationController
 
     if flash[:current_layer_count]
        @current_layer_count = flash[:current_layer_count]
+       if @current_layer_count.to_f == 0 || @current_layer_count.to_f < 0
+        @layer_count = flash[:layer_count]
+        @current_layer_count = @layer_count 
+      end
     end
   end
 
@@ -32,7 +36,7 @@ class ReceiveController < ApplicationController
     layer_count = Role.where(name: params[:machine][:role])[0].pallet_layer_count
     @current_layer_count = current_pallet_count % layer_count
 
-    if @current_layer_count == 0
+    if @current_layer_count.to_f == 0 || @current_layer_count.to_f < 0
       @current_layer_count = layer_count 
     end
 
@@ -42,14 +46,15 @@ class ReceiveController < ApplicationController
         flash[:pallet_id] = pallet_id 
         flash[:type] = "error"
         redirect_to action: 'index'
+        flash[:layer_count] = layer_count
     else
        redirect_to action: 'index'
        flash[:pallet_id] = pallet_id 
        flash[:data] = params[:machine][:role]
        flash[:current_layer_count] = @current_layer_count
+       flash[:layer_count] = layer_count
     end
-    test_hash = {"Current Layer Count" => @current_layer_count, "Laptops scanned from pallet" => pallet_count_for_id, "Pallet TOTAL count" => total_count,
-     "Laptops left on pallet" => current_pallet_count, "Layer count as reported from roles" => layer_count}
+    #test_hash = {"Current Layer Count" => @current_layer_count, "Laptops scanned from pallet" => pallet_count_for_id, "Pallet TOTAL count" => total_count, "Laptops left on pallet" => current_pallet_count, "Layer count as reported from roles" => layer_count}
     
   end
   def create
