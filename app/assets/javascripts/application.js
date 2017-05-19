@@ -44,6 +44,8 @@ $(document).ready(function() {
             scrollTop: $('#notice\\ error').offset().top
         }, 500);
         document.activeElement.blur();
+        window.Keyboard.hide();
+        $("input").blur();
     }
 
 });
