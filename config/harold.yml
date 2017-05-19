@@ -2,3 +2,5 @@ production:
   key: <%= ENV["SECRET_KEY_BASE"] %>
 development:
   key: test
+  admins:
+  - test@me.com
