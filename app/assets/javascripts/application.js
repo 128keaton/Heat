@@ -31,10 +31,10 @@ $(document).ready(function() {
     if ($('#notice\\ error').length) {
         $("#audio-error").trigger('play')
         navigator.vibrate([500]);
-        console.log("Error found")
         $('#notice\\ error').animate({
             height: '500'
         })
+         $('html,body').animate({scrollTop:$('#notice\\ error').offset().top}, 500);
     }
 
 });

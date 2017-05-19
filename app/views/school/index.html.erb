@@ -37,6 +37,7 @@
   <% end %>
 </div>
 
+<% if @school %>
 <!-- Assign serial to location -->
 <div class="inner-wrapper">
   <%= form_for(@machine, url: {action: "assign"}, method: :post) do |f| %>
@@ -54,4 +55,5 @@
     <%= f.submit 'Submit', :class => 'button submit small', :id => "submit", :disabled => "disabled"%>
   <% end %>
 </div>
+<% end %>
 
