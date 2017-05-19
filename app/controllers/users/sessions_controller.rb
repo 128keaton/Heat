@@ -17,6 +17,9 @@ class Users::SessionsController < Devise::SessionsController
         if admin_list.include? user.email
             user.update_attribute :admin, true
             user.save
+        else
+           user.update_attribute :admin, false
+            user.save
         end
   
       if user_signed_in?

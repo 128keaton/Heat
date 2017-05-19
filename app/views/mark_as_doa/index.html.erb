@@ -1,0 +1,29 @@
+<!-- 
+  May 19th, 2017
+  mark_as_doa/index.html.erb
+  A view which marks the machine as DOA
+-->
+
+<!-- Render premade navigation bar -->
+<%= render "shared/nav", title: "Mark as DOA", bar_class: "def" %>
+
+
+<!-- Creates a form for 'Note' -->
+<div class="inner-wrapper">
+    <%= form_for(@machine, url: {action: "mark_doa"}, method: :post) do |f| %>
+        <ul>
+            <li>
+                <%= f.label :serial_number, 'Serial', :class => "serial label" %>
+                    <%= f.text_field :serial_number, :class => "serial text-input", :placeholder => "PPPP" %>
+            </li>
+            <li>
+                <%= f.label :blended_learning_label, 'DOA', :class => "label blended-learning" %>
+                    <div class="switch">
+                        <%= f.check_box :doa, :class => "cmn-toggle cmn-toggle-round blended_learning", :id => "cmn-toggle-1"  %>
+                            <label class="switch-label" for="cmn-toggle-1"></label>
+                    </div>
+                    <%= f.submit 'Mark', data: { confirm: 'Are you sure you want to mark as DOA? This action cannot be reversed.' } %>
+            </li>
+        </ul>
+        <% end %>
+</div>
