@@ -2,9 +2,7 @@ class Users::SessionsController < Devise::SessionsController
   # GET /resource/sign_in
   def new
     # Checks for our production environment
-    if ENV["RAILS_ENV"] && ENV["RAILS_ENV"] == "production"
-      redirect_to user_google_oauth2_omniauth_authorize_path
-    else  
+    if !ENV["RAILS_ENV"] ||  ENV["RAILS_ENV"] != "production"
       user = User.where(email: "test@me.com")[0]
       if user == nil
         user = User.new(email: 'test@me.com',
