@@ -282,6 +282,7 @@ input[type="submit"]:disabled {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+
 }
 
 .success {
@@ -290,4 +291,5 @@ input[type="submit"]:disabled {
 
 .error {
     background-color: #f13838;
+    height: 500px;
 }
