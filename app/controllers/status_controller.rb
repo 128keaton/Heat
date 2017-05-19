@@ -10,4 +10,10 @@ class StatusController < ApplicationController
     @machines = Machine.all
     @schools = School.all
   end
+
+ 	def get_quantity_for(location, role)
+		@machineArray = Machine.where(location: location, role: role)
+		return @machineArray.length
+	end
+  helper_method :get_quantity_for
 end

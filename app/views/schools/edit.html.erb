@@ -11,17 +11,13 @@
 <div class="inner-wrapper">
   <!-- Displays a form for new form creation -->
   <%= form_for(@school, url: {action: "update"}, method: :post) do |f| %>
+    <h1>Editing <%= @school.name %></h1>
     <table align="center" class="school-form-table">
-      <tr class="flex-form">
-        <td class="school-form">
-          <%= f.label :name_label, 'Name', :class => "label name" %>
-          <%= f.text_field :name, :class => "name text-input", :placeholder => "White Station" %>
-        </td>
-      </tr>
       <tr class="flex-form">
         <td class="school-form">
           <%= f.label :school_code_label, 'School Code', :class => "label school-code" %>
           <%= f.text_field :school_code, :class => "school-code text-input", :placeholder => "1738-A" %>
+          <%= hidden_field_tag :name, @school.name %>
         </td>
       </tr>
       <% @roles.each do |role|%>

@@ -18,6 +18,7 @@
       <th>Name:</th>
       <th>School Code:</th>
       <th>Blended Learning:</th>
+      <th>Role Quantities</th>
     </tr>
 
     <!-- Iterates through schools-->
@@ -26,6 +27,13 @@
         <td><%= school[:name] %></td>
         <td><%= school[:school_code] %></td>
         <td><% if school[:blended_learning] == true %>Yes<% else %>No<% end %></td>
+        <td>
+          <div class="roles-quantities">
+            <% @roles.each do |role| %>
+             <%= role[:name]%>: <%= get_quantity_for(school.name, role[:name]) %>/<%= school.quantity[role[:name]] %>
+            <% end %>
+          </div>
+      </td>
       </tr>
     <% end %>
   </table>

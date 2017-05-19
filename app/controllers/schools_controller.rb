@@ -22,11 +22,20 @@ class SchoolsController < ApplicationController
   end
 
   def update
-    @school = School.where(school_code: params[:school][:school_code])[0]
+     @school = School.where(school_code: params[:school][:school_code])[0]
+     if @school == nil
+        @school = School.where(name: params[:name])[0]
+     end
+     if params[:school][:school_code]
+      @school.school_code = params[:school][:school_code]
+     end
+
+
      quantities = {}
      Role.all.each do |role|
       quantities[role.name] = params["#{role.name}-role"]
      end
+
      @school.quantity = quantities
     if @school.valid?
        @school.save
