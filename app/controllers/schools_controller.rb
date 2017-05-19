@@ -1,6 +1,11 @@
 class SchoolsController < ApplicationController
   before_action :authenticate_user!
   def index
+    if !current_user.try(:admin?)
+      flash[:notice] = "You need to be an administrator"
+      flash[:type] = "error"
+       redirect_to "/"
+    end
     @school = School.new
     @roles = Role.all
     if flash[:notice]

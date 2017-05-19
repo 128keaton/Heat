@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   devise_for  :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :sessions => "users/sessions" }
   # Define resources for our models.
   resources :machines
@@ -88,6 +87,9 @@ Rails.application.routes.draw do
 
   get 'admin_tools/index'
 
+  get 'mark_as_doa/index'
+  post 'mark_as_doa/mark_doa' => 'mark_as_doa#mark_doa'
+
   # Assign links to controllers/views
   get '/school' => 'school#index'
   get '/deploy' => 'deploy#index'
@@ -103,6 +105,7 @@ Rails.application.routes.draw do
   get 'users/welcome' => 'welcome#index'
   get '/notes' => 'note#index'
   get '/admin' => 'admin_tools#index'
+  get '/mark_doa' => 'mark_as_doa#index'
 
   #root 'welcome#login'
   root 'root#index'
