@@ -38,7 +38,7 @@ $(document).ready(function() {
         $("#audio-error").trigger('play')
         navigator.vibrate([500]);
         $('#notice\\ error').animate({
-            height: '300'
+            height: '120'
         })
         $('html,body').animate({
             scrollTop: $('#notice\\ error').offset().top
