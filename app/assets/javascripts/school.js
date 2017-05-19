@@ -14,9 +14,17 @@ $(document).ready(function() {
             return $('#submit').attr('disabled', 'disabled');
         }
     });
-    $("#machine_serial_number").focus();
 
-        $('.text-input').keypress(function (event) {
+    if (!$('#notice\\ error').length) {
+        $("#machine_serial_number").focus();
+        console.log("doogle");
+    } else {
+        document.activeElement.blur();
+        window.Keyboard.hide();
+        $("input").blur();
+    }
+    
+    $('.text-input').keypress(function(event) {
         var currentBoxNumber, nextBox, textboxes;
         if (event.keyCode === 13) {
             textboxes = $('.text-input');
