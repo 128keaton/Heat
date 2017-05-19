@@ -1,5 +1,7 @@
 production:
   key: <%= ENV["SECRET_KEY_BASE"] %>
+  admins:
+  - keaton.burleson@er2.com
 development:
   key: test
   admins:
