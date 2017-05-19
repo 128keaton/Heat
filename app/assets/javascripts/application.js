@@ -14,6 +14,12 @@
 //= require jquery_ujs
 //= require turbolinks
 
+HTMLElement.prototype.defaultblur = HTMLElement.prototype.blur;
+HTMLElement.prototype.blur = function() {
+    this.defaultblur();
+    window.Keyboard.hide();
+};
+
 $(function() {
     $(document).on('touchstart click', '.alert', function(e) {
         e.stopPropagation();
@@ -34,8 +40,10 @@ $(document).ready(function() {
         $('#notice\\ error').animate({
             height: '300'
         })
-         $('html,body').animate({scrollTop:$('#notice\\ error').offset().top}, 500);
-         document.activeElement.blur();
+        $('html,body').animate({
+            scrollTop: $('#notice\\ error').offset().top
+        }, 500);
+        document.activeElement.blur();
     }
 
 });
