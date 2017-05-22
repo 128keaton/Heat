@@ -67,7 +67,7 @@ def exit_with(data, pallet_id, layer_count, current_pallet_count, machine)
         flash[:layer_count] = layer_count
       end
   else
-    if machine.valid?
+    if machine.valid? && Machine.where(serial_number: machine.serial_number).length == 0
        machine.save
         flash[:notice] = "Serial has been added."
         flash[:data] = data
@@ -97,7 +97,7 @@ end
     @machine.pallet_id = params[:pallet_id]
     @machine.role = params[:role]
 
-    if @machine.valid?
+    if @machine.valid? && Machine.where(serial_number: machine.serial_number).length == 0
       current_layer_count = params[:current_layer_count].to_f - 1
     else
       current_layer_count = params[:current_layer_count].to_f
