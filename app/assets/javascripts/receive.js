@@ -3,7 +3,7 @@ $(document).ready(function() {
     $('#submit-choose').attr('disabled', 'disabled');
 
     $('#machine_serial_number').bind('input', function() {
-        check_for_submit();
+        check_for_submit('machine_pallet_id');
     });
 
     $('#machine_pallet_id').bind('input', function() {
@@ -22,10 +22,3 @@ function check_for_submit_choose() {
     }
 }
 
-function check_for_submit() {
-    if ($('#machine_serial_number').val().length === 7 && $('#machine_pallet_id').val()) {
-        return $('#submit').removeAttr('disabled');
-    } else {
-        return $('#submit').attr('disabled', 'disabled');
-    }
-}
