@@ -27,9 +27,8 @@ class SchoolController < ApplicationController
 
 	def build_reply(machine) 
 		user_name = current_user.name
-		current_date = Time.now.strftime("%d/%m/%Y %H:%M")
 		location =  params[:school]
-		unboxed = {"date" => current_date, "user" => user_name}
+		unboxed = {"date" => Time.now.strftime("%d/%m/%Y %H:%M"), "user" => user_name}
 		role = existing_machine[:role]
 		passed_role = params[:machine][:role]
 
@@ -40,7 +39,8 @@ class SchoolController < ApplicationController
 		machine.update(location: location,  unboxed: unboxed, role: role)
 	end
 	def assign
-		machine_array = Machine.where(serial_number: params[:machine][:serial_number])
+		serial_number = params[:machine][:serial_number]
+		machine_array = Machine.where(serial_number: serial_number)
 		if machine_array.length != 0
 			existing_machine = machine_array[0]
 			build_reply(existing_machine)
