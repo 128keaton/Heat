@@ -1,5 +1,6 @@
 class ReceiveController < ApplicationController
   before_action :authenticate_user!
+
   def index
     @machine = Machine.new
     @roles = Role.all
@@ -24,16 +25,20 @@ class ReceiveController < ApplicationController
     flash[:pallet_id] = pallet_id
 
     # Set the Pallet Total Count to what is defined in our role
-    total_count = Role.where(name: params[:machine][:role])[0].pallet_count
+    role_count = Role.where(name: params[:machine][:role])
+    total_count = role_count[0].pallet_count
 
     # Set to zero by default, incase nil
     pallet_count_for_id = 0
     if Machine.where(pallet_id: pallet_id).count
-      pallet_count_for_id = Machine.where(pallet_id: pallet_id).count
+      machine_by_pallet = Machine.where(pallet_id: pallet_id)
+      pallet_count_for_id = machine_by_pallet.count
     end
 
     current_pallet_count = total_count.to_f - pallet_count_for_id.to_f
-    layer_count = Role.where(name: params[:machine][:role])[0].pallet_layer_count
+    role_by_name = Role.where(name: params[:machine][:role])
+    layer_count = role_by_name[0].pallet_layer_count
+
     @current_layer_count = current_pallet_count % layer_count
 
     if @current_layer_count.to_f == 0 || @current_layer_count.to_f < 0
@@ -54,9 +59,8 @@ class ReceiveController < ApplicationController
        flash[:current_layer_count] = @current_layer_count
        flash[:layer_count] = layer_count
     end
-    #test_hash = {"Current Layer Count" => @current_layer_count, "Laptops scanned from pallet" => pallet_count_for_id, "Pallet TOTAL count" => total_count, "Laptops left on pallet" => current_pallet_count, "Layer count as reported from roles" => layer_count}
-    
   end
+
   def create
     @machine = Machine.new()
 
@@ -64,6 +68,8 @@ class ReceiveController < ApplicationController
     @machine.serial_number = params[:machine][:serial_number]
     @machine.pallet_id = params[:pallet_id]
     @machine.role = params[:role]
+
+    current_layer_count = params[:current_layer_count].to_f - 1
     # Checks if the machine is valid
     if @machine.valid?
        # Saves the machine
@@ -71,7 +77,7 @@ class ReceiveController < ApplicationController
         flash[:notice] = "Serial has been added."
         flash[:data] = @machine[:role]
         flash[:type] = "success"
-        flash[:current_layer_count] = params[:current_layer_count].to_f - 1
+        flash[:current_layer_count] = current_layer_count
         flash[:pallet_id] = params[:pallet_id]
         redirect_to action: 'index'
     else
