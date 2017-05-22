@@ -49,7 +49,7 @@
       </li>
       <li>
         <%= f.label :role_label, 'Role', :class => "serial label" %>
-        <%= f.select(:role, @roles.map { |value| [ value[:name], value[:name] ] }, {:selected => flash[:data]}, { :class => 'role select-input' }) %>
+        <%= f.select(:role, @roles.map { |value| [ value[:name], value[:name] ] }, {:include_blank => true}, { :class => 'role select-input'}) %>
       </li>
       <li>
         <%= f.label :asset_tag, 'Cust. Asset Tag', :class => "client-asset label" %>

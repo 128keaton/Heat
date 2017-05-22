@@ -11,6 +11,7 @@ class SchoolController < ApplicationController
 			@school = flash[:school]
       		params[:school] = @school
 		end
+		
 	end
 
 	def get_quantity_for(location, role)
@@ -27,12 +28,19 @@ class SchoolController < ApplicationController
 	def assign
 		@user = current_user
 		if Machine.where(serial_number: params[:machine][:serial_number]).length != 0
-			existingMachine = Machine.where(serial_number: params[:machine][:serial_number])
+			existing_machine = Machine.where(serial_number: params[:machine][:serial_number])[0]
+			
 			user_name = @user.name
 			current_date = Time.now.strftime("%d/%m/%Y %H:%M")
 			location =  params[:school]
 			unboxed = {"date" => current_date, "user" => user_name}
-			existingMachine.update(location: params[:school], unboxed: unboxed, role: params[:machine][:role])
+			role = existing_machine[:role]
+
+			if params[:machine][:role] && params[:machine][:role] != ""
+				role = params[:machine][:role]
+			end
+
+			existing_machine.update(location: params[:school], unboxed: unboxed, role: params[:machine][:role])
 
 			flash[:notice] = "Machine was assigned"
 			flash[:school] = params[:school]
