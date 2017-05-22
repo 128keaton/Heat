@@ -23,5 +23,3 @@ VOLUME ["$INSTALL_PATH/public"]
 
 
 CMD puma -p 3030
-
-RUN  db:drop db:create db:migrate
