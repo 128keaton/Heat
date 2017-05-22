@@ -2,16 +2,16 @@ $(document).ready(function() {
     $('#submit').attr('disabled', 'disabled');
     $('#machine_serial_number').bind('input', function() {
         if ($('#machine_serial_number').val().length === 7 && $('#machine_client_asset_tag').val()) {
-            return $('#submit').removeAttr('disabled');
+            return enable_field();
         } else {
-            return $('#submit').attr('disabled', 'disabled');
+            return disable_field();
         }
     });
     $('#machine_client_asset_tag').bind('input', function() {
         if ($('#machine_serial_number').val().length === 7 && $('#machine_client_asset_tag').val()) {
-            return $('#submit').removeAttr('disabled');
+            return enable_field();
         } else {
-            return $('#submit').attr('disabled', 'disabled');
+            return disable_field();
         }
     });
 
@@ -23,7 +23,7 @@ $(document).ready(function() {
         window.Keyboard.hide();
         $("input").blur();
     }
-    
+
     $('.text-input').keypress(function(event) {
         var currentBoxNumber, nextBox, textboxes;
         if (event.keyCode === 13) {
@@ -40,3 +40,10 @@ $(document).ready(function() {
     });
 });
 
+function enable_field() {
+    return $('#submit').removeAttr('disabled');
+}
+
+function disable_field() {
+    return $('#submit').attr('disabled', 'disabled');
+}
