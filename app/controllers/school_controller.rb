@@ -26,17 +26,18 @@ class SchoolController < ApplicationController
 	end
 
 	def build_reply(machine) 
-		user_name = current_user.name
-		location =  params[:school]
-		unboxed = {"date" => Time.now.strftime("%d/%m/%Y %H:%M"), "user" => user_name}
+		current_date =  Time.now.strftime("%d/%m/%Y %H:%M"),
+		unboxed = {"date" => current_date, "user" => current_user.name}
+
 		role = existing_machine[:role]
 		passed_role = params[:machine][:role]
+
 
 		if passed_role && passed_role != ""
 			role = passed_role
 		end
 
-		machine.update(location: location,  unboxed: unboxed, role: role)
+		machine.update(location: params[:school],  unboxed: unboxed, role: role)
 	end
 
 	def assign
@@ -58,7 +59,7 @@ class SchoolController < ApplicationController
 	def set_flash(notice, type)
 		school = params[:school]
 		existing_role = params[:machine][:role]
-		
+
 		flash[:notice] = notice
 		flash[:school] = school
 		flash[:type] = type
