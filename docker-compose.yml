@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  postgres:
+  database:
     image: 'postgres'
     environment:
       POSTGRES_USER: 'heat'
@@ -13,7 +13,7 @@ services:
 
   frontend:
     depends_on:
-      - 'postgres'
+      - 'database'
     build: .
     ports:
       - '3001:3030'
