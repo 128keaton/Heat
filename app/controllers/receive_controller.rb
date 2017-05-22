@@ -21,11 +21,13 @@ class ReceiveController < ApplicationController
 
   def load_information
   
+    # fetch and set pallet ID
     pallet_id = params[:machine][:pallet_id]
     flash[:pallet_id] = pallet_id
 
     # Set the Pallet Total Count to what is defined in our role
-    role_count = Role.where(name: params[:machine][:role])
+    role_name =  params[:machine][:role]
+    role_count = Role.where(name: role_name)
     total_count = role_count[0].pallet_count
 
     # Set to zero by default, incase nil
@@ -35,8 +37,12 @@ class ReceiveController < ApplicationController
       pallet_count_for_id = machine_by_pallet.count
     end
 
+    # Set pallet count
     current_pallet_count = total_count.to_f - pallet_count_for_id.to_f
-    role_by_name = Role.where(name: params[:machine][:role])
+
+    # Find role
+    role_name =  params[:machine][:role]
+    role_by_name = Role.where(name: name)
     layer_count = role_by_name[0].pallet_layer_count
 
     @current_layer_count = current_pallet_count % layer_count
@@ -47,7 +53,7 @@ class ReceiveController < ApplicationController
 
     if current_pallet_count <= 0 
         flash[:notice] = "Pallet full"
-        flash[:data] = params[:machine][:role]
+        flash[:data] = role_name
         flash[:pallet_id] = pallet_id 
         flash[:type] = "error"
         redirect_to action: 'index'
@@ -55,7 +61,7 @@ class ReceiveController < ApplicationController
     else
        redirect_to action: 'index'
        flash[:pallet_id] = pallet_id 
-       flash[:data] = params[:machine][:role]
+       flash[:data] = role_name
        flash[:current_layer_count] = @current_layer_count
        flash[:layer_count] = layer_count
     end
