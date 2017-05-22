@@ -4,9 +4,10 @@ class NoteController < ApplicationController
   end
   def notate
     notes = params[:machine][:notes]
-    if Machine.where(serial_number: params[:machine][:serial_number]).length != 0
-			existingMachine = Machine.where(serial_number: params[:machine][:serial_number])
-			existingMachine.update(notes: notes)
+		serial_number =  params[:machine][:serial_number])
+    if machine_array = Machine.where(serial_number: serial_number).!empty?
+			existing_machine = machine_array[0]
+			existing_machine.update(notes: notes)
 			flash[:notice] = "Note was attached to machine"
 			flash[:type] = "success"
 			redirect_to action: 'index'
