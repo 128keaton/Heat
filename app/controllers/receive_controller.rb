@@ -76,7 +76,7 @@ class ReceiveController < ApplicationController
 
   # Validate and save the machine
   def validate_and_save(machine, data, pallet_id, layer_count)
-    if machine.valid? && machine_exists(machine.serial_number)
+    if machine.valid? && machine_exists(machine.serial_number) == false
 				machine.save
         set_flash('Serial has been added')
 			else
@@ -90,7 +90,7 @@ class ReceiveController < ApplicationController
 
   # Check if machine exists, should be false!
   def machine_exists(serial_number)
-    if Machine.where(serial_number: machine.serial_number).length == 0
+    if Machine.where(serial_number: serial_number).length == 0
       false
     else
       true
@@ -99,7 +99,7 @@ class ReceiveController < ApplicationController
   
   def set_flash(notice, type = 'success')
     flash[:notice] = notice
-    flask[:type] = type
+    flash[:type] = type
   end
 
 	def create
