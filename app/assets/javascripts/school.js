@@ -2,16 +2,16 @@ $(document).ready(function() {
     $('#submit').attr('disabled', 'disabled');
     $('#machine_serial_number').bind('input', function() {
         if ($('#machine_serial_number').val().length === 7 && $('#machine_client_asset_tag').val()) {
-            return enable_field();
+            return enable_submit();
         } else {
-            return disable_field();
+            return disable_submit();
         }
     });
     $('#machine_client_asset_tag').bind('input', function() {
         if ($('#machine_serial_number').val().length === 7 && $('#machine_client_asset_tag').val()) {
-            return enable_field();
+            return enable_submit();
         } else {
-            return disable_field();
+            return disable_submit();
         }
     });
 
@@ -40,10 +40,10 @@ $(document).ready(function() {
     });
 });
 
-function enable_field() {
+function enable_submit() {
     return $('#submit').removeAttr('disabled');
 }
 
-function disable_field() {
+function disable_submit() {
     return $('#submit').attr('disabled', 'disabled');
 }
