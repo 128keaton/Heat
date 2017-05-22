@@ -94,9 +94,8 @@ class SchoolsController < ApplicationController
   def create
      @school = School.new(school_params)
      quantities = {}
-     param_role =  params["#{role.name}-role"]
-     
      Role.all.each do |role|
+      param_role =  params["#{role.name}-role"]
       quantities[role.name] = param_role
      end
 
