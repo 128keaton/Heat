@@ -26,7 +26,8 @@ class SchoolController < ApplicationController
 	end
 
 	def build_reply(machine) 
-		current_date =  Time.now.strftime("%d/%m/%Y %H:%M"),
+		current_date =  Time.now.strftime("%d/%m/%Y %H:%M")
+
 		unboxed = {"date" => current_date, "user" => current_user.name}
 
 		role = existing_machine[:role]
