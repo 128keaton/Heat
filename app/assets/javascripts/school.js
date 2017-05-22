@@ -1,18 +1,10 @@
 $(document).ready(function() {
     $('#submit').attr('disabled', 'disabled');
     $('#machine_serial_number').bind('input', function() {
-        if ($('#machine_serial_number').val().length === 7 && $('#machine_client_asset_tag').val()) {
-            return enable_submit();
-        } else {
-            return disable_submit();
-        }
+        check_for_submit();
     });
     $('#machine_client_asset_tag').bind('input', function() {
-        if ($('#machine_serial_number').val().length === 7 && $('#machine_client_asset_tag').val()) {
-            return enable_submit();
-        } else {
-            return disable_submit();
-        }
+        check_for_submit();
     });
 
     if (!$('#notice\\ error').length) {
@@ -40,10 +32,10 @@ $(document).ready(function() {
     });
 });
 
-function enable_submit() {
-    return $('#submit').removeAttr('disabled');
-}
-
-function disable_submit() {
-    return $('#submit').attr('disabled', 'disabled');
+function check_for_submit() {
+    if ($('#machine_serial_number').val().length === 7 && $('#machine_client_asset_tag').val()) {
+        return $('#submit').removeAttr('disabled');
+    } else {
+        return $('#submit').attr('disabled', 'disabled');
+    }
 }
