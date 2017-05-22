@@ -1,27 +1,25 @@
 class SchoolController < ApplicationController
- 	before_action :authenticate_user!
+	before_action :authenticate_user!
 	def index
 		@machine = Machine.new
 		@schools = School.all
 		@roles = Role.all
 		verify_schools_exist
-		if flash[:notice] 
+		if flash[:notice]
 			@type = params[:type]
 		end
 		if flash[:school]
 			@school = flash[:school]
-      		params[:school] = @school
+			params[:school] = @school
 		end
-		
-	end
+			end
 
- def verify_schools_exist
-   return if @schools.count != 0
-        flash[:notice] = "No schools exist"
-        flash[:type] = "error"
-        redirect_to "/"
-    end
-  end
+	def verify_schools_exist
+		return if @schools.count != 0
+		flash[:notice] = "No schools exist"
+		flash[:type] = "error"
+		redirect_to "/"
+	end
 
 	def get_quantity_for(location, role)
 		@machineArray = Machine.where(location: location, role: role)
@@ -34,7 +32,7 @@ class SchoolController < ApplicationController
 		redirect_to controller: 'school', action: 'index'
 	end
 
-	def build_reply(machine) 
+	def build_reply(machine)
 		current_date =  Time.now.strftime("%d/%m/%Y %H:%M")
 
 		unboxed = {"date" => current_date, "user" => current_user.name}
@@ -83,4 +81,3 @@ class SchoolController < ApplicationController
 	def machine_params
 		params.require(:machine).permit(:location, :serial_number)
 	end
-end
