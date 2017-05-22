@@ -81,6 +81,8 @@ class SchoolsController < ApplicationController
     Role.all.each do |role|
      if !@school[:quantity][role.name] 
         quantities[role.name] = "0"
+      else
+        quantities[role.name] = @school[:quantity][role.name] 
       end
     end
 
