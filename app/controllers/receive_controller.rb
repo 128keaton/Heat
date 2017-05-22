@@ -39,62 +39,73 @@ class ReceiveController < ApplicationController
 
     # Set pallet count
     current_pallet_count = total_count.to_f - pallet_count_for_id.to_f
-
-    # Find role
-    role_name =  params[:machine][:role]
-    role_by_name = Role.where(name: name)
-    layer_count = role_by_name[0].pallet_layer_count
+    layer_count = role_count[0].pallet_layer_count
 
     @current_layer_count = current_pallet_count % layer_count
 
     if @current_layer_count.to_f == 0 || @current_layer_count.to_f < 0
       @current_layer_count = layer_count 
     end
+    exit_with(role_name, pallet_id, layer_count, current_pallet_count, nil)
 
-    if current_pallet_count <= 0 
+  end
+
+def exit_with(data, pallet_id, layer_count, current_pallet_count, machine)
+  if current_pallet_count
+      if current_pallet_count <= 0 
         flash[:notice] = "Pallet full"
-        flash[:data] = role_name
+        flash[:data] = data
         flash[:pallet_id] = pallet_id 
         flash[:type] = "error"
         redirect_to action: 'index'
         flash[:layer_count] = layer_count
+      else
+        redirect_to action: 'index'
+        flash[:pallet_id] = pallet_id 
+        flash[:data] = data
+        flash[:current_layer_count] = layer_count
+        flash[:layer_count] = layer_count
+      end
+  else
+    if machine.valid?
+       machine.save
+        flash[:notice] = "Serial has been added."
+        flash[:data] = data
+        flash[:type] = "success"
+        flash[:current_layer_count] = layer_count
+        flash[:pallet_id] = pallet_id
+        redirect_to action: 'index'
     else
-       redirect_to action: 'index'
-       flash[:pallet_id] = pallet_id 
-       flash[:data] = role_name
-       flash[:current_layer_count] = @current_layer_count
-       flash[:layer_count] = layer_count
+        flash[:notice] = "Serial already added"
+        flash[:data] = data
+        flash[:type] = "error"
+        flash[:current_layer_count] = layer_count
+        flash[:pallet_id] = pallet_id
+        redirect_to action: 'index'
     end
   end
+end
 
   def create
     @machine = Machine.new()
 
-    @machine.unboxed =  {"date" => Time.now.strftime("%d/%m/%Y %H:%M"), "user" => current_user.name}
+    user_name = current_user.name
+    current_date = Time.now.strftime("%d/%m/%Y %H:%M")
+
+    @machine.unboxed =  {"date" => current_date, "user" => user_name}
     @machine.serial_number = params[:machine][:serial_number]
     @machine.pallet_id = params[:pallet_id]
     @machine.role = params[:role]
 
-    current_layer_count = params[:current_layer_count].to_f - 1
-    # Checks if the machine is valid
     if @machine.valid?
-       # Saves the machine
-       @machine.save
-        flash[:notice] = "Serial has been added."
-        flash[:data] = @machine[:role]
-        flash[:type] = "success"
-        flash[:current_layer_count] = current_layer_count
-        flash[:pallet_id] = params[:pallet_id]
-        redirect_to action: 'index'
+      current_layer_count = params[:current_layer_count].to_f - 1
     else
-        flash[:notice] = "Serial already added"
-        flash[:data] = @machine[:role]
-        flash[:type] = "error"
-        flash[:current_layer_count] = params[:current_layer_count]
-        flash[:pallet_id] = params[:pallet_id]
-        redirect_to action: 'index'
+      current_layer_count = params[:current_layer_count].to_f
     end
 
+    current_role = @machine[:role]
+    pallet_id = params[:pallet_id]
+    exit_with(current_role, pallet_id, current_layer_count, nil, @machine)
   end
 
 
