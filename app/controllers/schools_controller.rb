@@ -92,20 +92,20 @@ class SchoolsController < ApplicationController
   def create
      @school = School.new(school_params)
      quantities = {}
+     param_role =  params["#{role.name}-role"]
+     
      Role.all.each do |role|
-      quantities[role.name] = params["#{role.name}-role"]
+      quantities[role.name] = param_role
      end
+
      @school.quantity = quantities
     if @school.valid?
        @school.save
-       flash[:notice] = "School created successfully"
-       flash[:type] = "success"
-       redirect_to action: 'index'
+       set_flash('School created successfully')
     else
-      flash[:notice] = "School could not be created"
-      flash[:type] = "error"
-      redirect_to action: 'index'
+      set_flash('School could not be created', 'error')
     end
+    redirect_to action: 'index'
   end
 
   private
