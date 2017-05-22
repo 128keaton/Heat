@@ -25,24 +25,27 @@ class SchoolController < ApplicationController
 		redirect_to controller: 'school', action: 'index'
 	end
 
+	def build_reply(machine) 
+		user_name = current_user.name
+		current_date = Time.now.strftime("%d/%m/%Y %H:%M")
+		location =  params[:school]
+		unboxed = {"date" => current_date, "user" => user_name}
+		role = existing_machine[:role]
+
+		if params[:machine][:role] && params[:machine][:role] != ""
+			role = params[:machine][:role] 
+			render json: params
+		end
+
+
+		machine.update(location: params[:school], unboxed: unboxed, role: role)
+
+	end
 	def assign
-		@user = current_user
-		if Machine.where(serial_number: params[:machine][:serial_number]).length != 0
-			existing_machine = Machine.where(serial_number: params[:machine][:serial_number])[0]
-
-			user_name = @user.name
-			current_date = Time.now.strftime("%d/%m/%Y %H:%M")
-			location =  params[:school]
-			unboxed = {"date" => current_date, "user" => user_name}
-			role = existing_machine[:role]
-
-			if params[:machine][:role] && params[:machine][:role] != ""
-				role = params[:machine][:role] 
-				render json: params
-			end
-
-			existing_machine.update(location: params[:school], unboxed: unboxed, role: role)
-
+		machine_array = Machine.where(serial_number: params[:machine][:serial_number])
+		if machine_array.length != 0
+			existing_machine = machine_array[0]
+			build_reply(existing_machine)
 			flash[:notice] = "Machine was assigned"
 			flash[:school] = params[:school]
 			flash[:type] = "success"
