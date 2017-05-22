@@ -1,24 +1,27 @@
 class MarkAsDoaController < ApplicationController
   def index
     if !current_user.try(:admin?) || !current_user.try(:supervisor?)
-      flash[:notice] = "You need to be an administrator"
-      flash[:type] = "error"
-       redirect_to "/"
+      set_flash('You need to be an administrator', 'error')
+      redirect_to "/"
     end
     @machine = Machine.new
   end
   def mark_doa
     doa = params[:machine][:doa]
-    if Machine.where(serial_number: params[:machine][:serial_number]).length != 0
-			existingMachine = Machine.where(serial_number: params[:machine][:serial_number])
-			existingMachine.update(doa: doa)
-			flash[:notice] = "Machine was marked as DOA"
-			flash[:type] = "success"
-			redirect_to action: 'index'
+		serial_number = params[:machine][:serial_number]
+		machine_array = Machine.where(serial_number: serial_number)
+    if existing_machine = machine_array[0]
+			existing_machine.update(doa: doa)
+      set_flash('Machine was marked as DOA')
 		else
-			flash[:notice] = "Machine was marked as DOA"
-			flash[:type] = "error"
-			redirect_to action: 'index'
+      set_flash('Machine was marked as DOA', 'error')
 		end
-    end
+    redirect_to action: 'index'
+  end
+
+  def set_flash(notice, type = 'success')
+    flash[:notice] = notice
+    flash[:type] = type
+  end
+
 end
