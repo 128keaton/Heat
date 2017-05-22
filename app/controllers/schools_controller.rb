@@ -42,17 +42,19 @@ class SchoolsController < ApplicationController
   
   # Try to locate school first by code, then by name
   def find_school
-    @school = School.where(school_code: params[:school][:school_code])[0]
-     if @school == nil
-        @school = School.where(name: params[:name])[0]
-     end
-     school_code(@school)
+    school_code = params[:school][:school_code]
+    school_array = School.where(school_code: school_code)
+    @school = school_array[0]
+    if @school == nil
+      @school = School.where(name: params[:name])[0]
+    end
+    # Sets the school code
+    school_code(@school)
   end
 
   def school_code(school)
-      if params[:school][:school_code]
-        school.school_code = params[:school][:school_code]
-     end
+    return if params[:school][:school_code].nil?
+    school.school_code = params[:school][:school_code]
   end
 
   def edit
@@ -78,7 +80,7 @@ class SchoolsController < ApplicationController
     quantities = {}
     Role.all.each do |role|
      if !@school[:quantity][role.name] 
-         quantities[role.name] = "0"
+        quantities[role.name] = "0"
       end
     end
 
