@@ -12,7 +12,7 @@ class SchoolController < ApplicationController
 			@school = flash[:school]
 			params[:school] = @school
 		end
-			end
+	end
 
 	def verify_schools_exist
 		return if @schools.count != 0
@@ -81,3 +81,4 @@ class SchoolController < ApplicationController
 	def machine_params
 		params.require(:machine).permit(:location, :serial_number)
 	end
+end
