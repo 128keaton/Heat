@@ -29,7 +29,7 @@ class SchoolController < ApplicationController
 		@user = current_user
 		if Machine.where(serial_number: params[:machine][:serial_number]).length != 0
 			existing_machine = Machine.where(serial_number: params[:machine][:serial_number])[0]
-			
+
 			user_name = @user.name
 			current_date = Time.now.strftime("%d/%m/%Y %H:%M")
 			location =  params[:school]
@@ -37,10 +37,11 @@ class SchoolController < ApplicationController
 			role = existing_machine[:role]
 
 			if params[:machine][:role] && params[:machine][:role] != ""
-				role = params[:machine][:role]
+				role = params[:machine][:role] 
+				render json: params
 			end
 
-			existing_machine.update(location: params[:school], unboxed: unboxed, role: params[:machine][:role])
+			existing_machine.update(location: params[:school], unboxed: unboxed, role: role)
 
 			flash[:notice] = "Machine was assigned"
 			flash[:school] = params[:school]
