@@ -4,12 +4,26 @@ class ReceiveController < ApplicationController
   def index
     @machine = Machine.new
     @roles = Role.all
+    setup_layer_count
+    verify_roles_exist
+
     if flash[:pallet_id]
       @pallet_id = flash[:pallet_id]
     else
-      @pallet_id = ""
+      @pallet_id = ''
     end
 
+  end
+
+  def verify_roles_exist
+   return if @roles.count != 0
+        flash[:notice] = "No roles exist"
+        flash[:type] = "error"
+        redirect_to "/"
+    end
+  end
+  
+  def setup_layer_count
     if flash[:current_layer_count]
        @current_layer_count = flash[:current_layer_count]
        if @current_layer_count.to_f == 0 || @current_layer_count.to_f < 0
@@ -18,7 +32,6 @@ class ReceiveController < ApplicationController
       end
     end
   end
-
   def load_information
   
     # fetch and set pallet ID

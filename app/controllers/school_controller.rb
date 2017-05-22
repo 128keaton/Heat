@@ -4,6 +4,7 @@ class SchoolController < ApplicationController
 		@machine = Machine.new
 		@schools = School.all
 		@roles = Role.all
+		verify_schools_exist
 		if flash[:notice] 
 			@type = params[:type]
 		end
@@ -13,6 +14,14 @@ class SchoolController < ApplicationController
 		end
 		
 	end
+
+ def verify_schools_exist
+   return if @schools.count != 0
+        flash[:notice] = "No schools exist"
+        flash[:type] = "error"
+        redirect_to "/"
+    end
+  end
 
 	def get_quantity_for(location, role)
 		@machineArray = Machine.where(location: location, role: role)
