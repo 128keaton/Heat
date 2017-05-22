@@ -9,6 +9,8 @@ class RolesControllerTest < ActionDispatch::IntegrationTest
     # mista t
     new_role.name ="Teacher"
     new_role.specs = hash
+    new_role.pallet_count = "48"
+    new_role.pallet_layer_count = "12"
     assert new_role.save!
     puts " < - Attempted to create new role with name: #{new_role.name}"
   end
