@@ -38,24 +38,31 @@ class SchoolController < ApplicationController
 
 		machine.update(location: location,  unboxed: unboxed, role: role)
 	end
+
 	def assign
 		serial_number = params[:machine][:serial_number]
 		machine_array = Machine.where(serial_number: serial_number)
+
 		if machine_array.length != 0
 			existing_machine = machine_array[0]
 			build_reply(existing_machine)
-			flash[:notice] = "Machine was assigned"
-			flash[:school] = params[:school]
-			flash[:type] = "success"
-			flash[:data] = params[:machine][:role]
+
+			set_flash("Machine was assigned", "success")
 			redirect_to action: 'index'
 		else
-			flash[:notice] = "Serial number has not been logged"
-			flash[:school] = params[:school]
-			flash[:type] = "error"
-			flash[:data] = params[:machine][:role]
+			set_flash("Serial number has not been logged", "error")
 			redirect_to action: 'index'
 		end
+	end
+
+	def set_flash(notice, type)
+		school = params[:school]
+		existing_role = params[:machine][:role]
+		
+		flash[:notice] = notice
+		flash[:school] = school
+		flash[:type] = type
+		flash[:data] = data
 	end
 
 	helper_method :get_quantity_for
