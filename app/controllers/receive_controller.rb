@@ -97,7 +97,7 @@ end
     @machine.pallet_id = params[:pallet_id]
     @machine.role = params[:role]
 
-    if @machine.valid? && Machine.where(serial_number: machine.serial_number).length == 0
+    if @machine.valid? && Machine.where(serial_number: @machine.serial_number).length == 0
       current_layer_count = params[:current_layer_count].to_f - 1
     else
       current_layer_count = params[:current_layer_count].to_f
