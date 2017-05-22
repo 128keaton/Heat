@@ -31,6 +31,7 @@ class ReceiveController < ApplicationController
 			end
 		end
 	end
+
 	def load_information
 				# fetch and set pallet ID
 		pallet_id = params[:machine][:pallet_id]
@@ -57,45 +58,49 @@ class ReceiveController < ApplicationController
 		if @current_layer_count.to_f == 0 || @current_layer_count.to_f < 0
 			@current_layer_count = layer_count
 		end
-		exit_with(role_name, pallet_id, layer_count, current_pallet_count, nil)
+		exit_with(role_name, pallet_id, layer_count, current_pallet_count)
 
 	end
 
-	def exit_with(data, pallet_id, layer_count, current_pallet_count, machine)
-		if current_pallet_count
-			if current_pallet_count <= 0
-				flash[:notice] = "Pallet full"
-				flash[:data] = data
-				flash[:pallet_id] = pallet_id
-				flash[:type] = "error"
-				redirect_to action: 'index'
-				flash[:layer_count] = layer_count
-			else
-				redirect_to action: 'index'
-				flash[:pallet_id] = pallet_id
-				flash[:data] = data
-				flash[:current_layer_count] = layer_count
-				flash[:layer_count] = layer_count
-			end
-		else
-			if machine.valid? && Machine.where(serial_number: machine.serial_number).length == 0
-				machine.save
-				flash[:notice] = "Serial has been added."
-				flash[:data] = data
-				flash[:type] = "success"
-				flash[:current_layer_count] = layer_count
-				flash[:pallet_id] = pallet_id
-				redirect_to action: 'index'
-			else
-				flash[:notice] = "Serial already added"
-				flash[:data] = data
-				flash[:type] = "error"
-				flash[:current_layer_count] = layer_count
-				flash[:pallet_id] = pallet_id
-				redirect_to action: 'index'
-			end
+	def exit_with(role_name, pallet_id, layer_count, current_pallet_count)
+		if current_pallet_count <= 0
+      set_flash('Pallet full', 'error')
 		end
+
+    flash[:pallet_id] = pallet_id
+		flash[:data] = role_name
+		flash[:current_layer_count] = layer_count
+		flash[:layer_count] = layer_count
+    redirect_to action: 'index'
 	end
+
+  # Validate and save the machine
+  def validate_and_save(machine, data, pallet_id, layer_count)
+    if machine.valid? && machine_exists(machine.serial_number)
+				machine.save
+        set_flash('Serial has been added')
+			else
+        set_flash('Serial already added', 'error')
+			end
+      flash[:data] = data
+      flash[:current_layer_count] = layer_count
+			flash[:pallet_id] = pallet_id
+      redirect_to action: 'index'
+  end
+
+  # Check if machine exists, should be false!
+  def machine_exists(serial_number)
+    if Machine.where(serial_number: machine.serial_number).length == 0
+      false
+    else
+      true
+    end
+  end
+  
+  def set_flash(notice, type = 'success')
+    flash[:notice] = notice
+    flask[:type] = type
+  end
 
 	def create
 		@machine = Machine.new()
@@ -116,7 +121,7 @@ class ReceiveController < ApplicationController
 
 		current_role = @machine[:role]
 		pallet_id = params[:pallet_id]
-		exit_with(current_role, pallet_id, current_layer_count, nil, @machine)
+    validate_and_save(@machine, current_role, pallet_id, current_layer_count)
 	end
 
 end
