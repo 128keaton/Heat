@@ -4,7 +4,7 @@ class Users::SessionsController < Devise::SessionsController
     # Checks for our production environment
     user = nil
     if !ENV['RAILS_ENV'] || ENV['RAILS_ENV'] != 'production'
-      user = User.where(email: "test@me.com")[0]
+      user = User.where(email: 'test@me.com')[0]
       if user.nil?
         user = create_test_user
         user.save

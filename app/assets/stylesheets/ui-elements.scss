@@ -95,6 +95,22 @@ input.cmn-toggle-round:checked+label:after {
     border: none!important;
 }
 
+.done{
+    color: #fff;
+    background-color: #cddc39;
+    text-align: center;
+    border-radius: 2px;
+    height: 55px;
+    width: 101%;
+    position: absolute;
+    bottom: 0px;
+    left: -2px;
+    right: 0;
+    text-transform: uppercase;
+    font-size: 16px;
+    border: none!important;
+
+}
 .export {
     color: #fff;
     background-color: #1e5799;
@@ -134,8 +150,8 @@ input.cmn-toggle-round:checked+label:after {
     font-size: 16px;
 }
 
-.rounded-button{
-        width: 50px;
+.rounded-button {
+    width: 50px;
     height: 50px;
     display: flex;
     padding: -10px;
@@ -145,6 +161,7 @@ input.cmn-toggle-round:checked+label:after {
     background-color: gray;
     border-radius: 100%;
 }
+
 .link {
     text-decoration: none;
     margin-bottom: 12px;
@@ -282,7 +299,6 @@ input[type="submit"]:disabled {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-
 }
 
 .success {
@@ -293,3 +309,9 @@ input[type="submit"]:disabled {
     background-color: #f13838;
 }
 
+.button-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
