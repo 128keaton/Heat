@@ -2,6 +2,7 @@ class NoteController < ApplicationController
   def index
     @machine = Machine.new
   end
+	
   def notate
     notes = params[:machine][:notes]
 		serial_number =  params[:machine][:serial_number]
