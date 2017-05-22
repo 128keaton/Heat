@@ -37,7 +37,7 @@ class SchoolController < ApplicationController
 
 		unboxed = {"date" => current_date, "user" => current_user.name}
 
-		role = existing_machine[:role]
+		role = machine[:role]
 		passed_role = params[:machine][:role]
 
 
