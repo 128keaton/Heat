@@ -52,8 +52,24 @@ class SchoolsController < ApplicationController
   def edit
     @school = School.find(params[:id])
     @roles = Role.all
+
+    validate(@school)
+
     if flash[:notice]
       @type = params[:type]
+    end
+  end
+
+  def validate(school)
+    quantities = {}
+    Role.all.each do |role|
+     if !@school[:quantity][role.name] 
+         quantities[role.name] = "0"
+      end
+    end
+
+    if quantities != {}
+      @school.update(quantity: quantities)
     end
   end
 
