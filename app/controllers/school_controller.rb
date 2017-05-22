@@ -71,7 +71,7 @@ class SchoolController < ApplicationController
 		flash[:notice] = notice
 		flash[:school] = school
 		flash[:type] = type
-		flash[:data] = data
+		flash[:data] = existing_role
 	end
 
 	helper_method :get_quantity_for
