@@ -28,15 +28,22 @@ class SchoolController < ApplicationController
 		@user = current_user
 		if Machine.where(serial_number: params[:machine][:serial_number]).length != 0
 			existingMachine = Machine.where(serial_number: params[:machine][:serial_number])
-			existingMachine.update(location: params[:school], unboxed:  {"date" => Time.now.strftime("%d/%m/%Y %H:%M"), "user" => @user.name})
+			user_name = @user.name
+			current_date = Time.now.strftime("%d/%m/%Y %H:%M")
+			location =  params[:school]
+			unboxed = {"date" => current_date, "user" => user_name}
+			existingMachine.update(location: params[:school], unboxed: unboxed, role: params[:machine][:role])
+
 			flash[:notice] = "Machine was assigned"
 			flash[:school] = params[:school]
 			flash[:type] = "success"
+			flash[:data] = params[:machine][:role]
 			redirect_to action: 'index'
 		else
 			flash[:notice] = "Serial number has not been logged"
 			flash[:school] = params[:school]
 			flash[:type] = "error"
+			flash[:data] = params[:machine][:role]
 			redirect_to action: 'index'
 		end
 	end
