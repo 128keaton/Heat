@@ -6,6 +6,7 @@
 <h2 align="center"> A mobile-first, multi-staged product management system</h2>
 
 [![Build Status](https://travis-ci.org/128keaton/Heat.svg?branch=master)](https://travis-ci.org/128keaton/Heat)
+[![codebeat badge](https://codebeat.co/badges/4a1d1bfb-62b3-4481-a853-843b71e2cc8b)](https://codebeat.co/projects/github-com-128keaton-heat-master)
 
 ### Getting Started:
 
