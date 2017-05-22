@@ -31,15 +31,13 @@ class SchoolController < ApplicationController
 		location =  params[:school]
 		unboxed = {"date" => current_date, "user" => user_name}
 		role = existing_machine[:role]
+		passed_role = params[:machine][:role]
 
-		if params[:machine][:role] && params[:machine][:role] != ""
-			role = params[:machine][:role] 
-			render json: params
+		if passed_role && passed_role != ""
+			role = passed_role
 		end
 
-
-		machine.update(location: params[:school], unboxed: unboxed, role: role)
-
+		machine.update(location: location,  unboxed: unboxed, role: role)
 	end
 	def assign
 		machine_array = Machine.where(serial_number: params[:machine][:serial_number])
