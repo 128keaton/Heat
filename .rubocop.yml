@@ -1,0 +1,7 @@
+Style/Encoding:
+  Enabled: false
+
+Style/PerlBackrefs:
+  AutoCorrect: false
+Rails:
+  Enabled: true
