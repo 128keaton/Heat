@@ -14,12 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 
-HTMLElement.prototype.defaultblur = HTMLElement.prototype.blur;
-HTMLElement.prototype.blur = function() {
-    this.defaultblur();
-    window.Keyboard.hide();
-};
-
 $(function() {
     $(document).on('touchstart click', '.alert', function(e) {
         e.stopPropagation();
