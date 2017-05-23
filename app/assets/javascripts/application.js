@@ -37,8 +37,16 @@ $(document).ready(function() {
             height: '100'
         })
         $('html,body').animate({
-            scrollTop: $('#notice\\ error').offset().top
+            scrollTop: $('#notice\\  success\\  big').offset().top
         }, 500);
+
+        $('#notice\\  success\\  big').animate({
+            height: '100'
+        })
+        $('html,body').animate({
+            scrollTop: $('#notice\\  success\\  big').offset().top
+        }, 500);
+
         document.activeElement.blur();
         window.Keyboard.hide();
         $("input").blur();
