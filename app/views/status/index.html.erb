@@ -34,6 +34,10 @@
             <% end %>
           </div>
       </td>
+      <% @roles.each do |role| %>
+             <% quantity = school.quantity[role[:name]]%>
+             <%= pie_chart [["#{role[:name]} - Assigned", get_quantity_for(school.name, role[:name]) ], ["#{role[:name]} - Needed", quantity] ] %>
+      <% end %>
       </tr>
     <% end %>
   </table>
@@ -54,9 +58,11 @@
           <strong>HDD</strong>: <%= @specs["hdd"] %>GB<br>
           <strong>RAM</strong>: <%= @specs["ram"] %>GB</td>
         <td><%= role[:suffix] %></td>
+        <%= pie_chart all_machine_roles %>
       </tr>
     <% end %>
   </table>
   <h1 class="wrapper-section-title">Machine Count</h1>
   <h2 class="wrapper-section-data"><%= @machines.length %></h2>
+  <%= line_chart Machine.group_by_day(:created_at).count %>
 </div>
