@@ -23,8 +23,10 @@
         <% if current_user.try(:supervisor?) %>
             <div class="inner-wrapper">
                 <div class="button-grid">
-                    <a class="button square last first" href="/mark_doa">
+                    <a class="button square first" href="/mark_doa">
                         <div class="rounded-button"><i class="roles ic ic-list"></i></div><span class="list-text">Mark DOA</span></a>
+                         <a class="button square last" href="/racks">
+                <div class="rounded-button"><i class="rack ic ic-list"></i></div><span class="list-text">Racks</span></a>
                 </div>
             </div>
             <% end %>
