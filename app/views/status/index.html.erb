@@ -58,7 +58,7 @@
           <strong>HDD</strong>: <%= @specs["hdd"] %>GB<br>
           <strong>RAM</strong>: <%= @specs["ram"] %>GB</td>
         <td><%= role[:suffix] %></td>
-        <%= pie_chart all_machine_roles %>
+        <%= line_chart all_machine_roles %>
       </tr>
     <% end %>
   </table>
