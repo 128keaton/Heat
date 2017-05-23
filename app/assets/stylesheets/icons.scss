@@ -58,7 +58,8 @@
     background-color: #0c0c0c;
 }
 
-.rack {
+.rack,
+.racks {
     -webkit-mask-image: image-url("rack.svg");
     background-color: #0c0c0c;
 }
@@ -99,10 +100,12 @@
     -webkit-mask-image: image-url("settings.svg");
 }
 
-.view, .viewing{
-     -webkit-mask-image: image-url("view.svg");
-      background-color: #0c0c0c;
+.view,
+.viewing {
+    -webkit-mask-image: image-url("view.svg");
+    background-color: #0c0c0c;
 }
+
 
 /* Colors */
 
