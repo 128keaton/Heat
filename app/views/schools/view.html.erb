@@ -1,0 +1,32 @@
+<!-- 
+  May 15th, 2017
+  schools/view.html.erb
+  A view which views
+
+<!-- Render premade navigation bar -->
+<%= render "shared/nav", title: "Viewing '#{@school[:name]}'", bar_class: "def", link: "/admin"%>
+
+<!-- Displays a table of schools/locations -->
+<div class="inner-wrapper">
+  <table align="center" class="school-form">
+    <tr>
+      <th>Name:</th>
+      <th>School Code</th>
+      <th>Role Quantities</th>
+      <th>Blended Learning</th>
+    </tr>
+      <tr>
+        <td><%= @school[:name] %></td>
+        <td><%= @school[:school_code] %></td>
+        <td><% @school[:quantity].each do |role|%>
+            <%= label :school_quantity, "#{role[0]}: #{role[1]}", :class => "label role-schools" %>
+            <% end %>
+        </td>
+        <td>
+            <% if @school[:blended_learning] == true %>Yes<% else %>No<% end %>
+        </td>
+      </tr>
+  </table>
+  <%= link_to 'Delete', @school, method: :delete, data: { confirm: "Are you sure you want to delete #{@school[:name]}?"}, class: "button small button-link submit"  %>
+  <%= link_to 'Edit', @school, method: :edit, class: "button done small button-link" %>
+</div>

@@ -14,15 +14,21 @@
     <tr>
       <th>Name:</th>
       <th>School Code</th>
-      <th>Blended Learning</th>
+      <th>Role Quantities</th>
       <th>Actions</th>
     </tr>
     <% School.all.each do |skool| %>
       <tr>
         <td><%= skool[:name] %></td>
         <td><%= skool[:school_code] %></td>
-        <td><% if skool[:blended_learning] == true %>Yes<% else %>No<% end %></td>
-        <td><%= link_to raw('<i class="ic close red-icon"></i>'), skool, method: :delete, data: { confirm: "Are you sure you want to delete #{skool[:name]}?"}  %><%= link_to raw('<i class="ic edit"></i>'), skool, method: :edit %></td>
+        <td><% skool[:quantity].each do |role|%>
+            <%= label :school_quantity, "#{role[0]}: #{role[1]}", :class => "label role-schools" %>
+            <% end %>
+        </td>
+        <td><%= link_to raw('<i class="ic close red-icon"></i>'), skool, method: :delete, data: { confirm: "Are you sure you want to delete #{skool[:name]}?"}  %>
+        <%= link_to raw('<i class="ic edit"></i>'), skool, method: :edit %>
+         <%= link_to raw('<i class="ic view"></i>'),{:controller => "schools", :action => "view", :id => skool[:id]} %>
+        </td>
       </tr>
     <% end %>
   </table>
