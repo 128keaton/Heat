@@ -37,7 +37,7 @@
   <% end %>
 </div>
 <!-- Finally, pull machine from rack-->
-<% if @school %>
+<% if @school && @racks %>
 <div class="inner-wrapper">
  <%= form_for(@machine, url: {action: "pull"}, method: :post) do |f| %>
     <ul>

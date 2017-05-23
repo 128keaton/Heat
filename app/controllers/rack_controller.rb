@@ -18,23 +18,35 @@ class RackController < ApplicationController
 		@user = current_user
 		serial_number = params[:machine][:serial_number]
 		machine_array = Machine.where(serial_number: serial_number)
+
     rack = params[:machine][:rack]
+    existing_machine = check_if_machine_exists(machine_array, )
+    check_if_child_is_sad_and_alone(existing_machine, rack)
+    check_machine_location(rack, existing_machine)
+    sku = generate_sku(rack, existing_machine)
+    
+
+		existing_machine.update(client_asset_tag: params[:machine][:client_asset_tag], reviveit_asset_tag: params[:machine][:reviveit_asset_tag], rack: sku, racked: {"date" => Time.now.strftime("%d/%m/%Y %H:%M"), "user" => @user.name})
+    set_flash("Machine was assigned rack: #{sku}", 'success', 'big')
+
+		#redirect_to action: 'index'
+  end
+
+  def check_if_machine_exists(machine_array)
     if existing_machine = machine_array[0] 
-      if check_if_child_is_sad_and_alone(existing_machine, rack)
-      sku = generate_sku(rack, existing_machine)
-      if sku != nil
-			    existing_machine.update(client_asset_tag: params[:machine][:client_asset_tag], reviveit_asset_tag: params[:machine][:reviveit_asset_tag], rack: sku, racked: {"date" => Time.now.strftime("%d/%m/%Y %H:%M"), "user" => @user.name})
-      		set_flash("Machine was assigned rack: #{sku}", 'success', 'big')
-        else
-			    set_flash("The machine's location doesn't match the rack's location", 'error')
-        end
-      else
-			set_flash('Serial number has already been racked', 'error')
+      existing_machine
+    else
+      set_flash('Serial number has not been logged', 'error')
+      redirect_to action: 'index'
+    end
+  end
+
+  def check_machine_location(rack_id, machine)
+      rack = RackCart.where(rack_id: rack_id)[0]
+      if rack[:location] && rack[:location] != machine[:location]
+        set_flash("The machine's location doesn't match the rack's location", 'error')
+       redirect_to action: 'index'
       end
-		else
-			set_flash('Serial number has not been logged', 'error')
-		end
-		redirect_to action: 'index'
   end
 
   def set_flash(notice, type = 'success', size="")
@@ -46,11 +58,8 @@ class RackController < ApplicationController
     rack = RackCart.where(rack_id: rack_id)[0]
     children_count = rack[:children].count + 1
     sku = "#{rack_id}-#{children_count}"
-    if !set_rack_location(rack, machine[:location])
-      sku = nil
-    else
-      adopt_machine(rack, machine[:id])
-    end
+    set_rack_location(rack, machine[:location])
+    adopt_machine(rack, machine[:id])
     sku
   end
 
@@ -58,10 +67,7 @@ class RackController < ApplicationController
     if !rack.location
       rack.update(location: location)
       rack.save
-    elsif location != rack[:location]
-      false
     end
-    true
   end
 
   def adopt_machine(rack, machine_id)
@@ -76,7 +82,10 @@ class RackController < ApplicationController
   def check_if_child_is_sad_and_alone(machine, rack_id)
     rack = RackCart.where(rack_id: rack_id)[0]
     children = rack[:children]
-    !children.include? machine[:id]
+    if children.include? machine[:id]
+      set_flash('Serial number has already been racked', 'error')
+      redirect_to action: 'index'
+    end
   end
 
   def fetch_racks
@@ -84,6 +93,6 @@ class RackController < ApplicationController
       if !rack.full?
         rack
       end
+    end
   end
-end
 end
