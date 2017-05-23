@@ -99,6 +99,10 @@
     -webkit-mask-image: image-url("settings.svg");
 }
 
+.view, .viewing{
+     -webkit-mask-image: image-url("view.svg");
+      background-color: #0c0c0c;
+}
 
 /* Colors */
 

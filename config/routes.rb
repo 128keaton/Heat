@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :roles, only: [:index, :destroy, :create]
 
   # Actually start setting up the routes.
+  get 'schools/view'
 
   get 'api/hostname'
 
@@ -78,6 +79,8 @@ Rails.application.routes.draw do
   post 'note/notate' => 'note#notate'
 
   get '/schools/edit' => 'schools#edit'
+
+  get '/schools/view' => 'schools#view'
 
   post 'schools/update' => 'schools#update'
 

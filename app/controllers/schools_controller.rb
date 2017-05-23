@@ -76,6 +76,11 @@ class SchoolsController < ApplicationController
     quantities
   end
 
+  def view
+     @school = School.find(params[:id])
+  end
+
+
   def validate(school)
     quantities = {}
     Role.all.each do |role|
