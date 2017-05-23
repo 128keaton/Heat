@@ -14,7 +14,7 @@ class RackController < ApplicationController
       if check_if_child_is_sad_and_alone(existing_machine, rack)
       sku = generate_sku(rack, existing_machine[:id])
 			existing_machine.update(client_asset_tag: params[:machine][:client_asset_tag], reviveit_asset_tag: params[:machine][:reviveit_asset_tag], rack: sku, racked: {"date" => Time.now.strftime("%d/%m/%Y %H:%M"), "user" => @user.name})
-      			set_flash('Machine was assigned a rack')
+      			set_flash("Machine was assigned rack: #{sku}", 'success', 'big')
       else
 			set_flash('Serial number has already been racked', 'error')
       end
@@ -24,9 +24,9 @@ class RackController < ApplicationController
 		redirect_to action: 'index'
   end
 
-  def set_flash(notice, type = 'success')
+  def set_flash(notice, type = 'success', size="")
     flash[:notice] = notice
-    flash[:type] = type
+    flash[:type] = "#{type} #{size}"
   end
 
   def generate_sku(rack_id, machine_id)
