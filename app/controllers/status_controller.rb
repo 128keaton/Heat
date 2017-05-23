@@ -14,13 +14,8 @@ class StatusController < ApplicationController
 
   def all_machine_roles
     machine_by_roles = Hash.new
-    Machine.all.each do |machine|
-      key = "#{machine[:role]} Machines"
-      if machine_by_roles[key]
-        machine_by_roles[key] = machine_by_roles[key].to_f + 1
-      else
-        machine_by_roles[key] = 1
-      end
+    Role.all.each do |role|
+      machine_by_roles = { name: role[:name], data: Machine.all.where(role: role[:name]).count}
     end
     machine_by_roles
   end
