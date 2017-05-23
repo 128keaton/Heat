@@ -21,15 +21,15 @@ class RackController < ApplicationController
 
     rack = params[:machine][:rack]
     existing_machine = check_if_machine_exists(machine_array, )
-    check_if_child_is_sad_and_alone(existing_machine, rack)
-    check_machine_location(rack, existing_machine)
-    sku = generate_sku(rack, existing_machine)
-    
+    is_orphan = check_if_child_is_sad_and_alone(existing_machine, rack)
 
-		existing_machine.update(client_asset_tag: params[:machine][:client_asset_tag], reviveit_asset_tag: params[:machine][:reviveit_asset_tag], rack: sku, racked: {"date" => Time.now.strftime("%d/%m/%Y %H:%M"), "user" => @user.name})
-    set_flash("Machine was assigned rack: #{sku}", 'success', 'big')
-
-		#redirect_to action: 'index'
+    location_good =  check_machine_location(rack, existing_machine)
+     if location_good && is_orphan && existing_machine != nil
+      sku = generate_sku(rack, existing_machine)
+		  existing_machine.update(client_asset_tag: params[:machine][:client_asset_tag], reviveit_asset_tag: params[:machine][:reviveit_asset_tag], rack: sku, racked: {"date" => Time.now.strftime("%d/%m/%Y %H:%M"), "user" => @user.name})
+      set_flash("Machine was assigned rack: #{sku}", 'success', 'big')
+    end
+		redirect_to action: 'index'
   end
 
   def check_if_machine_exists(machine_array)
@@ -37,7 +37,6 @@ class RackController < ApplicationController
       existing_machine
     else
       set_flash('Serial number has not been logged', 'error')
-      redirect_to action: 'index'
     end
   end
 
@@ -45,7 +44,9 @@ class RackController < ApplicationController
       rack = RackCart.where(rack_id: rack_id)[0]
       if rack[:location] && rack[:location] != machine[:location]
         set_flash("The machine's location doesn't match the rack's location", 'error')
-       redirect_to action: 'index'
+         false
+      else
+        true
       end
   end
 
@@ -84,7 +85,9 @@ class RackController < ApplicationController
     children = rack[:children]
     if children.include? machine[:id]
       set_flash('Serial number has already been racked', 'error')
-      redirect_to action: 'index'
+      false
+    else
+      true
     end
   end
 
