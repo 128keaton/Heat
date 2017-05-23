@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require Chart.bundle
+//= require chartkick
 
 $(function() {
     $(document).on('touchstart click', '.alert', function(e) {
