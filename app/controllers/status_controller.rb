@@ -12,7 +12,7 @@ class StatusController < ApplicationController
     
   end
 
-  def all_machine_roles()
+  def all_machine_roles
     machine_by_roles = Hash.new
     Machine.all.each do |machine|
       key = "#{machine[:role]} Machines"
