@@ -5,6 +5,7 @@
 class DeployController < ApplicationController
 	before_action :authenticate_user!
 	def index
+		
 		@roles = Role.all
 		if flash[:notice]
 			@type = params[:type]
@@ -12,12 +13,22 @@ class DeployController < ApplicationController
 		if flash[:school]
 			@school = flash[:school]
 			params[:school] = @school
+			fetch_racks(@school)
 		end
 
 		@machine = Machine.new
 		@schools = School.all
 
 	end
+
+	def fetch_racks(school)
+   	 @racks = RackCart.all.map do |rack|
+      if !rack.full? && rack.location == school
+        rack
+      end
+  	end
+	end
+
 
 	def get_quantity_for(location, role)
 		@machineArray = Machine.where(location: location, role: role)
