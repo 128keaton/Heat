@@ -59,8 +59,21 @@ class SchoolController < ApplicationController
 			set_flash("Machine was assigned", "success")
 			redirect_to action: 'index'
 		else
-			set_flash("Serial number has not been logged", "error")
-			redirect_to action: 'index'
+			#set_flash("Serial number has not been logged", "error")
+			#redirect_to action: 'index'
+			current_date =  Time.now.strftime("%d/%m/%Y %H:%M")
+
+			unboxed = {"date" => current_date, "user" => current_user.name}
+
+			role = "Student"
+			passed_role = params[:machine][:role]
+
+
+			if passed_role && passed_role != ""
+				role = passed_role
+			end
+
+			Machine.create(serial_number: serial_number, location: params[:school],  unboxed: unboxed, role: role)
 		end
 	end
 
