@@ -74,6 +74,7 @@ class SchoolController < ApplicationController
 			end
 
 			Machine.create(serial_number: serial_number, location: params[:school],  unboxed: unboxed, role: role)
+			redirect_to action: 'index'
 		end
 	end
 
