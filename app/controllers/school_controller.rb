@@ -86,7 +86,26 @@ class SchoolController < ApplicationController
 				role = passed_role
 			end
 
-			Machine.create(serial_number: serial_number, location: params[:school],  unboxed: unboxed, role: role)
+			Machine.create(serial_number: serial_number, location: params[:school],  unboxed: unboxed, role: role, client_asset_tag: params[:client_asset_tag])
+			#Definitions for labels
+			if School.where(name: params[:school]).first.blended_learning?
+				@image_string = "Blended Learning Device"
+			else
+				@image_string = "Standard Device"
+			end
+			
+			@school_string = params[:school]
+
+			@asset_tag = params[:client_asset_tag]
+
+			@serial_number = serial_number
+
+			@model = "Dell 3380"
+
+			@type = Role.where(name: role).first.suffix
+
+			uri = URI.parse("#{ENV["LABEL_PRINT_SERVER"]}?image=#{@image_string}&asset_number=#{@asset_tag}&serial_number=#{@serial_number}&school=#{@school_string}&model=#{@model}&type=#{@type}")
+			response = Net::HTTP.get_response(uri)
 			redirect_to action: 'index', school: params[:school]
 		end
 	end
