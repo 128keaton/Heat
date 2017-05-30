@@ -26,13 +26,21 @@ class SchoolController < ApplicationController
 		return @machineArray.length
 	end
 
+	def automatic_assignment(location)
+		if get_quantity_for(location, "Teacher") < School.where(name: location)[0].quantity["Teacher"]
+			return "Teacher"
+		elsif get_quantity_for(location, "Student") < School.where(name: location)[0].quantity["Student"]
+			return "Student"
+		end
+	end
+
 	def load_schools
 		@school = params[:machine][:location]
 		flash[:school] = @school
 		redirect_to controller: 'school', action: 'index'
 	end
 
-	def build_reply(machine)
+	def build_reply(machine, school)
 		current_date =  Time.now.strftime("%d/%m/%Y %H:%M")
 
 		unboxed = {"date" => current_date, "user" => current_user.name}
@@ -65,7 +73,7 @@ class SchoolController < ApplicationController
 
 			unboxed = {"date" => current_date, "user" => current_user.name}
 
-			role = "Student"
+			role = automatic_assignment(params[:school])
 			passed_role = params[:machine][:role]
 
 
