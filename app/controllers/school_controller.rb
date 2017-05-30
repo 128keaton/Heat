@@ -27,11 +27,14 @@ class SchoolController < ApplicationController
 	end
 
 	def automatic_assignment(location)
-		if get_quantity_for(location, "Teacher") < School.where(name: location)[0].quantity["Teacher"]
+		if get_quantity_for(location, "Teacher") < School.where(name: location)[0].quantity["Teacher"].to_i
 			return "Teacher"
-		elsif get_quantity_for(location, "Student") < School.where(name: location)[0].quantity["Student"]
+		elsif get_quantity_for(location, "Student") < School.where(name: location)[0].quantity["Student"].to_i
 			return "Student"
+		else
+			return "Full"
 		end
+
 	end
 
 	def load_schools
