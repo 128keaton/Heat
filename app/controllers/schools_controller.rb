@@ -97,6 +97,7 @@ class SchoolsController < ApplicationController
   end
 
   def create
+    #Check here if there's no OU stuff
      @school = School.new(school_params)
      quantities = {}
      Role.all.each do |role|
