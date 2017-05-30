@@ -11,6 +11,8 @@ class SchoolController < ApplicationController
 		if flash[:school]
 			@school = flash[:school]
 			params[:school] = @school
+		elsif params[:school]
+			@school = params[:school]
 		end
 	end
 
