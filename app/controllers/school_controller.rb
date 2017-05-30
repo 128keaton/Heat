@@ -43,7 +43,7 @@ class SchoolController < ApplicationController
 		redirect_to controller: 'school', action: 'index'
 	end
 
-	def build_reply(machine, school)
+	def build_reply(machine)
 		current_date =  Time.now.strftime("%d/%m/%Y %H:%M")
 
 		unboxed = {"date" => current_date, "user" => current_user.name}
@@ -85,7 +85,7 @@ class SchoolController < ApplicationController
 			end
 
 			Machine.create(serial_number: serial_number, location: params[:school],  unboxed: unboxed, role: role)
-			redirect_to action: 'index'
+			redirect_to action: 'index', school: params[:school]
 		end
 	end
 
