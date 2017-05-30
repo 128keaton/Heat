@@ -11,10 +11,10 @@ class MarkAsDoaController < ApplicationController
 		serial_number = params[:machine][:serial_number]
 		machine_array = Machine.where(serial_number: serial_number)
     if existing_machine = machine_array[0]
-			existing_machine.update(doa: doa)
+			existing_machine.update(doa: doa, unboxed: nil, imaged: nil, racked: nil, deployed: nil, location: nil, rack: nil)
       set_flash('Machine was marked as DOA')
 		else
-      set_flash('Machine was marked as DOA', 'error')
+      set_flash('Machine was not marked as DOA', 'error')
 		end
     redirect_to action: 'index'
   end
