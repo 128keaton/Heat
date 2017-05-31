@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   get 'api/hostname/:serial' => 'api#hostname'
 
+  get 'api/ou/:serial' => 'api#ou'
+
   post 'api/hostname' => 'api#hostname'
 
   post 'api/image' => 'api#image'
