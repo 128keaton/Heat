@@ -50,6 +50,12 @@
       </tr>
       <tr class="flex-form">
         <td class="school-form">
+          <%= f.label :ou_label, 'Teacher OU String', :class => "label name" %>
+          <%= f.text_field :teacher_ou, :class => "name text-input", :placeholder => "OU String" %>
+        </td>
+      </tr>
+      <tr class="flex-form">
+        <td class="school-form">
           <%= f.label :school_code_label, 'School Code', :class => "label school-code" %>
           <%= f.text_field :school_code, :class => "school-code text-input", :placeholder => "1738-A" %>
         </td>
