@@ -24,6 +24,22 @@ class ApiController < ApplicationController
 		end
 	end
 
+	def ou
+		serial = params[:serial]
+		machine = Machine.where(serial_number: serial)[0]
+		if machine
+			school = School.where(name: machine[:location]).first
+			case machine.role
+			when "Teacher"
+				render json: {'ou' => school.teacher_ou}
+			when "Student"
+				render json: {'ou' => school.ou_string}
+			end
+		else
+			render json: {"error" => "No machine found for serial"}
+		end
+	end
+
 	def image
 		serial = params[:serial]
 		machine = Machine.where(serial_number: serial)[0]
