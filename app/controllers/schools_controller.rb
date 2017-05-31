@@ -32,6 +32,8 @@ class SchoolsController < ApplicationController
     return if @school.nil?
     @school.quantity = update_quantity(@school)
     if @school.valid?
+       @school.ou_string = params[:ou_string]
+       @school.teacher_ou = params[:teacher_ou]
        @school.save
       set_flash('School updated successfully')
     else
