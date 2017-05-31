@@ -89,7 +89,7 @@ class SchoolController < ApplicationController
 				role = passed_role
 			end
 
-			Machine.create(serial_number: serial_number, location: params[:school],  unboxed: unboxed, role: role, client_asset_tag: params[:client_asset_tag])
+			Machine.create(serial_number: serial_number, location: params[:school],  unboxed: unboxed, role: role, client_asset_tag: params[:machine][:client_asset_tag])
 			#Definitions for labels
 			if School.where(name: params[:school]).first.blended_learning?
 				@image_string = "Blended Learning Device"
@@ -99,7 +99,7 @@ class SchoolController < ApplicationController
 			
 			@school_string = params[:school]
 
-			@asset_tag = params[:client_asset_tag]
+			@asset_tag = params[:machine][:client_asset_tag]
 
 			@serial_number = serial_number
 
