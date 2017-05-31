@@ -1,7 +1,7 @@
 class ApiController < ApplicationController
 	protect_from_forgery with: :null_session
 	def hostname
-		serial = params[:serial]
+		serial = params[:serial].downcase
 		machine = Machine.where(serial_number: serial)[0]
 		if machine
 			if machine[:role]
@@ -25,7 +25,7 @@ class ApiController < ApplicationController
 	end
 
 	def ou
-		serial = params[:serial]
+		serial = params[:serial].downcase
 		machine = Machine.where(serial_number: serial)[0]
 		if machine
 			school = School.where(name: machine[:location]).first
