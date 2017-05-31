@@ -1,4 +1,7 @@
+require 'net/http'
+
 class SchoolController < ApplicationController
+
 	before_action :authenticate_user!
 	def index
 		@machine = Machine.new
