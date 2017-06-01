@@ -7,33 +7,24 @@ class ApiController < ApplicationController
 			if machine[:role]
 				role = Role.where(name: machine[:role])[0]
 				if machine[:location]
-					school = School.where(name: machine[:location])[0]
+					school = School.where(name: machine[:location]).first
+					case machine.role 
+					when "Teacher"
+						$ou = school.teacher_ou
+					when "Student"
+						$ou = school.ou_string
+					end
+					
 					if school[:blended_learning] && school[:blended_learning] == true
-						render json: {'hostname' => "#{school[:school_code]}#{role[:suffix]}BL-#{machine[:serial_number]}"}
+						render json: {'hostname' => "#{school[:school_code]}#{role[:suffix]}BL-#{machine[:serial_number]}", "ou" => $ou}
 					else
-						render json: {'hostname' => "#{school[:school_code]}#{role[:suffix]}LT-#{machine[:serial_number]}"}
+						render json: {'hostname' => "#{school[:school_code]}#{role[:suffix]}LT-#{machine[:serial_number]}", "ou" => $ou}
 					end
 				else
 					render json: {"error" => "No school found for machine"}
 				end
 			else
 					render json: {"error" => "No role found for machine"}
-			end
-		else
-			render json: {"error" => "No machine found for serial"}
-		end
-	end
-
-	def ou
-		serial = params[:serial].downcase
-		machine = Machine.where(serial_number: serial)[0]
-		if machine
-			school = School.where(name: machine[:location]).first
-			case machine.role
-			when "Teacher"
-				render json: {'ou' => school.teacher_ou}
-			when "Student"
-				render json: {'ou' => school.ou_string}
 			end
 		else
 			render json: {"error" => "No machine found for serial"}
