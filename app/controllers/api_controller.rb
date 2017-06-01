@@ -16,9 +16,9 @@ class ApiController < ApplicationController
 					end
 					
 					if school[:blended_learning] && school[:blended_learning] == true
-						render json: {'hostname' => "#{school[:school_code]}#{role[:suffix]}BL-#{machine[:serial_number]}", "ou" => $ou}
+						render json: {'hostname' => "#{school[:school_code]}#{role[:suffix]}BL-#{machine[:serial_number.upcase]}", "ou" => $ou}
 					else
-						render json: {'hostname' => "#{school[:school_code]}#{role[:suffix]}LT-#{machine[:serial_number]}", "ou" => $ou}
+						render json: {'hostname' => "#{school[:school_code]}#{role[:suffix]}LT-#{machine[:serial_number.upcase]}", "ou" => $ou}
 					end
 				else
 					render json: {"error" => "No school found for machine"}
