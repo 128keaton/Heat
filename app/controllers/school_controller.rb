@@ -108,7 +108,11 @@ class SchoolController < ApplicationController
 			@type = Role.where(name: role).first.suffix
 
 			uri = URI.parse("#{ENV["LABEL_PRINT_SERVER"]}?image=#{@image_string}&asset_number=#{@asset_tag}&serial_number=#{@serial_number.upcase}&school=#{@school_string}&model=#{@model}&type=#{@type}")
-			response = Net::HTTP.get_response(uri)
+			begin 
+				response = Net::HTTP.get_response(uri)
+			rescue Net::OpenTimeout
+				retry
+			end
 			redirect_to action: 'index', school: params[:school]
 		end
 	end
