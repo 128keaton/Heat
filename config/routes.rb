@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :rack_list, only: [:index, :destroy, :create]
 
   # Actually start setting up the routes.
+  
+  get '/csvexport' => 'status#csvexport'
+
   get 'schools/view'
 
   get 'api/hostname'
@@ -120,7 +123,6 @@ Rails.application.routes.draw do
 
   #root 'welcome#login'
   root 'root#index'
-
   get '/login' => 'welcome#login'
   #match "/home", to: "root#index", via: [:get]
 
