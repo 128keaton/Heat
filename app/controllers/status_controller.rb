@@ -12,6 +12,11 @@ class StatusController < ApplicationController
     
   end
 
+	def csvexport
+		@machines = Machine.all
+		send_data @machines.to_csv, filename: "status-#{Date.today}.csv"
+	end
+
   def all_machine_roles
     machine_by_roles = Hash.new
     Role.all.each do |role|
