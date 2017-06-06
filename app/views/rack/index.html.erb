@@ -17,9 +17,9 @@
 <div class="inner-wrapper">
   <%= form_for(@machine, url: {action: "assign"}, method: :post) do |f| %>
     <ul>
-      <li>
-        <%= f.label :serial_number, 'Serial', :class => "serial label" %>
-        <%= f.text_field :serial_number, :class => "serial text-input", :placeholder => "PPPP" %>
+ <li>
+        <%= f.label :rack_label, 'Location', :class => "serial label" %>
+        <%= f.select :location, options_for_select(@schools.map{ |rack| [rack.name, rack.name] }) %>
       </li>
       <% if ENV['ASSET_TAG'] || ENV['ASSET_TAG'] == true%>
       <li>
@@ -36,7 +36,7 @@
         <%= f.select :rack, options_for_select(@racks.map{ |rack| [rack.label, rack.rack_id] }) %>
       </li>
     </ul>
-    <%= f.submit 'Submit', :class => 'button submit small', :id => "submit", :disabled => "disabled" %>
+    <%= f.submit 'Submit', :class => 'button submit small', :id => "submit" %>
     <%= link_to "Finish", '/',  :class => 'button done small button-link' %>
   <% end %>
 </div>

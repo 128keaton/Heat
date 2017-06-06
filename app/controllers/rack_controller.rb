@@ -2,6 +2,7 @@ class RackController < ApplicationController
 	before_action :authenticate_user!
   def index
     @machine = Machine.new
+    @schools = School.all
     verify_racks_exist
     fetch_racks
   end
@@ -15,20 +16,11 @@ class RackController < ApplicationController
 
 
   def assign
-		@user = current_user
-		serial_number = params[:machine][:serial_number]
-		machine_array = Machine.where(serial_number: serial_number)
-
-    rack = params[:machine][:rack]
-    existing_machine = check_if_machine_exists(machine_array, )
-    is_orphan = check_if_child_is_sad_and_alone(existing_machine, rack)
-
-    location_good =  check_machine_location(rack, existing_machine)
-     if location_good && is_orphan && existing_machine != nil
-      sku = generate_sku(rack, existing_machine)
-		  existing_machine.update(client_asset_tag: params[:machine][:client_asset_tag], reviveit_asset_tag: params[:machine][:reviveit_asset_tag], rack: sku, racked: {"date" => Time.now.strftime("%d/%m/%Y %H:%M"), "user" => @user.name})
-      set_flash("Machine was assigned rack: #{sku}", 'success', 'big')
-    end
+	
+    rack = RackCart.where(rack_id: params[:machine][:rack])
+    location = params[:machine][:location]
+    
+    rack.update(location: location)
 		redirect_to action: 'index'
   end
 
