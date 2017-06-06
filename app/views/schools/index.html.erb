@@ -42,18 +42,14 @@
           <%= f.text_field :name, :class => "name text-input", :placeholder => "White Station" %>
         </td>
       </tr>
+      <% @roles.each do |role|%>
       <tr class="flex-form">
         <td class="school-form">
-          <%= f.label :ou_string_label, 'OU String', :class => "label name" %>
-          <%= f.text_field :ou_string, :class => "name text-input", :placeholder => "OU String" %>
+          <%= f.label :ou_string_label, "#{role[:name]} OU", :class => "label ou_string" %>
+          <input type="text" class= "ou_string text-input" placeholder="OU=12391239" name="<%= role[:name].downcase! %>_ou">
         </td>
       </tr>
-      <tr class="flex-form">
-        <td class="school-form">
-          <%= f.label :teacher_ou_label, 'Teacher OU String', :class => "label name" %>
-          <%= f.text_field :teacher_ou, :class => "name text-input", :placeholder => "OU String" %>
-        </td>
-      </tr>
+      <% end %>
       <tr class="flex-form">
         <td class="school-form">
           <%= f.label :school_code_label, 'School Code', :class => "label school-code" %>
