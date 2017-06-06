@@ -1,17 +1,24 @@
 class ApiController < ApplicationController
 	protect_from_forgery with: :null_session
 	def hostname
-		serial = params[:serial]
+		serial = params[:serial].downcase
 		machine = Machine.where(serial_number: serial)[0]
 		if machine
 			if machine[:role]
 				role = Role.where(name: machine[:role])[0]
 				if machine[:location]
-					school = School.where(name: machine[:location])[0]
+					school = School.where(name: machine[:location]).first
+					case machine.role 
+					when "Teacher"
+						$ou = school.teacher_ou
+					when "Student"
+						$ou = school.ou_string
+					end
+					
 					if school[:blended_learning] && school[:blended_learning] == true
-						render json: {'hostname' => "#{school[:school_code]}#{role[:suffix]}BL-#{machine[:serial_number]}"}
+						render json: {'hostname' => "#{school[:school_code]}#{role[:suffix]}BL-#{machine[:serial_number].upcase}", "ou" => $ou}
 					else
-						render json: {'hostname' => "#{school[:school_code]}#{role[:suffix]}LT-#{machine[:serial_number]}"}
+						render json: {'hostname' => "#{school[:school_code]}#{role[:suffix]}LT-#{machine[:serial_number].upcase}", "ou" => $ou}
 					end
 				else
 					render json: {"error" => "No school found for machine"}
@@ -33,9 +40,9 @@ class ApiController < ApplicationController
 				role = machine[:role]
 				if role
 					if school[:blended_learning] && school[:blended_learning] == true
-						render json: {'image-name' => "blended_learning/#{ role.downcase }"}
+						render json: {'image-name' => "blended_learning/student"}
 					else
-						render json: {'image-name' => "standard/#{role.downcase}"}
+						render json: {'image-name' => "standard/student"}
 					end
 				else
 					# no role
@@ -76,6 +83,18 @@ class ApiController < ApplicationController
 			end
 		else
 			render json: {"error" => "No machine found for serial"}
+		end
+	end
+	
+	def set_imaged
+		serial = params[:serial]
+		machine = Machine.where(serial_number: serial)[0]
+		if machine
+			if machine.update(imaged: {"date" => Time.now.strftime("%d/%m/%Y %H:%M"), "imaged" => true})
+				render json: {"message" => "Successfully marked as imaged"}
+			else
+				render json: {"error" => "Invalid serial"}
+			end
 		end
 	end
 

@@ -39,6 +39,19 @@
       </tr>
       <tr class="flex-form">
         <td class="school-form">
+          <%= f.label :ou_string_label, 'Student OU', :class => "label ou_string" %>
+          <%= f.text_field :ou_string, :class => "ou_string text-input", :placeholder => "1738-A" %>
+        </td>
+      </tr>
+       <tr class="flex-form">
+        <td class="school-form">
+          <%= f.label :teacher_ou_label, 'Student OU', :class => "label teacher_ou" %>
+          <%= f.text_field :teacher_ou, :class => "teacher_ou text-input", :placeholder => "1738-A" %>
+        </td>
+      </tr>
+
+      <tr class="flex-form">
+        <td class="school-form">
           <%= f.submit 'Submit', :class => 'button submit small button-table' %>
         </td>
       </tr>
