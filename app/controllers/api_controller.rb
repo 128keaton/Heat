@@ -85,6 +85,12 @@ class ApiController < ApplicationController
 			render json: {"error" => "No machine found for serial"}
 		end
 	end
+	def set_imaged
+		serial = params[:serial]
+		asset_tag = params[:asset_tag]
+		machine = Machine.where(serial_number: serial)[0]
+
+	end
 
 	def set_asset_tag
 		serial = params[:serial]
