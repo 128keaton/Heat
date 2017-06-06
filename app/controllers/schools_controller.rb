@@ -32,8 +32,10 @@ class SchoolsController < ApplicationController
     return if @school.nil?
     @school.quantity = update_quantity(@school)
     if @school.valid?
-       @school.ou_string = params[:ou_string]
-       @school.teacher_ou = params[:teacher_ou]
+      ## Unfortunately this isn't dynamic, but its coming in a future release.
+      ## MARK: willfix
+       @school.ou_string = params[:school][:ou_string]
+       @school.teacher_ou = params[:school][:teacher_ou]
        @school.save
       set_flash('School updated successfully')
     else
@@ -111,7 +113,7 @@ class SchoolsController < ApplicationController
     if @school.valid?
       ## Unfortunately this isn't dynamic, but its coming in a future release.
       ## MARK: willfix
-       @school.ou_string = params[:school][:student_ou]
+       @school.ou_string = params[:school][:ou_string]
        @school.teacher_ou = params[:school][:teacher_ou]
        @school.save
        set_flash('School created successfully')

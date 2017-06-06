@@ -37,14 +37,20 @@
           </div>
         </td>
       </tr>
-      <% @roles.each do |role|%>
+      <!-- dammit this isn't flexable!! -->
       <tr class="flex-form">
         <td class="school-form">
-          <%= f.label :ou_string_label, "#{role[:name]} OU", :class => "label ou_string" %>
-          <input type="text" class= "ou_string text-input" placeholder="OU=12391239" name="<%= ou_role[:name].downcase! %>_ou">
+          <%= f.label :ou_string_label, "Student OU", :class => "label ou_string" %>
+          <%= f.text_field :ou_string, :class => "ou_string text-input", :placeholder => "OU=Potato" %>
         </td>
       </tr>
-      <% end %>
+            <tr class="flex-form">
+        <td class="school-form">
+          <%= f.label :ou_string_label, "Teacher OU", :class => "label ou_string" %>
+          <%= f.text_field :teacher_ou, :class => "ou_string text-input", :placeholder => "OU=Tomato" %>
+        </td>
+      </tr>
+
       <tr class="flex-form">
         <td class="school-form">
           <%= f.submit 'Submit', :class => 'button submit small button-table' %>
