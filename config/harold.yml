@@ -2,8 +2,12 @@ production:
   key: <%= ENV["SECRET_KEY_BASE"] %>
   admins:
   - keaton.burleson@er2.com
+  - harold.schreckengost@er2.com
+  - doug.green@er2.com
   supervisors:
   - test@me.com
+  - doug.green@er2.com
+  - kipp.hunter@er2.com
 development:
   key: test
   supervisors:
