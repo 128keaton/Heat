@@ -109,7 +109,9 @@ class SchoolsController < ApplicationController
 
      @school.quantity = quantities
     if @school.valid?
-       @school.ou_string = params[:school][:ou_string]
+      ## Unfortunately this isn't dynamic, but its coming in a future release.
+      ## MARK: willfix
+       @school.ou_string = params[:school][:student_ou]
        @school.teacher_ou = params[:school][:teacher_ou]
        @school.save
        set_flash('School created successfully')
