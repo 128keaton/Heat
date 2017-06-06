@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   post 'api/deploy' => 'api#mark_as_deployed'
   
   post 'api/mark_imaged' => 'api#set_imaged'
+  get 'api/mark_imaged' => 'api#set_imaged'
 
   get 'api/hostname' => 'api#hostname'
 
