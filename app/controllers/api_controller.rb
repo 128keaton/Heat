@@ -85,11 +85,17 @@ class ApiController < ApplicationController
 			render json: {"error" => "No machine found for serial"}
 		end
 	end
+	
 	def set_imaged
 		serial = params[:serial]
-		asset_tag = params[:asset_tag]
 		machine = Machine.where(serial_number: serial)[0]
-
+		if machine
+			if machine.update(imaged: {"date" => Time.now.strftime("%d/%m/%Y %H:%M"), "imaged" => true})
+				render json: {"message" => "Successfully marked as imaged"}
+			else
+				render json: {"error" => "Invalid serial"}
+			end
+		end
 	end
 
 	def set_asset_tag
