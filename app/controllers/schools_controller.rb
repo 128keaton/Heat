@@ -32,6 +32,8 @@ class SchoolsController < ApplicationController
     return if @school.nil?
     @school.quantity = update_quantity(@school)
     if @school.valid?
+       @school.ou_string = params[:ou_string]
+       @school.teacher_ou = params[:teacher_ou]
        @school.save
       set_flash('School updated successfully')
     else
@@ -97,6 +99,7 @@ class SchoolsController < ApplicationController
   end
 
   def create
+    #Check here if there's no OU stuff
      @school = School.new(school_params)
      quantities = {}
      Role.all.each do |role|
@@ -106,6 +109,8 @@ class SchoolsController < ApplicationController
 
      @school.quantity = quantities
     if @school.valid?
+       @school.ou_string = params[:school][:ou_string]
+       @school.teacher_ou = params[:school][:teacher_ou]
        @school.save
        set_flash('School created successfully')
     else

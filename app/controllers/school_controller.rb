@@ -1,4 +1,7 @@
+require 'net/http'
+
 class SchoolController < ApplicationController
+
 	before_action :authenticate_user!
 	def index
 		@machine = Machine.new
@@ -11,6 +14,8 @@ class SchoolController < ApplicationController
 		if flash[:school]
 			@school = flash[:school]
 			params[:school] = @school
+		elsif params[:school]
+			@school = params[:school]
 		end
 	end
 
@@ -24,6 +29,17 @@ class SchoolController < ApplicationController
 	def get_quantity_for(location, role)
 		@machineArray = Machine.where(location: location, role: role)
 		return @machineArray.length
+	end
+
+	def automatic_assignment(location)
+		if get_quantity_for(location, "Teacher") < School.where(name: location)[0].quantity["Teacher"].to_i
+			return "Teacher"
+		elsif get_quantity_for(location, "Student") < School.where(name: location)[0].quantity["Student"].to_i
+			return "Student"
+		else
+			return "Full"
+		end
+
 	end
 
 	def load_schools
@@ -59,8 +75,45 @@ class SchoolController < ApplicationController
 			set_flash("Machine was assigned", "success")
 			redirect_to action: 'index'
 		else
-			set_flash("Serial number has not been logged", "error")
-			redirect_to action: 'index'
+			#set_flash("Serial number has not been logged", "error")
+			#redirect_to action: 'index'
+			current_date =  Time.now.strftime("%d/%m/%Y %H:%M")
+
+			unboxed = {"date" => current_date, "user" => current_user.name}
+
+			role = automatic_assignment(params[:school])
+			passed_role = params[:machine][:role]
+
+
+			if passed_role && passed_role != ""
+				role = passed_role
+			end
+
+			Machine.create(serial_number: serial_number, location: params[:school],  unboxed: unboxed, role: role, client_asset_tag: params[:machine][:client_asset_tag])
+			#Definitions for labels
+			if School.where(name: params[:school]).first.blended_learning?
+				@image_string = "Blended Learning Device"
+			else
+				@image_string = "Standard Device"
+			end
+			
+			@school_string = params[:school]
+
+			@asset_tag = params[:machine][:client_asset_tag]
+
+			@serial_number = serial_number
+
+			@model = "Dell 3380"
+
+			@type = Role.where(name: role).first.suffix
+
+			uri = URI.parse("#{ENV["LABEL_PRINT_SERVER"]}?image=#{@image_string}&asset_number=#{@asset_tag}&serial_number=#{@serial_number.upcase}&school=#{@school_string}&model=#{@model}&type=#{@type}")
+			begin 
+				response = Net::HTTP.get_response(uri)
+			rescue Net::OpenTimeout
+				retry
+			end
+			redirect_to action: 'index', school: params[:school]
 		end
 	end
 

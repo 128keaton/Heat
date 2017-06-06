@@ -7,11 +7,18 @@ Rails.application.routes.draw do
   resources :rack_list, only: [:index, :destroy, :create]
 
   # Actually start setting up the routes.
+  
+  get '/csvexport' => 'status#csvexport'
+
   get 'schools/view'
 
   get 'api/hostname'
 
   get 'api/image'
+
+  get 'api/hostname/:serial' => 'api#hostname'
+
+  get 'api/ou/:serial' => 'api#ou'
 
   post 'api/hostname' => 'api#hostname'
 
@@ -20,6 +27,8 @@ Rails.application.routes.draw do
   post 'api/asset_tag' => 'api#set_asset_tag'
 
   post 'api/deploy' => 'api#mark_as_deployed'
+  
+  post 'api/mark_imaged' => 'api#set_imaged'
 
   get 'api/hostname' => 'api#hostname'
 
@@ -116,7 +125,6 @@ Rails.application.routes.draw do
 
   #root 'welcome#login'
   root 'root#index'
-
   get '/login' => 'welcome#login'
   #match "/home", to: "root#index", via: [:get]
 

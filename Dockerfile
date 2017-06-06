@@ -18,7 +18,7 @@ COPY Gemfile Gemfile.lock ./
 RUN bundle install --binstubs
 COPY . .
 
-RUN bundle exec rake RAILS_ENV=development DATABASE_URL=postgresql://heat:reviveit@127.0.0.1/heat SECRET_TOKEN=dummytoken assets:precompile DEVISE_KEY=dummytoken DISABLE_DATABASE_ENVIRONMENT_CHECK=1
+RUN bundle exec rake RAILS_ENV=production DATABASE_URL=postgresql://heat:reviveit@127.0.0.1/heat SECRET_TOKEN=dummytoken assets:precompile DEVISE_KEY=dummytoken DISABLE_DATABASE_ENVIRONMENT_CHECK=1
 VOLUME ["$INSTALL_PATH/public"]
 
 
