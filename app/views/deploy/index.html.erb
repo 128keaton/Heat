@@ -46,7 +46,9 @@
           <%= f.label :rack_label, 'Rack', :class => "serial label" %>
           <%= @racks %>
         <% end %>
-        <%= RackCart.all %>
+        <% RackCart.all.each |rack| %>
+          <%= rack %>
+        <% end %>
         <%= hidden_field_tag :school, params[:school] %>
       </li>
     </ul>
