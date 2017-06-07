@@ -80,8 +80,12 @@ class SchoolController < ApplicationController
 			current_date =  Time.now.strftime("%d/%m/%Y %H:%M")
 
 			unboxed = {"date" => current_date, "user" => current_user.name}
-
-			role = automatic_assignment(params[:school])
+			assignment = automatic_assignment(params[:school])
+			if assignment == "Full"
+				set_flash("School has been assigned all units!", "error")
+				redirect_to action: 'index'
+			end
+			role = assignment
 			passed_role = params[:machine][:role]
 
 
