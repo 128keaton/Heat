@@ -35,7 +35,7 @@ class DeployController < ApplicationController
 	  end
 
 	  if @racks.count == 0
-      set_flash('No racks found', 'error')
+		# 
 	  end 
   end
 
