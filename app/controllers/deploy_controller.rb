@@ -35,7 +35,9 @@ class DeployController < ApplicationController
 	  end
 
 	  if @racks.count == 0
-		# 
+			flash[:notice] = "No racks found"
+			flash[:type] = "error"
+			flash[:school] = params[:school]
 	  end 
   end
 
