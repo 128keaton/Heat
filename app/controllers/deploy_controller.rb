@@ -23,11 +23,16 @@ class DeployController < ApplicationController
 
 	def fetch_racks(school)
 	  @racks = []
+	  @not_chosen = []
 	  RackCart.all.each do |rack|
 		if rack.location == school
-			if rack.full != true || rack.full == nil
+			if rack.full != true
 				@racks.push(rack)
+			else
+				@not_chosen << rack
 			end
+		else
+			@not_chosen << rack
 		end
 	  end
 

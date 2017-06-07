@@ -46,6 +46,7 @@
           <%= f.label :rack_label, 'Rack', :class => "serial label" %>
           <%= @racks %>
         <% end %>
+        <%= @not_chosen %>
         <%= hidden_field_tag :school, params[:school] %>
       </li>
     </ul>
