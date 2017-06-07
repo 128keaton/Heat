@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :machines
   resources :schools, only: [:index, :destroy, :create]
   resources :roles, only: [:index, :destroy, :create]
-  resources :rack_list, only: [:index, :destroy, :create]
+  resources :rack_list, only: [:index, :destroy, :create, :clear]
 
   # Actually start setting up the routes.
   
@@ -106,6 +106,8 @@ Rails.application.routes.draw do
   post 'mark_as_doa/mark_doa' => 'mark_as_doa#mark_doa'
 
   get 'rack_list/index'
+
+  post 'rack_list/clear' => 'rack_list#clear'
 
   # Assign links to controllers/views
   get '/school' => 'school#index'

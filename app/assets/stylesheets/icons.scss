@@ -64,6 +64,11 @@
     background-color: #0c0c0c;
 }
 
+.clear {
+    -webkit-mask-image: image-url("clear.svg");
+    background-color: #0c0c0c;
+}
+
 .deploy {
     -webkit-mask-image: image-url("deploy.svg");
     background-color: #0c0c0c;

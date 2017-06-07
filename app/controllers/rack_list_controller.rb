@@ -9,6 +9,19 @@ class RackListController < ApplicationController
     @rack = RackCart.new
   end
 
+  def destroy
+    @rack = RackCart.find(params[:id])
+    @rack.destroy
+    set_flash('Rack deleted successfully', 'success')
+    redirect_to action: 'index'
+  end
+
+  def clear
+     @rack = RackCart.find(params[:id])
+     @rack.update(full: false, children: [], location: nil)
+     set_flash('Rack cleared successfully', 'success')
+     redirect_to action: 'index'
+  end
   def create
     @rack = RackCart.new(rack_params)
 
