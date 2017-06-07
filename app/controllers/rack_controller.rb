@@ -20,7 +20,11 @@ class RackController < ApplicationController
     rack = RackCart.where(rack_id: params[:machine][:rack])
     location = params[:machine][:location]
     
-    rack.update(location: location)
+    if rack.update(location: location)
+      set_flash('Rack assigned successfully')
+    else
+      set_flash('Unable to assign rack', 'error')
+    end
 		redirect_to action: 'index'
   end
 
@@ -84,10 +88,15 @@ class RackController < ApplicationController
   end
 
   def fetch_racks
-    @racks = RackCart.all.map do |rack|
-      if !rack.full?
-        rack
-      end
-    end
+    @racks = []
+	  RackCart.all.each do |rack|
+		if rack.full == false || rack.full == nil
+			@racks << rack
+		end
+	  end
+
+	  if @racks.count == 0
+      set_flash('No racks found', 'error')
+	  end 
   end
 end

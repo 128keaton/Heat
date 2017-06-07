@@ -22,11 +22,18 @@ class DeployController < ApplicationController
 	end
 
 	def fetch_racks(school)
-   	 @racks = RackCart.all.map do |rack|
-      if !rack.full? && rack.location == school
-        rack
-      end
-  	end
+	  @racks = []
+	  RackCart.all.each do |rack|
+		if rack.location == school && (rack.full == false || rack.full == nil)
+			@racks << rack
+		end
+	  end
+
+	  if @racks.count == 0
+			flash[:notice] = "No racks found"
+			flash[:type] = "error"
+			flash[:school] = params[:school]
+	  end 
 	end
 
 

@@ -42,8 +42,10 @@
  <%= form_for(@machine, url: {action: "pull"}, method: :post) do |f| %>
     <ul>
       <li>
-        <%= f.label :rack_label, 'Rack', :class => "serial label" %>
-        <%= f.select :rack, options_for_select(@racks.map{ |rack| [rack.rack_id, rack.rack_id] }) %>
+        <% if @racks.count > 0 %>
+          <%= f.label :rack_label, 'Rack', :class => "serial label" %>
+          <%= f.select :rack, options_for_select(@racks.map{ |rack| [rack.rack_id, rack.rack_id] }) %>
+        <% end %>
         <%= hidden_field_tag :school, params[:school] %>
       </li>
     </ul>
