@@ -10,6 +10,7 @@ class DeployController < ApplicationController
 		if flash[:notice]
 			@type = params[:type]
 		end
+
 		if flash[:school]
 			@school = flash[:school]
 			params[:school] = @school
@@ -24,16 +25,9 @@ class DeployController < ApplicationController
 	def fetch_racks(school)
 	  @racks = []
 	  @not_chosen = []
+
 	  RackCart.all.each do |rack|
-		if rack.location == school
-			if rack.full != true
-				@racks.push(rack)
-			else
-				@not_chosen << rack
-			end
-		else
-			@not_chosen << rack
-		end
+		@not_chosen << rack
 	  end
 
 	  if @racks.count == 0
