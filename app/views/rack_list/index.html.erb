@@ -5,16 +5,13 @@
   <table align="center" class="school-form">
     <tr>
       <th>Rack ID</th>
-      <th>Full?</th>
-      <th>Capacity</th>
-
+      <th>Location</th>
       <th>Actions</th>
     </tr>
     <% RackCart.all.each do |rack| %>
       <tr>
         <td><%= rack[:rack_id] %></td>
-        <td><%= rack[:full] ? 'Yes' : 'No'  %></td>
-        <td><%=rack[:children].count%>/<%= rack[:capacity] %></td>
+        <td><% if rack[:location]  %><%= rack[:location] %><% else %>Not Assigned<% end %></td>
         <td><%= link_to raw('<i class="ic close red-icon"></i>'), rack_list_path(rack.id), method: :delete, data: { confirm: "Are you sure you want to delete #{rack[:rack_id]}?"}  %>
         </td>
       </tr>
