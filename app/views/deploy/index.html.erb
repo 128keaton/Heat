@@ -42,13 +42,9 @@
  <%= form_for(@machine, url: {action: "pull"}, method: :post) do |f| %>
     <ul>
       <li>
-        <% if @racks.count > 0 %>
-          <%= f.label :rack_label, 'Rack', :class => "serial label" %>
-          <%= @racks %>
-        <% end %>
-        <% RackCart.all.each |rack| %>
-          <%= rack %>
-        <% end %>
+        Racks: <%= @racks %>
+        <br>
+        Reject: <%= @rejected %>
         <%= hidden_field_tag :school, params[:school] %>
       </li>
     </ul>
@@ -56,8 +52,8 @@
       <%= link_to "Finish", '/',  :class => 'button done small button-link' %>
   <% end %>           
 </div>
-</div>
 <% end %>
+</div>
 
 
 

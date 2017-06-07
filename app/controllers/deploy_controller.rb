@@ -22,20 +22,22 @@ class DeployController < ApplicationController
 
 	end
 
-	def fetch_racks(school)
-	  @racks = []
-	  @not_chosen = []
-
+  def fetch_racks(school)
+    @racks = []
+	@rejected = []
 	  RackCart.all.each do |rack|
-		@not_chosen << rack
+		if (rack.full == false || rack.full == nil) && rack.location == school
+			@racks << rack
+		elsif rack.location != school
+			@rejected << rack
+		end
+
 	  end
 
 	  if @racks.count == 0
-			flash[:notice] = "No racks found"
-			flash[:type] = "error"
-			flash[:school] = params[:school]
+      set_flash('No racks found', 'error')
 	  end 
-	end
+  end
 
 
 	def get_quantity_for(location, role)
