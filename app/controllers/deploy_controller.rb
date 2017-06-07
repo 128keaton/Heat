@@ -25,7 +25,7 @@ class DeployController < ApplicationController
 	  @racks = []
 	  RackCart.all.each do |rack|
 		if rack.location == school && (rack.full == false || rack.full == nil) && rack != nil
-			@racks << rack
+			@racks.push(rack)
 		end
 	  end
 
