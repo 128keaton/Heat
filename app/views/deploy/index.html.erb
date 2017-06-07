@@ -44,7 +44,7 @@
       <li>
         <% if @racks.count > 0 %>
           <%= f.label :rack_label, 'Rack', :class => "serial label" %>
-          <%= f.select :rack, options_for_select(@racks.map{ |rack| [rack.rack_id, rack.rack_id] }) %>
+          <%= @racks %>
         <% end %>
         <%= hidden_field_tag :school, params[:school] %>
       </li>
