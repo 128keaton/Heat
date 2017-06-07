@@ -67,6 +67,7 @@ class SchoolController < ApplicationController
 	def assign
 		serial_number = params[:machine][:serial_number]
 		machine_array = Machine.where(serial_number: serial_number)
+		assignment = automatic_assignment(params[:school])
 
 		if machine_array.length != 0
 			existing_machine = machine_array[0]
@@ -74,17 +75,13 @@ class SchoolController < ApplicationController
 
 			set_flash("Machine was assigned", "success")
 			redirect_to action: 'index'
-		else
+		elsif assignment != "Full"
 			#set_flash("Serial number has not been logged", "error")
 			#redirect_to action: 'index'
 			current_date =  Time.now.strftime("%d/%m/%Y %H:%M")
 
 			unboxed = {"date" => current_date, "user" => current_user.name}
-			assignment = automatic_assignment(params[:school])
-			if assignment == "Full"
-				set_flash("School has been assigned all units!", "error")
-				redirect_to action: 'index'
-			end
+
 			role = assignment
 			passed_role = params[:machine][:role]
 
@@ -118,6 +115,9 @@ class SchoolController < ApplicationController
 				retry
 			end
 			redirect_to action: 'index', school: params[:school]
+		else
+			set_flash("School has been assigned all units!", "error")
+			redirect_to action: 'index', school: params[:school]	
 		end
 	end
 
