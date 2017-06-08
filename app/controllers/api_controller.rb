@@ -20,7 +20,7 @@ class ApiController < ApplicationController
 					else
 						render json: {'hostname' => "#{school[:school_code]}#{role[:suffix]}LT-#{machine[:serial_number].upcase}", "ou" => $ou}
 					end
-		                        if machine.update(imaged: {"date" => Time.now.strftime("%d/%m/%Y %H:%M"), "imaged" => true})
+		                        machine.update(imaged: {"date" => Time.now.strftime("%d/%m/%Y %H:%M"), "imaged" => true})
 				else
 					render json: {"error" => "No school found for machine"}
 				end
