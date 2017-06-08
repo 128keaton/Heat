@@ -11,8 +11,27 @@
 <!-- Displays the statistical information -->
 <div class="inner-wrapper">
 
+<h1 class="wrapper-section-title">Completed</h1>
+  
+  <table align="center" class="school-form dashboard-form">
+    <tr>
+      <th>Date:</th>
+      <th>Count:</th>
+
+    </tr>
+
+    <!-- Iterates through schools-->
+    <% @machineCount.keys.each do |key| %>
+      <tr>
+        <td><%= key %></td>
+        <td><%= @machineCount[key] %></td>      
+      </tr>
+    <% end %>
+  </table>
+
   <!-- School statistical information-->
   <h1 class="wrapper-section-title">Schools</h1>
+  
   <table align="center" class="school-form dashboard-form">
     <tr>
       <th>Name:</th>

@@ -9,6 +9,7 @@ class StatusController < ApplicationController
     @roles = Role.all
     @machines = Machine.all
     @schools = School.all
+    @machineCount = get_machines_by_date
     
   end
 
@@ -17,6 +18,21 @@ class StatusController < ApplicationController
 		send_data @machines.to_csv, filename: "status-#{Date.today}.csv"
 	end
 
+  def get_machines_by_date
+    machineCount = Hash.new()
+    Machine.all.each do |machine|
+      if machine.imaged
+        machineDate = date = Date.parse machine.imaged["date"]
+        if machineCount[machineDate]
+          machineCount[machineDate] = machineCount[machineDate] + 1
+        else
+          machineCount[machineDate] = 1
+        end
+      end
+    end
+    machineCount
+  end
+  
   def all_machine_roles
     machine_by_roles = Hash.new
     Role.all.each do |role|
