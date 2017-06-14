@@ -93,23 +93,25 @@ class SchoolController < ApplicationController
 			build_reply(existing_machine)
 			
 			set_flash("Machine was assigned", "success")
-			existing_machine = Machine.where(serial_number: serial_number).first
-			@school_string = existing_machine.location
-			@asset_tag = existing_machine.client_asset_tag
-			@serial_number = existing_machine.serial_number
-			@model = "Dell 3380"
-			@type = Role.where(name: existing_machine.role).first.suffix
-			if School.where(name: existing_machine.location).first.blended_learning?
-				@image_string = "Blended Learning Device"
-			else
-				@image_string = "Standard Device"
-			end
-	       		uri = URI.parse("#{ENV["LABEL_PRINT_SERVER"]}?image=#{@image_string}&asset_number=#{@asset_tag}&serial_number=#{@serial_number.upcase}&school=#{@school_string}&model=#{@model}&type=#{@type}")
-                        begin
-                                response = Net::HTTP.get_response(uri)
-                        rescue
-                                retry
-                        end
+			#existing_machine = Machine.where(serial_number: serial_number).first
+			#@school_string = existing_machine.location
+			#@asset_tag = existing_machine.client_asset_tag
+			#@serial_number = existing_machine.serial_number
+			#@model = "Dell 3380"
+			#@type = Role.where(name: existing_machine.role).first.suffix
+			#if School.where(name: existing_machine.location).first.blended_learning?
+		#		@image_string = "Blended Learning Device"
+		#	else
+		#		@image_string = "Standard Device"
+		#	end
+	   #    		uri = URI.parse("#{ENV["LABEL_PRINT_SERVER"]}?image=#{@image_string}&asset_number=#{@asset_tag}&serial_number=#{@serial_number.upcase}&school=#{@school_string}&model=#{@model}&type=#{@type}")
+      #                  begin
+       #                         response = Net::HTTP.get_response(uri)
+        #                rescue
+         #                       retry
+          #              end
+
+
 	
 			
 			redirect_to action: 'index'

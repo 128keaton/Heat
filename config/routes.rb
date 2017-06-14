@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get 'deployment/:school' => 'school#export'
 
+  get 'reprint/:serial' => 'api#reprint'
   get 'schools/view'
 
   get 'api/hostname'
