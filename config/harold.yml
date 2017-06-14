@@ -4,7 +4,11 @@ production:
   - keaton.burleson@er2.com
   - harold.schreckengost@er2.com
   - doug.green@er2.com
+  - kaelin@er2.com
+  - kaelin.jacobson@er2.com
   supervisors:
+  - kaelin@er2.com
+  - kaelin.jacobson@er2.com
   - test@me.com
   - doug.green@er2.com
   - kipp.hunter@er2.com

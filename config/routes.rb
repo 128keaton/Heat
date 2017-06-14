@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   # Actually start setting up the routes.
   
-  get '/csvexport' => 'status#csvexport'
+  get 'csvexport' => 'status#csvexport'
+
+  get 'deployment/:school' => 'school#export'
 
   get 'schools/view'
 

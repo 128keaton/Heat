@@ -1,10 +1,10 @@
 $(document).ready(function() {
     $('#submit').attr('disabled', 'disabled');
     $('#machine_serial_number').bind('input', function() {
-        check_for_submit('machine_client_asset_tag');
+        mod_check_for_submit('machine_client_asset_tag', 6);
     });
     $('#machine_client_asset_tag').bind('input', function() {
-        check_for_submit('machine_client_asset_tag');
+        mod_check_for_submit('machine_client_asset_tag', 6);
     });
 
     if (!$('#notice\\ error').length) {

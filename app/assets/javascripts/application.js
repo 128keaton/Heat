@@ -61,3 +61,14 @@ function check_for_submit(second_field) {
         return $('#submit').attr('disabled', 'disabled');
     }
 }
+
+function mod_check_for_submit(second_field, second_field_length) {
+    var numOnly = new RegExp("^\d*$");
+
+    if ($('#machine_serial_number').val().length === 7 && $('#' + second_field).val().length === second_field_length && parseInt($('#' + second_field).val(), 10).toString().length === second_field_length) {
+        return $('#submit').removeAttr('disabled');
+    } else {
+        return $('#submit').attr('disabled', 'disabled');
+    }
+}
+

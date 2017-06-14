@@ -1,6 +1,25 @@
 require 'net/http'
+require 'csv'
 
 class SchoolController < ApplicationController
+
+	def export
+		@school =params[:school]
+		@machines = Machine.where(location: params[:school]).order(:client_asset_tag)
+		@send_csv = CSV.generate(headers: true) do |csv|
+		@previous_asset = @machines.first.client_asset_tag.to_i
+			csv << ["Qty", "Description", "MCS ID#", "Mfg. Name", "Model No.", "Serial No.", "P.O.#", "Unit Cost", "USB Wireless Card", "Asset Tag Offset"]
+			@machines.each do |machine|
+				asset_offset = machine.client_asset_tag.to_i - @previous_asset
+				csv << ["1", "#{machine.role} Laptop", machine.client_asset_tag, "Dell", "Latitude 3380", machine.serial_number.upcase, " ", " ", "No - Built In", asset_offset.to_s]
+				@previous_asset = machine.client_asset_tag.to_i
+			end
+		end
+
+		respond_to do |format|
+			format.csv { send_data @send_csv, filename: "#{@school}-#{Date.today}.csv" }
+		end		
+	end
 
 	before_action :authenticate_user!
 	def index
@@ -72,9 +91,30 @@ class SchoolController < ApplicationController
 		if machine_array.length != 0
 			existing_machine = machine_array[0]
 			build_reply(existing_machine)
-
+			
 			set_flash("Machine was assigned", "success")
+			existing_machine = Machine.where(serial_number: serial_number).first
+			@school_string = existing_machine.location
+			@asset_tag = existing_machine.client_asset_tag
+			@serial_number = existing_machine.serial_number
+			@model = "Dell 3380"
+			@type = Role.where(name: existing_machine.role).first.suffix
+			if School.where(name: existing_machine.location).first.blended_learning?
+				@image_string = "Blended Learning Device"
+			else
+				@image_string = "Standard Device"
+			end
+	       		uri = URI.parse("#{ENV["LABEL_PRINT_SERVER"]}?image=#{@image_string}&asset_number=#{@asset_tag}&serial_number=#{@serial_number.upcase}&school=#{@school_string}&model=#{@model}&type=#{@type}")
+                        begin
+                                response = Net::HTTP.get_response(uri)
+                        rescue
+                                retry
+                        end
+	
+			
 			redirect_to action: 'index'
+			
+			
 		elsif assignment != "Full"
 			#set_flash("Serial number has not been logged", "error")
 			#redirect_to action: 'index'
@@ -111,7 +151,7 @@ class SchoolController < ApplicationController
 			uri = URI.parse("#{ENV["LABEL_PRINT_SERVER"]}?image=#{@image_string}&asset_number=#{@asset_tag}&serial_number=#{@serial_number.upcase}&school=#{@school_string}&model=#{@model}&type=#{@type}")
 			begin 
 				response = Net::HTTP.get_response(uri)
-			rescue Net::OpenTimeout
+			rescue 
 				retry
 			end
 			redirect_to action: 'index', school: params[:school]
