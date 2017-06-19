@@ -30,7 +30,7 @@ class StatusController < ApplicationController
         end
       end
     end
-    machineCount = machineCount.sort_by { |date, value| date }.to_h
+    machineCount = machineCount.sort_by { |date, value| date }.reverse.to_h
     machineCount
   end
   
