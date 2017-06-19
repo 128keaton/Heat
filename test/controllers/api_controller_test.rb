@@ -34,15 +34,4 @@ class ApiControllerTest < ActionDispatch::IntegrationTest
         assert_equal Machine.where(client_asset_tag: "qwerty").count, 1
         puts " < - Attempted to check machine count. Machine count with asset tag 'qwerty': #{Machine.where(client_asset_tag: "qwerty").count}. Expected 1"
     end
-
-    test "mark-as-deployed" do
-        # MARK: Depreciated, because we won't use the API to deploy much longer
-        machine = machines(:one)
-        user = users(:one)
-        date = Time.now.strftime("%d/%m/%Y %H:%M")
-        machine.update(deployed: {"date" => date, "user" => user.name})
-        assert machine.save
-        puts " < - Attempted to update machine deployment with date: #{date} and user: #{user.name}"
-    end
-
 end
