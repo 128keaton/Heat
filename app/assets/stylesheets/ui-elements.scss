@@ -302,7 +302,16 @@ input[type="submit"]:disabled {
 }
 
 .error {
-  background-color: #f13838;
+  background-color: #f13838cc;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100% !important;
+  z-index: 200;
+  max-height: 100%;
+  padding: 0!important;
 }
 
 .button-link {

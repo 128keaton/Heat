@@ -1,63 +1,230 @@
-.rainbow {
-    background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3)!important;
-    background-size: 1800% 1800%!important;
-    -webkit-animation: rainbow 18s ease infinite!important;
-    -moz-animation: rainbow 18s ease infinite!important;
-    -o-animation: rainbow 18s ease infinite!important;
-    animation: rainbow 18s ease infinite!important;
+.rainbow-bar {
+  color: white;
+  padding-top: 1px;
+  padding-bottom: 1px !important;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 220px;
+  -webkit-animation: rainbow 2s linear infinite alternate;
+  -moz-animation: rainbow 2s linear infinite alternate;
+  -ms-animation: rainbow 2s linear infinite alternate;
+  -o-animation: rainbow 2s linear infinite alternate;
+  animation: rainbow 2s linear infinite alternate;
+}
+
+.rainbow-bar .nav-title {
+  font-size: 45px;
+  font-weight: 100;
+  text-align: center;
+  flex-grow: 2;
+}
+
+.no-gradient {
+  background: none;
+}
+
+.rainbow-bar .logo {
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  flex-grow: 0;
+  margin: 0 auto;
+  background: image-url("logo.png") repeat 0 0;
+}
+
+.rainbow-bar .nav-title-main {
+  font-size: 50px;
+  font-weight: 100;
+  margin-right: 70px;
+  text-align: left;
 }
 
 @-webkit-keyframes rainbow {
-    0% {
-        background-position: 0% 82%
-    }
-    50% {
-        background-position: 100% 19%
-    }
-    100% {
-        background-position: 0% 82%
-    }
+  0% {
+    background-color: red;
+  }
+  10% {
+    background-color: orange;
+  }
+  20% {
+    background-color: gold;
+  }
+  30% {
+    background-color: yellow;
+  }
+  40% {
+    background-color: yellowgreen;
+  }
+  50% {
+    background-color: green;
+  }
+  60% {
+    background-color: cyan;
+  }
+  70% {
+    background-color: blue;
+  }
+  80% {
+    background-color: violet;
+  }
+  90% {
+    background-color: magenta;
+  }
+  100% {
+    background-color: indigo;
+  }
 }
 
 @-moz-keyframes rainbow {
-    0% {
-        background-position: 0% 82%
-    }
-    50% {
-        background-position: 100% 19%
-    }
-    100% {
-        background-position: 0% 82%
-    }
+  0% {
+    background-color: red;
+  }
+  10% {
+    background-color: orange;
+  }
+  20% {
+    background-color: gold;
+  }
+  30% {
+    background-color: yellow;
+  }
+  40% {
+    background-color: yellowgreen;
+  }
+  50% {
+    background-color: green;
+  }
+  60% {
+    background-color: cyan;
+  }
+  70% {
+    background-color: blue;
+  }
+  80% {
+    background-color: violet;
+  }
+  90% {
+    background-color: magenta;
+  }
+  100% {
+    background-color: indigo;
+  }
+}
+
+@-ms-keyframes rainbow {
+  0% {
+    background-color: red;
+  }
+  10% {
+    background-color: orange;
+  }
+  20% {
+    background-color: gold;
+  }
+  30% {
+    background-color: yellow;
+  }
+  40% {
+    background-color: yellowgreen;
+  }
+  50% {
+    background-color: green;
+  }
+  60% {
+    background-color: cyan;
+  }
+  70% {
+    background-color: blue;
+  }
+  80% {
+    background-color: violet;
+  }
+  90% {
+    background-color: magenta;
+  }
+  100% {
+    background-color: indigo;
+  }
 }
 
 @-o-keyframes rainbow {
-    0% {
-        background-position: 0% 82%
-    }
-    50% {
-        background-position: 100% 19%
-    }
-    100% {
-        background-position: 0% 82%
-    }
+  0% {
+    background-color: red;
+  }
+  10% {
+    background-color: orange;
+  }
+  20% {
+    background-color: gold;
+  }
+  30% {
+    background-color: yellow;
+  }
+  40% {
+    background-color: yellowgreen;
+  }
+  50% {
+    background-color: green;
+  }
+  60% {
+    background-color: cyan;
+  }
+  70% {
+    background-color: blue;
+  }
+  80% {
+    background-color: violet;
+  }
+  90% {
+    background-color: magenta;
+  }
+  100% {
+    background-color: indigo;
+  }
 }
 
 @keyframes rainbow {
-    0% {
-        background-position: 0% 82%
-    }
-    50% {
-        background-position: 100% 19%
-    }
-    100% {
-        background-position: 0% 82%
-    }
+  0% {
+    background-color: red;
+  }
+  10% {
+    background-color: orange;
+  }
+  20% {
+    background-color: gold;
+  }
+  30% {
+    background-color: yellow;
+  }
+  40% {
+    background-color: yellowgreen;
+  }
+  50% {
+    background-color: green;
+  }
+  60% {
+    background-color: cyan;
+  }
+  70% {
+    background-color: blue;
+  }
+  80% {
+    background-color: violet;
+  }
+  90% {
+    background-color: magenta;
+  }
+  100% {
+    background-color: indigo;
+  }
 }
 
 .rainbow-toggle {
-    height: 10px;
-    width: 10px;
-    display: block;
-    background-color: #e2e2e2;
+  height: 10px;
+  width: 10px;
+  display: block;
+  background-color: #e2e2e2;
 }

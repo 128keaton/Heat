@@ -22,9 +22,14 @@ $(function() {
         $(".alert").slideUp();
 
     });
-    $(document).on('touchstart click', '.notice', function(e) {
+    $(document).on('touchstart click', '.success', function(e) {
         e.stopPropagation();
         $(".notice").slideUp();
+
+    });
+    $(document).on('touchstart click', '.error', function(e) {
+        e.stopPropagation();
+        $(".error").fadeOut();
 
     });
 });
@@ -33,9 +38,7 @@ $(document).ready(function() {
     if ($('#notice\\ error').length) {
         $("#audio-error").trigger('play')
         navigator.vibrate([500]);
-        $('#notice\\ error').animate({
-            height: '100'
-        })
+
         $('html,body').animate({
             scrollTop: $('#notice\\  success\\  big').offset().top
         }, 500);
@@ -43,6 +46,7 @@ $(document).ready(function() {
         $('#notice\\  success\\  big').animate({
             height: '100'
         })
+
         $('html,body').animate({
             scrollTop: $('#notice\\  success\\  big').offset().top
         }, 500);
