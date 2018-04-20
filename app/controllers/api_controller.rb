@@ -41,9 +41,9 @@ class ApiController < ApplicationController
 				role = machine[:role]
 				if role
 					if school[:blended_learning] && school[:blended_learning] == true
-						render json: {'image-name' => "blended_learning/student"}
+						render json: {'image-name' => "blended_learning/#{role}"}
 					else
-						render json: {'image-name' => "standard/student"}
+						render json: {'image-name' => "standard/#{role}"}
 					end
 				else
 					# no role
