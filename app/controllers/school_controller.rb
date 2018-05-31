@@ -137,7 +137,7 @@ class SchoolController < ApplicationController
 			if School.where(name: params[:school]).first.blended_learning?
 				@image_string = "Blended Learning Device"
 			else
-				@image_string = "Standard Device"
+				@image_string = "Standard Device - Special Education"
 			end
 			
 			@school_string = params[:school]
