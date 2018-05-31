@@ -9,8 +9,9 @@ namespace :generate do
 end
 
 namespace :update do
+  desc 'rake update:match_ou_strings["/Users/keatonburleson/Documents/test.csv",0,1]'
   task :match_ou_strings, [:file, :col_name, :col_ou] => [:environment] do |task, args|
-    puts "Running: #{task}"
+    puts task
     school_csv_text = File.read(args[:file])
     school_csv = CSV.parse(school_csv_text)
     school_csv.each do |school|
