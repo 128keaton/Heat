@@ -9,12 +9,12 @@ namespace :generate do
 end
 
 namespace :update do
-  task :match_ou_strings, [:file] => [:environment] do |task, args|
+  task :match_ou_strings, [:file, :col_name, :col_ou] => [:environment] do |task, args|
     puts "Running: #{task}"
     school_csv_text = File.read(args[:file])
     school_csv = CSV.parse(school_csv_text)
     school_csv.each do |school|
-      School.where(name: school[0].gsub(/\(.*\)/, '').strip!).first.update(ou_string: school[1])
+      School.where(name: school[args[:col_name].to_i].gsub(/\(.*\)/, '').strip!).first.update(ou_string: school[args[:col_ou].to_i])
     end
   end
 end
