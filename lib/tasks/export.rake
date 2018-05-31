@@ -12,6 +12,7 @@ namespace :update do
   desc 'rake update:match_ou_strings["/Users/keatonburleson/Documents/test.csv",0,1]'
   task :match_ou_strings, [:file, :col_name, :col_ou] => [:environment] do |task, args|
     puts task
+    ActiveRecord::Base.logger.level = 1
     school_csv_text = File.read(args[:file])
     school_csv = CSV.parse(school_csv_text, headers: true)
     school_csv.each do |school|
