@@ -14,7 +14,7 @@ namespace :update do
     school_csv_text = File.read(args[:file])
     school_csv = CSV.parse(school_csv_text)
     school_csv.each do |school|
-      School.where(name: school[0]).first.update(ou_string: school[1])
+      School.where(name: school[0].gsub(/\(.*\)/, '').strip!).first.update(ou_string: school[1])
     end
   end
 end
