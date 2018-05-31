@@ -15,7 +15,11 @@ namespace :update do
     school_csv_text = File.read(args[:file])
     school_csv = CSV.parse(school_csv_text, headers: true)
     school_csv.each do |school|
-      School.where(name: school[args[:col_name].to_i].gsub(/\(.*\)/, '').strip!).first.update(ou_string: school[args[:col_ou].to_i])
+      if (school = School.where(name: school[args[:col_name].to_i].gsub(/\(.*\)/, '').strip!).first)
+        school.update(ou_string: school[args[:col_ou].to_i])
+      else
+        puts "Unable to find #{school[args[:col_name].to_i].gsub(/\(.*\)/, '').strip!}"
+      end
     end
   end
 end
