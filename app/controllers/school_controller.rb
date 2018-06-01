@@ -84,7 +84,8 @@ class SchoolController < ApplicationController
 	end
 
 	def assign
-		serial_number = params[:machine][:serial_number]
+		raw_csv = params[:machine][:serial_number]
+		serial_number = CSV.parse(raw_csv.gsub(/\s+/, ''), col_sep: ',')[0][1]
 		machine_array = Machine.where(serial_number: serial_number)
 		assignment = automatic_assignment(params[:school])
 
