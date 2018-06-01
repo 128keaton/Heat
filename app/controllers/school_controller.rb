@@ -110,12 +110,13 @@ class SchoolController < ApplicationController
 
 			@type = machine_array[0].role
 
-			uri = URI.parse("#{ENV["LABEL_PRINT_SERVER"]}?image=#{@image_string}&asset_number=#{@asset_tag}&serial_number=#{@serial_number.upcase}&school=#{@school_string}&model=#{@model}&type=#{@type}")
+			uri = URI.parse("http://webapps.nationwidesurplus.com/scs/print?image=#{@image_string}&asset_number=#{@asset_tag}&serial_number=#{@serial_number.upcase}&school=#{@school_string}&model=#{@model}&type=#{@type}")
 			begin
 				response = Net::HTTP.get_response(uri)
 			rescue
 				retry
 			end
+
 			set_flash("Machine was assigned", "success")
 			redirect_to action: 'index'
 			
