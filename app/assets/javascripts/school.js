@@ -1,8 +1,14 @@
 $(document).ready(function() {
     $('#submit').attr('disabled', 'disabled');
+
     $('#machine_serial_number').bind('input', function() {
-        mod_check_for_submit('machine_client_asset_tag', 6);
+        if ($(this).val().length > 0) {
+            return $('#submit').removeAttr('disabled');
+        } else {
+            return $('#submit').attr('disabled', 'disabled');
+        }
     });
+
     $('#machine_client_asset_tag').bind('input', function() {
         mod_check_for_submit('machine_client_asset_tag', 6);
     });
