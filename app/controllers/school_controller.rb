@@ -24,7 +24,7 @@ class SchoolController < ApplicationController
 	before_action :authenticate_user!
 	def index
 		@machine = Machine.new
-		@schools = School.all
+		@schools = School.all.sort_by{ |m| m.name.downcase }
 		@roles = Role.all
 		verify_schools_exist
 		if flash[:notice]
