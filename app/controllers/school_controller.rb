@@ -117,7 +117,7 @@ class SchoolController < ApplicationController
       rescue
         retry
       end
-
+      puts "test"
       set_flash("Machine was assigned", "success")
       redirect_to action: 'index', school: params[:school]
 
@@ -161,7 +161,8 @@ class SchoolController < ApplicationController
       rescue
         retry
       end
-      redirect_to action: 'index'
+      set_flash("Machine was created and assigned", "success")
+      redirect_to action: 'index', school: params[:school]
     else
       set_flash("School has been assigned all units!", "error")
       redirect_to action: 'index', school: params[:school]
