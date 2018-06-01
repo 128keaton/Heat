@@ -4,7 +4,7 @@ require 'csv'
 class SchoolController < ApplicationController
 
   def export
-    @school =params[:school]
+    @school = params[:school]
     @machines = Machine.where(location: params[:school]).order(:client_asset_tag)
     @send_csv = CSV.generate(headers: true) do |csv|
       @previous_asset = @machines.first.client_asset_tag.to_i
@@ -155,13 +155,18 @@ class SchoolController < ApplicationController
 
       @type = Role.where(name: role).first.suffix
 
+      set_flash("Machine was created and assigned", "success")
+
       uri = URI.parse("http://webapps.nationwidesurplus.com/scs/print?image=#{@image_string}&asset_number=#{@asset_tag}&serial_number=#{@serial_number.upcase}&school=#{@school_string}&model=#{@model}&type=#{@type}")
       begin
-        response = Net::HTTP.get_response(uri)
-      rescue
+        Net::HTTP.get_response(uri)
+      rescue Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError, Net::ProtocolError
         retry
+      rescue Timeout::Error
+        set_flash("Upload timed out", "error")
       end
-      set_flash("Machine was created and assigned", "success")
+
+
       redirect_to action: 'index', school: params[:school]
     else
       set_flash("School has been assigned all units!", "error")
