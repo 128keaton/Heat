@@ -108,7 +108,7 @@ class ReceiveController < ApplicationController
     @machine = Machine.new
 
     raw_csv = params[:machine][:serial_number]
-    serial = CSV.parse(raw_csv.gsub(/\s+/, ''), col_sep: ',')[0][1]
+    serial = CSV.parse(raw_csv.gsub(/\s+/, ''), col_sep: ',')[0][2]
     user_name = current_user.name
     current_date = Time.now.getlocal().strftime('%d/%m/%Y %H:%M')
 
