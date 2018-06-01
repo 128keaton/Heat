@@ -106,7 +106,7 @@ class SchoolController < ApplicationController
 
 			@serial_number = machine_array[0].serial_number
 
-			@model = "Dell 3380"
+			@model = "HP ProBook 430 G5"
 
 			@type = machine_array[0].role
 
@@ -150,7 +150,7 @@ class SchoolController < ApplicationController
 
 			@serial_number = serial_number
 
-			@model = "Dell 3380"
+			@model = "HP ProBook 430 G5"
 
 			@type = Role.where(name: role).first.suffix
 
@@ -160,7 +160,7 @@ class SchoolController < ApplicationController
 			rescue 
 				retry
 			end
-			redirect_to action: 'index', school: params[:school]
+			redirect_to action: 'index'
 		else
 			set_flash("School has been assigned all units!", "error")
 			redirect_to action: 'index', school: params[:school]	
