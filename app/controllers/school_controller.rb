@@ -30,7 +30,7 @@ class SchoolController < ApplicationController
 		if flash[:notice]
 			@type = params[:type]
 		end
-		if flash[:school]
+		if flash[:school] != ""
 			@school = flash[:school]
 			params[:school] = @school
 		elsif params[:school]
@@ -135,7 +135,8 @@ class SchoolController < ApplicationController
 			end
 
 			Machine.create(serial_number: serial_number, location: params[:school],  unboxed: unboxed, role: role, client_asset_tag: params[:machine][:client_asset_tag])
-			#Definitions for labels
+
+				#Definitions for labels
 			if School.where(name: params[:school]).first.blended_learning?
 				@image_string = "Blended Learning Device"
 			else

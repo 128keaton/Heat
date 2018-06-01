@@ -13,6 +13,7 @@ $(document).ready(function() {
 
     $('.text-input').keypress(function(event) {
         var currentBoxNumber, nextBox, textboxes;
+        $('#submit').removeAttr('disabled');
         if (event.keyCode === 13) {
             textboxes = $('.text-input');
             currentBoxNumber = textboxes.index(this);
