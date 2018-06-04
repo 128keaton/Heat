@@ -3,7 +3,7 @@ require 'net/http'
 require 'uri'
 
 base_url = 'http://10.0.2.7:3001'
-serial = `sudo dmidecode -t 1 | grep Serial | sed 's/.*: //g'`.chomp
+serial = `sudo dmidecode -t 1 | grep Serial | sed 's/.*: //g'`.chomp.strip!
 
 puts "Starting imaging on #{serial}"
 
