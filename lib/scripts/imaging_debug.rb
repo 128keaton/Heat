@@ -6,7 +6,7 @@ require 'logger'
 logger = Logger.new(STDOUT)
 
 base_url = 'http://localhost:3000'
-serial = `echo '5CD82060F6' | grep Serial | sed 's/.*: //g'`.chomp.strip!
+serial = `echo '5CD820DZZ2' | grep Serial | sed 's/.*: //g'`.chomp.strip!
 
 logger.info "Starting imaging on #{serial}"
 

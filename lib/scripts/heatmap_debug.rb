@@ -7,7 +7,7 @@ logger = Logger.new(STDOUT)
 
 # Set machine serial number
 base_url = 'http://localhost:3000'
-serial = `echo '5CD82060F6' | grep Serial | sed 's/.*: //g'`.chomp.strip!
+serial = `echo '5CD820DZZ2' | grep Serial | sed 's/.*: //g'`.chomp.strip!
 
 # Checks if the machine is imaged
 uri = URI.parse("#{base_url}/api/check_imaged?serial=#{serial}")
