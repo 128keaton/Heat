@@ -16,14 +16,12 @@ class ApiController < ApplicationController
             when "Student"
               $ou = school.ou_string
           end
-
           # Trim Serial to 7 characters
           if school[:blended_learning] && school[:blended_learning] == true
             render json: {'hostname' => "#{school[:school_code]}#{role[:suffix]}BL-#{machine[:serial_number]}", "ou" => $ou}
           else
             render json: {'hostname' => "#{school[:school_code]}#{role[:suffix]}LT-#{machine[:serial_number].split(//).last(7).join}", "ou" => $ou}
           end
-          machine.update(imaged: {"date" => Time.now.strftime("%d/%m/%Y %H:%M"), "imaged" => true})
         else
           render json: {"error" => "No school found for machine"}
         end
