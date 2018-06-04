@@ -24,4 +24,8 @@ rescue Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError, Net::ProtocolError
   retry
 end
 
+15.downto(0) do |i|
+  logger.info "Rebooting in #{'%02d' % i} seconds"
+  sleep 1
+end
 logger.debug 'rebooting'
