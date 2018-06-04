@@ -14,13 +14,17 @@ rescue Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError, Net::ProtocolError
   retry
 end
 
-# Parses API response
-body = JSON.parse(response.body)
+if response
+  # Parses API response
+  body = JSON.parse(response.body)
 
-# Checks if the API returns that the machine is imaged
-if body['imaged']
-  puts 'If you would like to manually re-image, run `ruby imaging.rb` at the prompt'
-  Kernel.exit(0)
+  # Checks if the API returns that the machine is imaged
+  if body['imaged']
+    puts 'If you would like to manually re-image, run `ruby imaging.rb` at the prompt'
+    Kernel.exit(0)
+  end
+
+  system('ruby imaging.rb')
+else
+  puts 'Response Invalid'
 end
-
-system('ruby imaging.rb')

@@ -154,7 +154,7 @@ class ApiController < ApplicationController
   def check_imaged
     serial = params[:serial]
     machine = Machine.where(serial_number: serial)[0]
-    if machine
+    if machine && serial != ""
       if !machine.imaged
         render json: {imaged: false}
       else
