@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="06880c5e-7a04-42a3-972c-ed46903cf1ae" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/scripts/heatmap.rb" afterPath="$PROJECT_DIR$/lib/scripts/heatmap.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/scripts/heatmap_debug.rb" afterPath="$PROJECT_DIR$/lib/scripts/heatmap_debug.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/scripts/imaging.rb" afterPath="$PROJECT_DIR$/lib/scripts/imaging.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/scripts/imaging_debug.rb" afterPath="$PROJECT_DIR$/lib/scripts/imaging_debug.rb" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -68,18 +70,18 @@
       <file leaf-file-name="heatmap.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/scripts/heatmap.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="27" />
+            <state relative-caret-position="120">
+              <caret line="8" column="62" lean-forward="false" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="imaging.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="imaging.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/scripts/imaging.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="5" selection-end-column="27" />
+            <state relative-caret-position="120">
+              <caret line="8" column="62" lean-forward="false" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -98,18 +100,18 @@
       <file leaf-file-name="heatmap_debug.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/scripts/heatmap_debug.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="8" column="11" lean-forward="false" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="27" />
+            <state relative-caret-position="95">
+              <caret line="9" column="60" lean-forward="false" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="imaging_debug.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="imaging_debug.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/scripts/imaging_debug.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="27" lean-forward="false" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+            <state relative-caret-position="120">
+              <caret line="8" column="60" lean-forward="false" selection-start-line="8" selection-start-column="60" selection-end-line="8" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -173,13 +175,13 @@
         <option value="$PROJECT_DIR$/lib/scripts/serial_check.rb" />
         <option value="$USER_HOME$/Library/Caches/Transmit/E275F0A1-5C37-49EC-9C13-9DDF1122EB7A/webapps/var/www/releases/10/web/test.html" />
         <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
-        <option value="$PROJECT_DIR$/lib/scripts/imaging.rb" />
-        <option value="$PROJECT_DIR$/lib/scripts/heatmap.rb" />
         <option value="$PROJECT_DIR$/app/views/schools/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/schools_controller.rb" />
         <option value="$PROJECT_DIR$/lib/scripts/serial_check_debug.rb" />
-        <option value="$PROJECT_DIR$/lib/scripts/heatmap_debug.rb" />
         <option value="$PROJECT_DIR$/lib/scripts/imaging_debug.rb" />
+        <option value="$PROJECT_DIR$/lib/scripts/heatmap_debug.rb" />
+        <option value="$PROJECT_DIR$/lib/scripts/heatmap.rb" />
+        <option value="$PROJECT_DIR$/lib/scripts/imaging.rb" />
       </list>
     </option>
   </component>
@@ -539,7 +541,7 @@
       <workItem from="1528124210538" duration="7031000" />
       <workItem from="1528136383280" duration="1305000" />
       <workItem from="1528138031975" duration="922000" />
-      <workItem from="1528142358726" duration="221000" />
+      <workItem from="1528142358726" duration="332000" />
     </task>
     <task id="LOCAL-00001" summary="Supports CSV serial string now">
       <created>1527723063324</created>
@@ -814,11 +816,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528142501317</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="change to env var">
+      <created>1528142586176</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1528142586176</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28536000" />
+    <option name="totallyTimeSpent" value="28647000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="2560" height="978" extended-state="0" />
@@ -862,7 +871,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Minor update" />
     <MESSAGE value="Trim to 7 characters" />
     <MESSAGE value="Removes pie chart" />
     <MESSAGE value="Removes serial validation for unboxing" />
@@ -887,7 +895,8 @@
     <MESSAGE value="fuck the seed file" />
     <MESSAGE value="Adds school name editing function" />
     <MESSAGE value="Rename" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rename" />
+    <MESSAGE value="change to env var" />
+    <option name="LAST_COMMIT_MESSAGE" value="change to env var" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1217,22 +1226,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/scripts/heatmap.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/scripts/imaging.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="5" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Library/Caches/Transmit/E275F0A1-5C37-49EC-9C13-9DDF1122EB7A/webapps/var/www/releases/10/web/test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8220">
@@ -1249,18 +1242,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/scripts/heatmap_debug.rb">
+    <entry file="file://$PROJECT_DIR$/lib/scripts/imaging_debug.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="8" column="11" lean-forward="false" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="27" />
+        <state relative-caret-position="120">
+          <caret line="8" column="60" lean-forward="false" selection-start-line="8" selection-start-column="60" selection-end-line="8" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/scripts/imaging_debug.rb">
+    <entry file="file://$PROJECT_DIR$/lib/scripts/heatmap_debug.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="27" lean-forward="false" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+        <state relative-caret-position="95">
+          <caret line="9" column="60" lean-forward="false" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/scripts/heatmap.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="62" lean-forward="false" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/scripts/imaging.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="62" lean-forward="false" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
           <folding />
         </state>
       </provider>

@@ -6,7 +6,7 @@ require 'logger'
 logger = Logger.new(STDOUT)
 
 base_url = 'http://10.0.2.7:3001'
-serial = `sudo dmidecode -t 1 | grep Serial | sed 's/.*: //g'`.chomp.strip!
+serial = `sudo dmidecode -t 1 | grep Serial | sed 's/.*: //g'`.strip!
 
 logger.info "Starting imaging on #{serial}"
 

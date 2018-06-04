@@ -6,7 +6,7 @@ require 'logger'
 logger = Logger.new(STDOUT)
 
 #get machine serial number
-serial = `sudo dmidecode -t 1 | grep Serial | sed 's/.*: //g'`.chomp.strip!
+serial = `sudo dmidecode -t 1 | grep Serial | sed 's/.*: //g'`.strip!
 base_url = 'http://10.0.2.7:3001'
 
 # Checks if the machine is imaged
