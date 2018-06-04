@@ -35,6 +35,7 @@ class SchoolsController < ApplicationController
       ## Unfortunately this isn't dynamic, but its coming in a future release.
       ## MARK: willfix
        @school.ou_string = params[:school][:ou_string]
+       @school.name = params[:school][:name]
        @school.teacher_ou = params[:school][:teacher_ou]
        @school.save
       set_flash('School updated successfully')

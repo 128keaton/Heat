@@ -15,6 +15,12 @@
     <table align="center" class="school-form-table">
       <tr class="flex-form">
         <td class="school-form">
+          <%= f.label :name, 'School Name', :class => "label school-name" %>
+          <%= f.text_field :name, :class => "school-code text-input", :placeholder => @school.name %>
+        </td>
+      </tr>
+      <tr class="flex-form">
+        <td class="school-form">
           <%= f.label :school_code_label, 'School Code', :class => "label school-code" %>
           <%= f.text_field :school_code, :class => "school-code text-input", :placeholder => "1738-A" %>
           <%= hidden_field_tag :name, @school.name %>
