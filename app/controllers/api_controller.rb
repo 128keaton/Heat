@@ -97,6 +97,8 @@ class ApiController < ApplicationController
       else
         render json: {"error" => "Invalid serial"}
       end
+    else
+      render json: {"error" => "No serial in params"}
     end
   end
 
