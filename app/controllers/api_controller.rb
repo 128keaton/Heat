@@ -1,5 +1,6 @@
 class ApiController < ApplicationController
   protect_from_forgery with: :null_session
+  require 'json'
 
   def hostname
     serial = params[:serial]
@@ -150,6 +151,26 @@ class ApiController < ApplicationController
     rescue
       retry
     end
+  end
+
+  def check_imaged
+    serial = params[:serial]
+    machine = Machine.where(serial_number: serial)[0]
+    if machine
+      if !machine.imaged
+        render json: {imaged: false}
+      else
+        render json: {imaged: machine.imaged['imaged']}
+      end
+    else
+      render json: {machine: "No machine found for #{serial}"}
+    end
+  end
+
+  def serial_lookup
+    serial = params[:serial]
+    machine = Machine.where(serial_number: serial).first
+    render json: {found: machine}
   end
 
 

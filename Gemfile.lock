@@ -74,6 +74,7 @@ GEM
     groupdate (4.0.0)
       activesupport (>= 4.2)
     hashie (3.5.7)
+    highline (1.7.10)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (1.0.1)
@@ -237,6 +238,7 @@ DEPENDENCIES
   devise
   dotenv
   groupdate
+  highline
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
@@ -258,4 +260,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   1.14.6
+   1.16.0

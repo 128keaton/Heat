@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 # Use this for GApps login
 gem "omniauth-google-oauth2"
-
+gem 'highline'
 gem 'groupdate'
 gem 'chartkick'
 gem 'pony'
