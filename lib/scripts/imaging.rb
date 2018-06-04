@@ -37,6 +37,7 @@ end
 if defined? response and response
   logger.info response
 
+  logger.info 'Imaging completed successfully'
   15.downto(0) do |i|
     logger.info "Rebooting in #{'%02d' % i} seconds"
     sleep 1
