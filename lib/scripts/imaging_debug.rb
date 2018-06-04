@@ -1,13 +1,21 @@
 require 'json'
 require 'net/http'
 require 'uri'
+require 'logger'
 
-serial = '5C382060F6'
+logger = Logger.new(STDOUT)
+
 base_url = 'http://localhost:3000'
-puts "Starting imaging on #{serial}"
+serial = `echo '5CD82060F6' | grep Serial | sed 's/.*: //g'`.chomp.strip!
 
-#Request image from server and set image to response
-puts serial
+logger.info "Starting imaging on #{serial}"
+
+# Request image from server and set image to response
+logger.debug serial
+logger.debug 'This is where we are imaging'
+
+# Debugging, mostly
+logger.debug serial
 
 uri = URI.parse("#{base_url}/api/set_imaged?serial=#{serial}")
 begin
@@ -16,5 +24,4 @@ rescue Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError, Net::ProtocolError
   retry
 end
 
-
-puts 'Reboot'
+logger.debug 'rebooting'
