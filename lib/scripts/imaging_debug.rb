@@ -20,7 +20,8 @@ logger.debug serial
 uri = URI.parse("#{base_url}/api/set_imaged?serial=#{serial}")
 begin
   Net::HTTP.get_response(uri)
-rescue Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError, Net::ProtocolError
+rescue Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError, Net::ProtocolError => e
+  logger.error e
   retry
 end
 

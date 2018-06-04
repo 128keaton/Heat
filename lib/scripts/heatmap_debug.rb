@@ -13,7 +13,8 @@ serial = `echo '5CD820DZZ2' | sed 's/.*: //g'`.strip!
 uri = URI.parse("#{base_url}/api/check_imaged?serial=#{serial}")
 begin
   response = Net::HTTP.get_response(uri)
-rescue Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError, Net::ProtocolError
+rescue Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError, Net::ProtocolError => e
+  logger.error e
   retry
 end
 
