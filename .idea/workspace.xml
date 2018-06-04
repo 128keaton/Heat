@@ -4,7 +4,6 @@
     <list default="true" id="06880c5e-7a04-42a3-972c-ed46903cf1ae" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/machine.rb" afterPath="$PROJECT_DIR$/app/models/machine.rb" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,8 +17,8 @@
       <file leaf-file-name="api_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="92" column="33" lean-forward="true" selection-start-line="92" selection-start-column="33" selection-end-line="92" selection-end-column="33" />
+            <state relative-caret-position="364">
+              <caret line="96" column="10" lean-forward="true" selection-start-line="96" selection-start-column="10" selection-end-line="96" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -542,14 +541,7 @@
       <workItem from="1528124210538" duration="7031000" />
       <workItem from="1528136383280" duration="1305000" />
       <workItem from="1528138031975" duration="922000" />
-      <workItem from="1528142358726" duration="1828000" />
-    </task>
-    <task id="LOCAL-00001" summary="Supports CSV serial string now">
-      <created>1527723063324</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1527723063324</updated>
+      <workItem from="1528142358726" duration="1871000" />
     </task>
     <task id="LOCAL-00002" summary="Adds seed file generation">
       <created>1527723962413</created>
@@ -887,11 +879,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528143902524</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Fixes machine status settings">
+      <created>1528144196452</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1528144196453</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30143000" />
+    <option name="totallyTimeSpent" value="30186000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="2560" height="978" extended-state="0" />
@@ -935,7 +934,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="serial offset" />
     <MESSAGE value="hard coe this bitch" />
     <MESSAGE value="update a param call" />
     <MESSAGE value="Fixes kickback issue" />
@@ -960,7 +958,8 @@
     <MESSAGE value="adds route" />
     <MESSAGE value="Default return message" />
     <MESSAGE value="Error codes in API" />
-    <option name="LAST_COMMIT_MESSAGE" value="Error codes in API" />
+    <MESSAGE value="Fixes machine status settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes machine status settings" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1335,8 +1334,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="92" column="33" lean-forward="true" selection-start-line="92" selection-start-column="33" selection-end-line="92" selection-end-column="33" />
+        <state relative-caret-position="364">
+          <caret line="96" column="10" lean-forward="true" selection-start-line="96" selection-start-column="10" selection-end-line="96" selection-end-column="10" />
           <folding />
         </state>
       </provider>
