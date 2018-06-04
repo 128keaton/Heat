@@ -95,10 +95,10 @@ class ApiController < ApplicationController
       if machine.update(imaged: {"date" => Time.now.strftime("%d/%m/%Y %H:%M"), "imaged" => true})
         render json: {"message" => "Successfully marked as imaged"}
       else
-        render json: {"error" => "Invalid serial"}
+        render json: {status: "error", code: 3000, message: "Invalid serial"}
       end
     else
-      render json: {"error" => "No serial in params"}
+      render json: {status: "error", code: 3000, message: "No serial in params"}
     end
   end
 
@@ -163,7 +163,7 @@ class ApiController < ApplicationController
         render json: {imaged: machine.imaged['imaged']}
       end
     else
-      render json: {machine: "No machine found for #{serial}"}
+      render json: {status: "error", code: 3000, message: "No machine found for #{serial}"}
     end
   end
 
