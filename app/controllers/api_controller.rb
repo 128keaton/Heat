@@ -92,10 +92,10 @@ class ApiController < ApplicationController
     serial = params[:serial]
     machine = Machine.where(serial_number: serial)[0]
     if machine
-      if machine.update(imaged: {"date" => Time.now.strftime("%d/%m/%Y %H:%M"), "imaged" => true})
-        render json: {"message" => "Successfully marked as imaged"}
+      if machine.set_imaged
+        render json: {message: 'Successfully marked as imaged', machine: machine}
       else
-        render json: {status: "error", code: 3000, message: "Invalid serial"}
+        render json: {status: "error", code: 3000, message: "Unable to set params #{machine.errors}"}
       end
     elsif serial == '' or !defined? serial
       render json: {status: "error", code: 3000, message: "No serial in params"}

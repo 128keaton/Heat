@@ -4,6 +4,7 @@
     <list default="true" id="06880c5e-7a04-42a3-972c-ed46903cf1ae" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/machine.rb" afterPath="$PROJECT_DIR$/app/models/machine.rb" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,8 +18,18 @@
       <file leaf-file-name="api_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="91" column="28" lean-forward="true" selection-start-line="91" selection-start-column="28" selection-end-line="91" selection-end-column="28" />
+            <state relative-caret-position="304">
+              <caret line="92" column="33" lean-forward="true" selection-start-line="92" selection-start-column="33" selection-end-line="92" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="machine.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/machine.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="18" lean-forward="false" selection-start-line="11" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -84,16 +95,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Library/Caches/Transmit/E275F0A1-5C37-49EC-9C13-9DDF1122EB7A/webapps/var/www/releases/10/web/test.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8220">
-              <caret line="548" column="35" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="570" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="heatmap_debug.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/scripts/heatmap_debug.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -143,6 +144,7 @@
       <find>imaged</find>
       <find>response</find>
       <find>puts</find>
+      <find>set_imaged</find>
     </findStrings>
     <replaceStrings>
       <replace>'</replace>
@@ -179,6 +181,7 @@
         <option value="$PROJECT_DIR$/lib/scripts/imaging.rb" />
         <option value="$PROJECT_DIR$/app/controllers/status_controller.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/models/machine.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
       </list>
     </option>
@@ -539,7 +542,7 @@
       <workItem from="1528124210538" duration="7031000" />
       <workItem from="1528136383280" duration="1305000" />
       <workItem from="1528138031975" duration="922000" />
-      <workItem from="1528142358726" duration="1537000" />
+      <workItem from="1528142358726" duration="1828000" />
     </task>
     <task id="LOCAL-00001" summary="Supports CSV serial string now">
       <created>1527723063324</created>
@@ -877,11 +880,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528143780637</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Error codes in API">
+      <created>1528143902524</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1528143902524</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29852000" />
+    <option name="totallyTimeSpent" value="30143000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="2560" height="978" extended-state="0" />
@@ -957,13 +967,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/tasks/export.rake">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="39" lean-forward="false" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/school_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1860">
@@ -1322,10 +1325,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/machine.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="18" lean-forward="false" selection-start-line="11" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="91" column="28" lean-forward="true" selection-start-line="91" selection-start-column="28" selection-end-line="91" selection-end-column="28" />
+        <state relative-caret-position="304">
+          <caret line="92" column="33" lean-forward="true" selection-start-line="92" selection-start-column="33" selection-end-line="92" selection-end-column="33" />
           <folding />
         </state>
       </provider>
