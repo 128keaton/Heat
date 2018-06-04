@@ -110,7 +110,7 @@ class SchoolController < ApplicationController
       rescue Errno::EINVAL, Errno::ECONNRESET, EOFError,
              Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError,
              Net::ProtocolError => e
-        logger.error e
+        puts e
         retry
       rescue Timeout::Error
         set_flash("Upload timed out", "error")
@@ -152,7 +152,7 @@ class SchoolController < ApplicationController
       rescue Errno::EINVAL, Errno::ECONNRESET, EOFError,
              Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError,
              Net::ProtocolError => e
-        logger.error e
+        puts e
         retry
       rescue Timeout::Error
         set_flash("Upload timed out", "error")
