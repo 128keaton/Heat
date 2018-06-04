@@ -6,7 +6,7 @@ require 'logger'
 logger = Logger.new(STDOUT)
 
 # Set machine serial number
-base_url = 'http://localhost:3000'
+base_url = ENV['url_debug']
 serial = `echo '5CD820DZZ2' | grep Serial | sed 's/.*: //g'`.chomp.strip!
 
 # Checks if the machine is imaged
