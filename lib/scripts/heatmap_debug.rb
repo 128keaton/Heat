@@ -7,7 +7,7 @@ logger = Logger.new(STDOUT)
 
 # Set machine serial number
 base_url = ENV['url_debug']
-serial = `echo '5CD820DZZ2' | grep Serial | sed 's/.*: //g'`.strip!
+serial = `echo '5CD820DZZ2' | sed 's/.*: //g'`.strip!
 
 # Checks if the machine is imaged
 uri = URI.parse("#{base_url}/api/check_imaged?serial=#{serial}")

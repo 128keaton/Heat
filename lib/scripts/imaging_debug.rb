@@ -6,7 +6,7 @@ require 'logger'
 logger = Logger.new(STDOUT)
 
 base_url = ENV['url_debug']
-serial = `echo '5CD820DZZ2' | grep Serial | sed 's/.*: //g'`.strip!
+serial = `echo '5CD820DZZ2' | sed 's/.*: //g'`.strip!
 
 logger.info "Starting imaging on #{serial}"
 
