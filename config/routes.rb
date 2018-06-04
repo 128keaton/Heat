@@ -19,6 +19,9 @@ Rails.application.routes.draw do
 
   get 'api/image'
 
+  get 'api/check_imaged'
+  get 'api/serial_lookup'
+  get 'api/set_imaged'
   get 'api/hostname/:serial' => 'api#hostname'
 
   get 'api/ou/:serial' => 'api#ou'
