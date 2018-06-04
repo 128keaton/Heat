@@ -33,6 +33,11 @@ class StatusController < ApplicationController
     machineCount = machineCount.sort_by { |date, value| date }.reverse.to_h
     machineCount
   end
+
+  def list_all_machines
+    @machines = Machine.all
+    render json: @machines
+  end
   
   def all_machine_roles
     machine_by_roles = Hash.new

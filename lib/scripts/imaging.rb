@@ -28,15 +28,20 @@ logger.debug serial
 
 uri = URI.parse("#{base_url}/api/set_imaged?serial=#{serial}")
 begin
-  Net::HTTP.get_response(uri)
+  response = Net::HTTP.get_response(uri)
 rescue Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError, Net::ProtocolError => e
   logger.error e
   retry
 end
 
-15.downto(0) do |i|
-  logger.info "Rebooting in #{'%02d' % i} seconds"
-  sleep 1
+if defined? response and response
+  logger.info response
+
+  15.downto(0) do |i|
+    logger.info "Rebooting in #{'%02d' % i} seconds"
+    sleep 1
+  end
+  system('reboot')
 end
 
-system('reboot')
+

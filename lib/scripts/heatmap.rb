@@ -26,6 +26,7 @@ if defined? response
   # Parses API response
   body = JSON.parse(response.body)
 
+  logger.info body
   # Checks if the API returns that the machine is imaged
   if body['imaged']
     logger.info 'If you would like to manually re-image, run `ruby imaging.rb` at the prompt'
