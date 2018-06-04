@@ -3,8 +3,8 @@ require 'net/http'
 require 'uri'
 
 #get machine serial number
-serial = `sudo dmidecode -t 1 | grep Serial | sed 's/.*: //g'`.chomp
-base_url = 'http://10.0.2.7:3001'
+serial = '5C382060F6'
+base_url = 'http://localhost:3000'
 
 # Checks if the machine is imaged
 uri = URI.parse("#{base_url}/api/check_imaged?serial=#{serial}")

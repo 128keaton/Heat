@@ -1,34 +1,11 @@
 require 'json'
 require 'net/http'
 require 'uri'
-require 'highline/import'
 
-#get machine serial number
-serial = `sudo dmidecode -t 1 | grep Serial | sed 's/.*: //g'`.chomp
 base_url = 'http://10.0.2.7:3001'
+serial = `sudo dmidecode -t 1 | grep Serial | sed 's/.*: //g'`.chomp
 
-# Checks if the machine is imaged
-uri = URI.parse("#{base_url}/api/check_imaged?serial=#{serial}")
-begin
-  response = Net::HTTP.get_response(uri)
-rescue Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError, Net::ProtocolError
-  retry
-end
-
-# Parses API response
-body = JSON.parse(response.body)
-
-# Checks if the API returns that the machine is imaged
-if body['imaged']
-  confirm = ask('Re-image machine? [Y/N] ') {|yn| yn.limit = 1, yn.validate = /[yn]/i}
-
-  # Confirms that we'd like to re-image
-  if confirm.downcase != 'y'
-    Kernel.exit(false)
-  end
-end
-
-puts 'Continuing with imaging'
+puts "Starting imaging on #{serial}"
 
 #Request image from server and set image to response
 puts serial
