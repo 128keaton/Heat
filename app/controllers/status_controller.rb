@@ -38,6 +38,7 @@ class StatusController < ApplicationController
     @machines = Machine.all
     render json: @machines
   end
+
   
   def all_machine_roles
     machine_by_roles = Hash.new
