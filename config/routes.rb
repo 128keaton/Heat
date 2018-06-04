@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get 'api/serial_lookup'
   get 'api/set_imaged'
   get 'api/hostname/:serial' => 'api#hostname'
+  get 'status/list_all_machines'
 
   get 'api/ou/:serial' => 'api#ou'
 
