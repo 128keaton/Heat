@@ -15,6 +15,11 @@ class Machine < ApplicationRecord
     end
   end
 
+  # TODO: Make this non-hardcoded
+  def get_model_number
+    'HP ProBook 430 G5'
+  end
+
   def set_imaged
     assign_attributes(imaged: {"date" => Time.now.strftime("%d/%m/%Y %H:%M"), "imaged" => true})
     if valid?

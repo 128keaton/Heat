@@ -90,83 +90,79 @@ class SchoolController < ApplicationController
     machine_array = Machine.where(serial_number: serial_number)
     assignment = automatic_assignment(params[:school])
 
-    if machine_array.length != 0
-      existing_machine = machine_array[0]
-      build_reply(existing_machine)
+    if (machine = machine_array.first)
+      build_reply(machine)
+      school_string = machine.location
+      asset_number = machine.client_asset_tag
 
+      type = machine.role[0, 1]
+      image_string = 'Standard Device - Special Education'
 
-      if School.where(name: params[:school]).first.blended_learning?
-        @image_string = "Blended Learning Device"
-      else
-        @image_string = "Standard Device - Special Education"
-      end
-
-      @school_string = params[:school]
-
-      @asset_tag = params[:machine][:client_asset_tag]
-
-      @serial_number = machine_array[0].serial_number
-
-      @model = "HP ProBook 430 G5"
-
-      @type = machine_array[0].role
-
-      uri = URI.parse("http://webapps.nationwidesurplus.com/scs/print?image=#{@image_string}&asset_number=#{@asset_tag}&serial_number=#{@serial_number.upcase}&school=#{@school_string}&model=#{@model}&type=#{@type}")
+      # TODO: Make this an ENV var
+      uri = URI.parse('http://webapps.nationwidesurplus.com/scs/print'\
+                          "?image=#{image_string}"\
+                          "&asset_number=#{asset_number}"\
+                          "&serial_number=#{serial_number.upcase}"\
+                          "&school=#{school_string}"\
+                          "&model=#{machine.get_model_number}&type=#{type}")
       begin
         response = Net::HTTP.get_response(uri)
-      rescue
-        retry
-      end
-      puts "test"
-      set_flash("Machine was assigned", "success")
-      redirect_to action: 'index', school: params[:school]
-
-    elsif assignment != "Full"
-      #set_flash("Serial number has not been logged", "error")
-      #redirect_to action: 'index'
-      current_date = Time.now.strftime("%d/%m/%Y %H:%M")
-
-      unboxed = {"date" => current_date, "user" => current_user.name}
-
-      role = assignment
-      passed_role = params[:machine][:role]
-
-
-      if passed_role && passed_role != ""
-        role = passed_role
-      end
-
-      Machine.create(serial_number: serial_number, location: params[:school], unboxed: unboxed, role: role, client_asset_tag: params[:machine][:client_asset_tag])
-
-      #Definitions for labels
-      if School.where(name: params[:school]).first.blended_learning?
-        @image_string = "Blended Learning Device"
-      else
-        @image_string = "Standard Device - Special Education"
-      end
-
-      @school_string = params[:school]
-
-      @asset_tag = params[:machine][:client_asset_tag]
-
-      @serial_number = serial_number
-
-      @model = "HP ProBook 430 G5"
-
-      @type = Role.where(name: role).first.suffix
-
-      set_flash("Machine was created and assigned", "success")
-
-      uri = URI.parse("http://webapps.nationwidesurplus.com/scs/print?image=#{@image_string}&asset_number=#{@asset_tag}&serial_number=#{@serial_number.upcase}&school=#{@school_string}&model=#{@model}&type=#{@type}")
-      begin
-        Net::HTTP.get_response(uri)
-      rescue Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError, Net::ProtocolError
+      rescue Errno::EINVAL, Errno::ECONNRESET, EOFError,
+             Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError,
+             Net::ProtocolError => e
+        logger.error e
         retry
       rescue Timeout::Error
         set_flash("Upload timed out", "error")
       end
 
+      if response
+        set_flash("Machine was assigned", "success")
+      else
+        set_flash("Label unable to be printed", "success")
+      end
+      redirect_to action: 'index', school: params[:school]
+    elsif assignment != "Full"
+      current_date = Time.now.strftime("%d/%m/%Y %H:%M")
+      unboxed = {"date" => current_date, "user" => current_user.name}
 
+      role = assignment
+      passed_role = params[:machine][:role]
+      if passed_role && passed_role != ''
+        role = passed_role
+      end
+
+      Machine.create(serial_number: serial_number, location: params[:school], unboxed: unboxed, role: role, client_asset_tag: params[:machine][:client_asset_tag])
+
+      school_string = machine.location
+      asset_number = machine.client_asset_tag
+
+      type = machine.role[0, 1]
+      image_string = 'Standard Device - Special Education'
+
+      # TODO: Make this an ENV var
+      uri = URI.parse('http://webapps.nationwidesurplus.com/scs/print'\
+                          "?image=#{image_string}"\
+                          "&asset_number=#{asset_number}"\
+                          "&serial_number=#{serial_number.upcase}"\
+                          "&school=#{school_string}"\
+                          "&model=#{machine.get_model_number}&type=#{type}")
+      begin
+        response = Net::HTTP.get_response(uri)
+      rescue Errno::EINVAL, Errno::ECONNRESET, EOFError,
+             Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError,
+             Net::ProtocolError => e
+        logger.error e
+        retry
+      rescue Timeout::Error
+        set_flash("Upload timed out", "error")
+      end
+
+      if response
+        set_flash("Machine was assigned", "success")
+      else
+        set_flash("Label unable to be printed", "success")
+      end
       redirect_to action: 'index', school: params[:school]
     else
       set_flash("School has been assigned all units!", "error")

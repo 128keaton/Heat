@@ -1,6 +1,7 @@
 class ApiController < ApplicationController
   protect_from_forgery with: :null_session
   require 'json'
+  require 'net/http'
 
   def hostname
     serial = params[:serial]
@@ -133,26 +134,40 @@ class ApiController < ApplicationController
     end
   end
 
-  def reprint
-    require 'net/http'
-    serial_number = params[:serial]
-    existing_machine = Machine.where(serial_number: serial_number).first
-    @school_string = existing_machine.location
-    @asset_tag = existing_machine.client_asset_tag
-    @serial_number = existing_machine.serial_number
-    @model = "Dell 3380"
-    @type = Role.where(name: existing_machine.role).first.suffix
-    if School.where(name: existing_machine.location).first.blended_learning?
-      @image_string = "Blended Learning Device"
+
+  # Prints a label for a machine based on serial
+  def print_label(serial)
+    if (machine = Machine.where(serial_number: serial).first)
+      school_string = machine.location
+      asset_number = machine.client_asset_tag
+
+      type = machine.role[0, 1]
+      image_string = 'Standard Device - Special Education'
+
+      # TODO: Make this an ENV var
+      uri = URI.parse('http://webapps.nationwidesurplus.com/scs/print'\
+                          "?image=#{image_string}"\
+                          "&asset_number=#{asset_number}"\
+                          "&serial_number=#{serial.upcase}"\
+                          "&school=#{school_string}"\
+                          "&model=#{machine.get_model_number}&type=#{type}")
+      begin
+        response = Net::HTTP.get_response(uri)
+      rescue Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, EOFError,
+             Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError,
+             Net::ProtocolError => e
+        logger.error e
+        retry
+      end
+
+      render json: response
     else
-      @image_string = "Standard Device"
+      render json: {status: 'error', code: 3000, message: "No machine found for #{serial}"}
     end
-    uri = URI.parse("#{ENV["LABEL_PRINT_SERVER"]}?image=#{@image_string}&asset_number=#{@asset_tag}&serial_number=#{@serial_number.upcase}&school=#{@school_string}&model=#{@model}&type=#{@type}")
-    begin
-      response = Net::HTTP.get_response(uri)
-    rescue
-      retry
-    end
+  end
+
+  def reprint
+    print_label(params[:serial])
   end
 
   def check_imaged
@@ -173,10 +188,5 @@ class ApiController < ApplicationController
     serial = params[:serial]
     machine = Machine.where(serial_number: serial).first
     render json: {found: machine}
-  end
-
-
-  def index
-
   end
 end
