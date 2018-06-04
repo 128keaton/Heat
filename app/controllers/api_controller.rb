@@ -97,8 +97,10 @@ class ApiController < ApplicationController
       else
         render json: {status: "error", code: 3000, message: "Invalid serial"}
       end
-    else
+    elsif serial == '' or !defined? serial
       render json: {status: "error", code: 3000, message: "No serial in params"}
+    else
+      render json: {status: "error", code: 3000, message: "No machine found by serial #{serial}"}
     end
   end
 
