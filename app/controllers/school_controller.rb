@@ -132,7 +132,7 @@ class SchoolController < ApplicationController
         role = passed_role
       end
 
-      Machine.create(serial_number: serial_number, location: params[:school], unboxed: unboxed, role: role, client_asset_tag: params[:machine][:client_asset_tag])
+      machine = Machine.create(serial_number: serial_number, location: params[:school], unboxed: unboxed, role: role, client_asset_tag: params[:machine][:client_asset_tag])
 
       school_string = machine.location
       asset_number = machine.client_asset_tag
