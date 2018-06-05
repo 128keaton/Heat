@@ -20,6 +20,16 @@ class Machine < ApplicationRecord
     'HP ProBook 430 G5'
   end
 
+  def set_unboxed(user)
+    current_date = Time.now.strftime("%d/%m/%Y %H:%M")
+    assign_attributes(unboxed: {date: current_date, user: user.name})
+    if valid?
+      save
+    else
+      errors
+    end
+  end
+
   def set_imaged
     assign_attributes(imaged: {"date" => Time.now.strftime("%d/%m/%Y %H:%M"), "imaged" => true})
     if valid?

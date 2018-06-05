@@ -5,3 +5,5 @@ Style/PerlBackrefs:
   AutoCorrect: false
 Rails:
   Enabled: true
+AllCops:
+  TargetRubyVersion: 2.3
