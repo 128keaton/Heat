@@ -103,7 +103,11 @@ class SchoolController < ApplicationController
       role = assignment
       passed_role = params[:machine][:role]
       role = passed_role unless passed_role.to_s.empty? or !passed_role
-      machine = Machine.create(serial_number: serial, location: params[:school], role: role, client_asset_tag: params[:machine][:client_asset_tag])
+
+      if machine == nil
+        machine = Machine.create(serial_number: serial, location: params[:school], role: role, client_asset_tag: params[:machine][:client_asset_tag])
+      end
+
       if machine&.valid?
         machine.set_unboxed(current_user)
         assign_machine(machine, school, serial)

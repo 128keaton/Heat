@@ -199,7 +199,7 @@ class ApiController < ApplicationController
     end
 
     if location
-      render json: Machine.where(location: location.name)
+      render json: Machine.where(location: location)
     else
       render json: {status: "error", code: 420-2, message: "No location found for #{location_id} #{location_search}"}
     end
