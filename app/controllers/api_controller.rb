@@ -199,7 +199,7 @@ class ApiController < ApplicationController
       if format == 'json'
         render json: location.render_machines
       else
-        location.render_machines(format)
+        send_data location.render_machines(format)
       end
     else
       render json: {status: 'error', code: '472', message: 'Location not found'}
