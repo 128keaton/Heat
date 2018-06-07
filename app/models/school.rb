@@ -10,8 +10,12 @@ class School < ApplicationRecord
     end
   end
 
-  def render_machines
-    { status: 'success', message: Machine.where(location: name) }.to_json
+  def render_machines(format = 'json')
+    if format == 'json'
+      {status: 'success', machines: Machine.where(location: name)}.to_json
+    else
+      Machine.where(location: name).to_csv
+    end
   end
 
   def self.search_by(id, name, code)

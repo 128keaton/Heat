@@ -188,14 +188,19 @@ class ApiController < ApplicationController
     location_id = params[:id]
     location_search = params[:name]
     location_code = params[:code]
+    format = params[:format] || 'json'
 
     location = School.search_by(location_id, location_search, location_code)
-    render_location(location)
+    render_location(location, format)
   end
 
-  def render_location(location)
+  def render_location(location, format = 'json')
     if location&.is_a? School
-      render json: location.render_machines
+      if format == 'json'
+        render json: location.render_machines
+      else
+        location.render_machines(format)
+      end
     else
       render json: {status: 'error', code: '472', message: 'Location not found'}
     end
