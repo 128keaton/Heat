@@ -195,6 +195,7 @@ class ApiController < ApplicationController
       location = School.where("name LIKE :search", search: "#{location_search}")
     else
       render json: {status: 'error', code: '6969', message: 'No ID or search parameter found' }
+      return
     end
 
     if location
