@@ -4,8 +4,11 @@ class Machine < ApplicationRecord
   validates :client_asset_tag, allow_nil: true, uniqueness: true
   validates :role, presence: true
 
-  def self.to_csv
-    attributes = %w{serial_number client_asset_tag location role}
+  def self.to_csv(show_id = false)
+    attributes = %w[serial_number client_asset_tag location role]
+    if show_id
+      attributes.push('id')
+    end
 
     CSV.generate(headers: true) do |csv|
       csv << attributes
