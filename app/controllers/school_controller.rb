@@ -89,8 +89,8 @@ class SchoolController < ApplicationController
       assign_machine(machine, params[:school], serial_number)
     else
       set_flash('Serial not set. Please try again', 'error')
-      redirect_to action: 'index', school: params[:school]
     end
+    redirect_to action: 'index', school: params[:school]
   end
 
   def assign_machine(machine, school, serial)
@@ -113,7 +113,6 @@ class SchoolController < ApplicationController
     else
       set_flash('School has been assigned all units!', 'error')
     end
-    redirect_to action: 'index', school: params[:school]
   end
 
   def print_machine(machine)
