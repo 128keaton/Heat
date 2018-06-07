@@ -84,8 +84,13 @@ class SchoolController < ApplicationController
   def assign
     raw_csv = params[:machine][:serial_number]
     serial_number = CSV.parse(raw_csv.gsub(/\s+/, ''), col_sep: ',')[0][2]
-    machine = Machine.where(serial_number: serial_number).first
-    assign_machine(machine, params[:school], serial_number)
+    if serial_number && serial_number != ''
+      machine = Machine.where(serial_number: serial_number).first
+      assign_machine(machine, params[:school], serial_number)
+    else
+      set_flash('Serial not set. Please try again', 'error')
+      redirect_to action: 'index', school: params[:school]
+    end
   end
 
   def assign_machine(machine, school, serial)
