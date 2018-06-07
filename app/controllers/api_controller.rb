@@ -185,23 +185,19 @@ class ApiController < ApplicationController
   end
 
   def location_quantity
-    location_id = params[:location_id]
-    location_search = params[:find]
-    location = nil
+    location_id = params[:id]
+    location_search = params[:name]
+    location_code = params[:code]
 
-    if location_id
-      location = School.where(id: location_id).first
-    elsif location_search
-      location = School.where("name LIKE :search", search: "#{location_search}")
-    else
-      render json: {status: 'error', code: '6969', message: 'No ID or search parameter found' }
-      return
-    end
+    location = School.search_by(location_id, location_search, location_code)
+    render_location(location)
+  end
 
-    if location
-      render json: Machine.where(location: location)
+  def render_location(location)
+    if location&.is_a? School
+      location.render_machines
     else
-      render json: {status: "error", code: 420-2, message: "No location found for #{location_id} #{location_search}"}
+      render json: {status: 'error', code: '472', message: 'Location not found'}
     end
   end
 

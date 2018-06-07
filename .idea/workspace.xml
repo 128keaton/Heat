@@ -4,7 +4,7 @@
     <list default="true" id="06880c5e-7a04-42a3-972c-ed46903cf1ae" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/api_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/school_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/school_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/school.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/school.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,32 +18,39 @@
       <file leaf-file-name="api_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="201" column="52" lean-forward="true" selection-start-line="201" selection-start-column="52" selection-end-line="201" selection-end-column="52" />
+            <state relative-caret-position="155">
+              <caret line="191" column="2" lean-forward="true" selection-start-line="191" selection-start-column="2" selection-end-line="200" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="school_controller.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="school.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/school.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="school_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/school_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="106" column="149" selection-start-line="106" selection-start-column="149" selection-end-line="106" selection-end-column="149" />
+            <state relative-caret-position="15">
+              <caret line="108" column="9" selection-start-line="108" selection-start-column="9" selection-end-line="108" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="deploy_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/deploy_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-806" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="machine.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/machine.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
+            <state relative-caret-position="155">
               <caret line="22" column="17" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="17" />
             </state>
           </provider>
@@ -52,7 +59,7 @@
       <file leaf-file-name="schools_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/schools_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-249">
+            <state relative-caret-position="1125">
               <caret line="75" column="17" selection-start-line="75" selection-start-column="6" selection-end-line="75" selection-end-column="17" />
             </state>
           </provider>
@@ -61,7 +68,7 @@
       <file leaf-file-name="receive_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/receive_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
+            <state relative-caret-position="1665">
               <caret line="111" column="33" selection-start-line="111" selection-start-column="33" selection-end-line="111" selection-end-column="33" />
             </state>
           </provider>
@@ -72,15 +79,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
               <caret line="20" column="16" selection-start-line="18" selection-start-column="7" selection-end-line="20" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="imaging.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/scripts/imaging.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="44" column="6" selection-end-line="48" />
             </state>
           </provider>
         </entry>
@@ -172,8 +170,9 @@
         <option value="$PROJECT_DIR$/lib/scripts/imaging.rb" />
         <option value="$PROJECT_DIR$/app/models/machine.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/school_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/school.rb" />
       </list>
     </option>
   </component>
@@ -206,6 +205,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="RailsProjectView" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -291,10 +294,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
-      <pane id="RailsProjectView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -496,14 +495,8 @@
       <workItem from="1528212814232" duration="3000" />
       <workItem from="1528224822943" duration="653000" />
       <workItem from="1528243612847" duration="615000" />
-      <workItem from="1528381462595" duration="1704000" />
-    </task>
-    <task id="LOCAL-00015" summary="Removes serial validation for unboxing">
-      <created>1527857902659</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1527857902659</updated>
+      <workItem from="1528381462595" duration="3165000" />
+      <workItem from="1528390059525" duration="746000" />
     </task>
     <task id="LOCAL-00016" summary="submit forcibly enabled">
       <created>1527858272338</created>
@@ -841,11 +834,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528383281250</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="Adds scan protection">
+      <created>1528383408799</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1528383408799</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38069000" />
+    <option name="totallyTimeSpent" value="40276000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="2560" height="978" extended-state="0" />
@@ -861,10 +861,10 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32906976" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32867134" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32400933" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20810167" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20969023" />
       <window_info anchor="bottom" id="Docker" order="7" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -890,7 +890,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Removes image update with hostname call" />
     <MESSAGE value="Breaks heatmap script out" />
     <MESSAGE value="Stupid sexy string encoding" />
     <MESSAGE value="Changes to logger" />
@@ -915,12 +914,10 @@
     <MESSAGE value="Updates rubocop" />
     <MESSAGE value="Checks if serial is valid" />
     <MESSAGE value="Adds API lookup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds API lookup" />
+    <MESSAGE value="Adds scan protection" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adds scan protection" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/database.yml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1147,13 +1144,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/machine.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="17" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/status_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1163,19 +1153,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/receive_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
+        <state relative-caret-position="1665">
           <caret line="111" column="33" selection-start-line="111" selection-start-column="33" selection-end-line="111" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/deploy_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-806" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/schools_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-249">
+        <state relative-caret-position="1125">
           <caret line="75" column="17" selection-start-line="75" selection-start-column="6" selection-end-line="75" selection-end-column="17" />
         </state>
       </provider>
@@ -1187,17 +1172,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/school_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="201" column="52" lean-forward="true" selection-start-line="201" selection-start-column="52" selection-end-line="201" selection-end-column="52" />
+        <state relative-caret-position="15">
+          <caret line="108" column="9" selection-start-line="108" selection-start-column="9" selection-end-line="108" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/school_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/deploy_controller.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/machine.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="106" column="149" selection-start-line="106" selection-start-column="149" selection-end-line="106" selection-end-column="149" />
+        <state relative-caret-position="155">
+          <caret line="22" column="17" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="191" column="2" lean-forward="true" selection-start-line="191" selection-start-column="2" selection-end-line="200" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/school.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
