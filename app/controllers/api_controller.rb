@@ -12,10 +12,10 @@ class ApiController < ApplicationController
         if machine[:location]
           school = School.where(name: machine[:location]).first
           case machine.role
-            when "Teacher"
-              $ou = school.teacher_ou
-            when "Student"
-              $ou = school.ou_string
+          when "Teacher"
+            $ou = school.teacher_ou
+          when "Student"
+            $ou = school.ou_string
           end
           # Trim Serial to 7 characters
           if school[:blended_learning] && school[:blended_learning] == true
@@ -154,8 +154,8 @@ class ApiController < ApplicationController
       begin
         response = Net::HTTP.get_response(uri)
       rescue Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, EOFError,
-             Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError,
-             Net::ProtocolError => e
+          Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError,
+          Net::ProtocolError => e
         logger.error e
         retry
       end
@@ -181,6 +181,26 @@ class ApiController < ApplicationController
       end
     else
       render json: {status: "error", code: 3000, message: "No machine found for #{serial}"}
+    end
+  end
+
+  def location_quantity
+    location_id = params[:location_id]
+    location_search = params[:find]
+    location = nil
+
+    if location_id
+      location = School.where(id: location_id).first
+    elsif location_search
+      location = School.where("name LIKE :search", search: "#{location_search}")
+    else
+      render json: {status: 'error', code: '6969', message: 'No ID or search parameter found' }
+    end
+
+    if location
+      render json: Machine.where(location: location)
+    else
+      render json: {status: "error", code: 420-2, message: "No location found for #{location_id} #{location_search}"}
     end
   end
 
