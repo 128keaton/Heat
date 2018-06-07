@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   get 'api/image'
 
+  get 'api/location_status' => 'api#location_quantity'
   get 'api/check_imaged'
   get 'api/serial_lookup'
   get 'api/set_imaged'
