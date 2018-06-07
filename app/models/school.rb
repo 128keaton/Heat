@@ -11,7 +11,7 @@ class School < ApplicationRecord
   end
 
   def render_machines
-    render json: {status: 'success', message: Machine.where(location: location)}
+    { status: 'success', message: Machine.where(location: location) }.to_json
   end
 
   def self.search_by(id, name, code)

@@ -195,7 +195,7 @@ class ApiController < ApplicationController
 
   def render_location(location)
     if location&.is_a? School
-      location.render_machines
+      render json: location.render_machines
     else
       render json: {status: 'error', code: '472', message: 'Location not found'}
     end
