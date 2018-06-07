@@ -14,7 +14,7 @@ class School < ApplicationRecord
     if format == 'json'
       {status: 'success', machines: Machine.where(location: name)}.to_json
     else
-      Machine.where(location: name).to_csv(true)
+      Machine.where(location: name).to_csv(false)
     end
   end
 
