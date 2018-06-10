@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="06880c5e-7a04-42a3-972c-ed46903cf1ae" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/school.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/school.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/api_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/status_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/status_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,16 +19,16 @@
       <file leaf-file-name="api_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="200" column="10" lean-forward="true" selection-start-line="200" selection-start-column="10" selection-end-line="200" selection-end-column="10" />
+            <state relative-caret-position="144">
+              <caret line="136" column="19" selection-start-line="136" selection-start-column="6" selection-end-line="136" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="school.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="school.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/school.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
+            <state relative-caret-position="188">
               <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
             </state>
           </provider>
@@ -35,7 +37,7 @@
       <file leaf-file-name="school_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/school_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
+            <state relative-caret-position="1620">
               <caret line="108" column="9" selection-start-line="108" selection-start-column="9" selection-end-line="108" selection-end-column="9" />
             </state>
           </provider>
@@ -46,11 +48,11 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="machine.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="machine.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/machine.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="23" lean-forward="true" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+            <state relative-caret-position="165">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -58,7 +60,7 @@
       <file leaf-file-name="schools_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/schools_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
+            <state relative-caret-position="1125">
               <caret line="75" column="17" selection-start-line="75" selection-start-column="6" selection-end-line="75" selection-end-column="17" />
             </state>
           </provider>
@@ -85,8 +87,8 @@
       <file leaf-file-name="status_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/status_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="17" column="13" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="13" />
+            <state relative-caret-position="210">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
@@ -94,8 +96,8 @@
       <file leaf-file-name="routes.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/routes.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="26" />
+            <state relative-caret-position="240">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
@@ -167,13 +169,13 @@
         <option value="$PROJECT_DIR$/lib/scripts/imaging_debug.rb" />
         <option value="$PROJECT_DIR$/lib/scripts/heatmap_debug.rb" />
         <option value="$PROJECT_DIR$/lib/scripts/heatmap.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/status_controller.rb" />
         <option value="$PROJECT_DIR$/lib/scripts/imaging.rb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/school_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/machine.rb" />
         <option value="$PROJECT_DIR$/app/models/school.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/status_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
       </list>
     </option>
   </component>
@@ -198,7 +200,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="2560" />
+    <option name="width" value="1920" />
     <option name="height" value="978" />
   </component>
   <component name="ProjectView">
@@ -206,10 +208,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="RailsProjectView" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -295,6 +296,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -497,14 +499,8 @@
       <workItem from="1528224822943" duration="653000" />
       <workItem from="1528243612847" duration="615000" />
       <workItem from="1528381462595" duration="3165000" />
-      <workItem from="1528390059525" duration="2339000" />
-    </task>
-    <task id="LOCAL-00024" summary="hard coe this bitch">
-      <created>1527861257407</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1527861257407</updated>
+      <workItem from="1528390059525" duration="2354000" />
+      <workItem from="1528594916902" duration="245000" />
     </task>
     <task id="LOCAL-00025" summary="update a param call">
       <created>1527863793110</created>
@@ -842,14 +838,21 @@
       <option name="project" value="LOCAL" />
       <updated>1528392309936</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="ID on CSV">
+      <created>1528392411709</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1528392411710</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41869000" />
+    <option name="totallyTimeSpent" value="42129000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="2560" height="978" extended-state="0" />
+    <frame x="0" y="22" width="1920" height="978" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -862,10 +865,10 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32906976" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32400933" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32400933" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20969023" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21192758" />
       <window_info anchor="bottom" id="Docker" order="7" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1154,36 +1157,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/schools_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
+        <state relative-caret-position="1125">
           <caret line="75" column="17" selection-start-line="75" selection-start-column="6" selection-end-line="75" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/status_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="200" column="10" lean-forward="true" selection-start-line="200" selection-start-column="10" selection-end-line="200" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/machine.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="23" lean-forward="true" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -1192,15 +1167,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/school_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
+        <state relative-caret-position="1620">
           <caret line="108" column="9" selection-start-line="108" selection-start-column="9" selection-end-line="108" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/status_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="136" column="19" selection-start-line="136" selection-start-column="6" selection-end-line="136" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/school.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
+        <state relative-caret-position="188">
           <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/machine.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>

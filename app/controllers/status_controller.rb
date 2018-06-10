@@ -13,10 +13,6 @@ class StatusController < ApplicationController
     
   end
 
-	def csvexport
-		@machines = Machine.all
-		send_data @machines.to_csv, filename: "status-#{Date.today}.csv"
-	end
 
   def get_machines_by_date
     machineCount = Hash.new()

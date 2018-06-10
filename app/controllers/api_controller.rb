@@ -134,6 +134,10 @@ class ApiController < ApplicationController
     end
   end
 
+  def render_as_csv
+    @machines = Machine.all.order(:name)
+    send_data @machines.to_csv, filename: "status-#{Date.today}.csv"
+  end
 
   # Prints a label for a machine based on serial
   def print_label(serial)
