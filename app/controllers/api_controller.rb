@@ -135,7 +135,7 @@ class ApiController < ApplicationController
   end
 
   def render_as_csv
-    @machines = Machine.all.order(:name)
+    @machines = Machine.joins(:location => :school).order(:name)
     send_data @machines.to_csv, filename: "status-#{Date.today}.csv"
   end
 
