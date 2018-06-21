@@ -13,22 +13,23 @@
       <th>Name:</th>
       <th>School Code</th>
       <th>Role Quantities</th>
-      <th>Blended Learning</th>
       <th>OU Strings</th>
+      <th>Blended Learning</th>
     </tr>
       <tr>
         <td><%= @school[:name] %></td>
         <td><%= @school[:school_code] %></td>
-        <td><% @school[:quantity].each do |role|%>
-            <%= label :school_quantity, "#{role[0]}: #{role[1]}", :class => "label role-schools" %>
-            <% end %>
-        </td>
+        <% @school.role_quantities.each do |role_quantity| %>
+          <td><%= "#{role_quantity.get_role.name}: #{role_quantity.max_quantity}" %></td>
+          <td><%= "#{role_quantity.get_role.name}: #{role_quantity.ou}" %></td>
+        <% end %>
         <td>
             <% if @school[:blended_learning] == true %>Yes<% else %>No<% end %>
         </td>
-         <td><%= @school[:ou_string] %>, <%= @school[:teacher_ou] %></td>
       </tr>
   </table>
+</div>
+<div class="inner-wrapper flex-wrapper" id="second-wrapper">
   <%= link_to 'Delete', @school, method: :delete, data: { confirm: "Are you sure you want to delete #{@school[:name]}?"}, class: "button small button-link submit"  %>
   <%= link_to 'Edit', @school, method: :edit, class: "button done small button-link" %>
 </div>

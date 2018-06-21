@@ -5,7 +5,7 @@
 -->
 
 <!-- Render premade navigation bar -->
-<%= render "shared/nav", title: "Edit", bar_class: "def", link: "/admin" %>
+<%= render "shared/nav", title: "Edit", bar_class: "def", link: "/schools" %>
 
 <!-- Displays a table of schools/locations -->
 <div class="inner-wrapper">
@@ -26,42 +26,40 @@
           <%= hidden_field_tag :name, @school.name %>
         </td>
       </tr>
-      <% @roles.each do |role|%>
+      <% @school.role_quantities.all.each_with_index do |role_quantity, index| %>
+        <tr class="flex-section-title">
+          <td class="section-title"><%= role_quantity.role.name.titleize %> Role:</td>
+        </tr>
         <tr class="flex-form">
           <td class="school-form">
-            <%= f.label :school_code_label, "#{role[:name]} Role Quantity:", :class => "label role-schools" %>
-            <input type="number" class="school-role text-input" placeholder="200" value= <%= @school.quantity[role[:name]] %> name="<%= role[:name]%>-role">
+            <%= f.label nil, "Max Quantity:", :class => "label role-schools" %>
+            <input type="number" class="school-role text-input" placeholder="200" name="roles[<%= index %>][quantity]" value="<%= role_quantity.max_quantity %>">
           </td>
         </tr>
+
+        <tr class="flex-form" id="ou-string">
+          <td class="school-form">
+            <%= f.label nil, "OU", :class => "label ou-schools" %>
+            <input class="school-role text-input" placeholder="OU=Windfield" name="roles[<%= index %>][ou]" value="<%= role_quantity.ou %>">
+          </td>
+        </tr>
+        <%= hidden_field_tag "roles[#{index}][role_quantity_id]", role_quantity.id %>
       <% end %>
       <tr class="flex-form">
         <td class="school-form">
           <%= f.label :blended_learning_label, 'Blended Learning', :class => "label blended-learning" %>
           <div class="switch">
-            <%= f.check_box :blended_learning, :class => "cmn-toggle cmn-toggle-round blended_learning", :id => "cmn-toggle-1"  %>
+            <%= f.check_box :blended_learning, :class => "cmn-toggle cmn-toggle-round blended_learning", :id => "cmn-toggle-1" %>
             <label class="switch-label" for="cmn-toggle-1"></label>
           </div>
         </td>
       </tr>
-      <!-- dammit this isn't flexable!! -->
       <tr class="flex-form">
         <td class="school-form">
-          <%= f.label :ou_string_label, "Student OU", :class => "label ou_string" %>
-          <%= f.text_field :ou_string, :class => "ou_string text-input", :placeholder => "OU=Potato" %>
-        </td>
-      </tr>
-            <tr class="flex-form">
-        <td class="school-form">
-          <%= f.label :ou_string_label, "Teacher OU", :class => "label ou_string" %>
-          <%= f.text_field :teacher_ou, :class => "ou_string text-input", :placeholder => "OU=Tomato" %>
-        </td>
-      </tr>
-
-      <tr class="flex-form">
-        <td class="school-form">
-          <%= f.submit 'Submit', :class => 'button submit small button-table' %>
+          <%= f.submit 'Save', :class => 'button submit small button-table' %>
         </td>
       </tr>
     </table>
   <% end %>
 </div>
+

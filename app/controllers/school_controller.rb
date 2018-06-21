@@ -26,7 +26,7 @@ class SchoolController < ApplicationController
   def index
     @machine = Machine.new
     @schools = School.all.sort_by {|m| m.name.downcase}
-    @roles = Role.all
+
     verify_schools_exist
     if flash[:notice]
       @type = params[:type]
@@ -46,20 +46,8 @@ class SchoolController < ApplicationController
     redirect_to "/"
   end
 
-  def get_quantity_for(location, role)
-    @machineArray = Machine.where(location: location, role: role)
-    return @machineArray.length
-  end
-
-  def automatic_assignment(location)
-    if get_quantity_for(location, "Teacher") < School.where(name: location)[0].quantity["Teacher"].to_i
-      return "Teacher"
-    elsif get_quantity_for(location, "Student") < School.where(name: location)[0].quantity["Student"].to_i
-      return "Student"
-    else
-      return "Full"
-    end
-
+  def can_assign(role)
+    role.quantity <= role.max_quantity
   end
 
   def load_schools
@@ -68,56 +56,29 @@ class SchoolController < ApplicationController
     redirect_to controller: 'school', action: 'index'
   end
 
-  def build_reply(machine)
-    role = machine[:role]
-    passed_role = params[:machine][:role]
-
-
-    if passed_role && passed_role != ""
-      role = passed_role
-    end
-
-    machine.update(location: params[:school], role: role)
-    machine.set_unboxed(current_user)
-  end
-
   def assign
+    role_quantity = RoleQuantity.find(params[:machine][:role])
+    can_assign = can_assign(role_quantity)
     raw_csv = params[:machine][:serial_number]
     serial_number = CSV.parse(raw_csv.gsub(/\s+/, ''), col_sep: ',')[0][2]
-    if serial_number && serial_number != ''
-      machine = Machine.where(serial_number: serial_number).first
-      assign_machine(machine, params[:school], serial_number)
-    else
+
+    if serial_number && can_assign
+      machine = Machine.get_machine(serial_number)
+      asset_tag = params[:machine][:client_asset_tag]
+      school = params[:school]
+      if machine.assign(school, role_quantity, asset_tag)
+        set_flash('Assigned successfully', 'success')
+      else
+        set_flash("Machine already assigned to #{machine.location}", 'error')
+      end
+    elsif can_assign
       set_flash('Serial not set. Please try again', 'error')
+    else
+      set_flash('All computers assigned to role', 'error')
     end
     redirect_to action: 'index', school: params[:school]
   end
 
-  def assign_machine(machine, school, serial)
-    assignment = automatic_assignment(school)
-
-    if machine
-      build_reply(machine)
-      print_machine(machine)
-    elsif assignment != 'Full'
-      role = assignment
-      passed_role = params[:machine][:role]
-      role = passed_role unless passed_role.to_s.empty? or !passed_role
-
-      if machine == nil
-        machine = Machine.create(serial_number: serial, location: params[:school], role: role, client_asset_tag: params[:machine][:client_asset_tag])
-      end
-
-      if machine&.valid?
-        machine.set_unboxed(current_user)
-        assign_machine(machine, school, serial)
-      else
-        set_flash("Unable to save machine: #{machine.errors}", 'error')
-      end
-    else
-      set_flash('School has been assigned all units!', 'error')
-    end
-  end
 
   def print_machine(machine)
     # TODO: Make this an ENV var
@@ -135,6 +96,7 @@ class SchoolController < ApplicationController
                           "&model=#{machine.get_model_number}&type=#{type}")
     send_print_job(uri)
   end
+
 
   def send_print_job(uri)
     begin
@@ -164,8 +126,6 @@ class SchoolController < ApplicationController
     flash[:type] = type
     flash[:data] = existing_role
   end
-
-  helper_method :get_quantity_for
 
   private
 

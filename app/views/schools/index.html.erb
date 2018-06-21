@@ -15,67 +15,74 @@
       <th>Name:</th>
       <th>School Code</th>
       <th>Role Quantities</th>
+      <th>OUs</th>
       <th>Actions</th>
     </tr>
-    <% School.all.each do |skool| %>
-      <tr>
-        <td><%= skool[:name] %></td>
-        <td><%= skool[:school_code] %></td>
-        <td><% skool[:quantity].each do |role|%>
-            <%= label :school_quantity, "#{role[0]}: #{role[1]}", :class => "label role-schools" %>
-            <% end %>
-        </td>
-        <td><%= link_to raw('<i class="ic close red-icon"></i>'), skool, method: :delete, data: { confirm: "Are you sure you want to delete #{skool[:name]}?"}  %>
-        <%= link_to raw('<i class="ic edit"></i>'), skool, method: :edit %>
-         <%= link_to raw('<i class="ic view"></i>'),{:controller => "schools", :action => "view", :id => skool[:id]} %>
-        </td>
-      </tr>
+    <% if School.all.each.count > 0 %>
+      <% School.all.each do |school| %>
+        <tr>
+          <td><%= school.name %></td>
+          <td><%= school.school_code %></td>
+          <% school.role_quantities.each do |role_quantity| %>
+            <td><%= "#{role_quantity.get_role.name}: #{role_quantity.max_quantity}" %></td>
+            <td><%= "#{role_quantity.get_role.name}: #{role_quantity.ou}" %></td>
+          <% end %>
+          <td>
+            <%= link_to raw('<i class="ic close red-icon"></i>'), school, method: :delete, data: {confirm: "Are you sure you want to delete #{school[:name]}?"} %>
+            <%= link_to raw('<i class="ic edit"></i>'), school, method: :edit %>
+            <%= link_to raw('<i class="ic view"></i>'), {:controller => "schools", :action => "view", :id => school[:id]} %>
+          </td>
+        </tr>
+      <% end %>
     <% end %>
   </table>
+</div>
 
+<div class="inner-wrapper" id="second-wrapper">
   <!-- Displays a form for new form creation -->
   <%= form_for(@school, url: {action: "create"}, method: :post) do |f| %>
     <table align="center" class="school-form-table">
+      <tr class="flex-form-title">
+        <td class="section-title">New School:</td>
+      </tr>
+      <tr class="flex-section-title">
+        <td class="section-title">Essential Info:</td>
+      </tr>
       <tr class="flex-form">
         <td class="school-form">
           <%= f.label :name_label, 'Name', :class => "label name" %>
           <%= f.text_field :name, :class => "name text-input", :placeholder => "White Station" %>
         </td>
       </tr>
-
-        <!-- dammit this isn't flexable!! -->
-      <tr class="flex-form">
-        <td class="school-form">
-          <%= f.label :ou_string_label, "Student OU", :class => "label ou_string" %>
-          <%= f.text_field :ou_string, :class => "ou_string text-input", :placeholder => "OU=Potato" %>
-        </td>
-      </tr>
-            <tr class="flex-form">
-        <td class="school-form">
-          <%= f.label :ou_string_label, "Teacher OU", :class => "label ou_string" %>
-          <%= f.text_field :teacher_ou, :class => "ou_string text-input", :placeholder => "OU=Tomato" %>
-        </td>
-      </tr>
-  
       <tr class="flex-form">
         <td class="school-form">
           <%= f.label :school_code_label, 'School Code', :class => "label school-code" %>
           <%= f.text_field :school_code, :class => "school-code text-input", :placeholder => "1738-A" %>
         </td>
       </tr>
-      <% @roles.each do |role|%>
-        <tr class="flex-form">
+      <% Role.all.each_with_index do |role, index| %>
+        <tr class="flex-section-title">
+          <td class="section-title"><%= role.name.titleize %> Role:</td>
+        </tr>
+        <tr class="flex-form" id="role-max-quantity">
           <td class="school-form">
-            <%= f.label :school_code_label, "#{role[:name]} Role Quantity:", :class => "label role-schools" %>
-            <input type="number" class="school-role text-input" placeholder="200" name="<%= role[:name]%>-role">
+            <%= f.label nil, "Max Quantity:", :class => "label role-schools" %>
+            <input type="number" class="school-role text-input" placeholder="200" name="roles[<%= index %>][quantity]">
           </td>
         </tr>
+        <tr class="flex-form" id="ou-string">
+          <td class="school-form">
+            <%= f.label nil, "OU", :class => "label ou-schools" %>
+            <input class="school-role text-input" placeholder="OU=Windfield" name="roles[<%= index %>][ou]">
+          </td>
+        </tr>
+        <%= hidden_field_tag "roles[#{index}][id]", role.id %>
       <% end %>
       <tr class="flex-form">
         <td class="school-form">
           <%= f.label :blended_learning_label, 'Blended Learning', :class => "label blended-learning" %>
           <div class="switch">
-            <%= f.check_box :blended_learning, :class => "cmn-toggle cmn-toggle-round blended_learning", :id => "cmn-toggle-1"  %>
+            <%= f.check_box :blended_learning, :class => "cmn-toggle cmn-toggle-round blended_learning", :id => "cmn-toggle-1" %>
             <label class="switch-label" for="cmn-toggle-1"></label>
           </div>
         </td>

@@ -4,12 +4,8 @@ class Machine < ApplicationRecord
   validates :client_asset_tag, allow_nil: true, uniqueness: true
   validates :role, presence: true
 
-  def self.to_csv(show_id = false)
+  def self.to_csv
     attributes = %w[serial_number client_asset_tag location role]
-    if show_id
-      attributes.push('id')
-    end
-
     CSV.generate(headers: true) do |csv|
       csv << attributes
       all.each do |machine|
@@ -23,9 +19,8 @@ class Machine < ApplicationRecord
     'HP ProBook 430 G5'
   end
 
-  def set_unboxed(user)
-    current_date = Time.now.strftime("%d/%m/%Y %H:%M")
-    assign_attributes(unboxed: {date: current_date, user: user.name})
+  def set_un_boxed
+    assign_attributes(unboxed: {date: Time.zone.now.strftime('%d/%m/%Y %H:%M')})
     if valid?
       save
     else
@@ -34,11 +29,31 @@ class Machine < ApplicationRecord
   end
 
   def set_imaged
-    assign_attributes(imaged: {"date" => Time.now.strftime("%d/%m/%Y %H:%M"), "imaged" => true})
+    assign_attributes(imaged: {date: Time.zone.now.strftime('%d/%m/%Y %H:%M')})
     if valid?
       save
     else
       errors
     end
+  end
+
+  def self.get_machine(serial_number)
+    unless (machine = Machine.find_by(serial_number: serial_number))
+      machine = Machine.new
+      machine.serial_number = serial_number
+      machine.location = params[:sc]
+      machine.save!
+    end
+    machine
+  end
+
+  def assign(school, role_quantity, asset_tag)
+    role = role_quantity.role.name
+    if location.nil?
+      role_quantity.append_quantity
+      set_un_boxed
+      return update(role: role, location: school, client_asset_tag: asset_tag)
+    end
+    false
   end
 end

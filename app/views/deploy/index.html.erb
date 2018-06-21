@@ -20,15 +20,15 @@
     <ul>
       <li>
         <%= f.label :school_label, 'School', :class => "school-select label" %>
-        <%= f.select(:location, @schools.map { |value| [ value[:name], value[:name] ] }, {:prompt => "Choose School", :disabled => "0", :selected => params[:school]}, { :class => 'school-select select-input',  :onChange=>"javascript: this.form.submit();" }) %>
+        <%= f.select(:location, @schools.map { |value| [ value[:name], value[:name] ] }, {:prompt => "Choose School", :disabled => "0", :selected => params[:school]}, { :class => 'school-select select-input',:autocomplete => :off,   :onChange=>"javascript: this.form.submit();" }) %>
       </li>
       <% if @school %>
       <% @school = School.where(name: @school)[0] %>
         <li>
           <div class="roles-quantities">
             <h1 class="role-quantities-title"><%= @school.name %>:</h1>
-            <% @roles.each do |role| %>
-              <h2 class="role-quantities"><%= role[:name]%>: <%= get_quantity_for(@school.name, role[:name]) %>/<%= @school.quantity[role[:name]] %></h2>
+            <% @school.role_quantities.each do |role_quantity| %>
+              <h2 class="role-quantities"><%= role_quantity.role.name %>: <%= role_quantity.quantity ? role_quantity.quantity : '0' %>/<%= role_quantity.max_quantity %></h2>
             <% end %>
           </div>
         </li>
@@ -49,7 +49,7 @@
         <%= hidden_field_tag :school, params[:school] %>
       </li>
     </ul>
-      <%= f.submit 'Submit', :class => 'button submit small', :id => "submit", :disabled => "disabled"%>
+      <%= f.submit 'Submit', :class => 'button submit small', :id => "submit"%>
       <%= link_to "Finish", '/',  :class => 'button done small button-link' %>
   <% end %>           
 </div>

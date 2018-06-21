@@ -16,7 +16,6 @@ class RackController < ApplicationController
 
 
   def assign
-	
     rack = RackCart.where(rack_id: params[:machine][:rack])
     location = params[:machine][:location]
     

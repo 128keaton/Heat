@@ -5,32 +5,19 @@ class ApiController < ApplicationController
 
   def hostname
     serial = params[:serial]
-    machine = Machine.where(serial_number: serial)[0]
-    if machine
-      if machine[:role]
-        role = Role.where(name: machine[:role])[0]
-        if machine[:location]
-          school = School.where(name: machine[:location]).first
-          case machine.role
-          when "Teacher"
-            $ou = school.teacher_ou
-          when "Student"
-            $ou = school.ou_string
-          end
-          # Trim Serial to 7 characters
-          if school[:blended_learning] && school[:blended_learning] == true
-            render json: {'hostname' => "#{school[:school_code]}#{role[:suffix]}BL-#{machine[:serial_number]}", "ou" => $ou}
-          else
-            render json: {'hostname' => "#{school[:school_code]}#{role[:suffix]}LT-#{machine[:serial_number].split(//).last(7).join}", "ou" => $ou}
-          end
-        else
-          render json: {"error" => "No school found for machine"}
-        end
-      else
-        render json: {"error" => "No role found for machine"}
-      end
+    machine = Machine.where(serial_number: serial).first
+    check_machine(machine)
+
+    school = School.where(name: machine[:location]).first
+    ou = school.find_ou_for_role(machine[:role])
+
+    # Trim Serial to 7 characters
+    if school[:blended_learning] && school[:blended_learning] == true
+      render json: {hostname: "#{school[:school_code]}#{role[:suffix]}BL-#{machine[:serial_number]}",
+                    ou: ou}
     else
-      render json: {"error" => "No machine found for serial"}
+      render json: {hostname: "#{school[:school_code]}#{role[:suffix]}LT-#{machine[:serial_number].split(//).last(7).join}",
+                    ou: ou}
     end
   end
 
@@ -149,12 +136,8 @@ class ApiController < ApplicationController
       image_string = 'Standard Device - Special Education'
 
       # TODO: Make this an ENV var
-      uri = URI.parse('http://webapps.nationwidesurplus.com/scs/print'\
-                          "?image=#{image_string}"\
-                          "&asset_number=#{asset_number}"\
-                          "&serial_number=#{serial.upcase}"\
-                          "&school=#{school_string}"\
-                          "&model=#{machine.get_model_number}&type=#{type}")
+      uri = URI.parse("http://webapps.nationwidesurplus.com/scs/print?image=#{image_string}&asset_number=#{asset_number}&serial_number=#{serial.upcase}&school=#{school_string}&model=#{machine.get_model_number}&type=#{type}")
+
       begin
         response = Net::HTTP.get_response(uri)
       rescue Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, EOFError,
@@ -215,4 +198,24 @@ class ApiController < ApplicationController
     machine = Machine.where(serial_number: serial).first
     render json: {found: machine}
   end
+
+  private
+
+  def check_machine(machine)
+    if machine.nil?
+      render json: {status: 'error',
+                    code: '471',
+                    message: 'Machine not found'} && return
+    elsif machine.role.nil?
+      render json: {status: 'error',
+                    code: '470',
+                    message: 'Role not found for machine'} && return
+    elsif machine.location.nil?
+      render json: {status: 'error',
+                    code: '472',
+                    message: 'Location not found for machine'} && return
+    end
+  end
+
+
 end

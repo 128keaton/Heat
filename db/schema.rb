@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170531174233) do
+ActiveRecord::Schema.define(version: 20180621185450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,17 @@ ActiveRecord::Schema.define(version: 20170531174233) do
     t.string   "location"
   end
 
+  create_table "role_quantities", force: :cascade do |t|
+    t.integer  "quantity"
+    t.integer  "max_quantity"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "school_id"
+    t.integer  "role_id"
+    t.string   "ou"
+    t.index ["school_id"], name: "index_role_quantities_on_school_id", using: :btree
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string   "name"
     t.json     "specs"
@@ -57,13 +68,10 @@ ActiveRecord::Schema.define(version: 20170531174233) do
   create_table "schools", force: :cascade do |t|
     t.string   "name"
     t.boolean  "blended_learning"
-    t.json     "quantity"
     t.string   "school_code"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.string   "location"
-    t.string   "ou_string"
-    t.string   "teacher_ou"
   end
 
   create_table "users", force: :cascade do |t|

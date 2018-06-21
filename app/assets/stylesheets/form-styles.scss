@@ -1,5 +1,12 @@
 /* Forms */
 
+.school-form{
+  border-collapse: collapse;
+  width: 100%;
+}
+.school-form-table{
+  width: 100%;
+}
 .inner-wrapper form {
     text-align: center;
 }
@@ -137,4 +144,21 @@ select:focus {
     width: 100%;
     margin-right: 100%;
     font-size: 22px;
+}
+
+.flex-form-title td{
+  text-align: left;
+  font-size: 22px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid lightgrey;
+}
+.flex-section-title td{
+  text-align: left;
+  padding-top: 2em;
+  padding-bottom: 1em;
+  font-size: 18px;
+}
+
+#ou-string td{
+  padding-bottom: 2em;
 }
