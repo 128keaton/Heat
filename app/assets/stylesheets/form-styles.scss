@@ -189,6 +189,10 @@ select:focus {
   align-content: center;
   align-items: center;
 
+  @media screen and (max-width: 800px){
+    margin-top: 2em!important;
+  }
+
   h2 {
     text-align: left;
     font-size: 22px;

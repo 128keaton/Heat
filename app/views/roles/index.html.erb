@@ -6,7 +6,7 @@
 -->
 
 <!-- Render premade navigation bar -->
-<%= render "shared/nav", title: "Roles", bar_class: "def", link: "/admin" %>
+<%= render "shared/nav", title: "Roles", bar_class: "def", link: "/" %>
 
 
 <!-- Table which displays the roles-->
@@ -14,17 +14,14 @@
   <table align="center" class="roles-form">
     <tr>
       <th>Role:</th>
-      <th>Specs</th>
       <th>Suffix</th>
       <th>Actions</th>
     </tr>
     <!-- Iterate through roles -->
     <% Role.all.each do |role| %>
-      <% @specs = role[:specs]%>
       <tr>
-        <td><%= role[:name] %></td>
-        <td><strong>CPU</strong>: <%= @specs["cpu"] %><br><strong>HDD</strong>: <%= @specs["hdd"] %>GB<br><strong>RAM</strong>: <%= @specs["ram"] %>GB</td>
-        <td><%= role[:suffix] %></td>
+        <td><%= role.name %></td>
+        <td><%= role.suffix.nil? ?  role.suffix : raw('<small>No suffix</small>')  %></td>
         <td><%= link_to raw('<i class="ic close red-icon"></i>'), role, method: :delete,  data: { confirm: "Are you sure you want to delete #{role[:name]}?" } %></td>
       </tr>
     <% end %>
@@ -36,16 +33,6 @@
         <td class="roles-form">
           <%= f.label :name_label, 'Name', :class => "label role-name" %>
           <%= f.text_field :name, :class => "role-name text-input", :placeholder => "Teacher" %>
-        </td>
-      </tr>
-      <tr class="flex-form">
-        <td class="roles-form">
-          <%= f.label :specs_label, 'RAM', :class => "label role-specs" %>
-          <input class="specs-ram text-input" type="number" name="ram" placeholder="8"><span class="measurement">GB</span>
-          <%= f.label :specs_label, 'HDD', :class => "label role-specs" %>
-          <input class="specs-hdd text-input"  type="number" name="hdd" placeholder="128"><span class="measurement">GB</span>
-          <%= f.label :specs_label, 'CPU', :class => "label role-specs" %>
-          <input  class="specs-cpu text-input"  type="text" name="cpu" placeholder="i3">
         </td>
       </tr>
       <tr class="flex-form">

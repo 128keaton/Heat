@@ -141,12 +141,17 @@ body > * {
   max-width: 100% !important;
   margin-right: 1em;
   margin-left: 1em;
+  @media screen and (max-width: 800px){
+    margin: 0 auto;
+  }
 
 }
 
 .flex-wrapper {
   display: flex;
-
+  @media screen and (max-width: 800px){
+    flex-direction: column;
+  }
 }
 
 .full-inner-wrapper {

@@ -1,5 +1,7 @@
 class InventoryController < ApplicationController
-  def index; end
+  def index
+    @machines =  Machine.where("inventory_location IS NOT NULL")
+  end
 
   def add
     serial_number = params[:add][:serial_number]
