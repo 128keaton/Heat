@@ -45,7 +45,7 @@ class School < ApplicationRecord
       role = Role.find(role)
     end
 
-    role_quantities.where(role: role).ou
+    role_quantities.find_by(role: role).ou
   end
 
   private

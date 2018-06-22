@@ -1,14 +1,5 @@
 class RootController < ApplicationController
   before_action :authenticate_user!
-
-  def index
-    if !current_user.nil? && user_signed_in?
-      @user = current_user
-    else
-      redirect_to "/login"
-    end
-  end
-
   def mark_doa
     serial_number = params[:machine][:serial_number]
     if (machine = Machine.find_by(serial_number: serial_number))

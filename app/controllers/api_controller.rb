@@ -5,45 +5,38 @@ class ApiController < ApplicationController
 
   def hostname
     serial = params[:serial]
-    machine = Machine.where(serial_number: serial).first
-    check_machine(machine)
-
-    school = School.where(name: machine[:location]).first
-    ou = school.find_ou_for_role(machine[:role])
-
-    # Trim Serial to 7 characters
-    if school[:blended_learning] && school[:blended_learning] == true
-      render json: {hostname: "#{school[:school_code]}#{role[:suffix]}BL-#{machine[:serial_number]}",
-                    ou: ou}
+    if serial&.present?
+      machine = Machine.find_by(serial_number: serial)
+      check_machine(machine)
+      school = School.find_by(name: machine[:location])
+      ou = school.find_ou_for_role(Role.find_by(name: machine.role))
+      render json: {hostname: machine.hostname, ou: ou}
     else
-      render json: {hostname: "#{school[:school_code]}#{role[:suffix]}LT-#{machine[:serial_number].split(//).last(7).join}",
-                    ou: ou}
+      render json: {status: 'error',
+                    code: '6969',
+                    message: 'No serial passed'}
     end
   end
 
   def image
     serial = params[:serial]
-    machine = Machine.where(serial_number: serial)[0]
-    if machine
-      school = School.where(name: machine[:location])[0]
-      if school
-        role = machine[:role]
-        if role
-          if school[:blended_learning] && school[:blended_learning] == true
-            render json: {'image-name' => "blended_learning/#{role}"}
-          else
-            render json: {'image-name' => "standard/#{role}"}
-          end
-        else
-          # no role
-          render json: {"error" => "No role found for machine"}
-        end
-      else
-        # no school
-        render json: {"error" => "No school found for machine"}
+    if serial&.present?
+      machine = Machine.find_by(serial_number: serial)
+      check_machine(machine)
+      school = School.find_by(name: machine[:location])
+      if school&.blended_learning
+        render json: {'image-name' => "blended_learning/#{role}"}
+      elsif school&.blended_learning.nil? or school&.blended_learning == false
+        render json: {'image-name' => "standard/#{role}"}
+      elsif school.nil?
+        render json: {status: 'error',
+                      code: '420',
+                      message: 'No school found'}
       end
     else
-      render json: {"error" => "No machine found for serial"}
+      render json: {status: 'error',
+                    code: '6969',
+                    message: 'No serial passed'}
     end
   end
 

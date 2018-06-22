@@ -74,7 +74,7 @@ Rails.application.routes.draw do
 
   post 'rack/assign' => 'rack#assign'
 
-
+  get '/schools' => 'schools#index', as: 'schools_index'
   get '/unbox/assign' => 'unbox#assign'
 
   post '/unbox/assign' => 'unbox#assign'
@@ -95,6 +95,12 @@ Rails.application.routes.draw do
 
   get 'roles/create'
 
+  get '/roles/list' => 'roles#list_roles'
+  post '/roles/list' => 'roles#list_roles'
+
+  get '/roles/list/:id' => 'roles#list_location_roles'
+  post '/roles/list/:id' => 'roles#list_location_roles'
+
   get 'welcome/login'
 
   get 'welcome/failure'
@@ -108,7 +114,7 @@ Rails.application.routes.draw do
   post 'schools/update' => 'schools#update'
 
   get 'schools/:id' => 'schools#edit'
-
+  get '/schools/deploy/:id' => 'schools#deployment_sheet'
   post 'schools/:id' => 'schools#edit'
 
   get 'admin_tools/index'

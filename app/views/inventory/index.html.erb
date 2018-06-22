@@ -34,12 +34,10 @@
     </div>
     <div class="full-inner-wrapper" id="second-wrapper">
       <table class="inventory-table">
-        <tr class="flex-form-title">
-          <td colspan="4" class="section-title">Inventory List:</td>
-        </tr>
         <tr>
           <th>Location</th>
           <th>Serial</th>
+          <th>Asset Tag</th>
           <th>Inventory Location</th>
           <th></th>
         </tr>
@@ -47,6 +45,7 @@
           <tr id="machine">
             <td><%= machine.location %></td>
             <td><%= machine.serial_number %></td>
+            <td><%= machine.client_asset_tag %></td>
             <td><%= machine.inventory_location %></td>
             <td><%= link_to raw('<i class="ic close red-icon"></i>'), inventory_remove_path(machine), method: :post, data: {confirm: "Are you sure you want to remove this machine from inventory?"} %></td>
           </tr>

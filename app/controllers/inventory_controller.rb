@@ -1,16 +1,24 @@
 class InventoryController < ApplicationController
-  def index
-  end
+  def index; end
 
   def add
     serial_number = params[:add][:serial_number]
-    inventory_location = params[:add][:inventory_location]
+    if serial_number.include? ','
+      serial_number = CSV.parse(serial_number.gsub(/\s+/, ''), col_sep: ',')[0][2]
+    end
 
-    if (machine = Machine.find_by(serial_number: serial_number))
+    inventory_location = params[:add][:inventory_location]
+    machine = Machine.find_by(serial_number: serial_number)
+
+    if machine&.inventory_location.nil?
       machine.update(inventory_location: inventory_location)
       set_flash('Machine successfully added to inventory')
+    elsif !machine.inventory_location.nil?
+      set_flash('Machine already in inventory', 'error')
+    elsif inventory_location&.empty?
+      set_flash('Inventory location cannot be empty', 'error')
     else
-      set_flash('Machine not found' ,'error')
+      set_flash('Machine not found', 'error')
     end
     redirect_to action: 'index'
   end
@@ -22,8 +30,13 @@ class InventoryController < ApplicationController
   end
 
   def find
-    serial = params[:serial_number]
-    render json: Machine.where('serial_number ILIKE :in AND inventory_location IS NOT NULL', in: "%#{serial}%")
+    serial_number = params[:serial_number]
+    if serial_number.include? ','
+      serial_number = CSV.parse(serial_number.gsub(/\s+/, ''), col_sep: ',')[0][2]
+    end
+
+    render json: Machine.where('serial_number ILIKE :in AND inventory_location IS NOT NULL',
+                               in: "%#{serial_number}%")
   end
 
   private

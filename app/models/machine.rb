@@ -1,5 +1,7 @@
 class Machine < ApplicationRecord
   require 'csv'
+  include SpreadsheetArchitect
+
   validates :serial_number, uniqueness: {case_sensitive: false}
   validates :client_asset_tag, allow_nil: true, uniqueness: true
   validates :role, presence: true
@@ -51,6 +53,21 @@ class Machine < ApplicationRecord
     machine
   end
 
+  def hostname
+    return nil if location.nil?
+    return nil if role.nil?
+    school = School.find_by(name: location)
+    return nil if school.nil?
+    role_suffix = Role.find_by(name: role).suffix
+    return nil if role_suffix.nil?
+
+    if school.blended_learning
+      "#{school.school_code}#{role_suffix}BL-#{serial_number.split(//).last(7).join}"
+    else
+      "#{school.school_code}#{role_suffix}LT-#{serial_number.split(//).last(7).join}"
+    end
+  end
+
   def assign(school, role_quantity, asset_tag)
     role = role_quantity.role.name
     if location.nil?
@@ -59,5 +76,13 @@ class Machine < ApplicationRecord
       return update(role: role, location: school, client_asset_tag: asset_tag)
     end
     false
+  end
+
+  def spreadsheet_columns
+    [['Serial Number', :serial_number],
+     ['Asset Tag', :client_asset_tag],
+     ['School', :location],
+     ['Inventory Location', :inventory_location],
+     ['Role', :role]]
   end
 end

@@ -92,11 +92,7 @@ class ReceiveController < ApplicationController
 
   # Check if machine exists, should be false!
   def machine_exists(serial_number)
-    if Machine.where(serial_number: serial_number).length == 0
-      false
-    else
-      true
-    end
+    !Machine.find_by(serial_number: serial_number).nil?
   end
 
   def set_flash(notice, type = 'success')
@@ -106,9 +102,11 @@ class ReceiveController < ApplicationController
 
   def create
     @machine = Machine.new
+    serial = params[:serial_number]
+    if serial.include? ','
+      serial = CSV.parse(serial.gsub(/\s+/, ''), col_sep: ',')[0][2]
+    end
 
-    raw_csv = params[:machine][:serial_number]
-    serial = CSV.parse(raw_csv.gsub(/\s+/, ''), col_sep: ',')[0][2]
     user_name = current_user.name
     current_date = Time.now.getlocal().strftime('%d/%m/%Y %H:%M')
 

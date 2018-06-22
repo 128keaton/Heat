@@ -1,5 +1,6 @@
 class SchoolsController < ApplicationController
   before_action :authenticate_user!
+  respond_to :html, :xlsx
 
   def index
     @school = School.new
@@ -69,7 +70,14 @@ class SchoolsController < ApplicationController
     redirect_to action: 'index'
   end
 
-  helper_method
+  def deployment_sheet
+    location = School.find(params[:id]).name
+    return false if location.nil?
+    machines = Machine.where(location: location)
+    return false if machines.nil?
+    send_data machines.to_xlsx,
+              filename: "#{location}-#{Time.zone.today}.xlsx"
+  end
 
   private
 

@@ -1,20 +1,34 @@
-$(function() {
-    function buildTable(data){
-        let table = '<ul>';
-        $.each(data, function(machine){
-            $.each(data[machine], function(key, value){
-                if (key == 'serial_number'){
-                    let cell = "<li>Serial Number: " + value;
-                    table += cell;
-                }else if (key == 'inventory_location'){
-                    let cell = " - Inventory Location: " + value + "</li>";
-                    table += cell;
-                }
+$(function () {
+    function buildTable(data) {
+        let table = '<table>';
+        let id = null;
 
+        table += '<tr>'+
+            '<th>Serial Number</th>'+
+            '<th>Inventory Location</th>'+
+            '<th>Remove</th>'+
+            '</tr>';
+
+        $.each(data, function (machine) {
+            table += '<tr>';
+            $.each(data[machine], function (key, value) {
+                if (key === 'serial_number') {
+                    table += "<td>" + value + '</td>';
+                } else if (key === 'inventory_location') {
+                    table += "<td>" + value + '</td>';
+                } else if (key === 'id') {
+                    id = value;
+                }
             });
+            table += '<td><a data-sweet-alert-confirm="Are you sure you want to remove this machine from inventory?" ' +
+                'rel="nofollow" ' +
+                'data-method="post" ' +
+                'href="/inventory/remove/' + id +
+                '"><i class="ic close red-icon"></i></a></td>' +
+                '</tr>';
         });
 
-        table += '</ul>';
+        table += '</table>';
         return table;
     }
 
@@ -28,9 +42,9 @@ $(function() {
             },
             type: 'POST',
             dataType: 'json',
-            success: function(result){
-                var title = " Result Found";
-                if (result.length > 1 || result.length < 1 ){
+            success: function (result) {
+                let title = " Result Found";
+                if (result.length > 1 || result.length < 1) {
                     title = " Results Found";
                 }
 

@@ -27,10 +27,11 @@
         </td>
       </tr>
       <% @school.role_quantities.all.each_with_index do |role_quantity, index| %>
+        <i class="role-form">
         <tr class="flex-section-title">
           <td class="section-title"><%= role_quantity.role.name.titleize %> Role:</td>
         </tr>
-        <tr class="flex-form">
+        <tr class="flex-form" id="role-form-<%= role_quantity.role.id %>">
           <td class="school-form">
             <%= f.label nil, "Max Quantity:", :class => "label role-schools" %>
             <input type="number" class="school-role text-input" placeholder="200" name="roles[<%= index %>][quantity]" value="<%= role_quantity.max_quantity %>">
@@ -45,6 +46,7 @@
         </tr>
         <%= hidden_field_tag "roles[#{index}][role_quantity_id]", role_quantity.id %>
       <% end %>
+      </i>
       <tr class="flex-form">
         <td class="school-form">
           <%= f.label :blended_learning_label, 'Blended Learning', :class => "label blended-learning" %>
@@ -63,3 +65,7 @@
   <% end %>
 </div>
 
+
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "schools.js" %>
+<% end %>
