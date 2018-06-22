@@ -3,11 +3,9 @@
 one:
   name: "South Paw Elementary"
   blended_learning: false
-  quantity: 
   school_code: "ABC123"
 
 two:
   name: "Horned Dear Middle"
   blended_learning: true
-  quantity: 
   school_code: "DORAME"
