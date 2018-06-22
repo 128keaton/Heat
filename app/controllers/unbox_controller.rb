@@ -1,8 +1,7 @@
 require 'net/http'
 require 'csv'
 
-class SchoolController < ApplicationController
-
+class UnboxController < ApplicationController
   def export
     @school = params[:school]
     @machines = Machine.where(location: params[:school]).order(:client_asset_tag)
@@ -53,7 +52,7 @@ class SchoolController < ApplicationController
   def load_schools
     @school = params[:machine][:location]
     flash[:school] = @school
-    redirect_to controller: 'school', action: 'index'
+    redirect_to action: 'index'
   end
 
   def assign

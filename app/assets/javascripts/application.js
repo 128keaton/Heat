@@ -15,6 +15,8 @@
 //= require turbolinks
 //= require Chart.bundle
 //= require chartkick
+//= require sweetalert2
+//= require sweet-alert2-rails
 
 $(function() {
     $(document).on('touchstart click', '.alert', function(e) {

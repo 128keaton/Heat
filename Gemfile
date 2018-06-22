@@ -35,6 +35,8 @@ gem 'groupdate'
 gem 'chartkick'
 gem 'pony'
 gem 'whenever'
+gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
+gem 'sweet-alert2-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

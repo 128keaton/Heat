@@ -10,15 +10,13 @@
 <div class="inner-wrapper">
   <table align="center" class="school-form">
     <tr>
-      <th>Name:</th>
-      <th>School Code</th>
+      <th>Name</th>
       <th>Role Quantities</th>
       <th>OU Strings</th>
       <th>Blended Learning</th>
     </tr>
       <tr>
         <td><%= @school[:name] %></td>
-        <td><%= @school[:school_code] %></td>
         <% @school.role_quantities.each do |role_quantity| %>
           <td><%= "#{role_quantity.get_role.name}: #{role_quantity.max_quantity}" %></td>
           <td><%= "#{role_quantity.get_role.name}: #{role_quantity.ou}" %></td>

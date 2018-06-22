@@ -19,6 +19,10 @@ class Machine < ApplicationRecord
     'HP ProBook 430 G5'
   end
 
+  def mark_doa(reason)
+    update(doa: reason, unboxed: nil, imaged: nil, racked: nil, deployed: nil, location: nil, rack: nil)
+  end
+
   def set_un_boxed
     assign_attributes(unboxed: {date: Time.zone.now.strftime('%d/%m/%Y %H:%M')})
     if valid?

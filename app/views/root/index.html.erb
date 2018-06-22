@@ -6,36 +6,38 @@
 -->
 
 <!-- Renders alternative navigation bar -->
-<%= render "shared/alt_nav"%>
+<%= render "shared/alt_nav" %>
 
 <!-- Table with user profile and table of actions -->
 <div class="inner-wrapper" id="space-bottom">
-    <!-- Table of actions -->
-    <div class="button-grid">
-        <a class="button square" href="/receive">
-            <div class="rounded-button receive-color"><i class="receive ic ic-list"></i></div><span class="list-text">Receive</span></a>
-        <a class="button square" href="/school">
-            <div class="rounded-button unbox-color"><i class="unbox ic ic-list"></i></div><span class="list-text">Unbox</span></a>
-        <a class="button square" href="/rack">
-            <div class="rounded-button rack-color"><i class="rack ic ic-list"></i></div><span class="list-text">Rack</span></a>
-        <a class="button square" href="/deploy">
-            <div class="rounded-button deploy-color"><i class="deploy ic ic-list"></i></div><span class="list-text">Deploy</span></a>
-        <a class="button square last" href="/notes">
-            <div class="rounded-button notes-color"><i class="notes ic ic-list"></i></div><span class="list-text">Notes</span></a>
-    </div>
+  <!-- Table of actions -->
+  <div class="button-grid">
+    <a class="button square" href="/receive">
+      <div class="rounded-button receive-color"><i class="receive ic ic-list"></i></div>
+      <span class="list-text">Receive</span></a>
+    <a class="button square" href="<%= unbox_url %>">
+      <div class="rounded-button unbox-color"><i class="unbox ic ic-list"></i></div>
+      <span class="list-text">Unbox</span></a>
+    <a class="button square" href="<%= inventory_url %>">
+      <div class="rounded-button rack-color"><i class="rack ic ic-list"></i></div>
+      <span class="list-text">Inventory</span></a>
+    <a class="button square last" href="/deploy">
+      <div class="rounded-button deploy-color"><i class="deploy ic ic-list"></i></div>
+      <span class="list-text">Deploy</span></a>
+  </div>
 </div>
 <div class="inner-wrapper">
-    <div class="button-grid">
-        <div class="button square user-wrapper">
-            <!-- User profile area -->
-            <div class="user user-box">
-                <img class="user user-image" src="<%= @user.image %>">
-                <h2 class="user user-name">
-                    <%= @user.name %>
-                        </h1>
-                        <%= link_to("Logout", destroy_user_session_path, :method => :delete, :class => "user user-logout modal-button") %>
-            </div>
-        </div>
+  <div class="button-grid">
+    <div class="button square user-wrapper">
+      <!-- User profile area -->
+      <div class="user user-box">
+        <img class="user user-image" src="<%= @user.image %>">
+        <h2 class="user user-name">
+          <%= @user.name %>
+        </h2>
+        <%= link_to("Logout", destroy_user_session_path, :method => :delete, :class => "user user-logout modal-button") %>
+      </div>
     </div>
+  </div>
 </div>
 <%= render "shared/footer" %>

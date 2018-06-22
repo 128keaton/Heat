@@ -1,0 +1,21 @@
+// Place all the styles related to the inventory controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.inventory-table {
+  width: 100%;
+  border-collapse: collapse;
+  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid lightgrey;
+    text-align: left;
+  }
+  tr#machine td {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #f9f9f9;
+  }
+  tr#machine:nth-child(even)  td{
+    background-color: white;
+  }
+}

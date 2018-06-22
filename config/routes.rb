@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
+  get '/inventory' => 'inventory#index'
+  get '/inventory/find/:serial_number' => 'inventory#find'
+  post 'inventory/add'
+  post '/inventory/remove/:id' => 'inventory#remove', as: 'inventory_remove'
+  post 'inventory/find'
+
   devise_for  :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :sessions => "users/sessions" }
   # Define resources for our models.
   resources :machines
   resources :schools, only: [:index, :destroy, :create]
   resources :roles, only: [:index, :destroy, :create]
-  resources :rack_list, only: [:index, :destroy, :create, :clear]
+
 
   # Actually start setting up the routes.
   
@@ -68,13 +74,12 @@ Rails.application.routes.draw do
 
   post 'rack/assign' => 'rack#assign'
 
-  get 'school/index'
 
-  get 'school/assign'
+  get '/unbox/assign' => 'unbox#assign'
 
-  post 'school/assign' => 'school#assign'
+  post '/unbox/assign' => 'unbox#assign'
 
-  post 'school/load_schools' => 'school#load_schools'
+  post '/unbox/load_schools' => 'unbox#load_schools'
 
   get 'receive/index' => 'receive#index'
 
@@ -94,9 +99,7 @@ Rails.application.routes.draw do
 
   get 'welcome/failure'
 
-  get 'note/index'
 
-  post 'note/notate' => 'note#notate'
 
   get '/schools/edit' => 'schools#edit'
 
@@ -110,12 +113,12 @@ Rails.application.routes.draw do
 
   get 'admin_tools/index'
 
-  get 'mark_as_doa/index'
-  post 'mark_as_doa/mark_doa' => 'mark_as_doa#mark_doa'
+  get '/mark-doa' => 'root#mark_as_doa'
+  post '/mark-doa'=> 'root#mark_as_doa'
+
 
   get 'rack_list/index'
 
-  post 'rack_list/clear' => 'rack_list#clear'
 
   # Assign links to controllers/views
   get '/school' => 'school#index'
@@ -124,13 +127,12 @@ Rails.application.routes.draw do
   get '/pull' => 'finalize#index'
   get '/receive' => 'receive#index'
   get '/status' => 'status#index'
-  get '/schools' => 'schools#index'
+  get '/unbox' => 'unbox#index'
   get '/roles' => 'roles#index'
   get '/cinnamonroles' => 'roles#index'
   get 'rack/assign' => 'rack#index'
   get 'deploy/assign' => 'deploy#index'
   get 'users/welcome' => 'welcome#index'
-  get '/notes' => 'note#index'
   get '/admin' => 'admin_tools#index'
   get '/mark_doa' => 'mark_as_doa#index'
   get '/racks' => 'rack_list#index'

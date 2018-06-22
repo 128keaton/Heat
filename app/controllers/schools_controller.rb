@@ -46,7 +46,6 @@ class SchoolsController < ApplicationController
     @school
   end
 
-
   def edit
     @school = School.find(params[:id])
     if flash[:notice]
@@ -70,6 +69,7 @@ class SchoolsController < ApplicationController
     redirect_to action: 'index'
   end
 
+  helper_method
 
   private
 

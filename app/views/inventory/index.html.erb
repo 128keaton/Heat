@@ -1,0 +1,60 @@
+<%= render "shared/nav", title: "Inventory", bar_class: "rack-color no-gradient" %>
+
+<div class="flex-wrapper outer-flex-wrapper">
+  <%= form_for(:add, url: {action: "add"}, method: :post) do |f| %>
+    <div class="flex-left-wrapper inner-wrapper">
+      <table align="center" class="form-table">
+        <tr class="flex-form-title">
+          <td class="section-title">Add to Inventory:</td>
+        </tr>
+        <tr class="flex-form">
+          <td class="school-form">
+            <%= f.label :inventory_location_label, 'Inventory Location', :class => "label location" %>
+            <%= f.text_field :inventory_location, :class => "location text-input", :placeholder => "W2-02-01" %>
+          </td>
+        </tr>
+        <tr class="flex-form">
+          <td class="school-form">
+            <%= f.label :serial_number_label, 'Serial Number', :class => "label serial" %>
+            <%= f.text_field :serial_number, :class => "serial text-input", :placeholder => "5CD82060F6" %>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <%= f.submit 'Add', :class => 'button submit small button-table' %>
+    </div>
+  <% end %>
+  <div class="flex-right-wrapper">
+    <div class="find-box flex-wrapper full-inner-wrapper">
+      <h2>Find:</h2>
+      <%= form_for(:find, :html => {:class => "find-form"}) do |f| %>
+        <%= f.text_field :serial_number, :class => "serial text-input", :placeholder => "5CD82060F6" %>
+        <%= f.submit 'Find', :class => 'button submit small button-table' %>
+      <% end %>
+    </div>
+    <div class="full-inner-wrapper" id="second-wrapper">
+      <table class="inventory-table">
+        <tr class="flex-form-title">
+          <td colspan="4" class="section-title">Inventory List:</td>
+        </tr>
+        <tr>
+          <th>Location</th>
+          <th>Serial</th>
+          <th>Inventory Location</th>
+          <th></th>
+        </tr>
+        <% Machine.where("inventory_location IS NOT NULL").each do |machine| %>
+          <tr id="machine">
+            <td><%= machine.location %></td>
+            <td><%= machine.serial_number %></td>
+            <td><%= machine.inventory_location %></td>
+            <td><%= link_to raw('<i class="ic close red-icon"></i>'), inventory_remove_path(machine), method: :post, data: {confirm: "Are you sure you want to remove this machine from inventory?"} %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "inventory.js" %>
+<% end %>
