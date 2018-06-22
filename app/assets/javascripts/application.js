@@ -15,28 +15,27 @@
 //= require turbolinks
 //= require Chart.bundle
 //= require chartkick
-//= require sweetalert2
 //= require sweet-alert2-rails
 
-$(function() {
-    $(document).on('touchstart click', '.alert', function(e) {
+$(function () {
+    $(document).on('touchstart click', '.alert', function (e) {
         e.stopPropagation();
         $(".alert").slideUp();
 
     });
-    $(document).on('touchstart click', '.success', function(e) {
+    $(document).on('touchstart click', '.success', function (e) {
         e.stopPropagation();
         $(".notice").slideUp();
 
     });
-    $(document).on('touchstart click', '.error', function(e) {
+    $(document).on('touchstart click', '.error', function (e) {
         e.stopPropagation();
         $(".error").fadeOut();
 
     });
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
     if ($('#notice\\ error').length) {
         $("#audio-error").trigger('play')
         navigator.vibrate([500]);
@@ -57,6 +56,41 @@ $(document).ready(function() {
         window.Keyboard.hide();
         $("input").blur();
     }
+    $('.reprint').on('click', function () {
+        swal({
+            title: "Print",
+            buttons: true,
+            content: {
+                element: "input",
+                attributes: {
+                    placeholder: "5CD821DWSJ",
+                    type: "text",
+                },
+            },
+        }).then((value) => {
+            if (value) {
+                $.ajax({
+                    url: '/reprint/' + value,
+                    type: 'GET',
+                    dataType: 'JSON',
+                    success: function (result) {
+                        if (result['status']) {
+                            swal({
+                                icon: 'error',
+                                text: result['message']
+                            });
+                        } else {
+                            swal({
+                                icon: 'success',
+                                text: result['message']
+                            });
+                        }
+                    }
+                })
+            }
+        })
+
+    });
 
 });
 

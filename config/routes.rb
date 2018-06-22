@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   # Actually start setting up the routes.
   
   get '/api/export' => 'api#render_as_csv'
+  get '/import' => 'root#import', as: 'import'
+  post '/import' => 'root#process_file', as: 'process_import'
 
   get 'deployment/:school' => 'school#export'
 

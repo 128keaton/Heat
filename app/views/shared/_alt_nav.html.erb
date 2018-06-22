@@ -1,4 +1,10 @@
 <!-- Alternative navigation bar-->
 <div class="nav-bar">
-    <%= image_tag("logo.png", :class => "logo nav-title") %>
+  <h1>Heat</h1>
+  <div class="action-buttons">
+    <a href="/"><%= fa_icon "home" %><span>Home</span></a>
+    <button type="button" class="reprint"><%= fa_icon "print" %><span>Reprint</span></button>
+    <a href="<%= status_index_path %>"><%= fa_icon "area-chart" %><span>Overview</span></a>
+    <a href="<%= import_path %>"><%= fa_icon "database" %><span>Import</span></a>
+  </div>
 </div>

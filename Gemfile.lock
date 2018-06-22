@@ -78,6 +78,8 @@ GEM
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.23)
+    font-awesome-rails (4.7.0.4)
+      railties (>= 3.2, < 6.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     groupdate (4.0.0)
@@ -179,6 +181,9 @@ GEM
       activesupport (>= 3.0)
       builder (>= 3.0)
       rubyzip (>= 1.0)
+    roo (2.7.1)
+      nokogiri (~> 1)
+      rubyzip (~> 1.1, < 2.0.0)
     rubyzip (1.1.7)
     sass (3.5.6)
       sass-listen (~> 4.0.0)
@@ -242,6 +247,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   dotenv
+  font-awesome-rails
   groupdate
   highline
   jbuilder (~> 2.5)
@@ -255,6 +261,7 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.0.2)
   rails-assets-sweetalert2 (~> 5.1.1)!
+  roo
   rubyzip (~> 1.1.0)
   sass-rails (~> 5.0)
   spreadsheet_architect

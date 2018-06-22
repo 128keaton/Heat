@@ -25,6 +25,17 @@ class School < ApplicationRecord
     end
   end
 
+  def self.location_is_school(location)
+    loc_string = location.downcase
+
+    unless loc_string == 'school name' || loc_string.nil?
+      return (loc_string.include? 'school') || (loc_string.include? 'academy') ||
+             (loc_string.include? 'high') || (loc_string.include? 'middle') ||
+             (loc_string.include? 'elementary')
+    end
+    false
+  end
+
   def self.search_by(id, name, code)
     if id
       location = School.find(id)

@@ -41,6 +41,8 @@ gem 'rubyzip', '~> 1.1.0'
 gem 'axlsx', '2.1.0.pre'
 gem 'axlsx_rails'
 gem 'spreadsheet_architect'
+gem "font-awesome-rails"
+gem 'roo'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

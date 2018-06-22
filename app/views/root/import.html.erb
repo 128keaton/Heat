@@ -1,0 +1,18 @@
+<%= render "shared/nav", title: "Import", bar_class: "def" %>
+<div class="inner-wrapper">
+  <%= form_for :import, {action: 'process_file'} do |f| %>
+    <table align="center" class="form-table">
+      <tr class="flex-form">
+        <td class="import-form">
+          <%= f.label :file_label, 'Upload File', :class => "label file" %>
+          <%= f.file_field :file,  :class => "upload-file" %>
+        </td>
+      </tr>
+      <tr class="flex-form">
+        <td class="import-form">
+          <%= f.submit 'Import', :class => 'button submit small button-table' %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+</div>

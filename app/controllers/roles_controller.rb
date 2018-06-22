@@ -22,16 +22,18 @@ class RolesController < ApplicationController
   end
 
   def create
-    specsHash = {'cpu' => params[:cpu], 'hdd' => params[:hdd], 'ram' => params[:ram]}
-    @role = Role.new()
-    @role.specs = specsHash
-    @role.name = params[:role][:name]
-    @role.suffix = params[:role][:suffix]
-    @role.pallet_count = params[:role][:pallet_count]
-    @role.pallet_layer_count = params[:role][:pallet_layer_count]
+    role = Role.new
+    role.name = params[:role][:name]
 
-    if @role.valid?
-      @role.save
+    unless params[:role][:suffix].empty?
+      role.suffix = params[:role][:suffix]
+    end
+
+    role.pallet_count = params[:role][:pallet_count]
+    role.pallet_layer_count = params[:role][:pallet_layer_count]
+
+    if role.valid?
+      role.save
       flash[:notice] = "Role created successfully"
       flash[:type] = "success"
       redirect_to action: 'index'
@@ -48,7 +50,7 @@ class RolesController < ApplicationController
 
   def list_location_roles
     id = params[:id]
-    render json: {roles: Role.all, checked:  Role.joins(:role_quantities).where(role_quantities: {school_id: id})}
+    render json: {roles: Role.all, checked: Role.joins(:role_quantities).where(role_quantities: {school_id: id})}
   end
 
 end

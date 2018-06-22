@@ -1,41 +1,40 @@
 .roles-form td {
-    padding: 12px;
+  padding: 12px;
 }
 
 .roles-form tr {
-    text-align: left;
+  text-align: left;
 }
 
 .roles-form {
-    width: 30.9em;
+  width: 30.9em;
+  border-collapse: collapse;
 }
 
 .roles-form tr:nth-child(1) th {
-    padding: 12px;
-    font-weight: 100;
-    font-size: 18px;
-    border-bottom: 2px solid gray;
+  padding: 12px;
+  font-weight: 100;
+  font-size: 18px;
+  border-bottom: 2px solid gray;
 }
 
 .switch {
-    height: 28px;
+  height: 28px;
 }
 
 .specs-ram,
 .specs-hdd {
-    margin-bottom: 10px;
-    width: 93%;
+  margin-bottom: 10px;
+  width: 93%;
 }
 
 .roles-form-table {
-    padding-top: 20px;
-    border-top: 2px solid gray;
-    margin: 0 auto;
-    padding-left: 10px;
-    padding-right: 10px;
+  margin: 0 auto;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .roles-form {
-    table-layout: fixed;
-    width: 100%;
+  table-layout: fixed;
+  width: 100%;
 }
