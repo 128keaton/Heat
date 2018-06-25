@@ -78,7 +78,7 @@ class UnboxController < ApplicationController
     end
     return_to_controller
   end
-  
+
   def return_to_controller
     redirect_to action: 'index', school: params[:location]
   end
