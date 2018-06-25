@@ -47,12 +47,12 @@ class Machine < ApplicationRecord
   end
 
   def hostname
-    return nil if location.nil?
-    return nil if role.nil?
+    return 'No location' if location.nil?
+    return 'No role' if role.nil?
     school = Location.find_by(name: location)
-    return nil if school.nil?
+    return 'No School' if school.nil?
     role_suffix = Role.find_by(name: role).suffix
-    return nil if role_suffix.nil?
+    return 'No suffix' if role_suffix.nil?
 
     if school.blended_learning
       "#{school.school_code}#{role_suffix}BL-#{serial_number.split(//).last(7).join}"

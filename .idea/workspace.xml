@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="06880c5e-7a04-42a3-972c-ed46903cf1ae" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/api_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/machine.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/machine.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,15 +14,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="receive_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/receive_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="33" column="25" lean-forward="true" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="unbox_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/unbox_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -50,20 +41,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="machine.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="machine.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/machine.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="57" column="63" selection-start-line="57" selection-start-column="63" selection-end-line="57" selection-end-column="63" />
+            <state relative-caret-position="207">
+              <caret line="51" column="29" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api_controller.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="api_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
+            <state relative-caret-position="-53">
+              <caret line="11" column="49" lean-forward="true" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="location.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/location.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="148">
+              <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -117,7 +117,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ou</find>
       <find>sprockets</find>
       <find>.flex-wrapper</find>
       <find>reprint</find>
@@ -147,6 +146,7 @@
       <find>margin: 20px</find>
       <find>print</find>
       <find>print_machine</find>
+      <find>find_ou</find>
     </findStrings>
     <replaceStrings>
       <replace>'</replace>
@@ -182,7 +182,6 @@
         <option value="$PROJECT_DIR$/app/controllers/locations_controller.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/locations.js" />
         <option value="$PROJECT_DIR$/app/views/locations/partials/_role_form.html.erb" />
-        <option value="$PROJECT_DIR$/app/models/location.rb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/locations.scss" />
         <option value="$PROJECT_DIR$/app/helpers/deployment_helper.rb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/icons.scss" />
@@ -205,7 +204,6 @@
         <option value="$PROJECT_DIR$/config/initializers/assets.rb" />
         <option value="$PROJECT_DIR$/app/views/unbox/index.html.erb" />
         <option value="$PROJECT_DIR$/app/models/role_quantity.rb" />
-        <option value="$PROJECT_DIR$/app/models/machine.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20180624215706_add_location_id_to_machine.rb" />
         <option value="$PROJECT_DIR$/app/views/shared/_alt_nav.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
@@ -215,6 +213,8 @@
         <option value="$PROJECT_DIR$/app/views/root/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/unbox_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/location.rb" />
+        <option value="$PROJECT_DIR$/app/models/machine.rb" />
       </list>
     </option>
   </component>
@@ -613,21 +613,7 @@
       <workItem from="1529658191725" duration="16278000" />
       <workItem from="1529693918808" duration="7282000" />
       <workItem from="1529932385646" duration="12094000" />
-      <workItem from="1529950637822" duration="6503000" />
-    </task>
-    <task id="LOCAL-00050" summary="Fixes machine status settings">
-      <created>1528144196452</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1528144196453</updated>
-    </task>
-    <task id="LOCAL-00051" summary="returns status">
-      <created>1528144238191</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1528144238191</updated>
+      <workItem from="1529950637822" duration="6711000" />
     </task>
     <task id="LOCAL-00052" summary="Adds better status handling">
       <created>1528144372404</created>
@@ -958,11 +944,25 @@
       <option name="project" value="LOCAL" />
       <updated>1529957895544</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="Converts to ID">
+      <created>1529957925577</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1529957925577</updated>
+    </task>
+    <task id="LOCAL-00100" summary="updates role search">
+      <created>1529958040665</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1529958040665</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114485000" />
+    <option name="totallyTimeSpent" value="114693000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="50" width="1920" height="978" extended-state="0" />
@@ -1007,7 +1007,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Adds scan protection" />
     <MESSAGE value="Better location status finding" />
     <MESSAGE value="Moves render" />
     <MESSAGE value="removes nil value" />
@@ -1032,7 +1031,8 @@
     <MESSAGE value="Adds label creation" />
     <MESSAGE value="Better error handling" />
     <MESSAGE value="Converts to ID" />
-    <option name="LAST_COMMIT_MESSAGE" value="Converts to ID" />
+    <MESSAGE value="updates role search" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates role search" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1061,13 +1061,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="242" column="51" lean-forward="true" selection-start-line="242" selection-start-column="51" selection-end-line="242" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/location.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="93" column="53" selection-start-line="93" selection-start-column="53" selection-end-line="93" selection-end-column="53" />
         </state>
       </provider>
     </entry>
@@ -1357,13 +1350,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/machine.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="57" column="63" selection-start-line="57" selection-start-column="63" selection-end-line="57" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/unbox_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
@@ -1371,10 +1357,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/location.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
+        <state relative-caret-position="-53">
+          <caret line="11" column="49" lean-forward="true" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/machine.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="51" column="29" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
         </state>
       </provider>
     </entry>
