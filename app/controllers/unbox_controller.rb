@@ -63,7 +63,9 @@ class UnboxController < ApplicationController
     if serial_number && can_assign
       machine = Machine.get_machine(serial_number)
       asset_tag = params[:machine][:client_asset_tag]
-      location = params[:location]
+      location = Location.find(params[:location])
+      set_flash('Location not found', 'error')
+      return return_to_controller if location.nil?
       if machine.assign(location, role_quantity, asset_tag)
         set_flash('Assigned successfully', 'success')
       else
@@ -74,9 +76,12 @@ class UnboxController < ApplicationController
     else
       set_flash('All computers assigned to role', 'error')
     end
+    return_to_controller
+  end
+  
+  def return_to_controller
     redirect_to action: 'index', school: params[:location]
   end
-
 
   def print_machine(machine)
     # TODO: Make this an ENV var
