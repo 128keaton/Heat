@@ -45,7 +45,7 @@
         <li>
           <%= f.label :serial_number, 'Serial', :class => "serial label" %>
           <%= f.text_field :serial_number, :class => "serial text-input", :placeholder => "PPPP" %>
-          <%= hidden_field_tag :location, @location %>
+          <%= hidden_field_tag :location, @location.id %>
         </li>
         <li>
           <%= f.label :client_asset_tag, 'Cust. Asset Tag', :class => "client-asset label" %>
