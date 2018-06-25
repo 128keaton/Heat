@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   devise_for  :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :sessions => "users/sessions" }
   # Define resources for our models.
   resources :machines
-  resources :schools, only: [:index, :destroy, :create]
+  resources :locations, only: [:index, :destroy, :create]
   resources :roles, only: [:index, :destroy, :create]
 
 
@@ -18,10 +18,10 @@ Rails.application.routes.draw do
   get '/import' => 'root#import', as: 'import'
   post '/import' => 'root#process_file', as: 'process_import'
 
-  get 'deployment/:school' => 'school#export'
+  get 'deployment/:location' => 'location#export'
 
   get 'reprint/:serial' => 'api#reprint'
-  get 'schools/view'
+  get 'locations/view'
 
   get 'api/hostname'
 
@@ -76,7 +76,7 @@ Rails.application.routes.draw do
 
   post 'rack/assign' => 'rack#assign'
 
-  get '/schools' => 'schools#index', as: 'schools_index'
+  get '/locations' => 'locations#index', as: 'locations_index'
   get '/unbox/assign' => 'unbox#assign'
 
   post '/unbox/assign' => 'unbox#assign'
@@ -109,15 +109,15 @@ Rails.application.routes.draw do
 
 
 
-  get '/schools/edit' => 'schools#edit'
+  get '/locations/edit' => 'locations#edit'
 
-  get '/schools/view' => 'schools#view'
+  get '/locations/view' => 'locations#view'
 
-  post 'schools/update' => 'schools#update'
+  post 'locations/update' => 'locations#update'
 
-  get 'schools/:id' => 'schools#edit'
-  get '/schools/deploy/:id' => 'schools#deployment_sheet'
-  post 'schools/:id' => 'schools#edit'
+  get 'locations/:id' => 'locations#edit'
+  get '/locations/deploy/:id' => 'locations#deployment_sheet'
+  post 'locations/:id' => 'locations#edit'
 
   get 'admin_tools/index'
 
@@ -145,9 +145,6 @@ Rails.application.routes.draw do
   get '/mark_doa' => 'mark_as_doa#index'
   get '/racks' => 'rack_list#index'
 
-  #root 'welcome#login'
   root 'root#index'
   get '/login' => 'welcome#login'
-  #match "/home", to: "root#index", via: [:get]
-
 end

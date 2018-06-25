@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180622163205) do
+ActiveRecord::Schema.define(version: 20180624215706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "blended_learning"
+    t.string   "school_code"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "machines", force: :cascade do |t|
     t.string   "serial_number"
@@ -30,30 +38,20 @@ ActiveRecord::Schema.define(version: 20180622163205) do
     t.json     "special_instructions"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-    t.string   "location"
     t.integer  "pallet_id"
     t.string   "inventory_location"
-  end
-
-  create_table "rack_carts", force: :cascade do |t|
-    t.string   "rack_id"
-    t.text     "children"
-    t.boolean  "full"
-    t.integer  "capacity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "location"
+    t.integer  "location"
   end
 
   create_table "role_quantities", force: :cascade do |t|
-    t.integer  "quantity"
+    t.integer  "quantity",     default: 0
     t.integer  "max_quantity"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "school_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "location_id"
     t.integer  "role_id"
     t.string   "ou"
-    t.index ["school_id"], name: "index_role_quantities_on_school_id", using: :btree
+    t.index ["location_id"], name: "index_role_quantities_on_location_id", using: :btree
   end
 
   create_table "roles", force: :cascade do |t|
@@ -65,15 +63,6 @@ ActiveRecord::Schema.define(version: 20180622163205) do
     t.integer  "pallet_count"
     t.integer  "pallet_layer_count"
     t.string   "product"
-  end
-
-  create_table "schools", force: :cascade do |t|
-    t.string   "name"
-    t.boolean  "blended_learning"
-    t.string   "school_code"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.string   "location"
   end
 
   create_table "users", force: :cascade do |t|

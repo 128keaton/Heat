@@ -3,8 +3,8 @@ require 'csv'
 
 class UnboxController < ApplicationController
   def export
-    @school = params[:school]
-    @machines = Machine.where(location: params[:school]).order(:client_asset_tag)
+    @location = Location.find(params[:location])
+    @machines = Machine.where(location: @location).order(:client_asset_tag)
     @send_csv = CSV.generate(headers: true) do |csv|
       @previous_asset = @machines.first.client_asset_tag.to_i
       csv << ["Qty", "Description", "MCS ID#", "Mfg. Name", "Model No.", "Serial No.", "P.O.#", "Unit Cost", "USB Wireless Card", "Asset Tag Offset"]
@@ -16,33 +16,32 @@ class UnboxController < ApplicationController
     end
 
     respond_to do |format|
-      format.csv {send_data @send_csv, filename: "#{@school}-#{Date.today}.csv"}
+      format.csv {send_data @send_csv, filename: "#{@location}-#{Date.today}.csv"}
     end
   end
-
-  before_action :authenticate_user!
 
   def index
     @machine = Machine.new
-    @schools = School.all.sort_by {|m| m.name.downcase}
+    @locations = Location.all.sort_by {|m| m.name.downcase}
 
-    verify_schools_exist
+    verify_locations_exist
     if flash[:notice]
       @type = params[:type]
     end
-    if flash[:school] != ""
-      @school = flash[:school]
-      params[:school] = @school
-    elsif params[:school]
-      @school = params[:school]
+
+    if !flash[:location].nil?
+      @location = Location.find(flash[:location])
+      params[:location] = @location
+    elsif params[:location]
+      @location = Location.find(params[:location])
     end
   end
 
-  def verify_schools_exist
-    return if @schools.count != 0
-    flash[:notice] = "No schools exist"
-    flash[:type] = "error"
-    redirect_to "/"
+  def verify_locations_exist
+    if Location.all.empty?
+      set_flash('No locations exist', 'error')
+      redirect_to locations_index_path
+    end
   end
 
   def can_assign(role)
@@ -50,8 +49,8 @@ class UnboxController < ApplicationController
   end
 
   def load_schools
-    @school = params[:machine][:location]
-    flash[:school] = @school
+    @location = params[:machine][:location]
+    flash[:location] = @location
     redirect_to action: 'index'
   end
 
@@ -64,8 +63,8 @@ class UnboxController < ApplicationController
     if serial_number && can_assign
       machine = Machine.get_machine(serial_number)
       asset_tag = params[:machine][:client_asset_tag]
-      school = params[:school]
-      if machine.assign(school, role_quantity, asset_tag)
+      location = params[:location]
+      if machine.assign(location, role_quantity, asset_tag)
         set_flash('Assigned successfully', 'success')
       else
         set_flash("Machine already assigned to #{machine.location}", 'error')
@@ -75,7 +74,7 @@ class UnboxController < ApplicationController
     else
       set_flash('All computers assigned to role', 'error')
     end
-    redirect_to action: 'index', school: params[:school]
+    redirect_to action: 'index', school: params[:location]
   end
 
 
@@ -91,7 +90,7 @@ class UnboxController < ApplicationController
                           "?image=#{image_string}"\
                           "&asset_number=#{asset_number}"\
                           "&serial_number=#{serial_number.upcase}"\
-                          "&school=#{school_string}"\
+                          "&@location=#{school_string}"\
                           "&model=#{machine.get_model_number}&type=#{type}")
     send_print_job(uri)
   end
@@ -116,12 +115,12 @@ class UnboxController < ApplicationController
     end
   end
 
-  def set_flash(notice, type)
-    school = params[:school]
+  def set_flash(notice, type = 'success')
+    school = params[:location]
     existing_role = params[:machine][:role]
 
     flash[:notice] = notice
-    flash[:school] = school
+    flash[:location] = school
     flash[:type] = type
     flash[:data] = existing_role
   end

@@ -1,0 +1,59 @@
+<!-- 
+  May 15th, 2017
+  locations/edit.html.erb
+  A view which edits a @location/location
+-->
+
+<!-- Render premade navigation bar -->
+<%= render "shared/nav", title: "Edit", bar_class: "def", link: "/locations" %>
+
+<!-- Displays a table of locations/locations -->
+<div class="inner-wrapper">
+  <!-- Displays a form for new form creation -->
+  <%= form_for(@location, url: {action: "update"}, method: :post) do |f| %>
+    <h1>Editing <%= @location.name %></h1>
+    <table align="center" class="school-form-table">
+      <tr class="flex-form">
+        <td class="school-form">
+          <%= f.label :name, 'Location Name', :class => "label @location-name" %>
+          <%= f.text_field :name, :class => "@location-code text-input", :placeholder => @location.name %>
+        </td>
+      </tr>
+      <tr class="flex-form">
+        <td class="school-form">
+          <%= f.label :school_code_label, 'Location Code', :class => "label @location-code" %>
+          <%= f.text_field :school_code, :class => "@location-code text-input", :placeholder => "1738-A" %>
+          <%= hidden_field_tag :name, @location.name %>
+        </td>
+      </tr>
+      <% @location.role_quantities.all.each_with_index do |role_quantity, index| %>
+        <%= render partial: 'locations/partials/role_form', locals: {entity: role_quantity, index: index, f: f} %>
+      <% end %>
+
+      <% Role.all.each_with_index do |role, index| %>
+        <% unless role.in? @location %>
+          <%= render partial: 'locations/partials/role_form', locals: {entity: role, index: index, f: f, form_class: 'role-form hidden-form'} %>
+        <% end %>
+      <% end %>
+      <tr class="flex-form">
+        <td class="school-form">
+          <%= f.label :blended_learning_label, 'Blended Learning', :class => "label blended-learning" %>
+          <div class="switch">
+            <%= f.check_box :blended_learning, :class => "cmn-toggle cmn-toggle-round blended_learning", :id => "cmn-toggle-1" %>
+            <label class="switch-label" for="cmn-toggle-1"></label>
+          </div>
+        </td>
+      </tr>
+      <tr class="flex-form">
+        <td class="school-form">
+          <%= f.submit 'Save', :class => 'button submit small button-table' %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+</div>
+
+
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "locations.js" %>
+<% end %>

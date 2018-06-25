@@ -8,26 +8,26 @@
 <%= render "shared/nav", title: "Deploy", bar_class: "rack-color no-gradient" %>
 
 <!-- Deploy page specific JavaScript -->
-<% if @school %>
+<% if @location %>
   <% content_for :javascript_includes do %>
     <%= javascript_include_tag "deploy.js" %>
   <% end %>
 <% end %>
 
-<!-- Choose School -->
+<!-- Choose Location -->
 <div class="inner-wrapper">
   <%= form_for(@machine, url: {action: "load_schools"}, method: :post) do |f| %>
     <ul>
       <li>
-        <%= f.label :school_label, 'School', :class => "school-select label" %>
-        <%= f.select(:location, @schools.map { |value| [ value[:name], value[:name] ] }, {:prompt => "Choose School", :disabled => "0", :selected => params[:school]}, { :class => 'school-select select-input',:autocomplete => :off,   :onChange=>"javascript: this.form.submit();" }) %>
+        <%= f.label :school_label, 'Location', :class => "@location-select label" %>
+        <%= f.select(:location, @schools.map { |value| [ value[:name], value[:name] ] }, {:prompt => "Choose Location", :disabled => "0", :selected => params[:location]}, {:class => '@location-select select-input', :autocomplete => :off, :onChange=>"javascript: this.form.submit();" }) %>
       </li>
-      <% if @school %>
-      <% @school = School.where(name: @school)[0] %>
+      <% if @location %>
+      <% @location = Location.where(name: @location)[0] %>
         <li>
           <div class="roles-quantities">
-            <h1 class="role-quantities-title"><%= @school.name %>:</h1>
-            <% @school.role_quantities.each do |role_quantity| %>
+            <h1 class="role-quantities-title"><%= @location.name %>:</h1>
+            <% @location.role_quantities.each do |role_quantity| %>
               <h2 class="role-quantities"><%= role_quantity.role.name %>: <%= role_quantity.quantity ? role_quantity.quantity : '0' %>/<%= role_quantity.max_quantity %></h2>
             <% end %>
           </div>
@@ -37,7 +37,7 @@
   <% end %>
 </div>
 <!-- Finally, pull machine from rack-->
-<% if @school %>
+<% if @location %>
 <div class="inner-wrapper">
  <%= form_for(@machine, url: {action: "pull"}, method: :post) do |f| %>
     <ul>
@@ -46,7 +46,7 @@
           <%= f.label :rack_label, 'Rack', :class => "serial label" %>
           <%= f.select :rack, options_for_select(@racks.map{ |rack| [rack.rack_id, rack.rack_id] }) %>
         <% end %>
-        <%= hidden_field_tag :school, params[:school] %>
+        <%= hidden_field_tag :location, params[:location] %>
       </li>
     </ul>
       <%= f.submit 'Submit', :class => 'button submit small', :id => "submit"%>

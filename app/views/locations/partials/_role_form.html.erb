@@ -1,0 +1,48 @@
+<% form_random = random_int %>
+<% if entity.is_a? Role %>
+  <% name = entity.name %>
+  <% id = entity.id %>
+  <% max_quantity = nil %>
+  <% ou = nil %>
+<% else %>
+  <% name = entity.role.name %>
+  <% id = entity.role.id %>
+  <% max_quantity = entity.max_quantity %>
+  <% ou = entity.ou %>
+<% end %>
+
+<tr id="<%= form_random %>" class="flex-section-title <%= defined?(form_class) ? form_class : '' %>">
+  <td class="section-title"><%= name.titleize %> Role:</td>
+</tr>
+<tr id="<%= form_random %>" class="flex-form <%= defined?(form_class) ? form_class : '' %>">
+  <td class="school-form">
+    <%= f.label nil, "Max Quantity:", :class => "label role-locations" %>
+    <input type="number" class="school-role text-input" placeholder="200" name="roles[<%= index %>][max_quantity]" value="<%= max_quantity %>">
+  </td>
+</tr>
+
+<tr id="<%= form_random %>" class="flex-form <%= defined?(form_class) ? form_class : '' %>">
+  <td class="school-form">
+    <%= f.label nil, "OU", :class => "label ou-locations" %>
+    <input class="school-role text-input" placeholder="OU=Windfield" name="roles[<%= index %>][ou]" value="<%= ou %>">
+  </td>
+</tr>
+<tr id="<%= form_random %>" class="flex-form <%= defined?(form_class) ? form_class : '' %>">
+  <td>
+    <a class="button done small button-link remove-role" data-id="<%= form_random %>">Remove</a>
+  </td>
+</tr>
+
+<% if entity.is_a? RoleQuantity %>
+  <%= hidden_field_tag "roles[#{index}][role_quantity_id]", entity.id %>
+<% end %>
+
+<%= hidden_field_tag "roles[#{index}][id]", id, { class: "role-id", "data-id": form_random } %>
+
+<% if !(defined?(form_class)).nil? && (form_class.include? 'hidden') %>
+  <tr>
+    <td>
+      <a class="button done small button-link add-role" data-id="<%= form_random %>">Add <%= name %></a>
+    </td>
+  </tr>
+<% end %>

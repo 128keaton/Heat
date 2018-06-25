@@ -2,8 +2,8 @@ require 'csv'
 namespace :generate do
   task :seed_file => :environment do
     ActiveRecord::Base.logger.level = 1
-    School.order(:id).all.each do |school|
-      puts "School.create(name: \"#{school.name}\", ou_string: \"#{school.ou_string}\", school_code: \"#{school.school_code}\", blended_learning: #{school.blended_learning}, quantity: #{school.quantity})"
+    Location.order(:id).all.each do |school|
+      puts "Location.create(name: \"#{school.name}\", ou_string: \"#{school.ou_string}\", school_code: \"#{school.school_code}\", blended_learning: #{school.blended_learning}, quantity: #{school.quantity})"
     end
   end
 end
@@ -16,8 +16,8 @@ namespace :update do
     school_csv_text = File.read(args[:file])
     school_csv = CSV.parse(school_csv_text, headers: true)
     school_csv.each do |school|
-      if (@school = School.where(name: school[args[:col_name].to_i].gsub(/\(.*\)/, '').strip!).first)
-        @school.update(ou_string: school[args[:col_ou].to_i])
+      if (@location = Location.where(name: school[args[:col_name].to_i].gsub(/\(.*\)/, '').strip!).first)
+        @location.update(ou_string: school[args[:col_ou].to_i])
       else
         puts "Unable to find #{school[args[:col_name].to_i].gsub(/\(.*\)/, '').strip!}"
       end

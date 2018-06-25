@@ -34,23 +34,29 @@ $(document).ready(function () {
     }
 
 
-
-    $('#add-role').on('click', function (button) {
-        let id = $(this).data('id');
-        $.ajax({
-            url: '/roles/list/' + id,
-            type: 'POST',
-            dataType: 'json',
-            success: function (result) {
-                console.log(result);
-                swal({
-                    title: 'Roles',
-                    html: buildCheckBoxes(result)
-                }).then((result) => {
-                    console.log(result);
-                });
-                isChecked(result);
-            }
+    $('.add-role').on('click', function () {
+        let button = $(this);
+        $('.hidden-form').each(function () {
+           if ($(this).attr('id') == button.data('id')){
+               $(this).removeClass('hidden-form');
+               button.remove();
+           }
         });
-    })
+    });
+
+    $('.remove-role').on('click', function () {
+        let button = $(this);
+        if (window.confirm('Are you sure you want to delete this?')) {
+            $('.role-id').each(function () {
+                if ($(this).data('id') == button.data('id')) {
+                    $(this).val('');
+                }
+            });
+            $('tr').each(function () {
+                if ($(this).attr('id') == button.data('id')) {
+                    $(this).remove();
+                }
+            });
+        }
+    });
 });

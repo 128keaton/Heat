@@ -3,18 +3,14 @@
 .school-form {
   border-collapse: collapse;
   width: 100%;
-  td:nth-child(3){
+  td:last-child {
     text-align: center;
-    i{
-      margin-left: 0;
-      margin-right: auto;
-    }
   }
-  td:nth-child(4) {
-    display: flex;
-    justify-content: flex-start;
-    text-align: left;
+  td:nth-child(2) {
+    font-size: 12px;
+    color: gray;
   }
+
 }
 
 .school-form-table {
@@ -183,11 +179,16 @@ select:focus {
   padding-right: 12px;
 }
 
-.roles-form-table{
+.roles-form-table {
   width: 100%;
 }
-.upload-file{
+
+.upload-file {
   padding: 12px;
+}
+
+.hidden-form {
+  display: none;
 }
 
 .find-box {
@@ -196,8 +197,8 @@ select:focus {
   align-content: center;
   align-items: center;
 
-  @media screen and (max-width: 800px){
-    margin-top: 2em!important;
+  @media screen and (max-width: 800px) {
+    margin-top: 2em !important;
   }
 
   h2 {

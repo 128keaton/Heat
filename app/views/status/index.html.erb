@@ -20,7 +20,7 @@
 
     </tr>
 
-    <!-- Iterates through schools-->
+    <!-- Iterates through locations-->
     <% @machineCount.keys.each do |key| %>
       <tr>
         <td><%= key %></td>
@@ -29,7 +29,7 @@
     <% end %>
   </table>
 
-  <!-- School statistical information-->
+  <!-- Location statistical information-->
   <h1 class="wrapper-section-title">Schools</h1>
 
   <table align="center" class="school-form dashboard-form">
@@ -40,8 +40,8 @@
       <th>Role Quantities</th>
     </tr>
 
-    <!-- Iterates through schools-->
-    <% School.all.each do |school| %>
+    <!-- Iterates through locations-->
+    <% Location.all.each do |school| %>
       <tr>
         <td><%= school[:name] %></td>
         <td><%= school[:school_code] %></td>

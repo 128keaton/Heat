@@ -1,161 +1,185 @@
 /* font-awesome, eat your heart out */
 
 .ic {
-    background-color: #fff;
-    -webkit-mask-size: cover;
-    height: 30px;
-    width: 30px;
-    margin: 0 auto;
-    display: block;
+  background-color: #fff;
+  -webkit-mask-size: cover;
+  height: 30px;
+  width: 30px;
+  margin: 0 auto;
+  display: block;
 }
-
 
 /* Icons */
 
 .school,
 .schools {
-    -webkit-mask-image: image-url("school.svg");
-    background-color: #0c0c0c;
+  -webkit-mask-image: image-url("school.svg");
+  background-color: #0c0c0c;
 }
 
 .home {
-    -webkit-mask-image: image-url("home.svg");
-    background-color: #0c0c0c;
+  -webkit-mask-image: image-url("home.svg");
+  background-color: #0c0c0c;
 }
 
 .github {
-    -webkit-mask-image: image-url("github.svg");
-    background-color: #0c0c0c;
+  -webkit-mask-image: image-url("github.svg");
+  background-color: #0c0c0c;
 }
 
 .edit {
-    -webkit-mask-image: image-url("edit.svg");
-    background-color: #0c0c0c;
+  -webkit-mask-image: image-url("edit.svg");
+  background-color: #0c0c0c;
 }
 
 .roles {
-    -webkit-mask-image: image-url("roles.svg");
-    background-color: #0c0c0c;
+  -webkit-mask-image: image-url("roles.svg");
+  background-color: #0c0c0c;
 }
 
 .add {
-    -webkit-mask-image: image-url("add.svg");
-    background-color: #0c0c0c;
+  -webkit-mask-image: image-url("add.svg");
+  background-color: #0c0c0c;
 }
 
 .back {
-    -webkit-mask-image: image-url("back.svg");
-    background-color: #fff;
+  -webkit-mask-image: image-url("back.svg");
+  background-color: #fff;
 }
 
 .receive {
-    -webkit-mask-image: image-url("receive.svg");
-    background-color: #0c0c0c;
+  -webkit-mask-image: image-url("receive.svg");
+  background-color: #0c0c0c;
 }
 
 .unbox {
-    -webkit-mask-image: image-url("unbox.svg");
-    background-color: #0c0c0c;
+  -webkit-mask-image: image-url("unbox.svg");
+  background-color: #0c0c0c;
 }
 
 .rack,
 .racks {
-    -webkit-mask-image: image-url("rack.svg");
-    background-color: #0c0c0c;
+  -webkit-mask-image: image-url("rack.svg");
+  background-color: #0c0c0c;
 }
 
 .clear {
-    -webkit-mask-image: image-url("clear.svg");
-    background-color: #0c0c0c;
+  -webkit-mask-image: image-url("clear.svg");
+  background-color: #0c0c0c;
 }
 
 .deploy {
-    -webkit-mask-image: image-url("deploy.svg");
-    background-color: #0c0c0c;
+  -webkit-mask-image: image-url("deploy.svg");
+  background-color: #0c0c0c;
 }
 
 .finalize {
-    -webkit-mask-image: image-url("finalize.svg");
-    background-color: #0c0c0c;
+  -webkit-mask-image: image-url("finalize.svg");
+  background-color: #0c0c0c;
 }
 
 .exit {
-    -webkit-mask-image: image-url("exit.svg");
-    background-color: #da2727;
-    margin-bottom: 12px;
+  -webkit-mask-image: image-url("exit.svg");
+  background-color: #da2727;
+  margin-bottom: 12px;
 }
 
 .status,
 .overview {
-    -webkit-mask-image: image-url("status.svg");
-    background-color: #0c0c0c;
+  -webkit-mask-image: image-url("status.svg");
+  background-color: #0c0c0c;
 }
 
 .note,
 .notes {
-    -webkit-mask-image: image-url("notes.svg");
-    background-color: #0c0c0c;
+  -webkit-mask-image: image-url("notes.svg");
+  background-color: #0c0c0c;
 }
 
 .close {
-    -webkit-mask-image: image-url("close.svg");
+  -webkit-mask-image: image-url("close.svg");
 }
 
 .settings {
-    -webkit-mask-image: image-url("settings.svg");
+  -webkit-mask-image: image-url("settings.svg");
 }
 
 .view,
 .viewing {
-    -webkit-mask-image: image-url("view.svg");
-    background-color: #0c0c0c;
+  -webkit-mask-image: image-url("view.svg");
+  background-color: #0c0c0c;
 }
-
 
 /* Colors */
 
 .white-icon {
-    background-color: #fff!important;
+  background-color: #fff !important;
 }
 
 .red-icon {
-    background-color: #e83838;
+  color: #e83838;
+}
+
+.green-icon {
+  color: #3dc74e
+}
+
+.blue-icon {
+  color: #2baaff;
+}
+
+.padded-icon {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.icon-wrapper {
+  width: 100%;
+  min-width: 115px;
+  position: relative;
+}
+
+.icon-text {
+  color: gray;
+  font-size: 12px;
+  font-family: "Roboto", "Helvetica-Neue", Helvetica, sans-serif;
+  bottom: 0;
+  left: 20px;
+  position: absolute;
 }
 
 .unbox-color,
 .receive-color {
-    background-color: #cddc39!important;
+  background-color: #cddc39 !important;
 }
 
 .deploy-color,
 .rack-color {
-    background-color: #4527a0!important;
+  background-color: #4527a0 !important;
 }
 
-.notes-color {
-    background-color: #ef6c00!important;
+.notes-icon {
+  color: #ef6c00 !important;
 }
-
 
 /* Positions */
 
 .right-icon {
-    width: 20px;
-    height: 20px;
-    padding: 0;
-    margin: 0;
-    margin-left: auto;
-    margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  margin: 0;
+  margin-left: auto;
+  margin-right: 10px;
 }
 
 .ic-list {
-    background-color: #fff;
+  background-color: #fff;
 }
-
 
 /* Sizes */
 
 .large {
-    height: 40px;
-    width: 40px;
+  height: 40px;
+  width: 40px;
 }

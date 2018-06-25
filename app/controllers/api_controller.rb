@@ -8,7 +8,7 @@ class ApiController < ApplicationController
     if serial&.present?
       machine = Machine.find_by(serial_number: serial)
       check_machine(machine)
-      school = School.find_by(name: machine[:location])
+      school = Location.find_by(name: machine[:location])
       ou = school.find_ou_for_role(Role.find_by(name: machine.role))
       render json: {hostname: machine.hostname, ou: ou}
     else
@@ -23,7 +23,7 @@ class ApiController < ApplicationController
     if serial&.present?
       machine = Machine.find_by(serial_number: serial)
       check_machine(machine)
-      school = School.find_by(name: machine[:location])
+      school = Location.find_by(name: machine[:location])
       if school&.blended_learning
         render json: {'image-name' => "blended_learning/#{role}"}
       elsif school&.blended_learning.nil? or school&.blended_learning == false
@@ -31,7 +31,7 @@ class ApiController < ApplicationController
       elsif school.nil?
         render json: {status: 'error',
                       code: '420',
-                      message: 'No school found'}
+                      message: 'No @location found'}
       end
     else
       render json: {status: 'error',
@@ -46,7 +46,7 @@ class ApiController < ApplicationController
     sent_key = params[:key]
     machine = Machine.where(serial_number: serial)[0]
     if machine
-      school = School.where(name: machine[:location])[0]
+      school = Location.where(name: machine[:location])[0]
       if school
         role = machine[:role]
         if role
@@ -61,8 +61,8 @@ class ApiController < ApplicationController
           render json: {"error" => "No role found for machine"}
         end
       else
-        # no school
-        render json: {"error" => "No school found for machine"}
+        # no @location
+        render json: {"error" => "No @location found for machine"}
       end
     else
       render json: {"error" => "No machine found for serial"}
@@ -90,7 +90,7 @@ class ApiController < ApplicationController
     asset_tag = params[:asset_tag]
     machine = Machine.where(serial_number: serial)[0]
     if machine
-      school = School.where(name: machine[:location])[0]
+      school = Location.where(name: machine[:location])[0]
       if school
         role = machine[:role]
         if role
@@ -106,8 +106,8 @@ class ApiController < ApplicationController
           render json: {"error" => "No role found for machine"}
         end
       else
-        # no school
-        render json: {"error" => "No school found for machine"}
+        # no @location
+        render json: {"error" => "No @location found for machine"}
       end
     else
       render json: {"error" => "No machine found for serial"}
@@ -129,7 +129,7 @@ class ApiController < ApplicationController
       image_string = 'Standard Device - Special Education'
 
       # TODO: Make this an ENV var
-      uri = URI.parse("http://webapps.nationwidesurplus.com/scs/print?image=#{image_string}&asset_number=#{asset_number}&serial_number=#{serial.upcase}&school=#{school_string}&model=#{machine.get_model_number}&type=#{type}")
+      uri = URI.parse("http://webapps.nationwidesurplus.com/scs/print?image=#{image_string}&asset_number=#{asset_number}&serial_number=#{serial.upcase}&@location=#{school_string}&model=#{machine.get_model_number}&type=#{type}")
 
       begin
         response = Net::HTTP.get_response(uri)
@@ -170,12 +170,12 @@ class ApiController < ApplicationController
     location_code = params[:code]
     format = params[:format] || 'json'
 
-    location = School.search_by(location_id, location_search, location_code)
+    location = Location.search_by(location_id, location_search, location_code)
     render_location(location, format)
   end
 
   def render_location(location, format = 'json')
-    if location&.is_a? School
+    if location&.is_a? Location
       if format == 'json'
         render json: location.render_machines
       else

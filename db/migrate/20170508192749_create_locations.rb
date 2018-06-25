@@ -1,6 +1,6 @@
-class CreateSchools < ActiveRecord::Migration[5.0]
+class CreateLocations < ActiveRecord::Migration[5.0]
   def change
-    create_table :schools do |t|
+    create_table :locations do |t|
       t.string :name
       t.boolean :blended_learning
       t.string :school_code

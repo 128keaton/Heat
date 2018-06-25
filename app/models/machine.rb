@@ -6,6 +6,8 @@ class Machine < ApplicationRecord
   validates :client_asset_tag, allow_nil: true, uniqueness: true
   validates :role, presence: true
 
+  belongs_to :location
+
   def self.to_csv
     attributes = %w[serial_number client_asset_tag location role]
     CSV.generate(headers: true) do |csv|
@@ -56,7 +58,7 @@ class Machine < ApplicationRecord
   def hostname
     return nil if location.nil?
     return nil if role.nil?
-    school = School.find_by(name: location)
+    school = Location.find_by(name: location)
     return nil if school.nil?
     role_suffix = Role.find_by(name: role).suffix
     return nil if role_suffix.nil?
@@ -68,12 +70,12 @@ class Machine < ApplicationRecord
     end
   end
 
-  def assign(school, role_quantity, asset_tag)
+  def assign(location, role_quantity, asset_tag)
     role = role_quantity.role.name
-    if location.nil?
+    unless location.nil?
       role_quantity.append_quantity
       set_un_boxed
-      return update(role: role, location: school, client_asset_tag: asset_tag)
+      return update(role: role, location: location, client_asset_tag: asset_tag)
     end
     false
   end
@@ -81,7 +83,7 @@ class Machine < ApplicationRecord
   def spreadsheet_columns
     [['Serial Number', :serial_number],
      ['Asset Tag', :client_asset_tag],
-     ['School', :location],
+     ['Location', :location],
      ['Inventory Location', :inventory_location],
      ['Role', :role]]
   end

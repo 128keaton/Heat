@@ -1,6 +1,4 @@
 class ReceiveController < ApplicationController
-  before_action :authenticate_user!
-
   require 'csv'
 
   def index
@@ -102,16 +100,15 @@ class ReceiveController < ApplicationController
 
   def create
     @machine = Machine.new
-    serial = params[:serial_number]
+    serial = params[:machine][:serial_number]
     if serial.include? ','
       serial = CSV.parse(serial.gsub(/\s+/, ''), col_sep: ',')[0][2]
     end
 
-    user_name = current_user.name
     current_date = Time.now.getlocal().strftime('%d/%m/%Y %H:%M')
 
     if serial.present?
-      @machine.unboxed = {"date" => current_date, "user" => user_name}
+      @machine.unboxed = {date: current_date}
       @machine.serial_number = serial
       @machine.pallet_id = params[:pallet_id]
       @machine.role = params[:role]

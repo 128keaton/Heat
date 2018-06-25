@@ -1,5 +1,4 @@
 class RootController < ApplicationController
-  before_action :authenticate_user!
   skip_before_action :verify_authenticity_token
 
   def mark_doa
@@ -35,11 +34,11 @@ class RootController < ApplicationController
     school_quantities = []
     loose_quantities = []
 
-    sheet.each(quantity: 'Quantity', type: 'Product', location: 'School Name', contact: 'Deliver To Contact') do |row|
+    sheet.each(quantity: 'Quantity', type: 'Product', location: 'Location Name', contact: 'Deliver To Contact') do |row|
       unless not_int?(row[:quantity]) || row[:location].nil?
-        if School.location_is_school(row[:location].to_s) && row[:location] != 'School Name'
+        if Location.location_is_school(row[:location].to_s) && row[:location] != 'Location Name'
           school_quantities.push(row)
-        elsif !School.location_is_school(row[:location].to_s) && row[:location] != 'School Name'
+        elsif !Location.location_is_school(row[:location].to_s) && row[:location] != 'Location Name'
           loose_quantities.push(row)
         end
       end
