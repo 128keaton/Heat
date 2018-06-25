@@ -62,8 +62,8 @@
       <file leaf-file-name="api_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="203" column="19" lean-forward="true" selection-start-line="203" selection-start-column="19" selection-end-line="203" selection-end-column="19" />
+            <state relative-caret-position="165">
+              <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -613,21 +613,7 @@
       <workItem from="1529658191725" duration="16278000" />
       <workItem from="1529693918808" duration="7282000" />
       <workItem from="1529932385646" duration="12094000" />
-      <workItem from="1529950637822" duration="6305000" />
-    </task>
-    <task id="LOCAL-00048" summary="Error codes in API">
-      <created>1528143780637</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1528143780637</updated>
-    </task>
-    <task id="LOCAL-00049" summary="Error codes in API">
-      <created>1528143902524</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1528143902524</updated>
+      <workItem from="1529950637822" duration="6503000" />
     </task>
     <task id="LOCAL-00050" summary="Fixes machine status settings">
       <created>1528144196452</created>
@@ -958,11 +944,25 @@
       <option name="project" value="LOCAL" />
       <updated>1529957324040</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="Better error handling">
+      <created>1529957729073</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1529957729073</updated>
+    </task>
+    <task id="LOCAL-00098" summary="Converts to ID">
+      <created>1529957895544</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1529957895544</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114287000" />
+    <option name="totallyTimeSpent" value="114485000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="50" width="1920" height="978" extended-state="0" />
@@ -1007,8 +1007,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Checks if serial is valid" />
-    <MESSAGE value="Adds API lookup" />
     <MESSAGE value="Adds scan protection" />
     <MESSAGE value="Better location status finding" />
     <MESSAGE value="Moves render" />
@@ -1032,7 +1030,9 @@
     <MESSAGE value="Amends migration" />
     <MESSAGE value="CSS fixes and unbox fixes" />
     <MESSAGE value="Adds label creation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds label creation" />
+    <MESSAGE value="Better error handling" />
+    <MESSAGE value="Converts to ID" />
+    <option name="LAST_COMMIT_MESSAGE" value="Converts to ID" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1373,8 +1373,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="203" column="19" lean-forward="true" selection-start-line="203" selection-start-column="19" selection-end-line="203" selection-end-column="19" />
+        <state relative-caret-position="165">
+          <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
         </state>
       </provider>
     </entry>

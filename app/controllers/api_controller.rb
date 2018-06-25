@@ -9,7 +9,7 @@ class ApiController < ApplicationController
     machine = Machine.find_by(serial_number: serial)
     return send_error("No machine found for #{serial}") if machine.nil?
     check_machine(machine)
-    school = Location.find(machine[:location])
+    school = Location.find(machine[:location_id])
     return send_error('No school found') if school.nil?
     return send_error('No role for machine') if machine.role.nil?
 
