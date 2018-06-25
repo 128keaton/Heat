@@ -6,7 +6,7 @@ class Machine < ApplicationRecord
   validates :client_asset_tag, allow_nil: true, uniqueness: true
   validates :role, presence: true
 
-  belongs_to :location
+  belongs_to :location, optional: true
 
   def self.to_csv
     attributes = %w[serial_number client_asset_tag location role]
@@ -27,22 +27,12 @@ class Machine < ApplicationRecord
     update(doa: reason, unboxed: nil, imaged: nil, racked: nil, deployed: nil, location: nil, rack: nil)
   end
 
-  def set_un_boxed
-    assign_attributes(unboxed: {date: Time.zone.now.strftime('%d/%m/%Y %H:%M')})
-    if valid?
-      save
-    else
-      errors
-    end
+  def set_unboxed
+    update(unboxed: {date: Time.zone.now.strftime('%d/%m/%Y %H:%M')})
   end
 
   def set_imaged
-    assign_attributes(imaged: {date: Time.zone.now.strftime('%d/%m/%Y %H:%M')})
-    if valid?
-      save
-    else
-      errors
-    end
+    update(imaged: {date: Time.zone.now.strftime('%d/%m/%Y %H:%M')})
   end
 
   def self.get_machine(serial_number)
