@@ -66,6 +66,7 @@ class UnboxController < ApplicationController
       set_flash('Location not found', 'error')
       return return_to_controller if location.nil?
       if machine.assign(location, role_quantity, asset_tag)
+        print_machine(machine)
         set_flash('Assigned successfully', 'success')
       else
         set_flash("Machine already assigned to #{machine.location}", 'error')

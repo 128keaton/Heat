@@ -15,7 +15,6 @@
     <tr>
       <th>Role:</th>
       <th>Suffix</th>
-      <th>Product</th>
       <th>Actions</th>
     </tr>
     <!-- Iterate through roles -->
@@ -23,8 +22,7 @@
       <tr>
         <td><%= role.name %></td>
         <td><%= role.suffix.nil? ? raw('<small>No suffix</small>') : role.suffix %></td>
-        <td><%= role.product.nil? ? raw('<small>No product field</small>') : role.product %></td>
-        <td><%= link_to raw('<i class="ic close red-icon"></i>'), role, method: :delete, data: {confirm: "Are you sure you want to delete #{role[:name]}?"} %></td>
+        <td><%= link_to raw('<i class="fa fa-times fa-2x red-icon"></i>'), role, method: :delete, data: {confirm: "Are you sure you want to delete #{role[:name]}?"} %></td>
       </tr>
     <% end %>
   </table>
@@ -52,18 +50,6 @@
         <td class="roles-form">
           <%= f.label :product_label, 'Product Field', :class => "label role-product" %>
           <%= f.text_field :product, :class => "role-name text-input", :placeholder => "HP Probook 430 i5" %>
-        </td>
-      </tr>
-      <tr class="flex-form">
-        <td class="roles-form">
-          <%= f.label :pallet_layer_count_label, 'Pallet Layer Count', :class => "label pallet-layer-count" %>
-          <%= f.number_field :pallet_layer_count, :class => "pallet-layer-count text-input", :placeholder => "12", :value => "12" %>
-        </td>
-      </tr>
-      <tr class="flex-form">
-        <td class="roles-form">
-          <%= f.label :pallet_total_count_label, 'Pallet Total Count', :class => "label pallet-Total-count" %>
-          <%= f.number_field :pallet_count, :class => "pallet-total-count text-input", :placeholder => "48", :value => "48" %>
         </td>
       </tr>
       <tr class="flex-form">

@@ -46,7 +46,7 @@
       </tr>
       <% @machines.each do |machine| %>
         <tr id="machine">
-          <td><%= machine.location %></td>
+          <td><%= machine.location.name %></td>
           <td><%= machine.serial_number %></td>
           <td><%= machine.client_asset_tag %></td>
           <td><%= machine.inventory_location %></td>
