@@ -30,3 +30,4 @@ log/*
 # Ignore the dotenv file
 .env
 db/seeds.rb
+public/uploads/
