@@ -5,17 +5,16 @@ class ApiController < ApplicationController
 
   def hostname
     serial = params[:serial]
-    if serial&.present?
-      machine = Machine.find_by(serial_number: serial)
-      check_machine(machine)
-      school = Location.find_by(name: machine[:location])
-      ou = school.find_ou_for_role(Role.find_by(name: machine.role))
-      render json: {hostname: machine.hostname, ou: ou}
-    else
-      render json: {status: 'error',
-                    code: '6969',
-                    message: 'No serial passed'}
-    end
+    return send_error('No serial sent') if serial.nil?
+    machine = Machine.find_by(serial_number: serial)
+    return send_error("No machine found for #{serial}") if machine.nil?
+    check_machine(machine)
+    school = Location.find_by(name: machine[:location])
+    return send_error('No school found') if school.nil?
+    return send_error('No role for machine') if machine.role.nil?
+
+    ou = school.find_ou_for_role(machine.role)
+    render json: {hostname: machine.hostname, ou: ou}
   end
 
   def image
@@ -119,7 +118,7 @@ class ApiController < ApplicationController
     send_data @machines.to_csv, filename: "status-#{Date.today}.csv"
   end
 
-  # Prints a label for a machine based on serial
+# Prints a label for a machine based on serial
   def print_label(serial)
     if (machine = Machine.where(serial_number: serial).first)
       school_string = machine.location
@@ -192,21 +191,22 @@ class ApiController < ApplicationController
     render json: {found: machine}
   end
 
+
   private
+
+  def send_error(message)
+    render json: {status: 'error',
+                  message: message}
+    return
+  end
 
   def check_machine(machine)
     if machine.nil?
-      render json: {status: 'error',
-                    code: '471',
-                    message: 'Machine not found'} && return
+      send_error("No machine found for machine with serial #{machine.serial_number}")
     elsif machine.role.nil?
-      render json: {status: 'error',
-                    code: '470',
-                    message: 'Role not found for machine'} && return
+      send_error("No role found for machine with serial #{machine.serial_number}")
     elsif machine.location.nil?
-      render json: {status: 'error',
-                    code: '472',
-                    message: 'Location not found for machine'} && return
+      send_error("No location found for machine with serial #{machine.serial_number}")
     end
   end
 
