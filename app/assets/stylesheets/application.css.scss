@@ -24,6 +24,10 @@ body {
   flex-direction: column;
 }
 
+h1, h2{
+  font-weight: 400;
+}
+
 body > * {
   flex-shrink: 0;
 }
