@@ -6,11 +6,11 @@
 -->
 
 <!-- Render premade navigation bar -->
-<%= render "shared/nav", title: "Unbox", bar_class: "receive-color no-gradient" %>
+<%= render "shared/nav", title: "Label", bar_class: "receive-color no-gradient" %>
 
 <% if @location %>
   <% content_for :javascript_includes do %>
-    <%= javascript_include_tag "locations.js" %>
+    <%= javascript_include_tag "label.js" %>
   <% end %>
 <% end %>
 
