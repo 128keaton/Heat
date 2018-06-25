@@ -7,6 +7,7 @@ class ReceiveControllerTest < ActionDispatch::IntegrationTest
   end
   test "create" do
     updated_machine = Machine.new
+    updated_machine.location = locations(:one)
     updated_machine.serial_number = "URADOOD"
     updated_machine.role = roles(:one)
     assert updated_machine.save!
