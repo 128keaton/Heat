@@ -57,11 +57,10 @@ class UnboxController < ApplicationController
   def assign
     role_quantity = RoleQuantity.find(params[:machine][:role])
     can_assign = can_assign(role_quantity)
-    raw_csv = params[:machine][:serial_number]
-    serial_number = CSV.parse(raw_csv.gsub(/\s+/, ''), col_sep: ',')[0][2]
+    serial_number = parse(params[:machine][:serial_number])
 
     if serial_number && can_assign
-      machine = Machine.get_machine(serial_number)
+      machine = Machine.get_machine(serial_number, role_quantity.role)
       asset_tag = params[:machine][:client_asset_tag]
       location = Location.find(params[:location])
       set_flash('Location not found', 'error')
@@ -122,7 +121,9 @@ class UnboxController < ApplicationController
 
   def set_flash(notice, type = 'success')
     school = params[:location]
-    existing_role = params[:machine][:role]
+    if params&& params[:machine]
+      existing_role = params[:machine][:role]
+    end
 
     flash[:notice] = notice
     flash[:location] = school
@@ -131,6 +132,13 @@ class UnboxController < ApplicationController
   end
 
   private
+
+  def parse(serial)
+    if serial.include? ','
+      serial = CSV.parse(serial.gsub(/\s+/, ''), col_sep: ',')[0][2]
+    end
+    serial
+  end
 
   def machine_params
     params.require(:machine).permit(:location, :serial_number)

@@ -40,7 +40,8 @@ ActiveRecord::Schema.define(version: 20180624215706) do
     t.datetime "updated_at",           null: false
     t.integer  "pallet_id"
     t.string   "inventory_location"
-    t.integer  "location"
+    t.integer  "location_id"
+    t.index ["location_id"], name: "index_machines_on_location_id", using: :btree
   end
 
   create_table "role_quantities", force: :cascade do |t|

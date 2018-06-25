@@ -35,11 +35,12 @@ class Machine < ApplicationRecord
     update(imaged: {date: Time.zone.now.strftime('%d/%m/%Y %H:%M')})
   end
 
-  def self.get_machine(serial_number)
+  def self.get_machine(serial_number, role)
     unless (machine = Machine.find_by(serial_number: serial_number))
+      return nil unless Role.exists? role
       machine = Machine.new
       machine.serial_number = serial_number
-      machine.location = params[:sc]
+      machine.role = Role.find(role)
       machine.save!
     end
     machine

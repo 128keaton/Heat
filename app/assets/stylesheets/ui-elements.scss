@@ -77,8 +77,8 @@ input.cmn-toggle-round:checked + label:after {
 
 /* Button */
 
-
 .button {
+  height: 45px;
   display: inline-block;
   padding: 10px 1.2em;
   border: 0.1em solid #55baff;
@@ -92,7 +92,7 @@ input.cmn-toggle-round:checked + label:after {
   -moz-appearance: none;
   appearance: none;
   color: #55baff;
-  transition: all 420ms cubic-bezier(.165,.84,.44,1);
+  transition: all 420ms cubic-bezier(.165, .84, .44, 1);
 }
 
 .button-submit {
@@ -100,7 +100,6 @@ input.cmn-toggle-round:checked + label:after {
   border: none !important;
   color: white;
 }
-
 
 .button-round {
   color: transparent;
@@ -168,8 +167,13 @@ input.cmn-toggle-round:checked + label:after {
   padding-top: 20px;
 }
 
-.button-centered{
+.button-centered {
   margin: 0 auto;
+}
+
+.button:disabled {
+  border: 2px solid lightgrey !important;
+  color: gray;
 }
 
 input[type="submit"]:disabled {
@@ -189,7 +193,7 @@ input[type="submit"]:disabled {
   margin: 10px;
 }
 
-#no-data{
+#no-data {
   text-align: center;
   color: lightgrey;
 }
