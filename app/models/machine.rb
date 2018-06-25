@@ -47,9 +47,9 @@ class Machine < ApplicationRecord
   end
 
   def hostname
-    return 'No location' if location.nil?
+    return 'No location' if location_id.nil?
     return 'No role' if role.nil?
-    school = Location.find_by(name: location)
+    school = Location.find(location_id)
     return 'No School' if school.nil?
     role_suffix = Role.find_by(name: role).suffix
     return 'No suffix' if role_suffix.nil?
