@@ -3,7 +3,7 @@ require 'test_helper'
 class ApiControllerTest < ActionDispatch::IntegrationTest
     test "hostname-api" do
         # define variables
-        school = schools(:two)
+        school = locations(:two)
         role = roles(:one)
         machine = machines(:one)
         created_hostname = "#{school[:school_code]}#{role[:suffix]}BL-#{machine[:serial_number]}"
@@ -14,7 +14,7 @@ class ApiControllerTest < ActionDispatch::IntegrationTest
     end
 
     test "imagename-api" do
-        school = schools(:two)
+        school = locations(:two)
         role = roles(:one)
         if school[:blended_learning] && school[:blended_learning] == true
             image_name = "blended_learning/#{ role.name.downcase }"
