@@ -10,77 +10,26 @@
 
 <!-- Displays the statistical information -->
 <div class="inner-wrapper">
-
-  <h1 class="wrapper-section-title">Completed</h1>
-
-  <table align="center" class="school-form dashboard-form">
-    <tr>
-      <th>Date:</th>
-      <th>Count:</th>
-
-    </tr>
-
-    <!-- Iterates through locations-->
-    <% @machineCount.keys.each do |key| %>
+  <% machines = Machine.by_date %>
+  <% if machines.count > 1 %>
+    <table align="center" class="school-form">
       <tr>
-        <td><%= key %></td>
-        <td><%= @machineCount[key] %></td>
+        <th>Date</th>
+        <th>Completed Count</th>
       </tr>
-    <% end %>
-  </table>
+      <% machines.keys.each do |key| %>
+        <tr>
+          <td><%= key %></td>
+          <td><%= machines[key] %></td>
+        </tr>
+      <% end %>
+    </table>
+    <% else %>
+  <p id="no-data">no machines</p>
+  <% end %>
+</div>
+<div class="inner-wrapper" id="second-wrapper">
 
-  <!-- Location statistical information-->
-  <h1 class="wrapper-section-title">Schools</h1>
-
-  <table align="center" class="school-form dashboard-form">
-    <tr>
-      <th>Name:</th>
-      <th>School Code:</th>
-      <th>Blended Learning:</th>
-      <th>Role Quantities</th>
-    </tr>
-
-    <!-- Iterates through locations-->
-    <% Location.all.each do |school| %>
-      <tr>
-        <td><%= school[:name] %></td>
-        <td><%= school[:school_code] %></td>
-        <td>
-          <% if school.blended_learning == true %>Yes
-          <% else %>No
-          <% end %></td>
-        <td>
-          <div class="roles-quantities">
-            <% school.role_quantities.each do |role_quantity| %>
-              <%= role_quantity.role.name %>: <%= role_quantity.quantity ? role_quantity.quantity : '0' %>/<%= role_quantity.max_quantity %>
-            <% end %>
-          </div>
-        </td>
-      </tr>
-    <% end %>
-  </table>
-  <!-- Role statistical information-->
-  <h1 class="wrapper-section-title">Roles</h1>
-  <table align="center" class="school-form dashboard-form">
-    <tr>
-      <th>Name:</th>
-      <th>Specs:</th>
-      <th>Suffix</th>
-    </tr>
-    <!-- Iterates through roles-->
-    <% @roles.each do |role| %>
-      <% @specs = role[:specs] %>
-      <tr>
-        <td><%= role[:name] %></td>
-        <td><strong>CPU</strong>: <%= @specs["cpu"] %><br>
-          <strong>HDD</strong>: <%= @specs["hdd"] %>GB<br>
-          <strong>RAM</strong>: <%= @specs["ram"] %>GB
-        </td>
-        <td><%= role[:suffix] %></td>
-      </tr>
-    <% end %>
-  </table>
-  <h1 class="wrapper-section-title">Machine Count</h1>
-  <h2 class="wrapper-section-data"><%= @machines.length %></h2>
+  <h2 class="wrapper-section-data">Total: <%= @machines.length %></h2>
   <%= line_chart Machine.group_by_day(:created_at).count %>
 </div>

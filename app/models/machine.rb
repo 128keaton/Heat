@@ -87,4 +87,13 @@ class Machine < ApplicationRecord
      ['Inventory Location', :inventory_location],
      ['Role', :role]]
   end
+
+  def self.by_date
+    machines = {}
+    where.not(imaged: nil).each do |machine|
+      machine_date = Date.parse(machine.imaged[:date])
+      machines[machine_date] = (machines[machine_date] || 1) + 1
+    end
+    machines.sort_by { |date, _| date }.reverse.to_h
+  end
 end
