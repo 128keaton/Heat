@@ -58,8 +58,10 @@ class Location < ApplicationRecord
   def find_ou_for_role(role)
     return if role.nil?
 
-    unless role.is_a? Role
+    if (!role.is_a? Role) && (!role.is_a? String)
       role = Role.find(role)
+    elsif role.is_a? String
+      role = Role.find_by(name: role)
     end
 
     role_quantities.find_by(role: role).ou
