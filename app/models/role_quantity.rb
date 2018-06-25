@@ -1,13 +1,9 @@
 class RoleQuantity < ApplicationRecord
-  belongs_to :role, dependent: destroy
-  belongs_to :location, dependent: destroy
+  belongs_to :role, dependent: :destroy
+  belongs_to :location, dependent: :destroy
 
   def get_role
-    if Role.exists(role_id)
-      Role.find(role_id)
-    else
-      destroy!
-    end
+    Role.find(role_id)
   end
 
   def get_school
