@@ -6,6 +6,11 @@ class Location < ApplicationRecord
   has_many :role_quantities
   has_many :roles, :through => :role_quantities
   has_many :machines
+  before_destroy :destroy_role_quantities
+
+  def destroy_role_quantities
+    role_quantities.destroy_all
+  end
 
   def render_machines(format = 'json')
     if format == 'json'

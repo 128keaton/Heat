@@ -27,11 +27,7 @@
     <input class="school-role text-input" placeholder="OU=Windfield" name="roles[<%= index %>][ou]" value="<%= ou %>">
   </td>
 </tr>
-<tr id="<%= form_random %>" class="flex-form <%= defined?(form_class) ? form_class : '' %>">
-  <td>
-    <a class="button done small button-link remove-role" data-id="<%= form_random %>">Remove</a>
-  </td>
-</tr>
+
 
 <% if entity.is_a? RoleQuantity %>
   <%= hidden_field_tag "roles[#{index}][role_quantity_id]", entity.id %>

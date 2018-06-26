@@ -1,6 +1,6 @@
 class RoleQuantity < ApplicationRecord
-  belongs_to :role, dependent: :delete
-  belongs_to :location, dependent: :delete
+  belongs_to :role
+  belongs_to :location
 
   def get_role
     return Role.find(role_id) if Role.exists? role_id
