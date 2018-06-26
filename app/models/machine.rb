@@ -74,11 +74,13 @@ class Machine < ApplicationRecord
     role_suffix = Role.find_by(name: role).suffix
     return 'No suffix' if role_suffix.nil?
 
-    if school.blended_learning
-      "#{school.school_code}#{role_suffix}BL-#{serial_number.split(//).last(7).join}"
-    else
-      "#{school.school_code}#{role_suffix}LT-#{serial_number.split(//).last(7).join}"
-    end
+    learning_type = 'LT'
+    learning_type = 'BL' if school.blended_learning
+
+    hostname = "#{school.school_code}#{role_suffix}#{learning_type}"
+    remaining_chars = 15 - hostname.length
+    hostname << serial_number.split(//).last(remaining_chars).join
+    hostname
   end
 
   def assign(location, role_quantity, asset_tag)
