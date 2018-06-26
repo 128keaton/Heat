@@ -26,11 +26,12 @@ class Location < ApplicationRecord
       unless role_quantity.nil?
         logger.info "Role-Passed: #{passed_role}"
         add_role_quantity(role_quantity)
-        true
+        'Success'
       end
+      return 'Unable to setup role quantity'
     end
     end
-    false
+    'Unable to hash roles'
   end
 
   def self.location_is_school(location)

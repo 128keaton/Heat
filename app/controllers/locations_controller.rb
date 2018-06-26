@@ -25,8 +25,8 @@ class LocationsController < ApplicationController
     if location&.valid?
       location.name = params[:location][:name]
       roles = params[:roles]
-      set_flash('Location updated successfully')
-      set_flash('Location not updated successfully', 'error') if location.add_roles(roles)
+      status = location.add_roles(roles)
+      set_flash(status)
       location.save!
     else
       set_flash('Location could not be updated', 'error')
