@@ -2,39 +2,29 @@ class RolesController < ApplicationController
 
   def index
     @role = Role.new
-    if flash[:notice]
-      @type = params[:type]
-    end
+    @type = params[:type] if flash[:notice]
+  end
+
+  def edit
+    @role = Role.find(params[:id])
+    redirect_to roles_index_path if @role.nil?
+  end
+
+  def update
+    set_flash('Role unable to be updated', 'error')
+    set_flash('Role updated successfully') if Role.find(params[:id]).update(role_params)
+    redirect_to roles_index_path
   end
 
   def destroy
-    @role = Role.find(params[:id]).destroy
-    flash[:notice] = "Role deleted successfully"
-    flash[:type] = "success"
-    redirect_to action: 'index'
+    set_flash('Role deleted successfully') if Role.find(params[:id]).destroy
+    redirect_to roles_index_path
   end
 
   def create
-    role = Role.new
-    role.name = params[:role][:name]
-
-    unless params[:role][:suffix].empty?
-      role.suffix = params[:role][:suffix]
-    end
-
-    role.pallet_count = params[:role][:pallet_count]
-    role.pallet_layer_count = params[:role][:pallet_layer_count]
-
-    if role.valid?
-      role.save
-      flash[:notice] = "Role created successfully"
-      flash[:type] = "success"
-      redirect_to action: 'index'
-    else
-      flash[:notice] = "Role could not be created"
-      flash[:type] = "error"
-      redirect_to action: 'index'
-    end
+    set_flash('Role could not be created', 'error')
+    set_flash('Role created successfully') if Role.create(role_params).save
+    redirect_to roles_index_path
   end
 
   def list_roles
@@ -46,4 +36,14 @@ class RolesController < ApplicationController
     render json: {roles: Role.all, checked: Role.joins(:role_quantities).where(role_quantities: {school_id: id})}
   end
 
+  private
+
+  def set_flash(notice, type = 'success')
+    flash[:notice] = notice
+    flash[:type] = type
+  end
+
+  def role_params
+    params.require(:role).permit(:product, :name, :suffix)
+  end
 end

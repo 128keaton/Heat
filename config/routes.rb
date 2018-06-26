@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   devise_for  :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :sessions => "users/sessions" }
   # Define resources for our models.
   resources :machines
-  resources :locations, only: [:index, :destroy, :create]
+  resources :locations, only: [:index, :destroy, :create, :update, :edit]
   resources :roles, only: [:index, :destroy, :create]
 
 
@@ -77,6 +77,7 @@ Rails.application.routes.draw do
   post 'rack/assign' => 'rack#assign'
 
   get '/locations' => 'locations#index', as: 'locations_index'
+
   get '/unbox/assign' => 'unbox#assign'
 
   post '/unbox/assign' => 'unbox#assign'
@@ -102,6 +103,9 @@ Rails.application.routes.draw do
 
   get '/roles/list/:id' => 'roles#list_location_roles'
   post '/roles/list/:id' => 'roles#list_location_roles'
+
+  get '/roles/edit/:id' => 'roles#edit', as: 'roles_edit'
+  post '/roles/update/:id' => 'roles#update', as: 'roles_updated'
 
   get 'welcome/login'
 

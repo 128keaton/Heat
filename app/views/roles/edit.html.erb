@@ -1,0 +1,34 @@
+<%= render "shared/nav", title: "Roles", bar_class: "def", link: roles_index_path %>
+<div class="inner-wrapper">
+  <!-- Create a form for creation of roles-->
+  <%= form_for(@role, url: {action: "update"}, method: :post) do |f| %>
+    <table class="roles-form-table">
+      <tr class="flex-form-title">
+        <td class="section-title">Edit Role:</td>
+      </tr>
+      <tr class="flex-form">
+        <td class="roles-form">
+          <%= f.label :name_label, 'Name', :class => "label role-name" %>
+          <%= f.text_field :name, :class => "role-name text-input", :placeholder => "Teacher", :value => @role.name %>
+        </td>
+      </tr>
+      <tr class="flex-form">
+        <td class="roles-form">
+          <%= f.label :specs_label, 'Suffix', :class => "label role-suffix" %>
+          <%= f.text_field :suffix, :class => "role-suffix text-input", :placeholder => "T", :value => @role.suffix %>
+        </td>
+      </tr>
+      <tr class="flex-form">
+        <td class="roles-form">
+          <%= f.label :product_label, 'Product Field', :class => "label role-product" %>
+          <%= f.text_field :product, :class => "role-name text-input", :placeholder => "HP Probook 430 i5", :value => @role.product %>
+        </td>
+      </tr>
+      <tr class="flex-form">
+        <td class="roles-form">
+          <%= f.submit 'Update', :class => 'button submit small button-table' %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+</div>
