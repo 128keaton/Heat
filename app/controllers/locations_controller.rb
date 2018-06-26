@@ -25,13 +25,13 @@ class LocationsController < ApplicationController
     if location&.valid?
       location.name = params[:location][:name]
       roles = params[:roles]
-      status = location.add_roles(roles)
-      set_flash(status)
+      location.add_roles(roles)
+      set_flash('Location updated')
       location.save!
     else
       set_flash('Location could not be updated', 'error')
     end
-    redirect_to action: 'index'
+    redirect_to locations_index_path
   end
 
   def find_location
