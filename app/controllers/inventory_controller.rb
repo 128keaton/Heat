@@ -1,6 +1,6 @@
 class InventoryController < ApplicationController
   def index
-    @machines =  Machine.where("inventory_location IS NOT NULL")
+    @machines = Machine.where.not(inventory_location: nil)
   end
 
   def add
