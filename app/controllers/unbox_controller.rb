@@ -58,7 +58,6 @@ class UnboxController < ApplicationController
     role_quantity = RoleQuantity.find(params[:machine][:role])
     can_assign = can_assign(role_quantity)
     serial_number = parse(params[:machine][:serial_number])
-    render json: params
     if serial_number && can_assign
       machine = Machine.get_machine(serial_number, role_quantity.role)
       asset_tag = params[:machine][:client_asset_tag]
@@ -77,7 +76,7 @@ class UnboxController < ApplicationController
     else
       set_flash('All computers assigned to role', 'error')
     end
-    #return_to_controller
+    return_to_controller
   end
 
   def return_to_controller
