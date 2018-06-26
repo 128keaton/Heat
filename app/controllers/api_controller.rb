@@ -128,7 +128,7 @@ class ApiController < ApplicationController
       image_string = 'Standard Device - Special Education'
 
       # TODO: Make this an ENV var
-      uri = URI.parse("http://webapps.nationwidesurplus.com/scs/print?image=#{image_string}&asset_number=#{asset_number}&serial_number=#{serial.upcase}&@location=#{school_string}&model=#{machine.get_model_number}&type=#{type}")
+      uri = URI.parse("http://webapps.nationwidesurplus.com/scs/print?image=#{image_string}&asset_number=#{asset_number}&serial_number=#{serial.upcase}&school=#{school_string}&model=#{machine.get_model_number}&type=#{type}")
 
       begin
         response = Net::HTTP.get_response(uri)
@@ -139,7 +139,7 @@ class ApiController < ApplicationController
         retry
       end
 
-      render json: response
+      render json: uri
     else
       render json: {status: 'error', code: 3000, message: "No machine found for #{serial}"}
     end

@@ -74,6 +74,7 @@ $(document).ready(function () {
                     type: 'GET',
                     dataType: 'JSON',
                     success: function (result) {
+                        console.log(result);
                         if (result['status']) {
                             swal({
                                 icon: 'error',
