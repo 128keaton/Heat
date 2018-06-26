@@ -121,25 +121,7 @@ class ApiController < ApplicationController
 # Prints a label for a machine based on serial
   def print_label(serial)
     if (machine = Machine.where(serial_number: serial).first)
-      school_string = machine.location.name
-      asset_number = machine.client_asset_tag
-
-      type = machine.role[0, 1]
-      image_string = 'Standard Device - Special Education'
-
-      # TODO: Make this an ENV var
-      uri = URI.parse("http://webapps.nationwidesurplus.com/scs/print?image=#{image_string}&asset_number=#{asset_number}&serial_number=#{serial.upcase}&school=#{school_string}&model=#{machine.get_model_number}&type=#{type}")
-
-      begin
-        response = Net::HTTP.get_response(uri)
-      rescue Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, EOFError,
-          Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError,
-          Net::ProtocolError => e
-        logger.error e
-        retry
-      end
-
-      render json: uri
+      render json: machine.print_label
     else
       render json: {status: 'error', code: 3000, message: "No machine found for #{serial}"}
     end

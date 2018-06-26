@@ -18,6 +18,26 @@ class Machine < ApplicationRecord
     end
   end
 
+  def print_label
+    location_name = location.name
+    asset_tag = client_asset_tag
+    type = Role.find_by(name: role).suffix
+    image_string = 'Standard Device'
+
+    # TODO: Make this an ENV var
+    uri = URI.parse("http://webapps.nationwidesurplus.com/scs/print?image=#{image_string}&asset_number=#{asset_tag}&serial_number=#{serial_number.upcase}&school=#{location_name}&model=#{get_model_number}&type=#{type}")
+
+    begin
+      response = Net::HTTP.get_response(uri)
+    rescue Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, EOFError,
+        Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError,
+        Net::ProtocolError => e
+      logger.error e
+      return { status: 'error', message: 'Unable to print', error: e}
+    end
+    {status: 'success', message: 'Printed successfully', response: response}
+  end
+
   # TODO: Make this non-hardcoded
   def get_model_number
     'HP ProBook 430 G5'
@@ -85,6 +105,6 @@ class Machine < ApplicationRecord
       machine_date = Date.parse(machine.imaged[:date])
       machines[machine_date] = (machines[machine_date] || 1) + 1
     end
-    machines.sort_by { |date, _| date }.reverse.to_h
+    machines.sort_by {|date, _| date}.reverse.to_h
   end
 end

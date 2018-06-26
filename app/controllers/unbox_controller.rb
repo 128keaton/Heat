@@ -29,7 +29,7 @@ class UnboxController < ApplicationController
       @type = params[:type]
     end
 
-    if !flash[:location].nil?
+    if !flash[:location]&.empty?
       @location = Location.find(flash[:location])
       params[:location] = @location
     elsif params[:location]
@@ -67,9 +67,8 @@ class UnboxController < ApplicationController
 
       if machine.assign(location, role_quantity, asset_tag)
         print_machine(machine)
-        set_flash('Assigned successfully', 'success')
       else
-        set_flash("Machine already assigned to #{machine.location.name}", 'error')
+        set_flash('Asset tag already assigned to another machine', 'error')
       end
     elsif can_assign
       set_flash('Serial not set. Please try again', 'error')
@@ -84,50 +83,21 @@ class UnboxController < ApplicationController
   end
 
   def print_machine(machine)
-    # TODO: Make this an ENV var
-    serial_number = machine.serial_number
-    location = machine.location.name
-    asset_number = machine.client_asset_tag
-
-    type = machine.role[0, 1]
-    image_string = 'Standard Device - Special Education'
-    uri = URI.parse('http://webapps.nationwidesurplus.com/scs/print'\
-                          "?image=#{image_string}"\
-                          "&asset_number=#{asset_number}"\
-                          "&serial_number=#{serial_number.upcase}"\
-                          "&@location=#{location}"\
-                          "&model=#{machine.get_model_number}&type=#{type}")
-    send_print_job(uri)
+    response = machine.print_label
+    Rails.logger.info response
+    set_flash(response[:message], response[:status])
   end
 
-
-  def send_print_job(uri)
-    begin
-      response = Net::HTTP.get_response(uri)
-    rescue Errno::EINVAL, Errno::ECONNRESET, EOFError,
-        Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError,
-        Net::ProtocolError => e
-      puts e
-      retry
-    rescue Timeout::Error
-      set_flash("Upload timed out", "error")
-    end
-
-    if response
-      set_flash("Machine was assigned", "success")
-    else
-      set_flash("Label unable to be printed", "success")
-    end
-  end
 
   def set_flash(notice, type = 'success')
-    school = params[:location]
-    if params&& params[:machine]
+    location = params[:location]
+
+    if params[:machine]
       existing_role = params[:machine][:role]
     end
 
     flash[:notice] = notice
-    flash[:location] = school
+    flash[:location] = location
     flash[:type] = type
     flash[:data] = existing_role
   end
