@@ -69,7 +69,7 @@ class UnboxController < ApplicationController
         print_machine(machine)
         set_flash('Assigned successfully', 'success')
       else
-        set_flash("Machine already assigned to #{machine.location}", 'error')
+        set_flash("Machine already assigned to #{machine.location.name}", 'error')
       end
     elsif can_assign
       set_flash('Serial not set. Please try again', 'error')
