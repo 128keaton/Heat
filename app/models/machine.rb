@@ -66,7 +66,7 @@ class Machine < ApplicationRecord
     unless location.nil?
       role_quantity.append_quantity
       set_unboxed
-      return update(role: role, location: location, client_asset_tag: asset_tag)
+      return update(role: role, location_id: location.id, client_asset_tag: asset_tag)
     end
     false
   end

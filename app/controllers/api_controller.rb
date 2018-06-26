@@ -121,7 +121,7 @@ class ApiController < ApplicationController
 # Prints a label for a machine based on serial
   def print_label(serial)
     if (machine = Machine.where(serial_number: serial).first)
-      school_string = machine.location
+      school_string = machine.location.name
       asset_number = machine.client_asset_tag
 
       type = machine.role[0, 1]
