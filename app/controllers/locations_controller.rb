@@ -22,7 +22,7 @@ class LocationsController < ApplicationController
 
   def update
     location = find_location
-    if location&.valid?
+    if !location&.valid?
       location.name = params[:location][:name]
       roles = params[:roles]
       status = location.add_roles(roles)
