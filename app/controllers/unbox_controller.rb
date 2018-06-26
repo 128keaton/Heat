@@ -86,7 +86,7 @@ class UnboxController < ApplicationController
   def print_machine(machine)
     # TODO: Make this an ENV var
     serial_number = machine.serial_number
-    school_string = machine.location
+    location = machine.location.name
     asset_number = machine.client_asset_tag
 
     type = machine.role[0, 1]
@@ -95,7 +95,7 @@ class UnboxController < ApplicationController
                           "?image=#{image_string}"\
                           "&asset_number=#{asset_number}"\
                           "&serial_number=#{serial_number.upcase}"\
-                          "&@location=#{school_string}"\
+                          "&@location=#{location}"\
                           "&model=#{machine.get_model_number}&type=#{type}")
     send_print_job(uri)
   end

@@ -16,13 +16,13 @@
       <tr class="flex-form">
         <td class="school-form">
           <%= f.label :name, 'Location Name', :class => "label @location-name" %>
-          <%= f.text_field :name, :class => "@location-code text-input", :placeholder => @location.name %>
+          <%= f.text_field :name, :class => "@location-code text-input", :placeholder => @location.name, :required => true %>
         </td>
       </tr>
       <tr class="flex-form">
         <td class="school-form">
           <%= f.label :school_code_label, 'Location Code', :class => "label @location-code" %>
-          <%= f.text_field :school_code, :class => "@location-code text-input", :placeholder => "1738-A" %>
+          <%= f.text_field :school_code, :class => "@location-code text-input", :placeholder => "1738-A",  :required => true %>
           <%= hidden_field_tag :name, @location.name %>
         </td>
       </tr>

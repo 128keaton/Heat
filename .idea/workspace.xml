@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="06880c5e-7a04-42a3-972c-ed46903cf1ae" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/views/roles/edit.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/roles_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/roles_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/role.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/role.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/unbox_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/unbox_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/locations/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/locations/edit.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/locations/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/locations/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/roles/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/roles/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/receive/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/receive/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/unbox/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/unbox/index.html.erb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,38 +21,53 @@
       <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/locations/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/roles/index.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
-              <folding>
-                <element signature="n#div#1;n#!!top" />
-              </folding>
+            <state relative-caret-position="657">
+              <caret line="61" column="47" selection-start-line="61" selection-start-column="47" selection-end-line="61" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="edit.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/roles/edit.html.erb">
+        <entry file="file://$PROJECT_DIR$/app/views/locations/edit.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+            <state relative-caret-position="149">
+              <caret line="24" column="124" selection-start-line="24" selection-start-column="124" selection-end-line="24" selection-end-column="124" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="roles_controller.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/receive/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="11" lean-forward="true" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/unbox/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="56" column="13" lean-forward="true" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="roles_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/roles_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="315">
+              <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="role_quantity.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/role_quantity.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="36" lean-forward="true" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -61,8 +75,8 @@
       <file leaf-file-name="role.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/role.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="135">
+              <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -70,26 +84,17 @@
       <file leaf-file-name="receive_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/receive_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="19" selection-start-line="19" selection-end-line="23" />
+            <state relative-caret-position="630">
+              <caret line="42" column="9" lean-forward="true" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <file leaf-file-name="unbox_controller.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/unbox_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="107" column="64" selection-start-line="107" selection-start-column="64" selection-end-line="107" selection-end-column="64" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="locations_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/locations_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="73" column="5" lean-forward="true" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
+            <state relative-caret-position="256">
+              <caret line="87" column="41" lean-forward="true" selection-start-line="87" selection-start-column="41" selection-end-line="87" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -97,15 +102,6 @@
       <file leaf-file-name="root_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/root_controller.rb">
           <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="location.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/location.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="750">
-              <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
-            </state>
-          </provider>
         </entry>
       </file>
     </leaf>
@@ -183,7 +179,6 @@
         <option value="$PROJECT_DIR$/app/assets/stylesheets/icons.scss" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/form-styles.scss" />
         <option value="$PROJECT_DIR$/app/views/shared/_nav.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/locations/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/status_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/status/index.html.erb" />
         <option value="$PROJECT_DIR$/test/controllers/receive_controller_test.rb" />
@@ -192,18 +187,14 @@
         <option value="$PROJECT_DIR$/test/controllers/inventory_controller_test.rb" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/receive.js" />
-        <option value="$PROJECT_DIR$/app/views/receive/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/receive_controller.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/label.js" />
         <option value="$PROJECT_DIR$/config/initializers/assets.rb" />
-        <option value="$PROJECT_DIR$/app/views/unbox/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/models/role_quantity.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20180624215706_add_location_id_to_machine.rb" />
         <option value="$PROJECT_DIR$/app/views/shared/_alt_nav.html.erb" />
         <option value="$PROJECT_DIR$/app/views/inventory/index.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/ui-elements.scss" />
         <option value="$PROJECT_DIR$/app/views/root/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/unbox_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/location.rb" />
         <option value="$PROJECT_DIR$/app/models/machine.rb" />
@@ -216,10 +207,15 @@
         <option value="$PROJECT_DIR$/app/views/roles/edit.html.erb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/roles/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/locations/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/locations_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/role.rb" />
         <option value="$PROJECT_DIR$/app/controllers/roles_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/role_quantity.rb" />
+        <option value="$PROJECT_DIR$/app/views/locations/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/locations/edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/receive/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/unbox/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/unbox_controller.rb" />
       </list>
     </option>
   </component>
@@ -626,21 +622,7 @@
       <workItem from="1529693918808" duration="7282000" />
       <workItem from="1529932385646" duration="12094000" />
       <workItem from="1529950637822" duration="8589000" />
-      <workItem from="1530027013365" duration="1123000" />
-    </task>
-    <task id="LOCAL-00054" summary="Minor refactor to assign functionality">
-      <created>1528146178713</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1528146178713</updated>
-    </task>
-    <task id="LOCAL-00055" summary="Removed logger from school assign">
-      <created>1528146268495</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1528146268495</updated>
+      <workItem from="1530027013365" duration="1686000" />
     </task>
     <task id="LOCAL-00056" summary="assigns machine properly">
       <created>1528206437248</created>
@@ -971,11 +953,25 @@
       <option name="project" value="LOCAL" />
       <updated>1529958164059</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="Fixes role creation error&#10;Also allows for role editing">
+      <created>1530028163273</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1530028163273</updated>
+    </task>
+    <task id="LOCAL-00104" summary="Role removal should remove school">
+      <created>1530028507971</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1530028507972</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117694000" />
+    <option name="totallyTimeSpent" value="118257000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="50" width="1920" height="978" extended-state="0" />
@@ -1020,8 +1016,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Better location status finding" />
-    <MESSAGE value="Moves render" />
     <MESSAGE value="removes nil value" />
     <MESSAGE value="Adds CSV rendering" />
     <MESSAGE value="Wrong func" />
@@ -1045,7 +1039,9 @@
     <MESSAGE value="Better error handling" />
     <MESSAGE value="Converts to ID" />
     <MESSAGE value="updates role search" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates role search" />
+    <MESSAGE value="Fixes role creation error&#10;Also allows for role editing" />
+    <MESSAGE value="Role removal should remove school" />
+    <option name="LAST_COMMIT_MESSAGE" value="Role removal should remove school" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1058,13 +1054,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/locations/edit.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="24" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/status/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
@@ -1127,13 +1116,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/receive/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/receive.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1181,20 +1163,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/unbox/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="44" column="12" lean-forward="true" selection-start-line="44" selection-start-column="12" selection-end-line="44" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/role_quantity.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20180619201109_add_role_id_to_role_quantities.rb">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1237,13 +1205,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="31" column="67" selection-start-line="31" selection-start-column="67" selection-end-line="31" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/unbox_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="94" column="33" selection-start-line="94" selection-start-column="33" selection-end-line="94" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -1336,13 +1297,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/locations/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/locations_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
@@ -1353,24 +1307,66 @@
     <entry file="file://$PROJECT_DIR$/app/controllers/root_controller.rb">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/receive_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/roles_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="19" selection-start-line="19" selection-end-line="23" />
+        <state relative-caret-position="315">
+          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/role.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="135">
+          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/roles_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/role_quantity.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="225">
+          <caret line="15" column="36" lean-forward="true" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/locations/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="657">
+          <caret line="61" column="47" selection-start-line="61" selection-start-column="47" selection-end-line="61" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/locations/edit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="24" column="124" selection-start-line="24" selection-start-column="124" selection-end-line="24" selection-end-column="124" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/receive/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="11" lean-forward="true" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/unbox/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="56" column="13" lean-forward="true" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/receive_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="42" column="9" lean-forward="true" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/unbox_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="87" column="41" lean-forward="true" selection-start-line="87" selection-start-column="41" selection-end-line="87" selection-end-column="41" />
         </state>
       </provider>
     </entry>
