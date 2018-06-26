@@ -24,8 +24,12 @@
         <%= f.label :serial_number, 'Serial', :class => "serial label" %>
         <%= f.text_field :serial_number, :class => "serial text-input", :placeholder => "PPPP", :required => true %>
       </li>
+      <li>
+        <%= f.label :po_number, 'PO Number', :class => "po label" %>
+        <%= f.text_field :po_number, :class => "po text-input", :placeholder => "1827882", :required => false, :value => @po_number %>
+      </li>
     </ul>
     <%= hidden_field_tag :role, flash[:data] %>
-    <%= f.submit 'Submit', :class => 'button submit small', :id => "submit", :disabled => "disabled" %>
+    <%= f.submit 'Submit', :class => 'button submit small', :id => "submit"%>
   <% end %>
 </div>

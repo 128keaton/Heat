@@ -5,6 +5,8 @@ class ReceiveController < ApplicationController
     @machine = Machine.new
     @roles = Role.all
     verify_roles_exist
+
+    @po_number = flash[:po_number] if flash[:po_number]
   end
 
   def verify_roles_exist
@@ -24,15 +26,15 @@ class ReceiveController < ApplicationController
 
   def create
     serial = parse(params[:machine][:serial_number])
-    role = params[:machine][:role]
-    flash[:data] = role
+    flash[:data] = params[:machine][:role]
+    flash[:po_number] = params[:machine][:po_number]
 
     set_flash('Unable to parse serial', 'error')
     return redirect_to action: 'index' if serial.present?&.blank?
     if !machine_exists(serial)
-      machine = Machine.create(serial_number: serial, role: role)
-      machine.set_unboxed
-      machine.save!
+      machine = Machine.new(machine_params)
+      set_flash('Unable to save machine', 'error') unless machine.set_unboxed.save!
+
       set_flash('Serial has been added')
     else
       set_flash('Serial already added', 'error')
@@ -41,6 +43,10 @@ class ReceiveController < ApplicationController
   end
 
   private
+
+  def machine_params
+    params.require(:machine).permit(:serial_number, :role, :po_number)
+  end
 
   def parse(serial)
     if serial.include? ','

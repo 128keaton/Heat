@@ -9,18 +9,47 @@
 <%= render "shared/nav", title: "Overview", bar_class: "def", link: "/" %>
 
 <!-- Displays the statistical information -->
-<div class="inner-wrapper">
+<div class="inner-wrapper" id="second-wrapper">
+  <h2 class="wrapper-section-data">Total Imaged: <%= @machines.length %></h2>
+  <%= line_chart Machine.group_by_day(:created_at).count %>
+</div>
+
+<div class="inner-wrapper" id="second-wrapper">
   <% machines = Machine.by_date %>
   <% if machines.count > 1 %>
     <table align="center" class="school-form">
       <tr>
-        <th>Date</th>
-        <th>Completed Count</th>
+        <th>PO Number</th>
+        <th>Count</th>
       </tr>
-      <% machines.keys.each do |key| %>
+      <% Machine.select(:po_number).group(:po_number).having("count(*) > 1").size.each do |size| %>
         <tr>
-          <td><%= key %></td>
-          <td><%= machines[key] %></td>
+          <td><%= size[0] ? size[0] : 'No PO Assigned' %></td>
+          <td><%= size[1] ? size[1] : 'No Machines Assigned'%></td>
+        </tr>
+      <% end %>
+    </table>
+  <% else %>
+    <p id="no-data">no machines</p>
+  <% end %>
+</div>
+
+<div class="inner-wrapper" id="second-wrapper">
+  <% machines = Machine.by_date %>
+  <% if machines.count > 1 %>
+    <table align="center" class="school-form">
+      <tr>
+        <th>Serial</th>
+        <th>Role</th>
+        <th>Imaged</th>
+        <th>Unboxed</th>
+      </tr>
+      <% Machine.all.each do |machine| %>
+        <tr>
+          <td><%= machine.serial_number %></td>
+          <td><%= machine.role %></td>
+          <td><%= machine.imaged ? raw('<i class="fa fa-check green-icon"></i>') : raw('<i class="fa fa-times red-icon"></i>') %></td>
+          <td><%= machine.unboxed ? raw('<i class="fa fa-check green-icon"></i>') : raw('<i class="fa fa-times red-icon"></i>') %></td>
         </tr>
       <% end %>
     </table>
@@ -28,8 +57,4 @@
   <p id="no-data">no machines</p>
   <% end %>
 </div>
-<div class="inner-wrapper" id="second-wrapper">
 
-  <h2 class="wrapper-section-data">Total: <%= @machines.length %></h2>
-  <%= line_chart Machine.group_by_day(:created_at).count %>
-</div>

@@ -49,6 +49,7 @@ class Machine < ApplicationRecord
 
   def set_unboxed
     update(unboxed: {date: Time.zone.now.strftime('%d/%m/%Y %H:%M')})
+    self
   end
 
   def set_imaged
@@ -102,11 +103,6 @@ class Machine < ApplicationRecord
   end
 
   def self.by_date
-    machines = {}
-    where.not(imaged: nil).each do |machine|
-      machine_date = Date.parse(machine.imaged[:date])
-      machines[machine_date] = (machines[machine_date] || 1) + 1
-    end
-    machines.sort_by {|date, _| date}.reverse.to_h
+    Machine.where.not(imaged: nil)
   end
 end
