@@ -77,12 +77,7 @@ $(document).ready(function () {
                         console.log(result);
                         if (result['status']) {
                             swal({
-                                icon: 'error',
-                                text: result['message']
-                            });
-                        } else {
-                            swal({
-                                icon: 'success',
+                                icon: result['status'],
                                 text: result['message']
                             });
                         }
