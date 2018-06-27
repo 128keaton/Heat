@@ -29,7 +29,7 @@ class UnboxController < ApplicationController
       @type = params[:type]
     end
 
-    if !flash[:location]&.empty?
+    if flash[:location] && !flash[:location].empty?
       @location = Location.find(flash[:location])
       params[:location] = @location
     elsif params[:location]
