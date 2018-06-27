@@ -4,11 +4,9 @@ class Role < ApplicationRecord
   before_destroy :destroy_role_quantities
 
   def in?(location)
-    return false if role_quantities.empty?
-    return false if role_quantities.nil?
-    location.role_quantities.each do |rq|
-      return rq.role_id == id
-    end
+    return false if location.role_quantities.empty?
+    return false if location.role_quantities.nil?
+    true unless location.role_quantities.where(role_id: 5).nil?
   end
 
   def destroy_role_quantities

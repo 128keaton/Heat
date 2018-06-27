@@ -24,6 +24,7 @@ class LocationsController < ApplicationController
     location = find_location
     if location&.valid?
       location.name = params[:location][:name]
+      location.is_school = params[:location][:is_school]
       roles = params[:roles]
       Rails.logger.info roles
       location.add_roles(roles)

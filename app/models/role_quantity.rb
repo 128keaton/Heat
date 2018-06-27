@@ -4,6 +4,12 @@ class RoleQuantity < ApplicationRecord
 
   after_save { |role_quantity| role_quantity.destroy if role_quantity.role_id.blank? }
   after_save { |role_quantity| role_quantity.destroy if role_quantity.location_id.blank? }
+  after_initialize :init
+
+  def init
+    self.max_quantity ||= 0
+    self.quantity ||= 0
+  end
 
   def get_role
     return Role.find(role_id) if Role.exists? role_id

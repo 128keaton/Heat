@@ -32,7 +32,7 @@
 
       <% Role.all.each do |role| %>
         <% unless role.in? @location %>
-          <%= render partial: 'locations/partials/role_form', locals: {entity: role, index: rand.to_s[2..11], f: f, form_class: 'role-form hidden-form'} %>
+          <%= render partial: 'locations/partials/role_form', locals: {entity: role, index: rand.to_s[2..11], f: f, form_class: 'role-form'} %>
         <% end %>
       <% end %>
       <tr class="flex-form">
@@ -41,6 +41,14 @@
           <div class="switch">
             <%= f.check_box :blended_learning, :class => "cmn-toggle cmn-toggle-round blended_learning", :id => "cmn-toggle-1" %>
             <label class="switch-label" for="cmn-toggle-1"></label>
+          </div>
+        </td>
+      </tr>
+        <td class="school-form">
+          <%= f.label :is_school, 'Location is school', :class => "label blended-learning" %>
+          <div class="switch">
+            <%= f.check_box :is_school, :class => "cmn-toggle cmn-toggle-round is_school", :id => "cmn-toggle-2" %>
+            <label class="switch-label" for="cmn-toggle-2"></label>
           </div>
         </td>
       </tr>

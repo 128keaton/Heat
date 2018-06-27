@@ -1,4 +1,3 @@
-<% form_random = rand.to_s[2..11] %>
 <% if entity.is_a? Role %>
   <% name = entity.name %>
   <% id = entity.id %>
@@ -11,34 +10,34 @@
   <% ou = entity.ou %>
 <% end %>
 
-<tr id="<%= form_random %>" class="flex-section-title <%= defined?(form_class) ? form_class : '' %>">
+<tr id="<%= name %>" class="flex-section-title <%= defined?(form_class) ? form_class : '' %>">
   <td class="section-title"><%= name.titleize %> Role:</td>
 </tr>
-<tr id="<%= form_random %>" class="flex-form <%= defined?(form_class) ? form_class : '' %>">
+<tr id="<%= name %>" class="flex-form <%= defined?(form_class) ? form_class : '' %>">
   <td class="school-form">
     <%= f.label nil, "Max Quantity:", :class => "label role-locations" %>
-    <input type="number" class="school-role text-input" placeholder="200" name="roles[<%= index %>][max_quantity]" value="<%= max_quantity %>">
+    <input type="number" class="school-role text-input" placeholder="200" name="roles[<%= name %>][max_quantity]" value="<%= max_quantity %>">
   </td>
 </tr>
 
-<tr id="<%= form_random %>" class="flex-form <%= defined?(form_class) ? form_class : '' %>">
+<tr id="<%= name %>" class="flex-form <%= defined?(form_class) ? form_class : '' %>">
   <td class="school-form">
     <%= f.label nil, "OU", :class => "label ou-locations" %>
-    <input class="school-role text-input" placeholder="OU=Windfield" name="roles[<%= index %>][ou]" value="<%= ou %>">
+    <input class="school-role text-input" placeholder="OU=Windfield" name="roles[<%= name %>][ou]" value="<%= ou %>">
   </td>
 </tr>
 
 
 <% if entity.is_a? RoleQuantity %>
-  <%= hidden_field_tag "roles[#{index}][role_quantity_id]", entity.id %>
+  <%= hidden_field_tag "roles[#{name}][role_quantity_id]", entity.id %>
 <% end %>
 
-<%= hidden_field_tag "roles[#{index}][id]", id, { class: "role-id", "data-id": form_random } %>
+<%= hidden_field_tag "roles[#{name}][id]", id, { class: "role-id", "data-id": name } %>
 
 <% if !(defined?(form_class)).nil? && (form_class.include? 'hidden') %>
   <tr>
     <td>
-      <a class="button done small button-link add-role" data-id="<%= form_random %>">Add <%= name %></a>
+      <a class="button done small button-link add-role" data-id="<%= name %>">Add <%= name %></a>
     </td>
   </tr>
 <% end %>

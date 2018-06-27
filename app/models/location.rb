@@ -27,20 +27,25 @@ class Location < ApplicationRecord
 
   def add_roles(roles)
     logger.info "Adding: #{roles}"
-    if roles&.each do |role_id, passed_role|
-      role_quantity = setup_role_quantity(passed_role)
+    return if roles.nil?
+    roles.each do |role_name, role|
+      role_quantity = setup_role_quantity(role)
       unless role_quantity.nil?
-        logger.info "Role-Passed: #{passed_role}"
-        add_role_quantity(role_quantity)
+        logger.info "Role- assed: #{role}: #{role_name}"
+        if role_quantity.max_quantity.zero?
+          role_quantity.destroy!
+        else
+          add_role_quantity(role_quantity)
+        end
       end
     end
-    end
   end
+
 
   def self.location_is_school(location)
     loc_string = location.downcase
 
-    unless loc_string == '@location name' || loc_string.nil?
+    unless loc_string == 'school name' || loc_string.nil?
       return (loc_string.include? 'school') || (loc_string.include? 'academy') ||
           (loc_string.include? 'high') || (loc_string.include? 'middle') ||
           (loc_string.include? 'elementary') || (loc_string.include? 'hs')
@@ -75,18 +80,23 @@ class Location < ApplicationRecord
 
   private
 
+  def remove_role_quantity(role_quantity)
+
+      role_quantity.destroy!
+  end
+
   def add_role_quantity(role_quantity)
     role_quantities.append(role_quantity)
     role_quantity.save!
   end
 
   def setup_role_quantity(passed_role)
-    quantity = passed_role[:max_quantity].to_i
+    max_quantity = passed_role[:max_quantity].to_i
     ou = passed_role[:ou]
 
     logger.info "Quantity2: #{passed_role}"
     return nil unless (role_quantity = find_or_setup(passed_role))
-    role_quantity.max_quantity = quantity
+    role_quantity.max_quantity = max_quantity
     role_quantity.ou = ou
 
     return nil if passed_role[:id].empty?
