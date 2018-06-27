@@ -1,5 +1,5 @@
 module CoolHelper
-  def random_int
-    Integer(rand(10...42))
+  def random
+    rand.to_s[2..11]
   end
 end

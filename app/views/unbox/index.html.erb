@@ -13,8 +13,14 @@
   <%= form_for(@machine, url: {action: "load_schools"}, method: :post) do |f| %>
     <ul>
       <li>
+        <i class="fa fa-building-o fa-4x"></i>
+      </li>
+      <li>
+        <h2>Current Location - <%= @location.name %></h2>
+      </li>
+      <li>
         <%= f.label :school_label, 'Location', :class => "@location-select label" %>
-        <%= f.select(:location, Location.all.map {|location| [location[:name], location.id]}, {:prompt => "Choose Location", :selected => flash[:location]}, {:class => 'location-select select-input', :onChange => "javascript: this.form.submit();"}) %>
+        <%= f.select(:location, Location.all.map {|location| [location[:name], location.id]}, {:selected => flash[:location]}, {:autocomplete => :off, :class => 'location-select select-input', :onChange => "javascript: this.form.submit();"}) %>
       </li>
       <% if @location %>
         <li>

@@ -26,6 +26,7 @@ class Location < ApplicationRecord
   end
 
   def add_roles(roles)
+    logger.info "Adding: #{roles}"
     if roles&.each do |role_id, passed_role|
       role_quantity = setup_role_quantity(passed_role)
       unless role_quantity.nil?

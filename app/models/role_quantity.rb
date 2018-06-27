@@ -2,6 +2,9 @@ class RoleQuantity < ApplicationRecord
   belongs_to :role
   belongs_to :location
 
+  after_save { |role_quantity| role_quantity.destroy if role_quantity.role_id.blank? }
+  after_save { |role_quantity| role_quantity.destroy if role_quantity.location_id.blank? }
+
   def get_role
     return Role.find(role_id) if Role.exists? role_id
     location.role_quantities.delete(self)

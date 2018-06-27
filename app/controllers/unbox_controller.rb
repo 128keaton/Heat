@@ -21,32 +21,25 @@ class UnboxController < ApplicationController
   end
 
   def index
+    all_locations = Location.all
     @machine = Machine.new
-    @locations = Location.all.sort_by {|m| m.name.downcase}
     @role = nil
 
     verify_locations_exist
-    if flash[:notice]
-      @type = params[:type]
-    end
 
-    if flash[:role]
-      @role = flash[:flash]
-    end
+    @type = params[:type] if flash[:notice]
+    @role = flash[:flash] if flash[:role]
 
-    if flash[:location] && !flash[:location].empty?
-      @location = Location.find(flash[:location])
-      params[:location] = @location
-    elsif params[:location]
-      @location = Location.find(params[:location])
-    end
+    @location = all_locations.first
+    @location = Location.find(flash[:location]) if flash[:location].present?
+
+    params[:location] = @location
   end
 
   def verify_locations_exist
-    if Location.all.empty?
-      set_flash('No locations exist', 'error')
-      redirect_to locations_index_path
-    end
+    empty = Location.all.empty?
+    set_flash('No locations exist', 'error') if empty
+    redirect_to locations_index_path if empty
   end
 
   def can_assign(role)
@@ -55,24 +48,22 @@ class UnboxController < ApplicationController
   end
 
   def load_schools
-    @location = params[:machine][:location]
-    flash[:location] = @location
+    update_flash_data(params[:machine][:location], nil)
     redirect_to action: 'index'
   end
 
   def assign
     role_quantity = RoleQuantity.find(params[:machine][:role])
-    can_assign = can_assign(role_quantity)
+    role = role_quantity.role
     serial_number = parse(params[:machine][:serial_number])
-    flash[:role] = params[:machine][:role]
+    location = Location.find(params[:location])
+    asset_tag = params[:machine][:client_asset_tag]
+    can_assign = can_assign(role_quantity)
+    return return_to_controller if location.nil?
 
     if serial_number && can_assign
-      machine = Machine.get_machine(serial_number, role_quantity.role)
-      asset_tag = params[:machine][:client_asset_tag]
-      location = Location.find(params[:location])
+      machine = Machine.get_machine(serial_number, role)
       set_flash('Location not found', 'error')
-      return return_to_controller if location.nil?
-
       if machine.assign(location, role_quantity, asset_tag)
         print_machine(machine)
       else
@@ -83,8 +74,11 @@ class UnboxController < ApplicationController
     else
       set_flash('All computers assigned to role', 'error')
     end
+
+    update_flash_data(location, role.id)
     return_to_controller
   end
+
 
   def return_to_controller
     redirect_to action: 'index', school: params[:location]
@@ -96,18 +90,14 @@ class UnboxController < ApplicationController
     set_flash(response[:message], response[:status])
   end
 
+  def update_flash_data(location = nil, role = nil)
+    flash[:location] = location if location.present?
+    flash[:role] = role if role.present?
+  end
 
   def set_flash(notice, type = 'success')
-    location = params[:location]
-
-    if params[:machine]
-      existing_role = params[:machine][:role]
-    end
-
     flash[:notice] = notice
-    flash[:location] = location
     flash[:type] = type
-    flash[:data] = existing_role
   end
 
   private

@@ -1,4 +1,4 @@
-<% form_random = random_int %>
+<% form_random = rand.to_s[2..11] %>
 <% if entity.is_a? Role %>
   <% name = entity.name %>
   <% id = entity.id %>

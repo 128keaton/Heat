@@ -25,6 +25,7 @@ class LocationsController < ApplicationController
     if location&.valid?
       location.name = params[:location][:name]
       roles = params[:roles]
+      Rails.logger.info roles
       location.add_roles(roles)
       set_flash('Location updated')
       location.save!
