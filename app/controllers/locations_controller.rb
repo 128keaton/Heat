@@ -84,6 +84,6 @@ class LocationsController < ApplicationController
   end
 
   def location_params
-    params.require(:location).permit(:name, :school_code, :blended_learning, :quantity)
+    params.require(:location).permit(:name, :school_code, :blended_learning, :quantity, :is_school)
   end
 end
