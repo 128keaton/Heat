@@ -31,7 +31,7 @@ class UnboxController < ApplicationController
     @role = flash[:flash] if flash[:role]
 
     @location = all_locations.first
-    @location = Location.find(flash[:location]) if flash[:location].present?
+    @location = Location.find(flash[:location][:id]) if flash[:location].present?
 
     params[:location] = @location
   end
