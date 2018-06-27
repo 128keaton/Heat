@@ -41,9 +41,9 @@ class Location < ApplicationRecord
     loc_string = location.downcase
 
     unless loc_string == '@location name' || loc_string.nil?
-      return (loc_string.include? '@location') || (loc_string.include? 'academy') ||
+      return (loc_string.include? 'school') || (loc_string.include? 'academy') ||
           (loc_string.include? 'high') || (loc_string.include? 'middle') ||
-          (loc_string.include? 'elementary')
+          (loc_string.include? 'elementary') || (loc_string.include? 'hs')
     end
     false
   end

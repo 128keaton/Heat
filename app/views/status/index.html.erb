@@ -48,7 +48,10 @@
         <tr>
           <td><%= machine.serial_number %></td>
           <td><%= machine.role %></td>
-          <td><%= machine.imaged ? raw('<i class="fa fa-check green-icon"></i>') : raw('<i class="fa fa-times red-icon"></i>') %></td>
+          <td>
+            <%= machine.imaged ? raw('<i class="fa fa-check green-icon"></i>') : raw('<i class="fa fa-times red-icon"></i>') %>
+            <%= machine.imaged ? machine.imaged[:date] : '' %>
+          </td>
           <td><%= machine.unboxed ? raw('<i class="fa fa-check green-icon"></i>') : raw('<i class="fa fa-times red-icon"></i>') %></td>
         </tr>
       <% end %>
