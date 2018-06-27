@@ -75,10 +75,10 @@ class Machine < ApplicationRecord
     role_suffix = Role.find_by(name: role).suffix
     return 'No suffix' if role_suffix.nil?
 
-    learning_type = 'LT'
-    learning_type = 'BL' if school.blended_learning
+    device_type = 'LT'
+    device_type = 'BL' if school.blended_learning
 
-    hostname = "#{school.school_code}#{role_suffix}#{learning_type}"
+    hostname = "#{school.school_code}#{role_suffix}#{device_type}-"
     remaining_chars = 15 - hostname.length
     hostname << serial_number.split(//).last(remaining_chars).join
     hostname

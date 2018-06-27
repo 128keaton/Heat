@@ -28,7 +28,7 @@ class UnboxController < ApplicationController
     verify_locations_exist
 
     @type = params[:type] if flash[:notice]
-    @role = flash[:flash] if flash[:role]
+    @role = params[:role] if params[:role]
 
     @location = all_locations.first
     @location = Location.find(flash[:location]) if flash[:location].present?
@@ -53,35 +53,48 @@ class UnboxController < ApplicationController
   end
 
   def assign
+    location = Location.find(params[:location])
     role_quantity = RoleQuantity.find(params[:machine][:role])
     role = role_quantity.role
-    serial_number = parse(params[:machine][:serial_number])
-    location = Location.find(params[:location])
-    asset_tag = params[:machine][:client_asset_tag]
-    can_assign = can_assign(role_quantity)
-    return return_to_controller if location.nil?
 
-    if serial_number && can_assign
+    update_flash_data(location.id, role_quantity.id)
+    set_flash('Unable to find location', 'error')
+    return return_to_controller if location.nil?
+    set_flash('Unable to find role', 'error')
+    return return_to_controller if role.nil?
+    serial_number = parse(params[:machine][:serial_number])
+    set_flash('Unable to find serial in parameters', 'error')
+    return return_to_controller if serial_number.nil?
+    asset_tag = params[:machine][:client_asset_tag]
+    set_flash('Unable to find asset tag in parameters', 'error')
+    return return_to_controller if asset_tag.nil?
+
+    start_assignment(role_quantity, serial_number, role, asset_tag, location)
+  end
+
+  def start_assignment(role_quantity, serial_number, role, asset_tag, location)
+    can_assign = can_assign(role_quantity)
+    if can_assign
       machine = Machine.get_machine(serial_number, role)
-      set_flash('Location not found', 'error')
-      if machine.assign(location, role_quantity, asset_tag)
-        print_machine(machine)
-      else
-        set_flash('Asset tag already assigned to another machine', 'error')
-      end
-    elsif can_assign
-      set_flash('Serial not set. Please try again', 'error')
+      assign_and_print(machine, location, role_quantity, asset_tag)
     else
       set_flash('All computers assigned to role', 'error')
     end
 
-    update_flash_data(location.id, role.id)
     return_to_controller
+  end
+
+  def assign_and_print(machine, location, role_quantity, asset_tag)
+    if machine.assign(location, role_quantity, asset_tag)
+      print_machine(machine)
+    else
+      set_flash('Asset tag already assigned to another machine', 'error')
+    end
   end
 
 
   def return_to_controller
-    redirect_to action: 'index', school: params[:location]
+    redirect_to action: 'index', school: params[:location], role: params[:machine][:role]
   end
 
   def print_machine(machine)

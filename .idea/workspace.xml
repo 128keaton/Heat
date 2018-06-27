@@ -4,6 +4,7 @@
     <list default="true" id="06880c5e-7a04-42a3-972c-ed46903cf1ae" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/unbox_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/unbox_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/machine.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/machine.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,20 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="receive_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/receive_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="unbox_controller.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="unbox_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/unbox_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="33" column="50" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
+            <state relative-caret-position="976">
+              <caret line="108" column="5" lean-forward="true" selection-start-line="107" selection-start-column="40" selection-end-line="108" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -64,6 +56,24 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
               <caret line="20" column="7" lean-forward="true" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="machine.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/machine.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="381">
+              <caret line="81" column="24" selection-start-line="81" selection-start-column="24" selection-end-line="81" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -109,7 +119,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>column</find>
       <find>role_quantities</find>
       <find>@location</find>
       <find>current_</find>
@@ -139,6 +148,7 @@
       <find>@locations</find>
       <find>locations</find>
       <find>load_schools</find>
+      <find>hostname</find>
     </findStrings>
     <replaceStrings>
       <replace>'</replace>
@@ -196,7 +206,6 @@
         <option value="$PROJECT_DIR$/app/controllers/receive_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/status/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/inventory/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/models/machine.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/label.js" />
         <option value="$PROJECT_DIR$/app/models/role_quantity.rb" />
         <option value="$PROJECT_DIR$/app/models/role.rb" />
@@ -207,6 +216,7 @@
         <option value="$PROJECT_DIR$/app/views/locations/partials/_role_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/unbox/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/unbox_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/machine.rb" />
       </list>
     </option>
   </component>
@@ -650,21 +660,7 @@
       <workItem from="1529950637822" duration="8589000" />
       <workItem from="1530027013365" duration="3213000" />
       <workItem from="1530038245279" duration="10336000" />
-      <workItem from="1530114104742" duration="6382000" />
-    </task>
-    <task id="LOCAL-00080" summary="Mobile CSS fixes">
-      <created>1529684821795</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1529684821795</updated>
-    </task>
-    <task id="LOCAL-00081" summary="Update fixture">
-      <created>1529685003240</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1529685003240</updated>
+      <workItem from="1530114104742" duration="8701000" />
     </task>
     <task id="LOCAL-00082" summary="Building import function">
       <created>1529700011277</created>
@@ -995,11 +991,25 @@
       <option name="project" value="LOCAL" />
       <updated>1530120511912</updated>
     </task>
-    <option name="localTasksCounter" value="129" />
+    <task id="LOCAL-00129" summary="Fixes find issue">
+      <created>1530123730152</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1530123730152</updated>
+    </task>
+    <task id="LOCAL-00130" summary="Fixes find issue">
+      <created>1530124139327</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
+      <option name="project" value="LOCAL" />
+      <updated>1530124139327</updated>
+    </task>
+    <option name="localTasksCounter" value="131" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136502000" />
+    <option name="totallyTimeSpent" value="138821000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="2560" height="978" extended-state="0" />
@@ -1044,7 +1054,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Amends migration" />
     <MESSAGE value="CSS fixes and unbox fixes" />
     <MESSAGE value="Adds label creation" />
     <MESSAGE value="Better error handling" />
@@ -1069,7 +1078,8 @@
     <MESSAGE value="Fixes how Location editing/roles works" />
     <MESSAGE value="DeCools Helper" />
     <MESSAGE value="Moves obvious locationerizer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Moves obvious locationerizer" />
+    <MESSAGE value="Fixes find issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes find issue" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1188,13 +1198,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="130" column="15" selection-start-line="130" selection-start-column="4" selection-end-line="130" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
@@ -1303,13 +1306,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/machine.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="88" column="20" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/locations.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-367">
@@ -1396,8 +1392,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/unbox_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="33" column="50" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
+        <state relative-caret-position="976">
+          <caret line="108" column="5" lean-forward="true" selection-start-line="107" selection-start-column="40" selection-end-line="108" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/machine.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="81" column="24" selection-start-line="81" selection-start-column="24" selection-end-line="81" selection-end-column="24" />
         </state>
       </provider>
     </entry>
