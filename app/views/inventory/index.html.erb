@@ -46,9 +46,9 @@
       </tr>
       <% @machines.each do |machine| %>
         <tr id="machine">
-          <td><%= machine.location.name %></td>
+          <td><%= machine.location ? machine.location.name : 'No location set' %></td>
           <td><%= machine.serial_number %></td>
-          <td><%= machine.client_asset_tag %></td>
+          <td><%= machine.client_asset_tag ? machine.client_asset_tag : 'No asset tag set' %></td>
           <td><%= machine.inventory_location %></td>
           <td><%= link_to raw('<i class="ic close red-icon"></i>'), inventory_remove_path(machine), method: :post, data: {confirm: "Are you sure you want to remove this machine from inventory?"} %></td>
         </tr>
