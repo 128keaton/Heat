@@ -43,7 +43,7 @@ class Location < ApplicationRecord
 
 
   def self.location_is_school(location)
-    loc_string = location.downcase
+    loc_string = location.name.downcase
 
     return true if location.is_school
 
