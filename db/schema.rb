@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180627202319) do
+ActiveRecord::Schema.define(version: 20180627221129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "form_factors", force: :cascade do |t|
+    t.string   "name"
+    t.string   "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "locations", force: :cascade do |t|
     t.string   "name"
@@ -43,6 +50,8 @@ ActiveRecord::Schema.define(version: 20180627202319) do
     t.string   "inventory_location"
     t.integer  "location_id"
     t.string   "po_number"
+    t.integer  "form_factor_id"
+    t.index ["form_factor_id"], name: "index_machines_on_form_factor_id", using: :btree
     t.index ["location_id"], name: "index_machines_on_location_id", using: :btree
   end
 

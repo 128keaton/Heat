@@ -28,11 +28,14 @@ class ReceiveController < ApplicationController
     serial = parse(params[:machine][:serial_number])
     flash[:data] = params[:machine][:role]
     flash[:po_number] = params[:machine][:po_number]
+    flash[:form_factor] = params[:machine][:form_factor]
 
+    form_factor = FormFactor.find(params[:machine][:form_factor])
     set_flash('Unable to parse serial', 'error')
     return redirect_to action: 'index' if serial.present?&.blank?
     if !machine_exists(serial)
       machine = Machine.new(machine_params)
+      machine.form_factor = form_factor
       set_flash('Unable to save machine', 'error') unless machine.set_unboxed.save!
 
       set_flash('Serial has been added')

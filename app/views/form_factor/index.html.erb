@@ -1,0 +1,67 @@
+<!--
+  Refactored by Keaton
+  May 12th, 2017
+  locations/index.html.erb
+  A view which displays the locations/locations and allows the user to create a new @location/location
+-->
+
+<!-- Render premade navigation bar -->
+<%= render "shared/nav", title: "Form Factors", bar_class: "def", link: "/" %>
+
+<!-- Displays a table of locations/locations -->
+<div class="inner-wrapper">
+  <div class="school-form-scroll">
+    <table class="school-form">
+      <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Actions</th>
+      </thead>
+      </tr>
+      <tbody>
+      <% if FormFactor.all.each.count > 0 %>
+        <% FormFactor.all.each do |form_factor| %>
+          <tr>
+            <td><%= form_factor.type %></td>
+            <td><%= form_factor.name %></td>
+            <td>
+              <%= link_to raw('<i class="fa fa-times fa-2x red-icon"></i>'), form_factor, method: :delete, data: {confirm: "Are you sure you want to delete #{form_factor.name}?"} %>
+              <%= link_to raw('<i class="fa fa-pencil fa-2x green-icon padded-icon"></i>'), edit_form_factor_path(id: form_factor.id) %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="inner-wrapper" id="second-wrapper">
+  <%= form_for(FormFactor.new, url: '/form_factor', method: :post) do |f| %>
+    <table align="center" class="school-form-table">
+      <tr class="flex-form-title">
+        <td class="section-title">New Form Factor:</td>
+      </tr>
+      <tr class="flex-section-title">
+        <td class="section-title">Essential Info:</td>
+      </tr>
+      <tr class="flex-form">
+        <td class="school-form">
+          <%= f.label :name, 'Name', :class => "label name" %>
+          <%= f.text_field :name, :class => "name text-input", :placeholder => "Desktop", :required => true %>
+        </td>
+      </tr>
+      <tr class="flex-form">
+        <td class="school-form">
+          <%= f.label :type, 'Type', :class => "label type" %>
+          <%= f.text_field :type, :class => "type text-input", :placeholder => "WS", :required => true %>
+        </td>
+      </tr>
+      <tr class="flex-form">
+        <td class="school-form">
+          <%= f.submit 'Add', :class => 'button button-table' %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+</div>

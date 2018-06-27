@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'form_factor/create'
+
+  get 'form_factor/edit'
+
+  get 'form_factor/update'
+
+  get 'form_factor/index'
+
   get '/inventory' => 'inventory#index'
   get '/inventory/find/:serial_number' => 'inventory#find'
   post 'inventory/add'
@@ -10,6 +18,7 @@ Rails.application.routes.draw do
   resources :machines
   resources :locations, only: [:index, :destroy, :create]
   resources :roles, only: [:index, :destroy, :create]
+  resources :form_factor
 
 
   # Actually start setting up the routes.

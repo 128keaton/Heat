@@ -7,6 +7,7 @@ class Machine < ApplicationRecord
   validates :role, presence: true
 
   belongs_to :location, optional: true
+  belongs_to :form_factor, optional: true
 
   def self.to_csv
     attributes = %w[serial_number client_asset_tag location role]
@@ -76,6 +77,7 @@ class Machine < ApplicationRecord
     return 'No suffix' if role_suffix.nil?
 
     device_type = 'LT'
+    device_type = form_factor.type unless form_factor.nil?
     device_type = 'BL' if school.blended_learning
 
     hostname = "#{school.school_code}#{role_suffix}#{device_type}-"

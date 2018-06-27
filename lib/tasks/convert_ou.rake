@@ -7,9 +7,9 @@ namespace :update do
         if (role_quantity = location.role_quantities.find_by(role: role))
           puts '-----------------------------'
           puts "Updating #{location.name} OU"
-          puts "Old OU: #{role_quantity.ou ? role_quantity.ou.empty? : 'No OU Set'}"
+          puts "Old OU: #{role_quantity.ou.empty? ? role_quantity.ou : 'No OU Set'}"
           puts 'Successfully updated' if role_quantity.update(ou: 'OU=Rouge Objects,DC=mcsk12,DC=net')
-          puts "New OU: #{role_quantity.ou ? role_quantity.ou : 'No OU Set'}"
+          puts "New OU: #{role_quantity.ou.empty? ? role_quantity.ou : 'No OU Set'}"
           puts '-----------------------------'
         end
       end
