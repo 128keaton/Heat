@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="06880c5e-7a04-42a3-972c-ed46903cf1ae" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/tasks/convert_ou.rake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/tasks/convert_ou.rake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/tasks/convert_ou.rake" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -662,21 +662,7 @@
       <workItem from="1529950637822" duration="8589000" />
       <workItem from="1530027013365" duration="3213000" />
       <workItem from="1530038245279" duration="10336000" />
-      <workItem from="1530114104742" duration="13220000" />
-    </task>
-    <task id="LOCAL-00090" summary="Entity -&gt; ID">
-      <created>1529954922728</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1529954922728</updated>
-    </task>
-    <task id="LOCAL-00091" summary="Fixes relationship problems">
-      <created>1529955136567</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1529955136567</updated>
+      <workItem from="1530114104742" duration="13324000" />
     </task>
     <task id="LOCAL-00092" summary="Fixes relationship problems">
       <created>1529955239998</created>
@@ -1007,11 +993,25 @@
       <option name="project" value="LOCAL" />
       <updated>1530133563497</updated>
     </task>
-    <option name="localTasksCounter" value="139" />
+    <task id="LOCAL-00139" summary="Params fix">
+      <created>1530134630212</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1530134630212</updated>
+    </task>
+    <task id="LOCAL-00140" summary="name fix for rake">
+      <created>1530134677362</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1530134677362</updated>
+    </task>
+    <option name="localTasksCounter" value="141" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143340000" />
+    <option name="totallyTimeSpent" value="143444000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="2560" height="978" extended-state="0" />
@@ -1056,7 +1056,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Fixes role creation error&#10;Also allows for role editing" />
     <MESSAGE value="Role removal should remove school" />
     <MESSAGE value="Should print labels" />
     <MESSAGE value="Removes welcome controller" />
@@ -1081,7 +1080,8 @@
     <MESSAGE value="Role fix" />
     <MESSAGE value="Symbol fix" />
     <MESSAGE value="Params fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Params fix" />
+    <MESSAGE value="name fix for rake" />
+    <option name="LAST_COMMIT_MESSAGE" value="name fix for rake" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

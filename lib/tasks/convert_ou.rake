@@ -4,7 +4,7 @@ namespace :update do
     role = Role.find_by(name: "Administrator")
     Location.all.each do |location|
       unless Location.location_is_school(location)
-       puts location.role_quantities.find_by(role: role)
+        puts "#{location.name}: #{location.role_quantities.find_by(role: role).ou}"
       end
     end
   end
