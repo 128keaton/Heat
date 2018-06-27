@@ -48,7 +48,7 @@
       <% Machine.all.each do |machine| %>
         <tr>
           <td><%= machine.serial_number %></td>
-          <td><%= machine.role %> - <%= machine.role.suffix %></td>
+          <td><%= machine.role %></td>
           <td><%= machine.form_factor ? "#{machine.form_factor.name} - #{machine.form_factor.type}" : 'No form factor assigned' %></td>
           <td>
             <%= machine.imaged ? raw('<i class="fa fa-check green-icon"></i>') : raw('<i class="fa fa-times red-icon"></i>') %>
