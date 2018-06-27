@@ -1,5 +1,17 @@
 $(function () {
-    $('.text-input').keypress(function(event) {
+    let serialField = $("#machine_serial_number");
+
+    if (document.getElementById('machine_serial_number')) {
+        serialField.focus();
+    } else {
+        console.log('clear');
+        $('#machine_location').find('select').each(function () {
+            $(this)[0].selectedIndex = 0;
+        });
+
+    }
+
+    $('.text-input').keypress(function (event) {
         let currentBoxNumber, nextBox, textboxes;
         $('#submit').removeAttr('disabled');
         if (event.keyCode === 13) {
@@ -11,7 +23,7 @@ $(function () {
                 nextBox.select();
                 event.preventDefault();
                 return false;
-            }else{
+            } else {
                 $('form').submit();
             }
         }
