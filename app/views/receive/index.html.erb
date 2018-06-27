@@ -25,7 +25,7 @@
         <%= f.text_field :serial_number, :class => "serial text-input", :placeholder => "PPPP", :required => true %>
       </li>
       <li>
-        <%= f.label :form_factor, 'Role', :class => "form label" %>
+        <%= f.label :form_factor, 'Form Factor', :class => "form label" %>
         <%= f.select(:form_factor, FormFactor.all.map {|factor| [factor[:name], factor[:id]]}, {:selected => flash[:form_factor]}, {:class => 'role select-input'}) %>
       </li>
       <li>
