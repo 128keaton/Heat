@@ -53,7 +53,7 @@
         </li>
         <li>
           <%= f.label :role_label, 'Role', :class => "serial label" %>
-          <%= f.select(:role, @location.role_quantities.map {|role_quantity| [role_quantity.role.name, role_quantity.id]}, {include_blank: false}, {:class => 'role select-input'}) %>
+          <%= f.select(:role, @location.role_quantities.map {|role_quantity| [role_quantity.role.name, role_quantity.id]}, {include_blank: false, selected: @role}, {:class => 'role select-input'}) %>
         </li>
       </ul>
       </div>

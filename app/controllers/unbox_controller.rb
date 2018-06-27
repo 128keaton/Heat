@@ -23,10 +23,15 @@ class UnboxController < ApplicationController
   def index
     @machine = Machine.new
     @locations = Location.all.sort_by {|m| m.name.downcase}
+    @role = nil
 
     verify_locations_exist
     if flash[:notice]
       @type = params[:type]
+    end
+
+    if flash[:role]
+      @role = flash[:flash]
     end
 
     if flash[:location] && !flash[:location].empty?
@@ -45,7 +50,8 @@ class UnboxController < ApplicationController
   end
 
   def can_assign(role)
-    role.quantity <= role.max_quantity
+    return false if role.max_quantity.zero?
+    role.quantity + 1 <= role.max_quantity
   end
 
   def load_schools
@@ -58,6 +64,8 @@ class UnboxController < ApplicationController
     role_quantity = RoleQuantity.find(params[:machine][:role])
     can_assign = can_assign(role_quantity)
     serial_number = parse(params[:machine][:serial_number])
+    flash[:role] = params[:machine][:role]
+
     if serial_number && can_assign
       machine = Machine.get_machine(serial_number, role_quantity.role)
       asset_tag = params[:machine][:client_asset_tag]
