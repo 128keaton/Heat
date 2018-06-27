@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="06880c5e-7a04-42a3-972c-ed46903cf1ae" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/locations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/locations_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/location.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/location.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/role.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/role.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/role_quantity.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/role_quantity.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/locations/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/locations/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/locations/partials/_role_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/locations/partials/_role_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -50,8 +44,8 @@
       <file leaf-file-name="location.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/location.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
+            <state relative-caret-position="229">
+              <caret line="47" column="37" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -665,28 +659,7 @@
       <workItem from="1529950637822" duration="8589000" />
       <workItem from="1530027013365" duration="3213000" />
       <workItem from="1530038245279" duration="10336000" />
-      <workItem from="1530114104742" duration="11626000" />
-    </task>
-    <task id="LOCAL-00084" summary="Adding, removing, and updating roles works now.">
-      <created>1529950667718</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1529950667718</updated>
-    </task>
-    <task id="LOCAL-00085" summary="Updates test">
-      <created>1529950926191</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1529950926191</updated>
-    </task>
-    <task id="LOCAL-00086" summary="Updates test">
-      <created>1529951710436</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1529951710436</updated>
+      <workItem from="1530114104742" duration="11833000" />
     </task>
     <task id="LOCAL-00087" summary="ES6 Uglifier">
       <created>1529951830593</created>
@@ -1010,11 +983,32 @@
       <option name="project" value="LOCAL" />
       <updated>1530130852721</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL-00133" summary="Role fix">
+      <created>1530133064010</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1530133064010</updated>
+    </task>
+    <task id="LOCAL-00134" summary="Role fix">
+      <created>1530133120052</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1530133120052</updated>
+    </task>
+    <task id="LOCAL-00135" summary="Role fix">
+      <created>1530133200394</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1530133200394</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141746000" />
+    <option name="totallyTimeSpent" value="141953000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="2560" height="978" extended-state="0" />
@@ -1059,7 +1053,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Better error handling" />
     <MESSAGE value="Converts to ID" />
     <MESSAGE value="updates role search" />
     <MESSAGE value="Fixes role creation error&#10;Also allows for role editing" />
@@ -1084,7 +1077,8 @@
     <MESSAGE value="Fixes find issue" />
     <MESSAGE value="Fixes role selection issue&#10;Fixes hostname generation issue" />
     <MESSAGE value="Update regex for school finding" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update regex for school finding" />
+    <MESSAGE value="Role fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Role fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1395,13 +1389,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/role_quantity.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/role.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1409,10 +1396,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/role_quantity.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/location.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
+        <state relative-caret-position="229">
+          <caret line="47" column="37" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
         </state>
       </provider>
     </entry>

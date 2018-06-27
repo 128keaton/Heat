@@ -45,8 +45,8 @@ class Location < ApplicationRecord
   def self.location_is_school(location)
     loc_string = location.downcase
 
-    return true if location[:is_school]
-    
+    return true if location.is_school
+
     unless loc_string == 'school name' || loc_string.nil?
       return (loc_string.include? 'school') || (loc_string.include? 'academy') ||
           (loc_string.include? 'high') || (loc_string.include? 'middle') ||
