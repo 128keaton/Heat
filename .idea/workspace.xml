@@ -3,15 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="06880c5e-7a04-42a3-972c-ed46903cf1ae" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/locations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/locations_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/unbox_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/unbox_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/cool_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/cool_helper.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/location.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/location.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/role.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/role.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/role_quantity.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/role_quantity.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/locations/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/locations/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/locations/partials/_role_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/locations/partials/_role_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/unbox/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/unbox/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers/cool_helper.rb" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -58,15 +50,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cool_helper.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/helpers/cool_helper.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="role_quantity.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/role_quantity.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -79,8 +62,8 @@
       <file leaf-file-name="_role_form.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/locations/partials/_role_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="33" selection-start-column="33" selection-end-column="33" />
+            <state relative-caret-position="300">
+              <caret line="20" column="7" lean-forward="true" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -667,14 +650,7 @@
       <workItem from="1529950637822" duration="8589000" />
       <workItem from="1530027013365" duration="3213000" />
       <workItem from="1530038245279" duration="10336000" />
-      <workItem from="1530114104742" duration="5323000" />
-    </task>
-    <task id="LOCAL-00077" summary="Work on moving to a different ou/role system">
-      <created>1529616430954</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1529616430955</updated>
+      <workItem from="1530114104742" duration="5569000" />
     </task>
     <task id="LOCAL-00078" summary="Updates to move to an inventory based system">
       <created>1529638067060</created>
@@ -1012,11 +988,18 @@
       <option name="project" value="LOCAL" />
       <updated>1530116351657</updated>
     </task>
-    <option name="localTasksCounter" value="126" />
+    <task id="LOCAL-00126" summary="Fixes how Location editing/roles works">
+      <created>1530120186844</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1530120186844</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135443000" />
+    <option name="totallyTimeSpent" value="135689000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="2560" height="978" extended-state="0" />
@@ -1061,7 +1044,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Entity -&gt; ID" />
     <MESSAGE value="Fixes relationship problems" />
     <MESSAGE value="Properly locates location" />
     <MESSAGE value="Amends migration" />
@@ -1086,7 +1068,8 @@
     <MESSAGE value="Fixes minor receiving issues" />
     <MESSAGE value="Adds PO number" />
     <MESSAGE value="Fixes nil inventory issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixes nil inventory issue" />
+    <MESSAGE value="Fixes how Location editing/roles works" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes how Location editing/roles works" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1413,8 +1396,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/locations/partials/_role_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="33" selection-start-column="33" selection-end-column="33" />
+        <state relative-caret-position="300">
+          <caret line="20" column="7" lean-forward="true" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
         </state>
       </provider>
     </entry>
