@@ -1,5 +1,5 @@
 namespace :update do
-  task :admin-ou => :environment do
+  task :admin_ou => :environment do
     ActiveRecord::Base.logger.level = 1
     role = Role.find_by(name: "Administrator")
     Location.all.each do |location|
