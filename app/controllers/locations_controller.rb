@@ -71,7 +71,8 @@ class LocationsController < ApplicationController
     return false if location.nil?
     return false if location.machines.nil?
     send_data location.machines.to_xlsx,
-              filename: "#{location.name}-#{Time.zone.today}.xlsx"
+              filename: "#{location.name}-#{Time.zone.today}.xlsx",
+              sheet_name: "#{location.name} - Machines"
   end
 
   private
