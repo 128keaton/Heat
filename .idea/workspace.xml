@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="06880c5e-7a04-42a3-972c-ed46903cf1ae" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.rakeTasks" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/locations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/locations_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/machine.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/machine.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,8 +26,8 @@
       <file leaf-file-name="machine.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/machine.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="92" column="17" lean-forward="true" selection-start-line="92" selection-start-column="17" selection-end-line="92" selection-end-column="17" />
+            <state relative-caret-position="94">
+              <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -120,7 +118,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>school</find>
       <find>add_role</find>
       <find>button</find>
       <find>button square</find>
@@ -150,6 +147,7 @@
       <find>Ro</find>
       <find>value</find>
       <find>Roboto</find>
+      <find>upcase</find>
     </findStrings>
     <replaceStrings>
       <replace>'</replace>
@@ -687,21 +685,7 @@
       <workItem from="1530027013365" duration="3213000" />
       <workItem from="1530038245279" duration="10336000" />
       <workItem from="1530114104742" duration="19227000" />
-      <workItem from="1530196046538" duration="299000" />
-    </task>
-    <task id="LOCAL-00101" summary="updates role search">
-      <created>1529958126543</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
-      <option name="project" value="LOCAL" />
-      <updated>1529958126544</updated>
-    </task>
-    <task id="LOCAL-00102" summary="updates role search">
-      <created>1529958164059</created>
-      <option name="number" value="00102" />
-      <option name="presentableId" value="LOCAL-00102" />
-      <option name="project" value="LOCAL" />
-      <updated>1529958164059</updated>
+      <workItem from="1530196046538" duration="404000" />
     </task>
     <task id="LOCAL-00103" summary="Fixes role creation error&#10;Also allows for role editing">
       <created>1530028163273</created>
@@ -1032,11 +1016,25 @@
       <option name="project" value="LOCAL" />
       <updated>1530140778692</updated>
     </task>
-    <option name="localTasksCounter" value="150" />
+    <task id="LOCAL-00150" summary="Column update">
+      <created>1530196362855</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1530196362856</updated>
+    </task>
+    <task id="LOCAL-00151" summary="Column update">
+      <created>1530196408125</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL-00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1530196408125</updated>
+    </task>
+    <option name="localTasksCounter" value="152" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149646000" />
+    <option name="totallyTimeSpent" value="149751000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="978" extended-state="0" />
@@ -1052,10 +1050,10 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32867134" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32983682" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32400933" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32400933" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17891374" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17891374" />
       <window_info anchor="bottom" id="Docker" order="7" weight="0.32983682" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1081,7 +1079,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="removed render" />
     <MESSAGE value="fffff" />
     <MESSAGE value="Fixes Doug issue" />
     <MESSAGE value="lmao fix issue lmaooo" />
@@ -1106,7 +1103,8 @@
     <MESSAGE value="Removes Product field" />
     <MESSAGE value="Whoops!" />
     <MESSAGE value="Minor style updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor style updates" />
+    <MESSAGE value="Column update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Column update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1437,8 +1435,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/machine.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="92" column="17" lean-forward="true" selection-start-line="92" selection-start-column="17" selection-end-line="92" selection-end-column="17" />
+        <state relative-caret-position="94">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
         </state>
       </provider>
     </entry>

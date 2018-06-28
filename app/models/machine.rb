@@ -9,7 +9,7 @@ class Machine < ApplicationRecord
   belongs_to :location, optional: true
   belongs_to :form_factor, optional: true
 
-  def self.to_csv
+  def self.to_csv2
     attributes = %w[serial_number client_asset_tag location role]
     CSV.generate(headers: true) do |csv|
       csv << attributes
