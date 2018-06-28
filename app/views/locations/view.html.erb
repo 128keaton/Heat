@@ -24,7 +24,7 @@
       </td>
       <td>
         <% @location.role_quantities.each do |role_quantity| %>
-          <%= "#{role_quantity.get_role.name}: #{role_quantity.ou}" %><br>
+          <%= "#{role_quantity.get_role.name}: #{role_quantity.ou ? role_quantity.ou : 'No OU'}" %><br>
         <% end %>
       </td>
       <td>

@@ -71,8 +71,8 @@
       <file leaf-file-name="view.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/locations/view.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="20" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+            <state relative-caret-position="390">
+              <caret line="26" column="93" selection-start-line="26" selection-start-column="93" selection-end-line="26" selection-end-column="93" />
             </state>
           </provider>
         </entry>
@@ -685,21 +685,7 @@
       <workItem from="1530027013365" duration="3213000" />
       <workItem from="1530038245279" duration="10336000" />
       <workItem from="1530114104742" duration="19227000" />
-      <workItem from="1530196046538" duration="902000" />
-    </task>
-    <task id="LOCAL-00109" summary="Updates print function">
-      <created>1530038993963</created>
-      <option name="number" value="00109" />
-      <option name="presentableId" value="LOCAL-00109" />
-      <option name="project" value="LOCAL" />
-      <updated>1530038993963</updated>
-    </task>
-    <task id="LOCAL-00110" summary="removed render">
-      <created>1530039095823</created>
-      <option name="number" value="00110" />
-      <option name="presentableId" value="LOCAL-00110" />
-      <option name="project" value="LOCAL" />
-      <updated>1530039095823</updated>
+      <workItem from="1530196046538" duration="974000" />
     </task>
     <task id="LOCAL-00111" summary="removed render">
       <created>1530039680915</created>
@@ -1030,11 +1016,25 @@
       <option name="project" value="LOCAL" />
       <updated>1530196939311</updated>
     </task>
-    <option name="localTasksCounter" value="158" />
+    <task id="LOCAL-00158" summary="Typo fix">
+      <created>1530196958452</created>
+      <option name="number" value="00158" />
+      <option name="presentableId" value="LOCAL-00158" />
+      <option name="project" value="LOCAL" />
+      <updated>1530196958452</updated>
+    </task>
+    <task id="LOCAL-00159" summary="Adds OU field back">
+      <created>1530197004422</created>
+      <option name="number" value="00159" />
+      <option name="presentableId" value="LOCAL-00159" />
+      <option name="project" value="LOCAL" />
+      <updated>1530197004423</updated>
+    </task>
+    <option name="localTasksCounter" value="160" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150249000" />
+    <option name="totallyTimeSpent" value="150321000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="978" extended-state="0" />
@@ -1079,8 +1079,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Changes how hostnames are generated" />
-    <MESSAGE value="Haha Zack made an oops" />
     <MESSAGE value="Fixes minor receiving issues" />
     <MESSAGE value="Adds PO number" />
     <MESSAGE value="Fixes nil inventory issue" />
@@ -1104,7 +1102,9 @@
     <MESSAGE value="Changes way location is found" />
     <MESSAGE value="Sheet name" />
     <MESSAGE value="Layout fix for location" />
-    <option name="LAST_COMMIT_MESSAGE" value="Layout fix for location" />
+    <MESSAGE value="Typo fix" />
+    <MESSAGE value="Adds OU field back" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adds OU field back" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1435,8 +1435,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/locations/view.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="20" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+        <state relative-caret-position="390">
+          <caret line="26" column="93" selection-start-line="26" selection-start-column="93" selection-end-line="26" selection-end-column="93" />
         </state>
       </provider>
     </entry>
