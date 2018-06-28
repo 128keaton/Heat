@@ -4,7 +4,7 @@
 <div class="inner-wrapper">
   <!-- Displays a form for new form creation -->
   <%= form_for(@location, url: {action: "update_quantity"}, method: :post) do |f| %>
-    <h1>Quantity Override</h1>
+    <h1>Quantity Override: <%= @location.name %></h1>
     <table align="center" class="school-form-table">
       <% @location.role_quantities.all.each do |role_quantity| %>
         <tr class="flex-section-title">
