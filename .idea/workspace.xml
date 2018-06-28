@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="06880c5e-7a04-42a3-972c-ed46903cf1ae" name="Default" comment="Iterat">
+    <list default="true" id="06880c5e-7a04-42a3-972c-ed46903cf1ae" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/locations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/locations_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/locations/quantity_override.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/locations/quantity_override.html.erb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="locations_controller.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="locations_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/locations_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="77" column="23" lean-forward="true" selection-start-line="77" selection-start-column="23" selection-end-line="77" selection-end-column="23" />
+            <state relative-caret-position="297">
+              <caret line="86" column="30" selection-start-line="86" selection-start-column="30" selection-end-line="86" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -69,7 +67,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="quantity_override.html.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="quantity_override.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/locations/quantity_override.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
@@ -215,8 +213,8 @@
         <option value="$PROJECT_DIR$/app/models/role.rb" />
         <option value="$PROJECT_DIR$/app/views/locations/index.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/icons.scss" />
-        <option value="$PROJECT_DIR$/app/controllers/locations_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/locations/quantity_override.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/locations_controller.rb" />
       </list>
     </option>
   </component>
@@ -688,21 +686,7 @@
       <workItem from="1530114104742" duration="19227000" />
       <workItem from="1530196046538" duration="1038000" />
       <workItem from="1530199623707" duration="5865000" />
-      <workItem from="1530210913245" duration="3415000" />
-    </task>
-    <task id="LOCAL-00123" summary="Fixes nil inventory issue">
-      <created>1530114319669</created>
-      <option name="number" value="00123" />
-      <option name="presentableId" value="LOCAL-00123" />
-      <option name="project" value="LOCAL" />
-      <updated>1530114319669</updated>
-    </task>
-    <task id="LOCAL-00124" summary="Fixes nil inventory issue">
-      <created>1530115416281</created>
-      <option name="number" value="00124" />
-      <option name="presentableId" value="LOCAL-00124" />
-      <option name="project" value="LOCAL" />
-      <updated>1530115416281</updated>
+      <workItem from="1530210913245" duration="3550000" />
     </task>
     <task id="LOCAL-00125" summary="Fixes nil inventory issue">
       <created>1530116351657</created>
@@ -1033,11 +1017,25 @@
       <option name="project" value="LOCAL" />
       <updated>1530218608706</updated>
     </task>
-    <option name="localTasksCounter" value="172" />
+    <task id="LOCAL-00172" summary="Iteration issue fixed">
+      <created>1530218765423</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1530218765423</updated>
+    </task>
+    <task id="LOCAL-00173" summary="Missing return">
+      <created>1530218802223</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
+      <option name="project" value="LOCAL" />
+      <updated>1530218802223</updated>
+    </task>
+    <option name="localTasksCounter" value="174" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159665000" />
+    <option name="totallyTimeSpent" value="159800000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="2560" height="978" extended-state="0" />
@@ -1082,8 +1080,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Symbol fix" />
-    <MESSAGE value="Params fix" />
     <MESSAGE value="name fix for rake" />
     <MESSAGE value="Formatting Fix" />
     <MESSAGE value="Creates FormFactor entity" />
@@ -1107,7 +1103,9 @@
     <MESSAGE value="Padded icon fix" />
     <MESSAGE value="Updated padding" />
     <MESSAGE value="Name for quantity override" />
-    <option name="LAST_COMMIT_MESSAGE" value="Name for quantity override" />
+    <MESSAGE value="Iteration issue fixed" />
+    <MESSAGE value="Missing return" />
+    <option name="LAST_COMMIT_MESSAGE" value="Missing return" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1426,17 +1424,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/locations_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="77" column="23" lean-forward="true" selection-start-line="77" selection-start-column="23" selection-end-line="77" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/locations/quantity_override.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" column="78" lean-forward="true" selection-start-line="23" selection-start-column="78" selection-end-line="23" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/locations_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="86" column="30" selection-start-line="86" selection-start-column="30" selection-end-line="86" selection-end-column="30" />
         </state>
       </provider>
     </entry>
