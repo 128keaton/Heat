@@ -69,9 +69,8 @@ class LocationsController < ApplicationController
   def deployment_sheet
     location = Location.find(params[:id]).name
     return false if location.nil?
-    machines = Machine.where(location: location)
-    return false if machines.nil?
-    send_data machines.to_xlsx,
+    return false if location.machines.nil?
+    send_data location.machines.to_xlsx,
               filename: "#{location}-#{Time.zone.today}.xlsx"
   end
 
