@@ -4,7 +4,7 @@
   A view which views
 
 <!-- Render premade navigation bar -->
-<%= render "shared/nav", title: "Viewing '#{@location[:name]}'", bar_class: "def", link: "/"%>
+<%= render "shared/nav", title: "Viewing '#{@location[:name]}'", bar_class: "def", link: "/" %>
 
 <!-- Displays a table of locations/locations -->
 <div class="inner-wrapper">
@@ -15,19 +15,21 @@
       <th>OU Strings</th>
       <th>Blended Learning</th>
     </tr>
-      <tr>
-        <td><%= @location[:name] %></td>
+    <tr>
+      <td><%= @location[:name] %></td>
+      <td>
         <% @location.role_quantities.each do |role_quantity| %>
-          <td><%= "#{role_quantity.get_role.name}: #{role_quantity.max_quantity}" %></td>
-          <td><%= "#{role_quantity.get_role.name}: #{role_quantity.ou}" %></td>
+          <%= "#{role_quantity.get_role.name}: #{role_quantity.max_quantity}" %><br>
+          <%= "#{role_quantity.get_role.name}: #{role_quantity.ou}" %>
         <% end %>
-        <td>
-            <% if @location[:blended_learning] == true %>Yes<% else %>No<% end %>
-        </td>
-      </tr>
+      </td>
+      <td>
+        <%= @location[:blended_learning] ? 'Yes' : 'No' %>
+      </td>
+    </tr>
   </table>
 </div>
 <div class="inner-wrapper flex-wrapper" id="second-wrapper">
-  <%= link_to 'Delete', @location, method: :delete, data: {confirm: "Are you sure you want to delete #{@location[:name]}?"}, class: "button small button-link submit"  %>
+  <%= link_to 'Delete', @location, method: :delete, data: {confirm: "Are you sure you want to delete #{@location[:name]}?"}, class: "button small button-link submit" %>
   <%= link_to 'Edit', @location, method: :edit, class: "button done small button-link" %>
 </div>
