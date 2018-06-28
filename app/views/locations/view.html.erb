@@ -23,6 +23,11 @@
         <% end %>
       </td>
       <td>
+        <% @location.role_quantities.each do |role_quantity| %>
+          <%= "#{role_quantity.get_role.name}: #{role_quantity.ou}" %><br>
+        <% end %>
+      </td>
+      <td>
         <%= @location[:blended_learning] ? 'Yes' : 'No' %>
       </td>
     </tr>
