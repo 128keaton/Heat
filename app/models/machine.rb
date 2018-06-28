@@ -25,7 +25,7 @@ class Machine < ApplicationRecord
     role_quantity = RoleQuantity.find_by(role: role, location: location_id)
     return 'Unable to find quantity' if role.nil?
     return 'Unable to update quantity' unless role_quantity.update(quantity: role_quantity.quantity - 1)
-    'Machine removed from location' if update(location_id: nil, client_asset_tag: nil)
+    'Machine removed from location' if destroy!
   end
 
   def print_label
