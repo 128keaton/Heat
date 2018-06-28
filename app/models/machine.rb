@@ -99,7 +99,8 @@ class Machine < ApplicationRecord
   def spreadsheet_columns
     [['Serial Number', :serial_number],
      ['Asset Tag', :client_asset_tag],
-     ['Inventory Location', :inventory_location],
+     ['Location', location.name],
+     ['Inventory Location', (inventory_location ? inventory_location : 'Not placed in inventory')],
      ['Role', :role]]
   end
 
