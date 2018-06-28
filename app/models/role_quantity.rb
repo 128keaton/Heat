@@ -21,6 +21,15 @@ class RoleQuantity < ApplicationRecord
     Location.find(school_id)
   end
 
+  def set_quantity(quantity)
+    return update(quantity: quantity) unless over_limit(quantity.to_i)
+    false
+  end
+
+  def over_limit(new_quantity)
+    new_quantity > max_quantity
+  end
+
   def append_quantity(amount = 1)
     new_quantity = quantity + amount
     update(quantity: new_quantity)

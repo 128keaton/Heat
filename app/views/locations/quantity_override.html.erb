@@ -1,0 +1,34 @@
+<%= render "shared/nav", title: "Quantity Override", bar_class: "def", link: locations_edit_path(id: @location.id) %>
+
+<!-- Displays a table of locations/locations -->
+<div class="inner-wrapper">
+  <!-- Displays a form for new form creation -->
+  <%= form_for(@location, url: {action: "update_quantity"}, method: :post) do |f| %>
+    <h1>Quantity Override</h1>
+    <table align="center" class="school-form-table">
+      <% @location.role_quantities.all.each do |role_quantity| %>
+        <tr class="flex-section-title">
+          <td class="section-title"><%= role_quantity.role.name.titleize %> Role:</td>
+        </tr>
+        <tr class="flex-form">
+          <td class="school-form">
+            <%= f.label nil, "Quantity:", :class => "label role-locations danger-text" %>
+            <input type="number" class="school-role text-input" placeholder="200" name="roles[<%= role_quantity.role.name %>][quantity]" value="<%= role_quantity.quantity %>">
+            <%= hidden_field_tag "roles[#{role_quantity.role.name}][role_quantity_id]", role_quantity.id %>
+            <%= hidden_field_tag "roles[#{role_quantity.role.name}][id]", role_quantity.role.id, {class: "role-id", "data-id": role_quantity.role.name} %>
+          </td>
+        </tr>
+      <% end %>
+      <tr class="flex-form">
+        <td class="school-form">
+          <%= f.submit 'Save', :class => 'button submit small button-table' %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+</div>
+
+
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "locations.js" %>
+<% end %>

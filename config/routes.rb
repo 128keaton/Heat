@@ -130,6 +130,10 @@ Rails.application.routes.draw do
   get 'locations/:id' => 'locations#edit'
   get '/locations/deploy/:id' => 'locations#deployment_sheet'
   post 'locations/:id' => 'locations#edit'
+  get 'locations/edit/:id' => 'locations#edit'
+  get 'locations/override/:id' => 'locations#quantity_override', as: 'location_quantity_override'
+  post 'locations/override/:id' => 'locations#update_quantity', as: 'location_update_quantity'
+
   delete '/locations/view/remove/:id(.:format)' => 'locations#remove_machine', as: 'remove_machine_from_location'
 
   get 'admin_tools/index'

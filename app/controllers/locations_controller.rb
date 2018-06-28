@@ -75,6 +75,27 @@ class LocationsController < ApplicationController
               sheet_name: "#{location.name} - Machines"
   end
 
+  def quantity_override
+    @location = Location.find(params[:id])
+  end
+
+  def update_quantity
+    set_flash('Unable to update quantity', 'error')
+    return unless params[:roles]
+    success = true
+    roles_quantities = params[:roles]
+    roles_quantities.each do |name, rq|
+      if (role_quantity = RoleQuantity.find(rq['role_quantity_id']))
+        success = role_quantity.set_quantity(rq['quantity'])
+      end
+    end
+    set_flash('Quantity over max', 'error')
+    set_flash('Successfully updated role quantity') if success
+
+    return redirect_to action: 'index' if success
+    redirect_to location_quantity_override_path(id: params[:id])
+  end
+
   def remove_machine
     result = Machine.find(params[:id]).remove_from_location
     type = result.include?('Unable') ? 'error' : 'success'
