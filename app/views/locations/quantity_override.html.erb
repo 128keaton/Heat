@@ -8,7 +8,7 @@
     <table align="center" class="school-form-table">
       <% @location.role_quantities.all.each do |role_quantity| %>
         <tr class="flex-section-title">
-          <td class="section-title"><%= role_quantity.role.name.titleize %> Role:</td>
+          <td class="section-title"><%= role_quantity.role.name.titleize %> Role (max quantity: <%= role_quantity.max_quantity %>)</td>
         </tr>
         <tr class="flex-form">
           <td class="school-form">
