@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="06880c5e-7a04-42a3-972c-ed46903cf1ae" name="Default" comment="">
+    <list default="true" id="06880c5e-7a04-42a3-972c-ed46903cf1ae" name="Default" comment="Updates view page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/machine.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/machine.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/locations/view.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/locations/view.html.erb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="machine.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="machine.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/machine.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+            <state relative-caret-position="147">
+              <caret line="95" column="5" lean-forward="true" selection-start-line="95" selection-start-column="5" selection-end-line="95" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -42,11 +41,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view.html.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="view.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/locations/view.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="53" column="190" selection-start-line="53" selection-start-column="190" selection-end-line="53" selection-end-column="190" />
+            <state relative-caret-position="390">
+              <caret line="34" column="44" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ui-elements.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/ui-elements.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="338">
+              <caret line="315" column="26" lean-forward="true" selection-start-line="315" selection-start-column="26" selection-end-line="315" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -77,17 +85,8 @@
       <file leaf-file-name="unbox_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/unbox_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/locations/index.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="39" column="177" lean-forward="true" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="177" />
+            <state relative-caret-position="192">
+              <caret line="69" column="18" selection-start-line="69" selection-start-column="18" selection-end-line="69" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -169,7 +168,6 @@
         <option value="$PROJECT_DIR$/config/initializers/assets.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20180624215706_add_location_id_to_machine.rb" />
         <option value="$PROJECT_DIR$/app/views/shared/_alt_nav.html.erb" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/ui-elements.scss" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/locations.js" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/locations.scss" />
@@ -211,8 +209,9 @@
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/controllers/locations_controller.rb" />
-        <option value="$PROJECT_DIR$/app/models/machine.rb" />
         <option value="$PROJECT_DIR$/app/views/locations/view.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/ui-elements.scss" />
+        <option value="$PROJECT_DIR$/app/models/machine.rb" />
       </list>
     </option>
   </component>
@@ -683,21 +682,7 @@
       <workItem from="1530038245279" duration="10336000" />
       <workItem from="1530114104742" duration="19227000" />
       <workItem from="1530196046538" duration="1038000" />
-      <workItem from="1530199623707" duration="2151000" />
-    </task>
-    <task id="LOCAL-00114" summary="fffff">
-      <created>1530039884446</created>
-      <option name="number" value="00114" />
-      <option name="presentableId" value="LOCAL-00114" />
-      <option name="project" value="LOCAL" />
-      <updated>1530039884446</updated>
-    </task>
-    <task id="LOCAL-00115" summary="Fixes Doug issue">
-      <created>1530040269517</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL-00115" />
-      <option name="project" value="LOCAL" />
-      <updated>1530040269517</updated>
+      <workItem from="1530199623707" duration="3181000" />
     </task>
     <task id="LOCAL-00116" summary="Fixes Doug issue">
       <created>1530040559015</created>
@@ -1028,11 +1013,25 @@
       <option name="project" value="LOCAL" />
       <updated>1530201627818</updated>
     </task>
-    <option name="localTasksCounter" value="163" />
+    <task id="LOCAL-00163" summary="Changes to deleting the machine">
+      <created>1530201786862</created>
+      <option name="number" value="00163" />
+      <option name="presentableId" value="LOCAL-00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1530201786862</updated>
+    </task>
+    <task id="LOCAL-00164" summary="Updates view page">
+      <created>1530202115557</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1530202115557</updated>
+    </task>
+    <option name="localTasksCounter" value="165" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="152536000" />
+    <option name="totallyTimeSpent" value="153566000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="978" extended-state="0" />
@@ -1048,10 +1047,10 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32867134" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32983682" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32400933" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32400933" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18051118" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18051118" />
       <window_info anchor="bottom" id="Docker" order="7" weight="0.32983682" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1077,8 +1076,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Adds PO number" />
-    <MESSAGE value="Fixes nil inventory issue" />
     <MESSAGE value="Fixes how Location editing/roles works" />
     <MESSAGE value="DeCools Helper" />
     <MESSAGE value="Moves obvious locationerizer" />
@@ -1102,7 +1099,9 @@
     <MESSAGE value="Typo fix" />
     <MESSAGE value="Adds OU field back" />
     <MESSAGE value="Adds removal from location button" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds removal from location button" />
+    <MESSAGE value="Changes to deleting the machine" />
+    <MESSAGE value="Updates view page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updates view page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1110,13 +1109,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/locations.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-367">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/note.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1377,13 +1369,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/unbox_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="347">
@@ -1415,17 +1400,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/machine.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/locations/view.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+        <state relative-caret-position="390">
+          <caret line="34" column="44" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/locations/view.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/ui-elements.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="53" column="190" selection-start-line="53" selection-start-column="190" selection-end-line="53" selection-end-column="190" />
+        <state relative-caret-position="338">
+          <caret line="315" column="26" lean-forward="true" selection-start-line="315" selection-start-column="26" selection-end-line="315" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/unbox_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="69" column="18" selection-start-line="69" selection-start-column="18" selection-end-line="69" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/machine.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="95" column="5" lean-forward="true" selection-start-line="95" selection-start-column="5" selection-end-line="95" selection-end-column="5" />
         </state>
       </provider>
     </entry>

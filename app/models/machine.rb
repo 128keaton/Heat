@@ -98,9 +98,12 @@ class Machine < ApplicationRecord
   def assign(location, role_quantity, asset_tag)
     role = role_quantity.role.name
     unless location.nil?
-      role_quantity.append_quantity
       set_unboxed
-      return update(role: role, location_id: location.id, client_asset_tag: asset_tag)
+      if update(role: role, location_id: location.id, client_asset_tag: asset_tag)
+        role_quantity.append_quantity
+        return save!
+      end
+      false
     end
     false
   end
