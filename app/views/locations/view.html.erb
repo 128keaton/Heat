@@ -32,10 +32,10 @@
       </td>
     </tr>
   </table>
-</div>
-<div class="inner-wrapper flex-wrapper" id="second-wrapper">
-  <%= link_to 'Delete', @location, method: :delete, data: {confirm: "Are you sure you want to delete #{@location[:name]}?"}, class: "button small button-table button-link submit" %>
-  <%= link_to 'Edit', @location, method: :edit, class: "button done small button-table button-link" %>
+  <div class="split-flex" id="button-wrapper">
+    <%= link_to 'Delete', @location, method: :delete, data: {confirm: "Are you sure you want to delete #{@location[:name]}?"}, class: "button button-table button-danger button-link" %>
+    <%= link_to 'Edit', @location, method: :edit, class: "button button-table button-link" %>
+  </div>
 </div>
 <div class="inner-wrapper" id="second-wrapper">
   <table align="center" class="school-form">

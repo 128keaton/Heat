@@ -167,6 +167,12 @@ input.cmn-toggle-round:checked + label:after {
   border-bottom: 2px solid #EEEEEE;
 }
 
+.button-danger {
+  border: none !important;
+  color: white !important;
+  background-color: #ff343f !important;
+}
+
 .last {
   border: none;
   padding-bottom: 10px;
@@ -309,4 +315,14 @@ input[type="submit"]:disabled {
   align-items: center;
   justify-content: center;
   text-decoration: none;
+}
+
+.split-flex {
+  display: flex;
+  justify-content: center;
+}
+
+.split-flex#button-wrapper .button {
+  flex: 1;
+  max-width: 200px;
 }
