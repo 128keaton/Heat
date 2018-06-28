@@ -32,7 +32,7 @@ class Machine < ApplicationRecord
     location_name = location.name
     asset_tag = client_asset_tag
     type = Role.find_by(name: role).suffix
-    image_string = 'Standard Device'
+    image_string = 'Standard Device - Special Education'
 
     # TODO: Make this an ENV var
     uri = URI.parse("http://webapps.nationwidesurplus.com/scs/print?image=#{image_string}&asset_number=#{asset_tag}&serial_number=#{serial_number.upcase}&school=#{location_name}&model=#{get_model_number}&type=#{type}")
