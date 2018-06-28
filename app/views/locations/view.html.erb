@@ -18,7 +18,7 @@
     <tr>
       <td><%= @location[:name] %></td>
       <td>
-        <% location.role_quantities.each do |role_quantity| %>
+        <% @location.role_quantities.each do |role_quantity| %>
           <%= "#{role_quantity.get_role.name}: #{role_quantity.quantity}/#{role_quantity.max_quantity}" %><br>
         <% end %>
       </td>
