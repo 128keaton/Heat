@@ -67,11 +67,11 @@ class LocationsController < ApplicationController
   end
 
   def deployment_sheet
-    location = Location.find(params[:id]).name
+    location = Location.find(params[:id])
     return false if location.nil?
     return false if location.machines.nil?
     send_data location.machines.to_xlsx,
-              filename: "#{location}-#{Time.zone.today}.xlsx"
+              filename: "#{location.name}-#{Time.zone.today}.xlsx"
   end
 
   private
