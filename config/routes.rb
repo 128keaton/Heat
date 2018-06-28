@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   post '/inventory/remove/:id' => 'inventory#remove', as: 'inventory_remove'
   post 'inventory/find'
 
-  devise_for  :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :sessions => "users/sessions" }
+  devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks", :sessions => "users/sessions"}
   # Define resources for our models.
   resources :machines
   resources :locations, only: [:index, :destroy, :create]
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
 
   # Actually start setting up the routes.
-  
+
   get '/api/export' => 'api#render_as_csv'
   get '/import' => 'root#import', as: 'import'
   post '/import' => 'root#process_file', as: 'process_import'
@@ -52,9 +52,9 @@ Rails.application.routes.draw do
   post 'api/asset_tag' => 'api#set_asset_tag'
 
   post 'api/deploy' => 'api#mark_as_deployed'
-  
+
   post 'api/mark_imaged' => 'api#set_imaged'
-  
+
   get 'api/mark_imaged' => 'api#set_imaged'
 
   get 'api/hostname' => 'api#hostname'
@@ -121,7 +121,6 @@ Rails.application.routes.draw do
   get 'welcome/failure'
 
 
-
   get '/locations/edit' => 'locations#edit'
 
   get '/locations/view' => 'locations#view'
@@ -131,11 +130,12 @@ Rails.application.routes.draw do
   get 'locations/:id' => 'locations#edit'
   get '/locations/deploy/:id' => 'locations#deployment_sheet'
   post 'locations/:id' => 'locations#edit'
+  delete '/locations/view/remove/:id(.:format)' => 'locations#remove_machine', as: 'remove_machine_from_location'
 
   get 'admin_tools/index'
 
   get '/mark-doa' => 'root#mark_as_doa'
-  post '/mark-doa'=> 'root#mark_as_doa'
+  post '/mark-doa' => 'root#mark_as_doa'
 
 
   get 'rack_list/index'

@@ -75,6 +75,13 @@ class LocationsController < ApplicationController
               sheet_name: "#{location.name} - Machines"
   end
 
+  def remove_machine
+    result = Machine.find(params[:id]).remove_from_location
+    type = result.include?('Unable') ? 'error' : 'success'
+    set_flash(result, type)
+    redirect_to action: 'index'
+  end
+
   private
 
   def check_for_roles

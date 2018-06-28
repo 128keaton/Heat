@@ -2,24 +2,6 @@ require 'net/http'
 require 'csv'
 
 class UnboxController < ApplicationController
-  def export
-    @location = Location.find(params[:location])
-    @machines = Machine.where(location: @location).order(:client_asset_tag)
-    @send_csv = CSV.generate(headers: true) do |csv|
-      @previous_asset = @machines.first.client_asset_tag.to_i
-      csv << ["Qty", "Description", "MCS ID#", "Mfg. Name", "Model No.", "Serial No.", "P.O.#", "Unit Cost", "USB Wireless Card", "Asset Tag Offset"]
-      @machines.each do |machine|
-        asset_offset = machine.client_asset_tag.to_i - @previous_asset
-        csv << ["1", "#{machine.role} Laptop", machine.client_asset_tag, "Dell", "Latitude 3380", machine.serial_number.upcase, " ", " ", "No - Built In", asset_offset.to_s]
-        @previous_asset = machine.client_asset_tag.to_i
-      end
-    end
-
-    respond_to do |format|
-      format.csv {send_data @send_csv, filename: "#{@location}-#{Date.today}.csv"}
-    end
-  end
-
   def index
     all_locations = Location.all
     @machine = Machine.new

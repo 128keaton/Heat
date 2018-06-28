@@ -19,6 +19,15 @@ class Machine < ApplicationRecord
     end
   end
 
+  def remove_from_location
+    role = Role.find_by(name: self.role)
+    return 'Unable to find role' if role.nil?
+    role_quantity = RoleQuantity.find_by(role: role, location: location_id)
+    return 'Unable to find quantity' if role.nil?
+    return 'Unable to update quantity' unless role_quantity.update(quantity: role_quantity.quantity - 1)
+    'Machine removed from location' if update(location_id: nil, client_asset_tag: nil)
+  end
+
   def print_label
     location_name = location.name
     asset_tag = client_asset_tag
@@ -34,7 +43,7 @@ class Machine < ApplicationRecord
         Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError,
         Net::ProtocolError => e
       logger.error e
-      return { status: 'error', message: 'Unable to print', error: e}
+      return {status: 'error', message: 'Unable to print', error: e}
     end
     {status: 'success', message: 'Printed successfully', response: response}
   end
