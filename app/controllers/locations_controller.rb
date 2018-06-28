@@ -88,7 +88,7 @@ class LocationsController < ApplicationController
       if (role_quantity = RoleQuantity.find(rq['role_quantity_id']))
         next if role_quantity.set_quantity(rq['quantity'])
         set_flash('Quantity over max', 'error')
-        redirect_to location_quantity_override_path(id: params[:id])
+        return redirect_to location_quantity_override_path(id: params[:id])
       end
     end
 
