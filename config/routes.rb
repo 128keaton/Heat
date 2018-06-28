@@ -152,6 +152,7 @@ Rails.application.routes.draw do
   get '/pull' => 'finalize#index'
   get '/receive' => 'receive#index'
   get '/status' => 'status#index'
+  get '/status/download' => 'status#imaged_sheet'
   get '/unbox' => 'unbox#index'
   get '/roles' => 'roles#index'
   get '/cinnamonroles' => 'roles#index'
