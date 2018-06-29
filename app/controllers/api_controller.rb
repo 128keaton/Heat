@@ -21,16 +21,20 @@ class ApiController < ApplicationController
     serial = params[:serial]
     if serial&.present?
       machine = Machine.find_by(serial_number: serial)
-      check_machine(machine)
-      school = Location.find_by(name: machine[:location])
-      if school&.blended_learning
-        render json: {'image-name' => "blended_learning/#{role}"}
-      elsif school&.blended_learning.nil? or school&.blended_learning == false
-        render json: {'image-name' => "standard/#{role}"}
-      elsif school.nil?
+      if machine&.can_image?
+        school = Location.find_by(name: machine[:location])
+        if school&.blended_learning
+          render json: {'image-name' => "blended_learning/#{role}"}
+        elsif school&.blended_learning.nil? or school&.blended_learning == false
+          render json: {'image-name' => "standard/#{role}"}
+        elsif school.nil?
+          render json: {status: 'error',
+                        code: '420',
+                        message: 'No location found'}
+        end
+      else
         render json: {status: 'error',
-                      code: '420',
-                      message: 'No @location found'}
+                      message: 'Machine already imaged'}
       end
     else
       render json: {status: 'error',
@@ -70,7 +74,7 @@ class ApiController < ApplicationController
 
   def set_imaged
     serial = params[:serial]
-    machine = Machine.where(serial_number: serial)[0]
+    machine = Machine.find_by(serial_number: serial)
     if machine
       if (status = machine.set_imaged)
         render json: {message: 'Successfully marked as imaged', machine: machine}
@@ -135,10 +139,10 @@ class ApiController < ApplicationController
     serial = params[:serial]
     machine = Machine.where(serial_number: serial)[0]
     if machine && serial != ''
-      if !machine.imaged
+      if machine.can_image?
         render json: {imaged: false, machine: machine, message: 'Machine is not imaged'}
       else
-        render json: {imaged: machine.imaged['imaged'], machine: machine, message: 'Machine is imaged'}
+        render json: {imaged: true, machine: machine, message: 'Machine is imaged'}
       end
     else
       render json: {status: "error", code: 3000, message: "No machine found for #{serial}"}

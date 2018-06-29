@@ -28,6 +28,10 @@ class Machine < ApplicationRecord
     'Machine removed from location' if destroy!
   end
 
+  def can_image?
+    imaged.nil?
+  end
+
   def print_label
     location_name = location.name
     asset_tag = client_asset_tag
