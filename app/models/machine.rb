@@ -51,10 +51,10 @@ class Machine < ApplicationRecord
     end
     {status: 'success', message: 'Printed successfully', response: response}
   end
-
-  # TODO: Make this non-hardcoded
+  
   def get_model_number
-    'HP ProBook 430 G5'
+    return 'HP ProBook 430 G5' if model == ''
+    model
   end
 
   def mark_doa(reason)
