@@ -4,15 +4,18 @@ class ReceiveController < ApplicationController
   def index
     @machine = Machine.new
     @roles = Role.all
-    verify_roles_exist
-
+    can_receive?
     @po_number = flash[:po_number] if flash[:po_number]
   end
 
-  def verify_roles_exist
+  def can_receive?
     return if @roles.count != 0
     set_flash('No roles exist', 'error')
-    redirect_to roles_index_path
+    return redirect_to roles_index_path if roles.count == 0
+
+    return if FormFactor.all.count != 0
+    set_flash('No form factors exist', 'error')
+    redirect_to form_factor_index_path
   end
 
   def machine_exists(serial_number)
@@ -26,6 +29,7 @@ class ReceiveController < ApplicationController
 
   def create
     serial = parse(params[:machine][:serial_number])
+    raw_serial = params[:machine][:serial_number]
     flash[:data] = params[:machine][:role]
     flash[:po_number] = params[:machine][:po_number]
     flash[:form_factor] = params[:machine][:form_factor]
@@ -33,15 +37,15 @@ class ReceiveController < ApplicationController
     form_factor = FormFactor.find(params[:machine][:form_factor])
     set_flash('Unable to parse serial', 'error')
     return redirect_to action: 'index' if serial.present?&.blank?
-    if !machine_exists(serial)
-      machine = Machine.new(machine_params)
-      machine.form_factor = form_factor
-      set_flash('Unable to save machine', 'error') unless machine.set_unboxed.save!
 
-      set_flash('Serial has been added')
-    else
+    if Machine.exists?(serial_number: serial)
       set_flash('Serial already added', 'error')
+    else
+      result = Machine.receive(machine_params, raw_serial, form_factor)
+      set_flash('Unable to save machine', 'error') if result
+      set_flash('Serial has been added')
     end
+
     redirect_to action: 'index'
   end
 

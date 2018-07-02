@@ -1,0 +1,67 @@
+<!--
+  Refactored by Keaton
+  May 12th, 2017
+  locations/index.html.erb
+  A view which displays the locations/locations and allows the user to create a new @location/location
+-->
+
+<!-- Render premade navigation bar -->
+<%= render "shared/nav", title: "Models", bar_class: "def", link: "/" %>
+
+<!-- Displays a table of locations/locations -->
+<div class="inner-wrapper">
+  <div class="school-form-scroll">
+    <table class="school-form">
+      <thead>
+      <tr>
+        <th>Number</th>
+        <th>Match</th>
+        <th>Actions</th>
+      </thead>
+      </tr>
+      <tbody>
+      <% if Model.all.each.count > 0 %>
+        <% Model.all.each do |model| %>
+          <tr>
+            <td><%= model.number %></td>
+            <td><%= model.first_match %></td>
+            <td>
+              <%= link_to raw('<i class="fa fa-times fa-2x red-icon"></i>'), model, method: :delete, data: {confirm: "Are you sure you want to delete #{model.number}?"} %>
+              <%= link_to raw('<i class="fa fa-pencil fa-2x green-icon padded-icon"></i>'), edit_model_path(id: model.id) %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="inner-wrapper" id="second-wrapper">
+  <%= form_for(Model.new, url: models_path, method: :post) do |f| %>
+    <table align="center" class="school-form-table">
+      <tr class="flex-form-title">
+        <td class="section-title">New Model:</td>
+      </tr>
+      <tr class="flex-section-title">
+        <td class="section-title">Essential Info:</td>
+      </tr>
+      <tr class="flex-form">
+        <td class="school-form">
+          <%= f.label :number, 'Model Number', :class => "label name" %>
+          <%= f.text_field :number, :class => "name text-input", :placeholder => "ProBook", :required => true %>
+        </td>
+      </tr>
+      <tr class="flex-form">
+        <td class="school-form">
+          <%= f.label :first_match, 'Type', :class => "label type" %>
+          <%= f.text_field :first_match, :class => "type text-input", :placeholder => "MXL", :required => true %>
+        </td>
+      </tr>
+      <tr class="flex-form">
+        <td class="school-form">
+          <%= f.submit 'Add', :class => 'button button-table' %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+</div>

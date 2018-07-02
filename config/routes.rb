@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'models/create'
+
+  get 'models/edit'
+
+  get 'models/update'
+
+  get 'models/new'
+
+  get 'models/index'
+
   get 'form_factor/create'
 
   get 'form_factor/edit'
@@ -19,11 +29,13 @@ Rails.application.routes.draw do
   resources :locations, only: [:index, :destroy, :create]
   resources :roles, only: [:index, :destroy, :create]
   resources :form_factor
+  resources :models
 
 
   # Actually start setting up the routes.
 
   get '/api/export' => 'api#render_as_csv'
+  get '/api/determine' => 'api#determine'
   get '/import' => 'root#import', as: 'import'
   post '/import' => 'root#process_file', as: 'process_import'
 

@@ -1,22 +1,22 @@
 <div class="inner-wrapper" id="second-wrapper">
-  <%= form_for(@form_factor, url: {action: "update"}, method: :patch) do |f| %>
+  <%= form_for(@model, url: {action: "update"}, method: :patch) do |f| %>
     <table align="center" class="school-form-table">
       <tr class="flex-form-title">
-        <td class="section-title">Edit Form Factor:</td>
+        <td class="section-title">Edit Model:</td>
       </tr>
       <tr class="flex-section-title">
         <td class="section-title">Essential Info:</td>
       </tr>
       <tr class="flex-form">
         <td class="school-form">
-          <%= f.label :name, 'Name', :class => "label name" %>
-          <%= f.text_field :name, :class => "name text-input", :placeholder => "Desktop", :required => true %>
+          <%= f.label :number, 'Model Number', :class => "label name" %>
+          <%= f.text_field :number, :class => "name text-input", :placeholder => "ProBook", :required => true %>
         </td>
       </tr>
       <tr class="flex-form">
         <td class="school-form">
-          <%= f.label :type, 'Type', :class => "label type" %>
-          <%= f.text_field :type, :class => "type text-input", :placeholder => "WS", :required => true %>
+          <%= f.label :first_match, 'Type', :class => "label type" %>
+          <%= f.text_field :first_match, :class => "type text-input", :placeholder => "MXL", :required => true %>
         </td>
       </tr>
       <tr class="flex-form">

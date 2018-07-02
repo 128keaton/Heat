@@ -123,16 +123,29 @@ class ApiController < ApplicationController
   end
 
 # Prints a label for a machine based on serial
-  def print_label(serial)
+  def print_label(serial, model = nil)
+    model = nil if model == ''
     if (machine = Machine.where(serial_number: serial).first)
-      render json: machine.print_label
+      render json: machine.print_label(model)
     else
       render json: {status: 'error', code: 3000, message: "No machine found for #{serial}"}
     end
   end
 
+  def determine
+    if (serial = params[:serial])
+      render json: {model: Machine.determine_model(serial)}
+    else
+      render json: {status: 'error', code: 2, message: 'Serial not included with request'}
+    end
+  end
+
   def reprint
     print_label(params[:serial])
+  end
+
+  def reprint_model
+    print_label(params[:serial], params[:model])
   end
 
   def check_imaged

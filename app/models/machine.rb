@@ -19,6 +19,38 @@ class Machine < ApplicationRecord
     end
   end
 
+  def self.receive(params, raw_serial, form_factor)
+    machine = new(params)
+    machine.form_factor = form_factor
+    machine.set_unboxed
+    machine.assign_model(raw_serial)
+    machine.save!
+  end
+
+  def self.parse(serial)
+    if serial.include? ','
+      serial = CSV.parse(serial.gsub(/\s+/, ''), col_sep: ',')[0][2]
+    end
+    serial
+  end
+
+  def assign_model(raw_serial)
+    serial = Machine.parse(raw_serial)
+    model_number = Machine.determine_model(raw_serial)
+    assign_attributes(serial_number: serial, model: model_number)
+  end
+
+  def self.determine_model(raw_serial)
+    serial = parse(raw_serial)
+
+    model_number = if raw_serial.include? ','
+                     CSV.parse(serial.gsub(/\s+/, ''), col_sep: ',')[0][0]
+                   elsif (model = Model.find_by(first_match: serial[0..2]))
+                     model.number
+                   end
+    model_number
+  end
+
   def remove_from_location
     role = Role.find_by(name: self.role)
     return 'Unable to find role' if role.nil?
@@ -32,14 +64,15 @@ class Machine < ApplicationRecord
     imaged.nil?
   end
 
-  def print_label
+  def print_label(model = nil)
     location_name = location.name
     asset_tag = client_asset_tag
     type = Role.find_by(name: role).suffix
     image_string = 'Standard Device'
+    model = get_model_number if model.nil?
 
     # TODO: Make this an ENV var
-    uri = URI.parse("http://webapps.nationwidesurplus.com/scs/print?image=#{image_string}&asset_number=#{asset_tag}&serial_number=#{serial_number.upcase}&school=#{location_name}&model=#{get_model_number}&type=#{type}")
+    uri = URI.parse("http://webapps.nationwidesurplus.com/scs/print?image=#{image_string}&asset_number=#{asset_tag}&serial_number=#{serial_number.upcase}&school=#{location_name}&model=#{model}&type=#{type}")
 
     begin
       response = Net::HTTP.get_response(uri)
