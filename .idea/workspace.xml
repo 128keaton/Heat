@@ -1,21 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="06880c5e-7a04-42a3-972c-ed46903cf1ae" name="Default" comment="Shows model number on status page">
-      <change afterPath="$PROJECT_DIR$/app/controllers/models_controller.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/model.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/models/edit.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/models/index.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrate/20180702162844_create_models.rb" afterDir="false" />
+    <list default="true" id="06880c5e-7a04-42a3-972c-ed46903cf1ae" name="Default" comment="Updates parsing method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/api_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/receive_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/receive_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/form_factor_helper.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/machine.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/machine.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/form_factor/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/form_factor/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/root/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/root/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/unbox/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/unbox/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/tasks/export.rake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/tasks/export.rake" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -44,18 +33,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="67" column="18" lean-forward="true" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="status_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/status_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -65,11 +42,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="machine.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="machine.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/machine.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
+            <state relative-caret-position="-619">
+              <caret line="77" column="70" lean-forward="true" selection-start-line="77" selection-start-column="70" selection-end-line="77" selection-end-column="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="export.rake" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/tasks/export.rake">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="unbox_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/unbox_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-438">
+              <caret line="14" column="35" lean-forward="true" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/unbox/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="60" selection-start-line="16" selection-start-column="60" selection-end-line="16" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -79,15 +83,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
               <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/root/index.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="30" column="56" selection-start-line="30" selection-start-column="56" selection-end-line="30" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -106,15 +101,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="48">
               <caret line="19" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="model.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/model.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -140,7 +126,6 @@
       <find>find_ou</find>
       <find>irb</find>
       <find>ilike</find>
-      <find>print</find>
       <find>:data</find>
       <find>@locations</find>
       <find>locations</find>
@@ -163,6 +148,7 @@
       <find>model</find>
       <find>api</find>
       <find>exists</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace>'</replace>
@@ -180,7 +166,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/locations.scss" />
         <option value="$PROJECT_DIR$/app/controllers/roles_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/inventory_controller.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20180626232408_add_po_number_to_machines.rb" />
@@ -188,7 +173,6 @@
         <option value="$PROJECT_DIR$/app/views/inventory/index.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/label.js" />
         <option value="$PROJECT_DIR$/app/helpers/cool_helper.rb" />
-        <option value="$PROJECT_DIR$/app/views/unbox/index.html.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20180627202319_add_is_school_to_locations.rb" />
         <option value="$PROJECT_DIR$/app/views/locations/partials/_role_form.html.erb" />
         <option value="$PROJECT_DIR$/app/models/location.rb" />
@@ -231,6 +215,8 @@
         <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/receive_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/machine.rb" />
+        <option value="$PROJECT_DIR$/lib/tasks/export.rake" />
+        <option value="$PROJECT_DIR$/app/views/unbox/index.html.erb" />
       </list>
     </option>
   </component>
@@ -419,6 +405,17 @@
               <item name="Heat" type="462c0819:PsiDirectoryNode" />
               <item name="db" type="462c0819:PsiDirectoryNode" />
               <item name="migrate" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Heat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Heat" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Heat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Heat" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="tasks" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Heat" type="b2602c69:ProjectViewProjectNode" />
@@ -681,21 +678,7 @@
       <workItem from="1530210913245" duration="3743000" />
       <workItem from="1530227403324" duration="166000" />
       <workItem from="1530292886928" duration="6000" />
-      <workItem from="1530541953636" duration="9118000" />
-    </task>
-    <task id="LOCAL-00132" summary="Update regex for school finding">
-      <created>1530130852721</created>
-      <option name="number" value="00132" />
-      <option name="presentableId" value="LOCAL-00132" />
-      <option name="project" value="LOCAL" />
-      <updated>1530130852721</updated>
-    </task>
-    <task id="LOCAL-00133" summary="Role fix">
-      <created>1530133064010</created>
-      <option name="number" value="00133" />
-      <option name="presentableId" value="LOCAL-00133" />
-      <option name="project" value="LOCAL" />
-      <updated>1530133064010</updated>
+      <workItem from="1530541953636" duration="10931000" />
     </task>
     <task id="LOCAL-00134" summary="Role fix">
       <created>1530133120052</created>
@@ -1026,11 +1009,25 @@
       <option name="project" value="LOCAL" />
       <updated>1530547829628</updated>
     </task>
-    <option name="localTasksCounter" value="181" />
+    <task id="LOCAL-00181" summary="Automatically determines model from factors">
+      <created>1530555328256</created>
+      <option name="number" value="00181" />
+      <option name="presentableId" value="LOCAL-00181" />
+      <option name="project" value="LOCAL" />
+      <updated>1530555328256</updated>
+    </task>
+    <task id="LOCAL-00182" summary="Updates parsing method">
+      <created>1530555492128</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
+      <option name="project" value="LOCAL" />
+      <updated>1530555492128</updated>
+    </task>
+    <option name="localTasksCounter" value="183" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="170225000" />
+    <option name="totallyTimeSpent" value="172038000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="2560" height="978" extended-state="0" />
@@ -1075,8 +1072,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Whoops!" />
-    <MESSAGE value="Minor style updates" />
     <MESSAGE value="Column update" />
     <MESSAGE value="Changes way location is found" />
     <MESSAGE value="Sheet name" />
@@ -1100,7 +1095,9 @@
     <MESSAGE value="Adds deployment download button" />
     <MESSAGE value="Adds model number" />
     <MESSAGE value="Shows model number on status page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Shows model number on status page" />
+    <MESSAGE value="Automatically determines model from factors" />
+    <MESSAGE value="Updates parsing method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updates parsing method" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1108,13 +1105,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/db/migrate/20180621225959_add_inventory_location_to_machine.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20180622163205_add_product_to_role.rb">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1168,13 +1158,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/.env" />
-    <entry file="file://$PROJECT_DIR$/app/controllers/unbox_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="61" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/locations/view.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -1280,13 +1263,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
           <caret line="48" column="11" selection-start-line="48" selection-start-column="11" selection-end-line="48" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/unbox/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="64" column="9" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1429,10 +1405,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/tasks/export.rake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/unbox_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-438">
+          <caret line="14" column="35" lean-forward="true" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/machine.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
+        <state relative-caret-position="-619">
+          <caret line="77" column="70" lean-forward="true" selection-start-line="77" selection-start-column="70" selection-end-line="77" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/unbox/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="60" selection-start-line="16" selection-start-column="60" selection-end-line="16" selection-end-column="60" />
         </state>
       </provider>
     </entry>

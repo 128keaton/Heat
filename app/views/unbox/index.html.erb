@@ -14,7 +14,7 @@
     <ul>
       <li>
         <%= f.label :school_label, 'Location', :class => "@location-select label" %>
-        <%= f.select(:location, Location.all.map {|location| [location[:name], location.id]}, {:selected => flash[:location]}, {:autocomplete => :off, :class => 'location-select select-input', :onChange => "javascript: this.form.submit();"}) %>
+        <%= f.select(:location, Location.all.order('name ASC').map {|location| [location[:name], location.id]}, {:selected => flash[:location]}, {:autocomplete => :off, :class => 'location-select select-input', :onChange => "javascript: this.form.submit();"}) %>
       </li>
       <% if @location %>
         <li>

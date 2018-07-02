@@ -1,4 +1,17 @@
 require 'csv'
+namespace :update do
+  task :model => :environment do
+    CSV.foreach(File.path('machines.csv')) do |row|
+      unless row.nil?
+        m = Machine.find_by(serial_number: row[0])
+        m.update(model: row[1])
+        m.print_label
+      end
+    end
+  end
+end
+
+
 namespace :generate do
   task :seed_file => :environment do
     ActiveRecord::Base.logger.level = 1
