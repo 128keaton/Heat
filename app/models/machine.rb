@@ -51,7 +51,7 @@ class Machine < ApplicationRecord
     end
     {status: 'success', message: 'Printed successfully', response: response}
   end
-  
+
   def get_model_number
     return 'HP ProBook 430 G5' if model == ''
     model
