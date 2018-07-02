@@ -11,6 +11,7 @@
 <!-- Displays the statistical information -->
 <div class="inner-wrapper" id="second-wrapper">
   <h2 class="wrapper-section-data">Total Imaged: <%= @machines.length %></h2>
+  <a class="button button-table button-link" href="/status/download">Download Manifest</a>
   <%= line_chart Machine.group_by_day(:created_at).count %>
 </div>
 
