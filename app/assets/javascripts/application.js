@@ -57,7 +57,7 @@ $(document).ready(function () {
         window.Keyboard.hide();
         $("input").blur();
     }
-    
+
     $('.reprint').on('click', function () {
         swal({
             title: 'Serial Number',
