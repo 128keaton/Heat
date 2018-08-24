@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require sweetalert2
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
@@ -56,36 +57,39 @@ $(document).ready(function () {
         window.Keyboard.hide();
         $("input").blur();
     }
+    
     $('.reprint').on('click', function () {
         swal({
-            title: "Print",
-            buttons: true,
-            content: {
-                element: "input",
-                attributes: {
-                    placeholder: "5CD821DWSJ",
-                    type: "text",
-                },
-            },
-        }).then((value) => {
-            if (value) {
-                $.ajax({
-                    url: '/reprint/' + value,
-                    type: 'GET',
-                    dataType: 'JSON',
-                    success: function (result) {
-                        console.log(result);
-                        if (result['status']) {
-                            swal({
-                                icon: result['status'],
-                                text: result['message']
-                            });
-                        }
+            title: 'Serial Number',
+            input: 'text',
+            inputPlaceholder: 'Paste a machine serial number to reprint',
+            showCancelButton: true,
+            confirmButtonText: 'Print',
+            inputValidator: function (value) {
+                return new Promise(function (resolve, reject) {
+                    if (value) {
+                        resolve()
+                    } else {
+                        reject('You need to write something!')
                     }
                 })
             }
+        }).then(function (value) {
+            $.ajax({
+                url: '/reprint/' + value,
+                type: 'GET',
+                dataType: 'JSON',
+                success: function (result) {
+                    console.log(result);
+                    if (result['status']) {
+                        swal({
+                            type: result['status'],
+                            text: result['message']
+                        });
+                    }
+                }
+            })
         })
-
     });
 
 });

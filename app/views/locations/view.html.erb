@@ -51,7 +51,7 @@
         <td><%= machine.client_asset_tag ? machine.client_asset_tag : 'No asset tag assigned' %></td>
         <td><%= machine.role ? machine.role : 'No role assigned' %></td>
         <td>
-          <%= link_to raw('<i class="fa fa-times fa-2x red-icon"></i>'), remove_machine_from_location_path(id: machine.id), method: :delete, data: {confirm: "Warning: machine WILL be deleted"} %>
+          <%= link_to raw('<i class="fa fa-times fa-2x red-icon"></i>'), remove_machine_from_location_path(id: machine.id), method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>
