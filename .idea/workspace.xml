@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="06880c5e-7a04-42a3-972c-ed46903cf1ae" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.rakeTasks" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/locations/view.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/locations/view.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/heat.iml" beforeDir="false" afterPath="$PROJECT_DIR$/heat.iml" afterDir="false" />
-    </list>
+    <list default="true" id="06880c5e-7a04-42a3-972c-ed46903cf1ae" name="Default" comment="Updates dependencies" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +12,7 @@
     <session id="-1122097035">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -45,17 +37,27 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="erb" value="1" />
-          <entry key="js" value="143" />
+          <entry key="js" value="144" />
           <entry key="scss" value="4" />
+          <entry key="txt" value="58" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="143" />
+          <entry key="JavaScript" value="144" />
+          <entry key="PLAIN_TEXT" value="58" />
           <entry key="RHTML" value="1" />
           <entry key="SCSS" value="4" />
         </counts>
       </usages-collector>
+      <usages-collector id="statistics.php.new.class" />
+      <usages-collector id="statistics.php.new.test" />
+      <usages-collector id="statistics.php.composer.actions" />
+      <usages-collector id="statistics.spring.boot.mvc.usages" />
+      <usages-collector id="statistics.php.composer.command.options" />
+      <usages-collector id="statistics.spring.boot.run.usages" />
+      <usages-collector id="statistics.js.language.service.starts" />
+      <usages-collector id="statistics.php.rename.constructor" />
     </session>
   </component>
   <component name="FileEditorManager">
@@ -108,8 +110,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="90" column="10" selection-start-line="90" selection-start-column="10" selection-end-line="90" selection-end-column="10" />
+            <state relative-caret-position="138">
+              <caret line="59" selection-start-line="59" selection-end-line="59" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -130,7 +132,7 @@
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-669">
-              <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -728,21 +730,7 @@
       <workItem from="1530227403324" duration="166000" />
       <workItem from="1530292886928" duration="6000" />
       <workItem from="1530541953636" duration="13865000" />
-      <workItem from="1535120270175" duration="1666000" />
-    </task>
-    <task id="LOCAL-00138" summary="Params fix">
-      <created>1530133563497</created>
-      <option name="number" value="00138" />
-      <option name="presentableId" value="LOCAL-00138" />
-      <option name="project" value="LOCAL" />
-      <updated>1530133563497</updated>
-    </task>
-    <task id="LOCAL-00139" summary="Params fix">
-      <created>1530134630212</created>
-      <option name="number" value="00139" />
-      <option name="presentableId" value="LOCAL-00139" />
-      <option name="project" value="LOCAL" />
-      <updated>1530134630212</updated>
+      <workItem from="1535120270175" duration="1788000" />
     </task>
     <task id="LOCAL-00140" summary="name fix for rake">
       <created>1530134677362</created>
@@ -1073,17 +1061,31 @@
       <option name="project" value="LOCAL" />
       <updated>1530564649553</updated>
     </task>
-    <option name="localTasksCounter" value="187" />
+    <task id="LOCAL-00187" summary="Migrates to SWAL2 successfully">
+      <created>1535122071679</created>
+      <option name="number" value="00187" />
+      <option name="presentableId" value="LOCAL-00187" />
+      <option name="project" value="LOCAL" />
+      <updated>1535122071680</updated>
+    </task>
+    <task id="LOCAL-00188" summary="Updates dependencies">
+      <created>1535122137066</created>
+      <option name="number" value="00188" />
+      <option name="presentableId" value="LOCAL-00188" />
+      <option name="project" value="LOCAL" />
+      <updated>1535122137066</updated>
+    </task>
+    <option name="localTasksCounter" value="189" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176638000" />
+    <option name="totallyTimeSpent" value="176760000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="2560" height="978" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13820492" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13820492" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1098,7 +1100,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" weight="0.32983682" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3236659" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3236659" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32983682" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32906976" />
@@ -1122,8 +1124,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Sheet name" />
-    <MESSAGE value="Layout fix for location" />
     <MESSAGE value="Typo fix" />
     <MESSAGE value="Adds OU field back" />
     <MESSAGE value="Adds removal from location button" />
@@ -1147,7 +1147,9 @@
     <MESSAGE value="Updates parsing method" />
     <MESSAGE value="Adds model number to spreadsheet" />
     <MESSAGE value="Alphabetically sort" />
-    <option name="LAST_COMMIT_MESSAGE" value="Alphabetically sort" />
+    <MESSAGE value="Migrates to SWAL2 successfully" />
+    <MESSAGE value="Updates dependencies" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updates dependencies" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/db/migrate/20180624215706_add_location_id_to_machine.rb">
@@ -1448,7 +1450,7 @@
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-669">
-          <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1468,8 +1470,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="90" column="10" selection-start-line="90" selection-start-column="10" selection-end-line="90" selection-end-column="10" />
+        <state relative-caret-position="138">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
