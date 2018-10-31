@@ -11,7 +11,8 @@ services:
       - '5434:5432'
     volumes:
       - 'postgresql:/var/lib/postgresql/data'
-
+      - '.:/Heat'
+  
   frontend:
     depends_on:
       - 'database'
