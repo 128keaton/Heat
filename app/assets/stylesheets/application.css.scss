@@ -2,9 +2,9 @@
  *= require_tree .
  *= require_self
  *= require sweetalert2
- *= require font-awesome
  */
 
+@import "font-awesome-sprockets";
 @import "font-awesome";
 
 body {

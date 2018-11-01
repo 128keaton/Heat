@@ -22,8 +22,8 @@
       <tr>
         <td><%= role.name %></td>
         <td><%= role.suffix.nil? ? raw('<small>No suffix</small>') : role.suffix %></td>
-        <td><%= link_to raw('<i class="fa fa-times fa-2x red-icon"></i>'), role, method: :delete, data: {confirm: "Are you sure you want to delete #{role[:name]}?"} %>
-          <%= link_to raw('<i class="fa fa-pencil fa-2x green-icon padded-icon"></i>'), roles_edit_path(id: role.id) %></td>
+        <td><%= link_to raw('<i class="fas fa-trash-alt fa-2x red-icon"></i>'), role, method: :delete, data: {confirm: "Are you sure you want to delete #{role[:name]}?"} %>
+          <%= link_to raw('<i class="fas fa-pencil-alt fa-2x green-icon padded-icon"></i>'), roles_edit_path(id: role.id) %></td>
       </tr>
     <% end %>
   </table>

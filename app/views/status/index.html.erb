@@ -54,10 +54,10 @@
           <td><%= machine.form_factor ? "#{machine.form_factor.name} - #{machine.form_factor.type}" : 'No form factor assigned' %></td>
           <td><%= machine.model ? machine.model : 'No form factor assigned' %></td>
           <td>
-            <%= machine.imaged ? raw('<i class="fa fa-check green-icon"></i>') : raw('<i class="fa fa-times red-icon"></i>') %>
+            <%= machine.imaged ? raw('<i class="fas fa-check green-icon"></i>') : raw('<i class="fas fa-times red-icon"></i>') %>
             <%= machine.imaged ? machine.imaged[:date] : '' %>
           </td>
-          <td><%= machine.unboxed ? raw('<i class="fa fa-check green-icon"></i>') : raw('<i class="fa fa-times red-icon"></i>') %></td>
+          <td><%= machine.unboxed ? raw('<i class="fas fa-check green-icon"></i>') : raw('<i class="fas fa-times red-icon"></i>') %></td>
         </tr>
       <% end %>
     </table>

@@ -9,10 +9,10 @@
       <tr class="flex-form">
         <td class="school-form">
           <%= f.label nil, "Model Number:", :class => "label model-number danger-text" %>
-          <input type="text" class="model-number text-input" placeholder="HP Pro x2 612 G2" name="new_model_number" value="<%= @machine.model %>">
-
+          <%= f.select(:model, Model.all.map {|model| [model[:number], model[:number]]}, {:selected => @machine.model}, {:class => 'role select-input'}) %>
           <%= hidden_field_tag "machine_id", @machine.id, {class: "machine-id", "data-id": @machine.id} %>
           <%= hidden_field_tag "location_id", @location.id, {class: "location-id", "data-id": @location.id} %>
+          <%= f.label nil, "Current Model Number: #{ @machine.model }", :class => "label model-number danger-text" %>
         </td>
       </tr>
       <tr class="flex-form">

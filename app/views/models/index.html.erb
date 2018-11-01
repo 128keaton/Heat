@@ -26,8 +26,8 @@
             <td><%= model.number %></td>
             <td><%= model.first_match %></td>
             <td>
-              <%= link_to raw('<i class="fa fa-times fa-2x red-icon"></i>'), model, method: :delete, data: {confirm: "Are you sure you want to delete #{model.number}?"} %>
-              <%= link_to raw('<i class="fa fa-pencil fa-2x green-icon padded-icon"></i>'), edit_model_path(id: model.id) %>
+              <%= link_to raw('<i class="fas fa-trash-alt fa-2x red-icon"></i>'), model, method: :delete, data: {confirm: "Are you sure you want to delete #{model.number}?"} %>
+              <%= link_to raw('<i class="fas fa-pencil-alt fa-2x green-icon padded-icon"></i>'), edit_model_path(id: model.id) %>
             </td>
           </tr>
         <% end %>

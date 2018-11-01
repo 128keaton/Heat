@@ -23,11 +23,12 @@ class LocationsController < ApplicationController
   def manually_override_model
     machine = Machine.find(params[:machine_id])
     @location = Location.find(params[:id])
-    if machine && params[:new_model_number].nil?
+    if machine && params[:machine].nil?
       @machine = machine
       return render 'locations/model_override'
     elsif machine
-      machine.update(model: params[:new_model_number])
+      set_flash('Model updated')
+      machine.update(model: params[:machine][:model])
     else
       set_flash('Machine not found', 'error')
     end

@@ -330,3 +330,10 @@ input[type="submit"]:disabled {
 .danger-text {
   color: #f13838cc;
 }
+
+td#actions a{
+  margin-right: 10px;
+  height: 30px;
+  display: inline-block;
+  vertical-align: middle;
+}

@@ -26,8 +26,8 @@
             <td><%= form_factor.type %></td>
             <td><%= form_factor.name %></td>
             <td>
-              <%= link_to raw('<i class="fa fa-times fa-2x red-icon"></i>'), form_factor, method: :delete, data: {confirm: "Are you sure you want to delete #{form_factor.name}?"} %>
-              <%= link_to raw('<i class="fa fa-pencil fa-2x green-icon padded-icon"></i>'), edit_form_factor_path(id: form_factor.id) %>
+              <%= link_to raw('<i class="fas fa-trash-alt fa-2x red-icon"></i>'), form_factor, method: :delete, data: {confirm: "Are you sure you want to delete #{form_factor.name}?"} %>
+              <%= link_to raw('<i class="fas fa-pencil-alt fa-2x green-icon padded-icon"></i>'), edit_form_factor_path(id: form_factor.id) %>
             </td>
           </tr>
         <% end %>

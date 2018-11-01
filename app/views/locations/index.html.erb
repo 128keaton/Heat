@@ -37,13 +37,13 @@
               <% end %>
             </td>
             <td id="actions">
-              <%= link_to raw('<i class="fa fa-times fa-2x red-icon"></i>'), location, method: :delete, data: {confirm: "Are you sure you want to delete #{location[:name]}?"} %>
-              <%= link_to raw('<i class="fa fa-pencil fa-2x green-icon padded-icon"></i>'), location, method: :edit %>
-              <%= link_to raw('<i class="fa fa-external-link fa-2x blue-icon padded-icon"></i>'), {:action => "view", :id => location.id}, :style => 'vertical-align: middle;' %>
-              <%= link_to raw('<i class="fa fa-hashtag fa-2x yellow-icon"></i>'), {:action => "quantity_override", :id => location.id} %>
+              <%= link_to raw('<i class="fas fa-trash-alt fa-2x red-icon"></i>'), location, method: :delete, data: {confirm: "Are you sure you want to delete #{location[:name]}?"} %>
+              <%= link_to raw('<i class="fas fa-pencil-alt fa-2x green-icon padded-icon"></i>'), location, method: :edit %>
+              <%= link_to raw('<i class="fas fa-external-link-alt fa-2x blue-icon padded-icon"></i>'), {:action => "view", :id => location.id}, :style => 'vertical-align: middle;' %>
+              <%= link_to raw('<i class="fas fa-highlighter fa-2x yellow-icon"></i>'), {:action => "quantity_override", :id => location.id} %>
             </td>
             <td>
-              <%= link_to raw('<i class="fa fa-arrow-circle-o-down fa-2x blue-icon"></i>'), {:action => "deployment_sheet", :id => location.id} %>
+              <%= link_to raw('<i class="fas fa-file-download fa-2x blue-icon"></i>'), {:action => "deployment_sheet", :id => location.id} %>
             </td>
           </tr>
         <% end %>
