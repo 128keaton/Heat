@@ -69,7 +69,7 @@ class Machine < ApplicationRecord
   end
 
   def recheck_model
-    update(model: determine_model(serial_number)) if model == '' || model.nil?
+    update(model: self.determine_model(serial_number)) if model == '' || model.nil?
   end
 
   def print_label(model_override = nil)
