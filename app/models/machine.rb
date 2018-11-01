@@ -42,16 +42,15 @@ class Machine < ApplicationRecord
 
   def self.determine_model(raw_serial)
     serial = parse(raw_serial)
-    model_number = if raw_serial.include? ','
-                     CSV.parse(raw_serial.gsub(/\s+/, ' '), col_sep: ',')[0][0]
-                   elsif (model = Model.find_by(first_match: serial[0..4]))
-                     model.number
-                   elsif (model = Model.find_by(first_match: serial[0..2]))
-                     model.number
-                   else
-                     'No Model Found'
-                   end
-    model_number
+    if raw_serial.include? ','
+      return CSV.parse(raw_serial.gsub(/\s+/, ' '), col_sep: ',')[0][0]
+    elsif (model = Model.find_by(first_match: serial[0..4]))
+      return model.number
+    elsif (model = Model.find_by(first_match: serial[0..2]))
+      return model.number
+    else
+      return 'No Model Found'
+    end
   end
 
   def remove_from_location
