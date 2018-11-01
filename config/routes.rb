@@ -146,6 +146,9 @@ Rails.application.routes.draw do
   get 'locations/override/:id' => 'locations#quantity_override', as: 'location_quantity_override'
   post 'locations/override/:id' => 'locations#update_quantity', as: 'location_update_quantity'
 
+  get 'locations/machine/:id/:machine_id' => 'locations#manually_override_model', as: 'location_edit_machine_model'
+  post 'locations/machine/:id/:machine_id' => 'locations#manually_override_model', as: 'location_update_machine_model'
+
   delete '/locations/view/remove/:id(.:format)' => 'locations#remove_machine', as: 'remove_machine_from_location'
 
   get 'admin_tools/index'

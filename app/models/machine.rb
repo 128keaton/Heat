@@ -46,6 +46,8 @@ class Machine < ApplicationRecord
                      CSV.parse(raw_serial.gsub(/\s+/, ' '), col_sep: ',')[0][0]
                    elsif (model = Model.find_by(first_match: serial[0..2]))
                      model.number
+                   else
+                     'No Model Found'
                    end
     model_number
   end

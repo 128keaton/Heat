@@ -41,6 +41,7 @@
   <table align="center" class="school-form">
     <tr>
       <th>Serial</th>
+      <th>Model</th>
       <th>Asset Tag</th>
       <th>Role</th>
       <th>Actions</th>
@@ -48,10 +49,12 @@
     <% @location.machines.each do |machine| %>
       <tr>
         <td><%= machine.serial_number %></td>
+        <td><%= machine.model %></td>
         <td><%= machine.client_asset_tag ? machine.client_asset_tag : 'No asset tag assigned' %></td>
         <td><%= machine.role ? machine.role : 'No role assigned' %></td>
         <td>
           <%= link_to raw('<i class="fa fa-times fa-2x red-icon"></i>'), remove_machine_from_location_path(id: machine.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to raw('<i class="fa fa-edit fa-2x blue-icon"></i>'), location_edit_machine_model_path(machine_id: machine.id, id: @location.id) %>
         </td>
       </tr>
     <% end %>

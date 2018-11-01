@@ -20,6 +20,20 @@ class LocationsController < ApplicationController
     flash[:type] = type
   end
 
+  def manually_override_model
+    machine = Machine.find(params[:machine_id])
+    @location = Location.find(params[:id])
+    if machine && params[:new_model_number].nil?
+      @machine = machine
+      return render 'locations/model_override'
+    elsif machine
+      machine.update(model: params[:new_model_number])
+    else
+      set_flash('Machine not found', 'error')
+    end
+    redirect_to locations_view_path(id: params[:id])
+  end
+
   def update
     location = find_location
     if location&.valid?

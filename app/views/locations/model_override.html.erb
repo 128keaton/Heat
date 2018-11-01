@@ -1,0 +1,27 @@
+<%= render "shared/nav", title: "Model Override", bar_class: "def", link: locations_view_path(id: @location.id) %>
+
+<!-- Displays a table of locations/locations -->
+<div class="inner-wrapper">
+  <!-- Displays a form for new form creation -->
+  <%= form_for(@machine, url: {action: "manually_override_model"}, method: :post) do |f| %>
+    <h1>Model Override: <%= @machine.serial_number %></h1>
+    <table align="center" class="school-form-table">
+      <tr class="flex-form">
+        <td class="school-form">
+          <%= f.label nil, "Model Number:", :class => "label model-number danger-text" %>
+          <input type="text" class="model-number text-input" placeholder="HP Pro x2 612 G2" name="new_model_number" value="<%= @machine.model %>">
+
+          <%= hidden_field_tag "machine_id", @machine.id, {class: "machine-id", "data-id": @machine.id} %>
+          <%= hidden_field_tag "location_id", @location.id, {class: "location-id", "data-id": @location.id} %>
+        </td>
+      </tr>
+      <tr class="flex-form">
+        <td class="school-form">
+          <%= f.submit 'Save', :class => 'button submit small button-table' %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+</div>
+
+
