@@ -69,7 +69,8 @@ class Machine < ApplicationRecord
   end
 
   def recheck_model
-    update(model: Machine.determine_model(serial_number)) if model == '' || model.nil?
+    number = Machine.determine_model(serial_number)
+    update(model: number) if (model == '' || model.nil?)
   end
 
   def print_label(model_override = nil)
@@ -77,7 +78,7 @@ class Machine < ApplicationRecord
     asset_tag = client_asset_tag
     type = Role.find_by(name: role).suffix
     image_string = 'Standard Device'
-    model = self.determine_model(machine.serial_number) if model_override.nil?
+    model = Machine.determine_model(serial_number) if model_override.nil?
 
     # TODO: Make this an ENV var
     uri = URI.parse("http://webapps.nationwidesurplus.com/scs/print?image=#{image_string}&asset_number=#{asset_tag}&serial_number=#{serial_number.upcase}&school=#{location_name}&model=#{model}&type=#{type}")
