@@ -44,6 +44,8 @@ class Machine < ApplicationRecord
     serial = parse(raw_serial)
     if raw_serial.include? ','
       return CSV.parse(raw_serial.gsub(/\s+/, ' '), col_sep: ',')[0][0]
+    elsif (model = Model.find_by(first_match: serial[0..5]))
+      return model.number
     elsif (model = Model.find_by(first_match: serial[0..4]))
       return model.number
     elsif (model = Model.find_by(first_match: serial[0..2]))
