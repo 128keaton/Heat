@@ -67,12 +67,12 @@ class Machine < ApplicationRecord
     imaged.nil?
   end
 
-  def print_label(model = nil)
+  def print_label(model_override = nil)
     location_name = location.name
     asset_tag = client_asset_tag
     type = Role.find_by(name: role).suffix
     image_string = 'Standard Device'
-    model = get_model_number if model.nil?
+    model = self.model if model_override.nil?
 
     # TODO: Make this an ENV var
     uri = URI.parse("http://webapps.nationwidesurplus.com/scs/print?image=#{image_string}&asset_number=#{asset_tag}&serial_number=#{serial_number.upcase}&school=#{location_name}&model=#{model}&type=#{type}")
@@ -88,10 +88,6 @@ class Machine < ApplicationRecord
     {status: 'success', message: 'Printed successfully', response: response}
   end
 
-  def get_model_number
-    return 'HP ProBook 430 G5' if model == ''
-    model
-  end
 
   def mark_doa(reason)
     update(doa: reason, unboxed: nil, imaged: nil, racked: nil, deployed: nil, location: nil, rack: nil)
