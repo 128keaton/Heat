@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="06880c5e-7a04-42a3-972c-ed46903cf1ae" name="Default" comment="Updates dependencies">
-      <change beforePath="$PROJECT_DIR$/.idea/.generators" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.generators" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.rakeTasks" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" afterDir="false" />
+    <list default="true" id="06880c5e-7a04-42a3-972c-ed46903cf1ae" name="Default" comment="Found myself">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/machine.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/machine.rb" afterDir="false" />
     </list>
@@ -50,17 +48,17 @@
         <counts>
           <entry key="erb" value="474" />
           <entry key="js" value="144" />
-          <entry key="rb" value="875" />
+          <entry key="rb" value="887" />
           <entry key="scss" value="20" />
-          <entry key="txt" value="344" />
+          <entry key="txt" value="384" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JavaScript" value="144" />
-          <entry key="PLAIN_TEXT" value="344" />
+          <entry key="PLAIN_TEXT" value="384" />
           <entry key="RHTML" value="474" />
-          <entry key="Ruby" value="875" />
+          <entry key="Ruby" value="887" />
           <entry key="SCSS" value="20" />
         </counts>
       </usages-collector>
@@ -152,8 +150,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/machine.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="531">
-              <caret line="64" column="5" lean-forward="true" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
+            <state relative-caret-position="576">
+              <caret line="67" column="15" lean-forward="true" selection-start-line="67" selection-start-column="15" selection-end-line="67" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -605,21 +603,7 @@
       <workItem from="1535120270175" duration="1788000" />
       <workItem from="1541028822923" duration="74000" />
       <workItem from="1541028933046" duration="5275000" />
-      <workItem from="1541100506205" duration="2729000" />
-    </task>
-    <task id="LOCAL-00148" summary="Whoops!">
-      <created>1530140094812</created>
-      <option name="number" value="00148" />
-      <option name="presentableId" value="LOCAL-00148" />
-      <option name="project" value="LOCAL" />
-      <updated>1530140094812</updated>
-    </task>
-    <task id="LOCAL-00149" summary="Minor style updates">
-      <created>1530140778692</created>
-      <option name="number" value="00149" />
-      <option name="presentableId" value="LOCAL-00149" />
-      <option name="project" value="LOCAL" />
-      <updated>1530140778692</updated>
+      <workItem from="1541100506205" duration="2808000" />
     </task>
     <task id="LOCAL-00150" summary="Column update">
       <created>1530196362855</created>
@@ -950,11 +934,25 @@
       <option name="project" value="LOCAL" />
       <updated>1541102604078</updated>
     </task>
-    <option name="localTasksCounter" value="197" />
+    <task id="LOCAL-00197" summary="Adds recheck model function">
+      <created>1541104223804</created>
+      <option name="number" value="00197" />
+      <option name="presentableId" value="LOCAL-00197" />
+      <option name="project" value="LOCAL" />
+      <updated>1541104223804</updated>
+    </task>
+    <task id="LOCAL-00198" summary="Found myself">
+      <created>1541104258253</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
+      <option name="project" value="LOCAL" />
+      <updated>1541104258253</updated>
+    </task>
+    <option name="localTasksCounter" value="199" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="184838000" />
+    <option name="totallyTimeSpent" value="184917000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1940" height="1525" extended-state="0" />
@@ -1000,8 +998,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Undoug'ed" />
-    <MESSAGE value="Updates determining roles in location&#10;Adds manual quantity override" />
     <MESSAGE value="Padded icon fix" />
     <MESSAGE value="Updated padding" />
     <MESSAGE value="Name for quantity override" />
@@ -1025,7 +1021,9 @@
     <MESSAGE value="model search part2" />
     <MESSAGE value="Adds matcher support for same model numbers, different serial" />
     <MESSAGE value="Another layer of model validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Another layer of model validation" />
+    <MESSAGE value="Adds recheck model function" />
+    <MESSAGE value="Found myself" />
+    <option name="LAST_COMMIT_MESSAGE" value="Found myself" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.env" />
@@ -1352,8 +1350,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/machine.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="531">
-          <caret line="64" column="5" lean-forward="true" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
+        <state relative-caret-position="576">
+          <caret line="67" column="15" lean-forward="true" selection-start-line="67" selection-start-column="15" selection-end-line="67" selection-end-column="15" />
         </state>
       </provider>
     </entry>
